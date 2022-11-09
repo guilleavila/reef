@@ -135,7 +135,20 @@ export class SpriteCoral extends Coral {
         document.body.appendChild(coralImage)
     }
 
-    animate(framesCounter) {
+    animate(framesCounter, coralID) {
 
+        if (this.framesIndex === 1) {
+            this.backwards = false
+        } else if (this.framesIndex === this.coralFrames) {
+            this.backwards = true
+        }
+
+        const coralImage = document.getElementById(coralID)
+
+        if (framesCounter % 3 == 0 && this.backwards) {
+            coralImage.src = `./images/scene1/sprites/orange-heart-coral/sprite-coral-corazon-naranja-${this.framesIndex--}.png`
+        } else if (framesCounter % 3 == 0 && !this.backwards) {
+            coralImage.src = `./images/scene1/sprites/orange-heart-coral/sprite-coral-corazon-naranja-${this.framesIndex++}.png`
+        }
     }
 }

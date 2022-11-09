@@ -3,6 +3,8 @@ import { ShinyCoral, ShinyCoralP2, SpikedCoral, SpriteCoral } from "./corals/cor
 const scene1 = {
     p1Speed: 0.5,
     p2Speed: 0.3,
+    framesCounter: 0,
+    intervalId: undefined,
     shinyCorals: [],
     spikedCorals: [],
     spriteCorals: [],
@@ -16,8 +18,18 @@ const scene1 = {
 
         this.createSpriteCorals()
         this.spriteCorals.forEach(spriteCoral => spriteCoral.draw())
+        this.spriteCorals.forEach(spriteCoral => console.log(spriteCoral))
+
+        this.sceneLoop()
 
         document.addEventListener('mousemove', this.createDepth)
+    },
+
+    sceneLoop() {
+        this.intervalId = setInterval(() => {
+            this.framesCounter >= 600 ? this.framesCounter = 0 : this.framesCounter++
+            this.spriteCorals.forEach(coral => coral.animate(this.framesCounter, coral.id))
+        }, 1000 / 60)
     },
 
     createDepth(e) {
@@ -34,7 +46,7 @@ const scene1 = {
 
     createShinyCorals() {
         this.shinyCorals.push(new ShinyCoralP2(47, -1, 5, this.p2Speed, 'shiny-4', 'blue-2'))
-        this.shinyCorals.push(new ShinyCoralP2(48, 8, 4, this.p2Speed, 'shiny-5', 'blue-2'))
+        this.shinyCorals.push(new ShinyCoralP2(49, 7, 4, this.p2Speed, 'shiny-5', 'blue-2'))
         this.shinyCorals.push(new ShinyCoralP2(-7, 87, 6, this.p2Speed, 'shiny-6', 'blue-2'))
 
         this.shinyCorals.push(new ShinyCoral(42, 1, 5, this.p1Speed, 'shiny-1', 'pink'))
