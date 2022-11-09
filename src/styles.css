@@ -1,0 +1,56 @@
+/* BACKGROUND */
+.bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -100;
+    width: 100%;
+}
+
+
+/* PLANES */
+.blured-element {
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    width: 155%;
+    z-index: -75;
+}
+
+.scene-element {
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    width: 115%;
+}
+
+.p1 {
+    z-index: -80;
+}
+
+.p2 {
+    z-index: -90;
+}
+
+.p3 {
+    z-index: -100;
+}
+
+
+/* DEPTH */
+.depth-element {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.d2 {
+    z-index: -85;
+}
+
+.d3 {
+    z-index: -95;
+}
