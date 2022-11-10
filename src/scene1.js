@@ -1,4 +1,4 @@
-import gsap from "gsap"
+import gsap, { wrapYoyo } from "gsap"
 import { CustomEase, MotionPathPlugin } from "gsap/all"
 import { ShinyCoral, ShinyCoralP2, SpikedCoral, SpriteCoral } from "./corals/coral"
 import { Stingray } from "./stingray/stingray"
@@ -16,14 +16,15 @@ const scene1 = {
     spriteCorals: [],
 
     init() {
-        this.createShinyCorals()
-        this.shinyCorals.forEach(shinyCoral => shinyCoral.draw())
 
         this.createSpikedCorals()
         this.spikedCorals.forEach(spikedCoral => spikedCoral.draw())
 
         this.createSpriteCorals()
         this.spriteCorals.forEach(spriteCoral => spriteCoral.draw())
+
+        this.createShinyCorals()
+        this.shinyCorals.forEach(shinyCoral => shinyCoral.draw())
 
         this.createStingrays()
         this.stingrays.forEach(stingray => stingray.draw())
@@ -55,33 +56,33 @@ const scene1 = {
     },
 
     createShinyCorals() {
-        this.shinyCorals.push(new ShinyCoralP2(47, -1, 5, this.p2Speed, 'shiny-4', 'blue-2'))
-        this.shinyCorals.push(new ShinyCoralP2(49, 7, 4, this.p2Speed, 'shiny-5', 'blue-2'))
-        this.shinyCorals.push(new ShinyCoralP2(-7, 87, 6, this.p2Speed, 'shiny-6', 'blue-2'))
+        this.shinyCorals.push(new ShinyCoralP2(47, -1, 5, this.p2Speed, 'shiny-4', 'p2', 'blue-2'))
+        this.shinyCorals.push(new ShinyCoralP2(49, 7, 4, this.p2Speed, 'shiny-5', 'p2', 'blue-2'))
+        this.shinyCorals.push(new ShinyCoralP2(-7, 87, 6, this.p2Speed, 'shiny-6', 'p2', 'blue-2'))
 
-        this.shinyCorals.push(new ShinyCoral(42, 1, 5, this.p1Speed, 'shiny-1', 'pink'))
-        this.shinyCorals.push(new ShinyCoral(30, 77, 5, this.p1Speed, 'shiny-2', 'green'))
-        this.shinyCorals.push(new ShinyCoral(51, 7, 5, this.p1Speed, 'shiny-3', 'blue'))
+        this.shinyCorals.push(new ShinyCoral(42, 1, 5, this.p1Speed, 'shiny-1', 'p1', 'pink'))
+        this.shinyCorals.push(new ShinyCoral(30, 77, 5, this.p1Speed, 'shiny-2', 'p1', 'green'))
+        this.shinyCorals.push(new ShinyCoral(51, 7, 5, this.p1Speed, 'shiny-3', 'p1', 'blue'))
 
     },
 
     createSpikedCorals() {
-        this.spikedCorals.push(new SpikedCoral(85, 59, 10, this.p1Speed, 'spiked-1'))
+        this.spikedCorals.push(new SpikedCoral(85, 59, 10, this.p1Speed, 'spiked-1', 'p1'))
     },
 
     createSpriteCorals() {
 
         // -- BLUE PINK CORAL --
-        this.spriteCorals.push(new SpriteCoral(-4, 69, 12, this.p1Speed, 'blue-pink-coral-1', 13, 'p1', 'blue-pink-coral'))
-        this.spriteCorals.push(new SpriteCoral(59, 53, 9, this.p2Speed, 'blue-pink-coral-2', 13, 'p2', 'blue-pink-coral'))
+        this.spriteCorals.push(new SpriteCoral(-4, 69, 12, this.p1Speed, 'blue-pink-coral-1', 'p1', 13, 'blue-pink-coral'))
+        this.spriteCorals.push(new SpriteCoral(59, 53, 9, this.p2Speed, 'blue-pink-coral-2', 'p2', 13, 'blue-pink-coral'))
 
         // -- ORANGE HEART CORAL --
-        this.spriteCorals.push(new SpriteCoral(-8, 88, 15, this.p1Speed, 'sprite-coral-1', 15, 'p1', 'orange-heart-coral'))
-        this.spriteCorals.push(new SpriteCoral(71, 70, 13, this.p1Speed, 'sprite-coral-2', 15, 'p1', 'orange-heart-coral'))
+        this.spriteCorals.push(new SpriteCoral(-8, 88, 15, this.p1Speed, 'sprite-coral-1', 'p1', 15, 'orange-heart-coral'))
+        this.spriteCorals.push(new SpriteCoral(71, 70, 13, this.p1Speed, 'sprite-coral-2', 'p1', 15, 'orange-heart-coral'))
 
         // -- WHITE CORAL --
-        this.spriteCorals.push(new SpriteCoral(10, 54, 12, this.p1Speed, 'white-coral-1', 15, 'p1', 'white-coral'))
-        this.spriteCorals.push(new SpriteCoral(75, 80, 15, this.p2Speed, 'white-coral-2', 15, 'p2', 'white-coral'))
+        this.spriteCorals.push(new SpriteCoral(10, 54, 12, this.p1Speed, 'white-coral-1', 'p1', 15, 'white-coral'))
+        this.spriteCorals.push(new SpriteCoral(75, 80, 15, this.p2Speed, 'white-coral-2', 'p2', 15, 'white-coral'))
     },
 
     createStingrays() {
@@ -112,7 +113,7 @@ const scene1 = {
                 ease: "linear",
                 delay: 2
             })
-    }
+    },
 }
 
 export default scene1

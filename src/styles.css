@@ -10,12 +10,35 @@
 
 /* PLANES */
 .blured-element {
-    position: fixed;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%, -50%);
-    width: 155%;
     z-index: -75;
+}
+
+.green {
+    position: fixed;
+    top: 137%;
+    left: -2%;
+    width: 70%;
+}
+
+.pink {
+    position: fixed;
+    top: -30%;
+    left: 20%;
+    width: 65%;
+}
+
+.star {
+    position: fixed;
+    top: 120%;
+    left: -35%;
+    width: 40%;
+}
+
+.purple {
+    position: fixed;
+    top: -25%;
+    left: -65%;
+    width: 70%;
 }
 
 .scene-element {
@@ -55,6 +78,7 @@
     z-index: -95;
 }
 
+
 /* PATHS */
 #motionPath {
     overflow: visible;
@@ -65,4 +89,19 @@
 #motionPath path {
     stroke-width: 2;
     stroke: none;
+}
+
+
+/* BUTTON */
+button {
+    font-size: 1.2em;
+    color: white;
+    background-color: black;
+    padding: 20px 30px;
+    border: none;
+    border-radius: 30px;
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
 }

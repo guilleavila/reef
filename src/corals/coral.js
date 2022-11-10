@@ -4,18 +4,19 @@ import { CustomEase } from "gsap/all"
 gsap.registerPlugin(CustomEase)
 
 class Coral {
-    constructor(posX, posY, width, speed, id) {
+    constructor(posX, posY, width, speed, id, depth) {
         this.position = { x: posX, y: posY }
         this.width = width
         this.speed = speed
         this.id = id
+        this.depth = depth
         this.isAnimated = false
     }
 }
 
 export class SpikedCoral extends Coral {
-    constructor(posX, posY, width, speed, id) {
-        super(posX, posY, width, speed, id)
+    constructor(posX, posY, width, speed, id, depth) {
+        super(posX, posY, width, speed, id, depth)
     }
 
     draw() {
@@ -25,7 +26,7 @@ export class SpikedCoral extends Coral {
             'src': './images/scene1/sprites/spiked-coral/spiked-coral.png',
             'alt': 'spiked-coral',
             'style': `position: fixed; top: ${this.position.y}%; left: ${this.position.x}%; width: ${this.width}%;`,
-            'class': 'plane',
+            'class': `plane ${this.depth}`,
             'data-speed': this.speed
         }
 
@@ -52,8 +53,8 @@ export class SpikedCoral extends Coral {
 }
 
 export class ShinyCoral extends Coral {
-    constructor(posX, posY, width, speed, id, color) {
-        super(posX, posY, width, speed, id)
+    constructor(posX, posY, width, speed, id, depth, color) {
+        super(posX, posY, width, speed, id, depth)
         this.color = color
     }
 
@@ -64,7 +65,7 @@ export class ShinyCoral extends Coral {
             'src': `./images/scene1/sprites/shiny-coral/${this.color}.png`,
             'alt': `${this.color}-shiny-coral`,
             'style': `position: fixed; top: ${this.position.y}%; left: ${this.position.x}%; width: ${this.width}%;`,
-            'class': 'plane',
+            'class': `plane ${this.depth}`,
             'data-speed': this.speed
         }
 
@@ -73,14 +74,14 @@ export class ShinyCoral extends Coral {
         }
 
         document.body.appendChild(coralImage)
-        coralImage.addEventListener('mouseover', this.animate)
+        // coralImage.addEventListener('mouseover', this.animate)
     }
 
     animate() {
         if (!this.isAnimated) {
             this.isAnimated = true
             gsap.to(`#${this.id}`, {
-                scale: 0.6,
+                scale: 0.8,
                 duration: 1,
                 ease: CustomEase.create("custom", "M0,0 C0.126,0.382 0.085,0.988 0.302,0.988 0.722,0.988 0.818,0.001 1,0 "),
                 onComplete: () => this.isAnimated = false
@@ -90,8 +91,8 @@ export class ShinyCoral extends Coral {
 }
 
 export class ShinyCoralP2 extends ShinyCoral {
-    constructor(posX, posY, width, color, speed, id) {
-        super(posX, posY, width, color, speed, id)
+    constructor(posX, posY, width, speed, id, depth, color) {
+        super(posX, posY, width, speed, id, depth, color)
     }
 
     animate() {
@@ -109,11 +110,10 @@ export class ShinyCoralP2 extends ShinyCoral {
 
 export class SpriteCoral extends Coral {
 
-    constructor(posX, posY, width, speed, id, coralFrames, depth, name) {
-        super(posX, posY, width, speed, id)
+    constructor(posX, posY, width, speed, id, depth, coralFrames, name) {
+        super(posX, posY, width, speed, id, depth)
         this.coralFrames = coralFrames
         this.framesIndex = 1
-        this.depth = depth
         this.name = name
     }
 
