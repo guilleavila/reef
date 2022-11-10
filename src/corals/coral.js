@@ -78,7 +78,6 @@ export class ShinyCoral extends Coral {
 
     animate() {
         if (!this.isAnimated) {
-            console.log(this.scaleF)
             this.isAnimated = true
             gsap.to(`#${this.id}`, {
                 scale: 0.6,
@@ -97,7 +96,6 @@ export class ShinyCoralP2 extends ShinyCoral {
 
     animate() {
         if (!this.isAnimated) {
-            console.log(this.scaleF)
             this.isAnimated = true
             gsap.to(`#${this.id}`, {
                 scale: 0.8,
@@ -111,20 +109,22 @@ export class ShinyCoralP2 extends ShinyCoral {
 
 export class SpriteCoral extends Coral {
 
-    constructor(posX, posY, width, speed, id, coralFrames) {
+    constructor(posX, posY, width, speed, id, coralFrames, depth, name) {
         super(posX, posY, width, speed, id)
         this.coralFrames = coralFrames
         this.framesIndex = 1
+        this.depth = depth
+        this.name = name
     }
 
     draw() {
         const coralImage = document.createElement('img')
         const attributes = {
             'id': this.id,
-            'src': `./images/scene1/sprites/orange-heart-coral/sprite-coral-corazon-naranja-${this.framesIndex}.png`,
+            'src': `./images/scene1/sprites/${this.name}/${this.name}-${this.framesIndex}.png`,
             'alt': 'sprite-coral',
             'style': `position: fixed; top: ${this.position.y}%; left: ${this.position.x}%; width: ${this.width}%;`,
-            'class': 'plane',
+            'class': `plane ${this.depth}`,
             'data-speed': this.speed
         }
 
@@ -146,9 +146,9 @@ export class SpriteCoral extends Coral {
         const coralImage = document.getElementById(coralID)
 
         if (framesCounter % 3 == 0 && this.backwards) {
-            coralImage.src = `./images/scene1/sprites/orange-heart-coral/sprite-coral-corazon-naranja-${this.framesIndex--}.png`
+            coralImage.src = `./images/scene1/sprites/${this.name}/${this.name}-${this.framesIndex--}.png`
         } else if (framesCounter % 3 == 0 && !this.backwards) {
-            coralImage.src = `./images/scene1/sprites/orange-heart-coral/sprite-coral-corazon-naranja-${this.framesIndex++}.png`
+            coralImage.src = `./images/scene1/sprites/${this.name}/${this.name}-${this.framesIndex++}.png`
         }
     }
 }

@@ -5,6 +5,7 @@ const scene1 = {
     p2Speed: 0.3,
     framesCounter: 0,
     intervalId: undefined,
+    stingRay: undefined,
     shinyCorals: [],
     spikedCorals: [],
     spriteCorals: [],
@@ -18,7 +19,6 @@ const scene1 = {
 
         this.createSpriteCorals()
         this.spriteCorals.forEach(spriteCoral => spriteCoral.draw())
-        this.spriteCorals.forEach(spriteCoral => console.log(spriteCoral))
 
         this.sceneLoop()
 
@@ -60,7 +60,18 @@ const scene1 = {
     },
 
     createSpriteCorals() {
-        this.spriteCorals.push(new SpriteCoral(7, 54, 15, this.p1Speed, 'sprite-coral-1', 15))
+
+        // -- BLUE PINK CORAL --
+        this.spriteCorals.push(new SpriteCoral(-4, 69, 12, this.p1Speed, 'blue-pink-coral-1', 13, 'p1', 'blue-pink-coral'))
+        this.spriteCorals.push(new SpriteCoral(59, 53, 9, this.p2Speed, 'blue-pink-coral-2', 13, 'p2', 'blue-pink-coral'))
+
+        // -- ORANGE HEART CORAL --
+        this.spriteCorals.push(new SpriteCoral(-8, 88, 15, this.p1Speed, 'sprite-coral-1', 15, 'p1', 'orange-heart-coral'))
+        this.spriteCorals.push(new SpriteCoral(71, 70, 13, this.p1Speed, 'sprite-coral-2', 15, 'p1', 'orange-heart-coral'))
+
+        // -- WHITE CORAL --
+        this.spriteCorals.push(new SpriteCoral(10, 54, 12, this.p1Speed, 'white-coral-1', 15, 'p1', 'white-coral'))
+        this.spriteCorals.push(new SpriteCoral(75, 80, 15, this.p2Speed, 'white-coral-2', 15, 'p2', 'white-coral'))
     }
 }
 
