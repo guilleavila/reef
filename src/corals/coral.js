@@ -78,35 +78,37 @@ export class ShinyCoral extends Coral {
     }
 
     animate() {
-        if (!this.isAnimated) {
-            this.isAnimated = true
+        const boolean = Math.random() < 0.5
+        if (boolean) {
+            const delay = Math.random() * 2
             gsap.to(`#${this.id}`, {
-                scale: 0.8,
-                duration: 1,
+                scale: 0.9,
+                rotate: 10,
+                duration: 0.5,
                 ease: CustomEase.create("custom", "M0,0 C0.126,0.382 0.085,0.988 0.302,0.988 0.722,0.988 0.818,0.001 1,0 "),
-                onComplete: () => this.isAnimated = false
+                delay: delay
             })
         }
     }
 }
 
-export class ShinyCoralP2 extends ShinyCoral {
-    constructor(posX, posY, width, speed, id, depth, color) {
-        super(posX, posY, width, speed, id, depth, color)
-    }
+// export class ShinyCoralP2 extends ShinyCoral {
+//     constructor(posX, posY, width, speed, id, depth, color) {
+//         super(posX, posY, width, speed, id, depth, color)
+//     }
 
-    animate() {
-        if (!this.isAnimated) {
-            this.isAnimated = true
-            gsap.to(`#${this.id}`, {
-                scale: 0.8,
-                duration: 1,
-                ease: CustomEase.create("custom", "M0,0 C0.126,0.382 0.085,0.988 0.302,0.988 0.722,0.988 0.818,0.001 1,0 "),
-                onComplete: () => this.isAnimated = false
-            })
-        }
-    }
-}
+//     animate() {
+//         if (!this.isAnimated) {
+//             this.isAnimated = true
+//             gsap.to(`#${this.id}`, {
+//                 scale: 0.8,
+//                 duration: 1,
+//                 ease: CustomEase.create("custom", "M0,0 C0.126,0.382 0.085,0.988 0.302,0.988 0.722,0.988 0.818,0.001 1,0 "),
+//                 onComplete: () => this.isAnimated = false
+//             })
+//         }
+//     }
+// }
 
 export class SpriteCoral extends Coral {
 

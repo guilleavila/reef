@@ -20,11 +20,11 @@ const scene1 = {
         this.createSpikedCorals()
         this.spikedCorals.forEach(spikedCoral => spikedCoral.draw())
 
-        this.createSpriteCorals()
-        this.spriteCorals.forEach(spriteCoral => spriteCoral.draw())
-
         this.createShinyCorals()
         this.shinyCorals.forEach(shinyCoral => shinyCoral.draw())
+
+        this.createSpriteCorals()
+        this.spriteCorals.forEach(spriteCoral => spriteCoral.draw())
 
         this.createStingrays()
         this.stingrays.forEach(stingray => stingray.draw())
@@ -40,6 +40,7 @@ const scene1 = {
             this.framesCounter >= 600 ? this.framesCounter = 0 : this.framesCounter++
             this.spriteCorals.forEach(coral => coral.animate(this.framesCounter, coral.id))
             this.stingrays.forEach(stingray => stingray.animate(this.framesCounter, stingray.id))
+            this.framesCounter % 80 === 0 && this.shinyCorals.forEach(coral => coral.animate())
         }, 1000 / 60)
     },
 
@@ -56,13 +57,33 @@ const scene1 = {
     },
 
     createShinyCorals() {
-        this.shinyCorals.push(new ShinyCoralP2(47, -1, 5, this.p2Speed, 'shiny-4', 'p2', 'blue-2'))
-        this.shinyCorals.push(new ShinyCoralP2(49, 7, 4, this.p2Speed, 'shiny-5', 'p2', 'blue-2'))
-        this.shinyCorals.push(new ShinyCoralP2(-7, 87, 6, this.p2Speed, 'shiny-6', 'p2', 'blue-2'))
 
-        this.shinyCorals.push(new ShinyCoral(42, 1, 5, this.p1Speed, 'shiny-1', 'p1', 'pink'))
-        this.shinyCorals.push(new ShinyCoral(30, 77, 5, this.p1Speed, 'shiny-2', 'p1', 'green'))
-        this.shinyCorals.push(new ShinyCoral(51, 7, 5, this.p1Speed, 'shiny-3', 'p1', 'blue'))
+        // UP
+        this.shinyCorals.push(new ShinyCoral(45, 1, 3, this.p1Speed, 'shiny-1', 'p3', 'pink'))
+        this.shinyCorals.push(new ShinyCoral(42, 1, 5, this.p1Speed, 'shiny-2', 'p2', 'pink'))
+        this.shinyCorals.push(new ShinyCoral(47, -1, 5.5, this.p2Speed, 'shiny-3', 'p2', 'blue'))
+        this.shinyCorals.push(new ShinyCoral(49, 7, 4, this.p2Speed, 'shiny-4', 'p2', 'blue'))
+        this.shinyCorals.push(new ShinyCoral(51, 7, 5, this.p1Speed, 'shiny-5', 'p1', 'blue'))
+
+        // -- NEXT TO WHITE CORAL --
+        this.shinyCorals.push(new ShinyCoral(23, 57, 3.7, this.p1Speed, 'shiny-6', 'p1', 'green'))
+        this.shinyCorals.push(new ShinyCoral(24, 51, 3.4, this.p2Speed, 'shiny-7', 'p2', 'blue'))
+        this.shinyCorals.push(new ShinyCoral(21, 52, 4.2, this.p1Speed, 'shiny-8', 'p2', 'pink'))
+        this.shinyCorals.push(new ShinyCoral(20, 47, 5.4, this.p2Speed, 'shiny-9', 'p3', 'blue'))
+
+
+        // -- DOWN --
+        this.shinyCorals.push(new ShinyCoral(31, 70, 3.6, this.p2Speed, 'shiny-10', 'p3', 'blue'))
+        this.shinyCorals.push(new ShinyCoral(30, 84, 3.4, this.p1Speed, 'shiny-11', 'p3', 'pink'))
+        this.shinyCorals.push(new ShinyCoral(30, 79, 3, this.p1Speed, 'shiny-12', 'p2', 'green'))
+        this.shinyCorals.push(new ShinyCoral(32, 73, 4, this.p2Speed, 'shiny-13', 'p2', 'blue'))
+        this.shinyCorals.push(new ShinyCoral(31, 72, 2.5, this.p1Speed, 'shiny-14', 'p2', 'pink'))
+        this.shinyCorals.push(new ShinyCoral(34, 79, 4.3, this.p2Speed, 'shiny-15', 'p2', 'blue'))
+        this.shinyCorals.push(new ShinyCoral(30, 77, 5, this.p1Speed, 'shiny-16', 'p1', 'green'))
+
+        // -- OTHERS --
+        this.shinyCorals.push(new ShinyCoral(14, 83, 3, this.p2Speed, 'shiny-17', 'p3', 'blue'))
+        this.shinyCorals.push(new ShinyCoral(-5, 82, 6, this.p2Speed, 'shiny-18', 'p2', 'blue'))
 
     },
 
