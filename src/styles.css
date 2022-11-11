@@ -1,3 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+body {
+    font-family: 'Montserrat';
+    font-weight: 300;
+    color: #ecfaff;
+}
+
+/* INTRO */
+#intro-screen {
+    background-color: #66848e;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+/* LOGO */
+#logo {
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    opacity: 0.8;
+    z-index: -80;
+}
+
+/* BUTTON */
+button {
+    font-family: 'Montserrat';
+    font-size: 1.2em;
+    color: white;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 76%, rgba(255, 255, 255, 0.7) 100%);
+    padding: 20px 30px;
+    border: none;
+    border-radius: 30px;
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    transition: 0.5s;
+}
+
+#start-button {
+    visibility: hidden;
+    opacity: 1;
+    z-index: 0;
+}
+
+#start-button:hover {
+    opacity: 1;
+    color: #66848e;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 76%, rgba(255, 255, 255, 1) 100%);
+}
+
+
 /* BACKGROUND */
 .bg {
     position: fixed;
@@ -10,10 +68,14 @@
 
 /* PLANES */
 .blured-element {
+    position: fixed;
+    top: 48%;
+    left: -102%;
+    width: 155%;
     z-index: -75;
 }
 
-.green {
+/* .green {
     position: fixed;
     top: 137%;
     left: -2%;
@@ -39,7 +101,7 @@
     top: -25%;
     left: -65%;
     width: 70%;
-}
+} */
 
 .scene-element {
     position: fixed;
@@ -92,20 +154,7 @@
 }
 
 
-/* BUTTON */
-button {
-    font-size: 1.2em;
-    color: white;
-    background-color: black;
-    padding: 20px 30px;
-    border: none;
-    border-radius: 30px;
-    position: fixed;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%, 50%);
-}
-
+/* PARTICLES */
 #particles-js {
     position: fixed;
     top: 0;
@@ -114,4 +163,13 @@ button {
     bottom: 0;
     background-color: none;
     z-index: -79;
+}
+
+
+
+.year {
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
 }
