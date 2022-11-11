@@ -92,24 +92,6 @@ export class ShinyCoral extends Coral {
     }
 }
 
-// export class ShinyCoralP2 extends ShinyCoral {
-//     constructor(posX, posY, width, speed, id, depth, color) {
-//         super(posX, posY, width, speed, id, depth, color)
-//     }
-
-//     animate() {
-//         if (!this.isAnimated) {
-//             this.isAnimated = true
-//             gsap.to(`#${this.id}`, {
-//                 scale: 0.8,
-//                 duration: 1,
-//                 ease: CustomEase.create("custom", "M0,0 C0.126,0.382 0.085,0.988 0.302,0.988 0.722,0.988 0.818,0.001 1,0 "),
-//                 onComplete: () => this.isAnimated = false
-//             })
-//         }
-//     }
-// }
-
 export class SpriteCoral extends Coral {
 
     constructor(posX, posY, width, speed, id, depth, coralFrames, name) {

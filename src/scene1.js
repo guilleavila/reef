@@ -1,6 +1,7 @@
 import gsap, { wrapYoyo } from "gsap"
 import { CustomEase, MotionPathPlugin } from "gsap/all"
 import { ShinyCoral, ShinyCoralP2, SpikedCoral, SpriteCoral } from "./corals/coral"
+import { PathFish, StaticFish } from "./fish/fish"
 import { Stingray } from "./stingray/stingray"
 
 gsap.registerPlugin(MotionPathPlugin)
@@ -11,6 +12,7 @@ const scene1 = {
     framesCounter: 0,
     intervalId: undefined,
     stingrays: [],
+    fish: [],
     shinyCorals: [],
     spikedCorals: [],
     spriteCorals: [],
@@ -29,6 +31,12 @@ const scene1 = {
         this.createStingrays()
         this.stingrays.forEach(stingray => stingray.draw())
 
+        this.createFish()
+        this.fish.forEach(fish => {
+            fish.draw()
+            fish.swim()
+        })
+
         this.sceneLoop()
         this.stingRaySwim()
 
@@ -41,6 +49,7 @@ const scene1 = {
             this.spriteCorals.forEach(coral => coral.animate(this.framesCounter, coral.id))
             this.stingrays.forEach(stingray => stingray.animate(this.framesCounter, stingray.id))
             this.framesCounter % 80 === 0 && this.shinyCorals.forEach(coral => coral.animate())
+            this.fish.forEach(fish => fish.animate(this.framesCounter, fish.id))
         }, 1000 / 60)
     },
 
@@ -110,8 +119,26 @@ const scene1 = {
         this.stingrays.push(new Stingray(0, 0, 25, 'stingray-1', 50, 'p1', 'stingray'))
     },
 
-    stingRaySwim() {
+    createFish() {
+        this.fish.push(new StaticFish(61, 50, 4, this.p2Speed, 'fish-orange-1', 'p3', 15, 'orange'))
+        this.fish.push(new StaticFish(27, 68, 4.5, this.p2Speed, 'fish-green-1', 'p2', 15, 'green'))
 
+        // -- VERTICAL --
+        this.fish.push(new PathFish(0, 0, 4.1, this.p2Speed, 'fish-green-2', 'p2', 15, 'green', 'path-3', 0))
+        this.fish.push(new PathFish(0, 0, 3, this.p2Speed, 'fish-red-1', 'p3', 15, 'red', 'path-3', 2))
+        this.fish.push(new PathFish(0, 0, 3.5, this.p2Speed, 'fish-red-2', 'p2', 15, 'red', 'path-4', 2))
+
+        // -- HORIZONTAL --
+        this.fish.push(new PathFish(0, 0, 4.5, this.p2Speed, 'fish-orange-3', 'p1', 15, 'red', 'path-5', 0))
+        this.fish.push(new PathFish(0, 0, 2, this.p2Speed, 'fish-red-3', 'p3', 15, 'red', 'path-5', 0.5))
+
+        this.fish.push(new PathFish(0, 0, 4.1, this.p2Speed, 'fish-green-3', 'p2', 15, 'green', 'path-6', 14))
+        this.fish.push(new PathFish(0, 0, 5.5, this.p2Speed, 'fish-purple-q', 'p2', 15, 'purple', 'path-6', 2))
+
+
+    },
+
+    stingRaySwim() {
         gsap.timeline()
             .to('#stingray-1', {
                 duration: 15,
