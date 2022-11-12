@@ -34,6 +34,8 @@ export class SpriteElement extends Element {
         this.totalFrames = totalFrames
         this.framesIndex = 1
         this.backwards = false
+
+        this.draw()
     }
 
     draw() {
@@ -52,6 +54,7 @@ export class SpriteElement extends Element {
         }
 
         document.body.appendChild(elementImage)
+        this.animate()
     }
 
     animate(framesCounter, elementID) {

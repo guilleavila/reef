@@ -8,6 +8,8 @@ export class ShinyCoral extends Element {
     constructor(posX, posY, width, speed, id, depth, type, name, color) {
         super(posX, posY, width, speed, id, depth, type, name)
         this.color = color
+
+        this.draw()
     }
 
     draw() {
@@ -26,6 +28,7 @@ export class ShinyCoral extends Element {
         }
 
         document.body.appendChild(elementImage)
+        this.animate()
     }
 
     animate() {

@@ -1,6 +1,6 @@
 import gsap from "gsap"
 import { MotionPathPlugin } from "gsap/all"
-import { scene1PathFish, scene1ShinyCorals, scene1SpriteCorals, scene1StaticFish } from "./assets/scene1"
+import { scene1PathFish, scene1ShinyCorals, scene1SpriteCorals, scene1StaticFish } from "./assets/scene1-assets"
 import { ShinyCoral } from "./corals/shinyCoral"
 import { SpriteElement } from "./element/element"
 import { PathFish, PathStingray, StaticFish } from "./fish/fish"
@@ -21,27 +21,27 @@ const scene1 = {
     init() {
 
         this.animateIntroScreen()
+        
+        this.createElements()
+        this.fishSwim()
 
-        this.createShinyCorals()
-        this.shinyCorals.forEach(shinyCoral => shinyCoral.draw())
-
-        this.createSpriteCorals()
-        this.spriteCorals.forEach(spriteCoral => spriteCoral.draw())
-
-        this.createStingrays()
-        this.stingrays.forEach(stingray => stingray.draw())
-
-        this.createFish()
-        this.fish.forEach(fish => {
-            fish.draw()
-            fish.swim()
-        })
         this.hideLogo()
 
         this.stingRaySwim()
         this.sceneLoop()
 
         document.addEventListener('mousemove', this.createDepth)
+    },
+
+    createElements() {
+        this.createShinyCorals()
+        this.createSpriteCorals()
+        this.createStingrays()
+        this.createFish()
+    },
+
+    fishSwim() {
+        this.fish.forEach(fish => fish.swim())
     },
 
     sceneLoop() {
