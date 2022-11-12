@@ -8,4 +8,3 @@ window.onload = () => {
     // });
     scene1.init()
 }
-
