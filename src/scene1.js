@@ -15,6 +15,7 @@ const scene1 = {
     shinyCorals: [],
     spriteCorals: [],
     introState: 'none',
+    swimState: 'none',
 
     init() {
 
@@ -22,9 +23,6 @@ const scene1 = {
         this.createElements()
         this.fishSwim()
 
-        this.hideLogo()
-
-        this.stingRaySwim()
         this.sceneLoop()
 
         document.addEventListener('mousemove', this.createDepth)
@@ -46,11 +44,10 @@ const scene1 = {
             this.framesCounter >= 600 ? this.framesCounter = 0 : this.framesCounter++
 
             if (this.introState === 'on') {
-                document.addEventListener('mousemove', this.prueba)
-                // this.introState = 'done'
+                document.addEventListener('mousemove', this.showScene)
             }
 
-            this.canStartSwimming && this.stingRaySwim()
+            this.swimState === 'on' && this.stingRaySwim()
 
             // -- ELEMENTS ANIMATIONS --
             this.spriteCorals.forEach(coral => coral.animate(this.framesCounter, coral.id))
@@ -59,9 +56,9 @@ const scene1 = {
             this.fish.forEach(fish => fish.animate(this.framesCounter, fish.id))
         }, 1000 / 60)
     },
-    prueba() {
+
+    showScene() {
         this.introState = 'done'
-        this.canStartSwimming = true
         scene1.hideIntroScreen()
     },
 
@@ -96,7 +93,9 @@ const scene1 = {
     },
 
     stingRaySwim() {
-        console.log('nadando')
+
+        this.swimState = 'done'
+
         gsap.timeline()
             .to('#stingray-1', {
                 duration: 15,
@@ -116,6 +115,7 @@ const scene1 = {
                     alignOrigin: [0.5, 0.5],
                     autoRotate: 90
                 },
+                onStart: () => this.hideLogo(),
                 ease: "linear"
             })
     },
@@ -158,42 +158,45 @@ const scene1 = {
     },
 
     hideIntroScreen() {
-        gsap.to('#intro-screen', {
-            duration: 1,
-            opacity: 0,
-            zIndex: -100,
-            delay: 0.5
-        })
-        gsap.to('.logo-intro', {
-            zIndex: -80
-        })
-        gsap.to('.text-intro', {
-            opacity: 0,
-            duration: 1
-        })
+        if (this.swimState === 'none') {
+            gsap.to('#intro-screen', {
+                duration: 1,
+                opacity: 0,
+                zIndex: -100,
+                delay: 0.5
+            })
+            gsap.to('.logo-intro', {
+                zIndex: -80
+            })
+            gsap.to('.text-intro', {
+                opacity: 0,
+                duration: 1,
+                onComplete: () => this.swimState = 'on'
+            })
+        }
     },
 
     hideLogo() {
         gsap.to('#r', {
             duration: 1,
             opacity: 0,
-            delay: 21.9,
+            delay: 7.1,
             onComplete: () => this.showButton()
         })
         gsap.to('#e1', {
             duration: 1,
             opacity: 0,
-            delay: 21.6,
+            delay: 6.7,
         })
         gsap.to('#e2', {
             duration: 1,
             opacity: 0,
-            delay: 20.8,
+            delay: 6.1,
         })
         gsap.to('#f', {
             duration: 1,
             opacity: 0,
-            delay: 20.5,
+            delay: 5.7,
         })
     },
 
