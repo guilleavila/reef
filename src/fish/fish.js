@@ -1,57 +1,10 @@
 import gsap from "gsap"
+import { SpriteElement } from "../element/element"
 
-class Fish {
-    constructor(posX, posY, width, speed, id, depth, fishFrames, name) {
-        this.position = { x: posX, y: posY }
-        this.width = width
-        this.speed = speed
-        this.id = id
-        this.depth = depth
-        this.fishFrames = fishFrames
-        this.framesIndex = 1
-        this.name = name
-        this.backwards = false
-    }
 
-    draw() {
-        const fishImage = document.createElement('img')
-        const attributes = {
-            'id': this.id,
-            'src': `./images/scene1/sprites/fish/${this.name}/${this.name}-${this.framesIndex}.png`,
-            'alt': 'sprite-fish',
-            'style': `position: fixed; top: ${this.position.y}%; left: ${this.position.x}%; width: ${this.width}%;`,
-            'class': `${this.depth}`,
-            'data-speed': this.speed
-        }
-
-        for (const attr in attributes) {
-            fishImage.setAttribute(attr, attributes[attr])
-        }
-
-        document.body.appendChild(fishImage)
-    }
-
-    animate(framesCounter, fishID) {
-
-        if (this.framesIndex === 1) {
-            this.backwards = false
-        } else if (this.framesIndex === this.fishFrames) {
-            this.backwards = true
-        }
-
-        const fishImage = document.getElementById(fishID)
-
-        if (framesCounter % 3 == 0 && this.backwards) {
-            fishImage.src = `./images/scene1/sprites/fish/${this.name}/${this.name}-${this.framesIndex--}.png`
-        } else if (framesCounter % 3 == 0 && !this.backwards) {
-            fishImage.src = `./images/scene1/sprites/fish/${this.name}/${this.name}-${this.framesIndex++}.png`
-        }
-    }
-}
-
-export class StaticFish extends Fish {
-    constructor(posX, posY, width, speed, id, depth, fishFrames, name) {
-        super(posX, posY, width, speed, id, depth, fishFrames, name)
+export class StaticFish extends SpriteElement {
+    constructor(posX, posY, width, speed, id, depth, type, name, totalFrames) {
+        super(posX, posY, width, speed, id, depth, type, name, totalFrames)
     }
 
     swim() {
@@ -67,9 +20,9 @@ export class StaticFish extends Fish {
     }
 }
 
-export class PathFish extends Fish {
-    constructor(posX, posY, width, speed, id, depth, fishFrames, name, path, duration,delay) {
-        super(posX, posY, width, speed, id, depth, fishFrames, name)
+export class PathFish extends SpriteElement {
+    constructor(posX, posY, width, speed, id, depth, type, name, totalFrames, path, duration, delay) {
+        super(posX, posY, width, speed, id, depth, type, name, totalFrames)
         this.path = path
         this.duration = duration
         this.delay = delay
@@ -87,5 +40,36 @@ export class PathFish extends Fish {
             ease: "power2.Out",
             delay: this.delay
         })
+    }
+}
+
+export class PathStingray extends SpriteElement {
+    constructor(posX, posY, width, speed, id, depth, type, name, totalFrames, duration) {
+        super(posX, posY, width, speed, id, depth, type, name, totalFrames)
+        this.duration = duration
+    }
+
+    swim() {
+        gsap.timeline()
+            .to(`#${this.id}`, {
+                duration: this.duration,
+                motionPath: {
+                    path: '#stingray-path-1',
+                    align: '#stingray-path-1',
+                    alignOrigin: [0.5, 0.5],
+                    autoRotate: 90
+                },
+                ease: "linear"
+            })
+            .to(`#${this.id}`, {
+                duration: this.duration,
+                motionPath: {
+                    path: `#stingray-path-2`,
+                    align: `#stingray-path-2`,
+                    alignOrigin: [0.5, 0.5],
+                    autoRotate: 90
+                },
+                ease: "linear"
+            })
     }
 }
