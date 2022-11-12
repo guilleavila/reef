@@ -1,6 +1,6 @@
 import gsap from "gsap"
 import { MotionPathPlugin } from "gsap/all"
-import { scene1PathFish, scene1ShinyCorals, scene1SpriteCorals, scene1StaticFish } from "./assets/scene1-assets"
+import { scene1PathFish, scene1ShinyCorals, scene1SpriteCorals, scene1StaticFish, scene1Stingray } from "./assets/scene1-assets"
 import { ShinyCoral } from "./corals/shinyCoral"
 import { SpriteElement } from "./element/element"
 import { PathFish, PathStingray, StaticFish } from "./fish/fish"
@@ -8,8 +8,6 @@ import { PathFish, PathStingray, StaticFish } from "./fish/fish"
 gsap.registerPlugin(MotionPathPlugin)
 
 const scene1 = {
-    p1Speed: 0.5,
-    p2Speed: 0.3,
     framesCounter: 0,
     intervalId: undefined,
     stingrays: [],
@@ -21,7 +19,6 @@ const scene1 = {
     init() {
 
         this.animateIntroScreen()
-        
         this.createElements()
         this.fishSwim()
 
@@ -89,7 +86,8 @@ const scene1 = {
     },
 
     createStingrays() {
-        this.stingrays.push(new PathStingray(0, 0, 25, this.p1Speed, 'stingray-1', 'p1', 'fish', 'stingray', 50, 15))
+        const { posX, posY, width, speed, id, depth, type, name, totalFrames, duration } = scene1Stingray
+        this.stingrays.push(new PathStingray(posX, posY, width, speed, id, depth, type, name, totalFrames, duration))
     },
 
     createFish() {

@@ -416,3 +416,16 @@ export const scene1PathFish = [
         delay: 2
     },
 ]
+
+export const scene1Stingray = {
+    posX: 0,
+    posY: 0,
+    width: 25,
+    speed: p1Speed,
+    id: 'stingray-1',
+    depth: 'p1',
+    type: 'fish',
+    name: 'stingray',
+    totalFrames: 50,
+    duration: 15,
+}
