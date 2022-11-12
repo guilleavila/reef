@@ -68,15 +68,16 @@ export class StaticFish extends Fish {
 }
 
 export class PathFish extends Fish {
-    constructor(posX, posY, width, speed, id, depth, fishFrames, name, path, delay) {
+    constructor(posX, posY, width, speed, id, depth, fishFrames, name, path, duration,delay) {
         super(posX, posY, width, speed, id, depth, fishFrames, name)
         this.path = path
+        this.duration = duration
         this.delay = delay
     }
 
     swim() {
         gsap.to(`#${this.id}`, {
-            duration: 35,
+            duration: this.duration,
             motionPath: {
                 path: `#${this.path}`,
                 align: `#${this.path}`,

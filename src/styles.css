@@ -8,7 +8,7 @@ body {
 
 /* INTRO */
 #intro-screen {
-    background-color: #66848e;
+    background: radial-gradient(circle, rgba(77, 99, 106, 1) 0%, rgba(34, 43, 47, 1) 59%, rgba(15, 20, 22, 1) 100%);
     position: fixed;
     top: 0;
     left: 0;
@@ -18,14 +18,23 @@ body {
 
 
 /* LOGO */
-#logo {
+.intro {
     position: fixed;
     top: 50%;
     right: 50%;
     transform: translate(50%, -50%);
     opacity: 0.8;
-    z-index: -80;
 }
+
+.logo-intro {
+    z-index: 100;
+}
+
+.text-intro {
+    margin-top: 13em;
+    opacity: 0.7;
+}
+
 
 /* BUTTON */
 button {

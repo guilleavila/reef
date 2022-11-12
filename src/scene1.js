@@ -11,6 +11,7 @@ const scene1 = {
     p2Speed: 0.3,
     framesCounter: 0,
     intervalId: undefined,
+    introState: 'none',
     stingrays: [],
     fish: [],
     shinyCorals: [],
@@ -18,6 +19,8 @@ const scene1 = {
     spriteCorals: [],
 
     init() {
+
+        this.animateIntroScreen()
 
         this.createSpikedCorals()
         this.spikedCorals.forEach(spikedCoral => spikedCoral.draw())
@@ -41,13 +44,19 @@ const scene1 = {
         this.sceneLoop()
         this.stingRaySwim()
 
-        document.addEventListener('mousemove', this.hideIntroScreen)
         document.addEventListener('mousemove', this.createDepth)
     },
 
     sceneLoop() {
         this.intervalId = setInterval(() => {
             this.framesCounter >= 600 ? this.framesCounter = 0 : this.framesCounter++
+
+            if (this.introState === 'on') {
+                document.addEventListener('mousemove', this.hideIntroScreen)
+                this.introState = 'done'
+            }
+
+            // -- ELEMENTS ANIMATIONS --
             this.spriteCorals.forEach(coral => coral.animate(this.framesCounter, coral.id))
             this.stingrays.forEach(stingray => stingray.animate(this.framesCounter, stingray.id))
             this.framesCounter % 80 === 0 && this.shinyCorals.forEach(coral => coral.animate())
@@ -127,16 +136,16 @@ const scene1 = {
         this.fish.push(new StaticFish(29, 68, 4.5, this.p2Speed, 'fish-green-1', 'p2', 15, 'green'))
 
         // -- VERTICAL --
-        this.fish.push(new PathFish(0, 0, 4.1, this.p2Speed, 'fish-green-2', 'p2', 15, 'green', 'path-3', 0))
-        this.fish.push(new PathFish(0, 0, 3, this.p2Speed, 'fish-red-1', 'p2', 15, 'red', 'path-3', 2))
-        this.fish.push(new PathFish(0, 0, 3.5, this.p2Speed, 'fish-red-2', 'p1', 15, 'pink', 'path-4', 2))
+        this.fish.push(new PathFish(0, 0, 4.1, this.p2Speed, 'fish-green-2', 'p2', 15, 'green', 'path-3', 35, 0))
+        this.fish.push(new PathFish(0, 0, 3, this.p2Speed, 'fish-red-1', 'p2', 15, 'red', 'path-3', 35, 2))
+        this.fish.push(new PathFish(0, 0, 3.5, this.p2Speed, 'fish-red-2', 'p1', 15, 'pink', 'path-4', 35, 2))
 
         // -- HORIZONTAL --
-        this.fish.push(new PathFish(0, 0, 4.5, this.p2Speed, 'fish-orange-3', 'p1', 15, 'red', 'path-5', 0))
-        this.fish.push(new PathFish(0, 0, 2, this.p2Speed, 'fish-red-3', 'p3', 15, 'pink', 'path-5', 0.5))
+        this.fish.push(new PathFish(0, 0, 4.5, this.p2Speed, 'fish-orange-3', 'p1', 15, 'red', 'path-5', 35, 0))
+        this.fish.push(new PathFish(0, 0, 2, this.p2Speed, 'fish-red-3', 'p3', 15, 'pink', 'path-5', 35, 0.5))
 
-        this.fish.push(new PathFish(0, 0, 4.1, this.p2Speed, 'fish-green-3', 'p2', 15, 'green', 'path-6', 14))
-        this.fish.push(new PathFish(0, 0, 5.5, this.p2Speed, 'fish-purple-q', 'p2', 15, 'purple', 'path-6', 2))
+        this.fish.push(new PathFish(0, 0, 4.1, this.p2Speed, 'fish-green-3', 'p2', 15, 'green', 'path-6', 35, 14))
+        this.fish.push(new PathFish(0, 0, 5.5, this.p2Speed, 'fish-purple-q', 'p2', 15, 'purple', 'path-6', 35, 2))
 
 
     },
@@ -165,6 +174,44 @@ const scene1 = {
             })
     },
 
+    animateIntroScreen() {
+        gsap.from('#r', {
+            duration: 1,
+            opacity: 0,
+            top: '80%',
+            ease: "back.out(1.7)",
+            delay: 0.5
+        })
+        gsap.from('#e1', {
+            duration: 1,
+            opacity: 0,
+            top: '80%',
+            ease: "back.out(1.7)",
+            delay: 0.6
+        })
+        gsap.from('#e2', {
+            duration: 1,
+            opacity: 0,
+            top: '80%',
+            ease: "back.out(1.7)",
+            delay: 0.7
+        })
+        gsap.from('#f', {
+            duration: 1,
+            opacity: 0,
+            top: '80%',
+            ease: "back.out(1.7)",
+            delay: 0.8,
+            onComplete: () => this.introState = 'on'
+        })
+        gsap.from('.text-intro', {
+            duration: 1,
+            opacity: 0,
+            delay: 2
+        })
+    },
+
+
     hideIntroScreen() {
         gsap.to('#intro-screen', {
             duration: 1,
@@ -172,14 +219,46 @@ const scene1 = {
             zIndex: -100,
             delay: 0.5
         })
+        gsap.to('.logo-intro', {
+            // opacity: 0,
+            // duration: 1,
+            // delay: 1,
+            // visibility: 'hidden'
+            zIndex: -80
+        })
+        gsap.to('.text-intro', {
+            opacity: 0,
+            duration: 1,
+        })
     },
 
     hideLogo() {
-        gsap.to('#logo', {
+        // gsap.to('.logo-scene', {
+        //     duration: 1,
+        //     opacity: 0,
+        //     delay: 21,
+        //     onComplete: () => this.showButton()
+        // })
+        gsap.to('#r', {
             duration: 1,
             opacity: 0,
-            delay: 21,
+            delay: 21.9,
             onComplete: () => this.showButton()
+        })
+        gsap.to('#e1', {
+            duration: 1,
+            opacity: 0,
+            delay: 21.6,
+        })
+        gsap.to('#e2', {
+            duration: 1,
+            opacity: 0,
+            delay: 20.8,
+        })
+        gsap.to('#f', {
+            duration: 1,
+            opacity: 0,
+            delay: 20.5,
         })
     },
 
