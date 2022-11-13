@@ -28,7 +28,6 @@ export class ShinyCoral extends Element {
         }
 
         document.body.appendChild(elementImage)
-        this.animate()
     }
 
     animate() {

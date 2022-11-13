@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;200&display=swap');
+
+body {
+    font-family: 'Montserrat';
+    font-weight: 200;
+    color: #d3e5ec;
+}
+
+/* INTRO */
+#intro-screen {
+    background: radial-gradient(circle, rgba(77, 99, 106, 1) 0%, rgba(34, 43, 47, 1) 59%, rgba(15, 20, 22, 1) 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+/* LOGO */
+.intro {
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    opacity: 0.8;
+}
+
+.logo-intro {
+    width: 15%;
+    z-index: 100;
+}
+
+.text-intro {
+    margin-top: 13em;
+    opacity: 0.7;
+}
+
+
+/* BUTTON */
+button {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 1.2em;
+    color: white;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 76%, rgba(255, 255, 255, 0.7) 100%);
+    padding: 15px 35px;
+    border: none;
+    border-radius: 30px;
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    transition: 0.5s;
+}
+
+#start-button {
+    visibility: hidden;
+    opacity: 1;
+    z-index: 0;
+}
+
+#start-button:hover {
+    opacity: 1;
+    color: #66848e;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 76%, rgba(255, 255, 255, 1) 100%);
+}
+
+
+/* BACKGROUND */
+.bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -100;
+    width: 100%;
+}
+
+
+/* PLANES */
+.blured-element {
+    position: fixed;
+    top: 48%;
+    left: -102%;
+    width: 155%;
+    z-index: -75;
+}
+
+.scene-element {
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    width: 115%;
+}
+
+.p1 {
+    z-index: -80;
+}
+
+.p2 {
+    z-index: -90;
+}
+
+.p3 {
+    z-index: -100;
+}
+
+
+/* DEPTH */
+.depth-element {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.d2 {
+    z-index: -85;
+}
+
+.d3 {
+    z-index: -95;
+}
+
+
+/* PATHS */
+#motionPath {
+    overflow: visible;
+    height: 100%;
+    max-width: 100%;
+}
+
+#motionPath path {
+    stroke-width: 2;
+    stroke: none;
+}
+
+
+/* PARTICLES */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: none;
+    z-index: -79;
+}
+
+
+
+.year {
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+}
+
+
+/* SPRITE ANIMATIONS */
+@keyframes coralAnimate {
+    0% {
+        background-position: 0vw 0;
+    }
+
+    100% {
+        background-position: -180vw 0;
+    }
+}
+
+@keyframes xsFishAnimate {
+    0% {
+        background-position: 0vw 0;
+    }
+
+    100% {
+        background-position: -30vw 0;
+    }
+}
+
+@keyframes sFishAnimate {
+    0% {
+        background-position: 0vw 0;
+    }
+
+    100% {
+        background-position: -45vw 0;
+    }
+}
+
+@keyframes mFishAnimate {
+    0% {
+        background-position: 0vw 0;
+    }
+
+    100% {
+        background-position: -60vw 0;
+    }
+}
+
+@keyframes lFishAnimate {
+    0% {
+        background-position: 0vw 0;
+    }
+
+    100% {
+        background-position: -82.5vw 0;
+    }
+}
+
+@keyframes stingrayAnimate {
+    0% {
+        background-position: 0vw 0;
+    }
+
+    100% {
+        background-position: -1250vw 0;
+    }
+}

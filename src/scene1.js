@@ -18,13 +18,14 @@ const scene1 = {
     swimState: 'none',
 
     init() {
-
         this.animateIntroScreen()
         this.createElements()
         this.fishSwim()
-
         this.sceneLoop()
+        this.addMouseMoveEvent()
+    },
 
+    addMouseMoveEvent() {
         document.addEventListener('mousemove', this.createDepth)
     },
 
@@ -49,11 +50,7 @@ const scene1 = {
 
             this.swimState === 'on' && this.stingRaySwim()
 
-            // -- ELEMENTS ANIMATIONS --
-            this.spriteCorals.forEach(coral => coral.animate(this.framesCounter, coral.id))
-            this.stingrays.forEach(stingray => stingray.animate(this.framesCounter, stingray.id))
             this.framesCounter % 80 === 0 && this.shinyCorals.forEach(coral => coral.animate())
-            this.fish.forEach(fish => fish.animate(this.framesCounter, fish.id))
         }, 1000 / 60)
     },
 
@@ -79,18 +76,17 @@ const scene1 = {
     },
 
     createSpriteCorals() {
-        elements.spriteCorals.forEach(elm => this.spriteCorals.push(new SpriteElement(elm.posX, elm.posY, elm.width, elm.speed, elm.id, elm.depth, elm.type, elm.name, elm.totalFrames)))
+        elements.spriteCorals.forEach(elm => this.spriteCorals.push(new SpriteElement(elm.posX, elm.posY, elm.width, elm.height, elm.speed, elm.id, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation)))
     },
 
     createStingrays() {
-        const { posX, posY, width, speed, id, depth, type, name, totalFrames, duration } = elements.stingray
-        this.stingrays.push(new PathStingray(posX, posY, width, speed, id, depth, type, name, totalFrames, duration))
+        const { posX, posY, width, height, speed, id, depth, type, name, totalFrames, animation, duration } = elements.stingray
+        this.stingrays.push(new PathStingray(posX, posY, width, height, speed, id, depth, type, name, totalFrames, animation, duration))
     },
 
     createFish() {
-
-        elements.staticFish.forEach(elm => this.fish.push(new StaticFish(elm.posX, elm.posY, elm.width, elm.speed, elm.id, elm.depth, elm.type, elm.name, elm.totalFrames)))
-        elements.pathFish.forEach(elm => this.fish.push(new PathFish(elm.posX, elm.posY, elm.width, elm.speed, elm.id, elm.depth, elm.type, elm.name, elm.totalFrames, elm.path, elm.duration, elm.delay)))
+        elements.staticFish.forEach(elm => this.fish.push(new StaticFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, elm.id, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation)))
+        elements.pathFish.forEach(elm => this.fish.push(new PathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, elm.id, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.path, elm.duration, elm.delay)))
     },
 
     stingRaySwim() {
@@ -181,23 +177,23 @@ const scene1 = {
         gsap.to('#r', {
             duration: 1,
             opacity: 0,
-            delay: 7.1,
+            delay: 7.2,
             onComplete: () => this.showButton()
         })
         gsap.to('#e1', {
             duration: 1,
             opacity: 0,
-            delay: 6.7,
+            delay: 6.8,
         })
         gsap.to('#e2', {
             duration: 1,
             opacity: 0,
-            delay: 6.1,
+            delay: 6.3,
         })
         gsap.to('#f', {
             duration: 1,
             opacity: 0,
-            delay: 5.7,
+            delay: 5.9,
         })
     },
 

@@ -1,6 +1,4 @@
-import './styles.css'
 import scene1 from './scene1'
-
 
 window.onload = () => {
     // particlesJS.load('particles-js', 'assets/particles.json', function () {
