@@ -1,9 +1,9 @@
 import gsap from "gsap"
 import { MotionPathPlugin } from "gsap/all"
-import { scene1PathFish, scene1ShinyCorals, scene1SpriteCorals, scene1StaticFish, scene1Stingray } from "./assets/scene1-assets"
 import { ShinyCoral } from "./corals/shinyCoral"
 import { SpriteElement } from "./element/element"
 import { PathFish, PathStingray, StaticFish } from "./fish/fish"
+import elements from './assets/scene1.json'
 
 gsap.registerPlugin(MotionPathPlugin)
 
@@ -75,21 +75,22 @@ const scene1 = {
     },
 
     createShinyCorals() {
-        scene1ShinyCorals.forEach(elm => this.shinyCorals.push(new ShinyCoral(elm.posX, elm.posY, elm.width, elm.speed, elm.id, elm.depth, elm.type, elm.name, elm.color)))
+        elements.shinyCorals.forEach(elm => this.shinyCorals.push(new ShinyCoral(elm.posX, elm.posY, elm.width, elm.speed, elm.id, elm.depth, elm.type, elm.name, elm.color)))
     },
 
     createSpriteCorals() {
-        scene1SpriteCorals.forEach(elm => this.spriteCorals.push(new SpriteElement(elm.posX, elm.posY, elm.width, elm.speed, elm.id, elm.depth, elm.type, elm.name, elm.totalFrames)))
+        elements.spriteCorals.forEach(elm => this.spriteCorals.push(new SpriteElement(elm.posX, elm.posY, elm.width, elm.speed, elm.id, elm.depth, elm.type, elm.name, elm.totalFrames)))
     },
 
     createStingrays() {
-        const { posX, posY, width, speed, id, depth, type, name, totalFrames, duration } = scene1Stingray
+        const { posX, posY, width, speed, id, depth, type, name, totalFrames, duration } = elements.stingray
         this.stingrays.push(new PathStingray(posX, posY, width, speed, id, depth, type, name, totalFrames, duration))
     },
 
     createFish() {
-        scene1StaticFish.forEach(elm => this.fish.push(new StaticFish(elm.posX, elm.posY, elm.width, elm.speed, elm.id, elm.depth, elm.type, elm.name, elm.totalFrames)))
-        scene1PathFish.forEach(elm => this.fish.push(new PathFish(elm.posX, elm.posY, elm.width, elm.speed, elm.id, elm.depth, elm.type, elm.name, elm.totalFrames, elm.path, elm.duration, elm.delay)))
+
+        elements.staticFish.forEach(elm => this.fish.push(new StaticFish(elm.posX, elm.posY, elm.width, elm.speed, elm.id, elm.depth, elm.type, elm.name, elm.totalFrames)))
+        elements.pathFish.forEach(elm => this.fish.push(new PathFish(elm.posX, elm.posY, elm.width, elm.speed, elm.id, elm.depth, elm.type, elm.name, elm.totalFrames, elm.path, elm.duration, elm.delay)))
     },
 
     stingRaySwim() {
