@@ -78,7 +78,7 @@ button {
 
 
 /* PLANES */
-.blured-element {
+.blured-element-s1 {
     position: fixed;
     top: 48%;
     left: -102%;
@@ -156,6 +156,11 @@ button {
     right: 50%;
     transform: translate(50%, -50%);
 }
+
+#scene-2 {
+    visibility: hidden;
+}
+
 
 
 /* SPRITE ANIMATIONS */

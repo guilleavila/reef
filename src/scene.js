@@ -165,6 +165,7 @@ const scene = {
                 delay: 0.5
             })
             gsap.to('.logo-intro', {
+                visibility: 'hidden',
                 zIndex: -80
             })
             gsap.to('.text-intro', {
@@ -173,6 +174,15 @@ const scene = {
                 onComplete: () => this.swimState = 'on'
             })
         }
+    },
+
+    hideTransitionScreen() {
+        gsap.to('#intro-screen', {
+            duration: 1,
+            opacity: 0,
+            zIndex: -100,
+            delay: 1
+        })
     },
 
     hideLogo() {
@@ -238,8 +248,15 @@ const scene = {
     },
 
     scene2Init() {
-        console.log('empieza la segunda escena')
+        const scene2 = document.getElementById('scene-2')
+        scene2.style.visibility = 'visible'
+
+
+
+        this.hideTransitionScreen()
     }
+
+
 }
 
 export default scene
