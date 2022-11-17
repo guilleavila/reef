@@ -13,37 +13,32 @@
 
 <body>
 
+
+    <!-- INTRO -->
+    <img class='intro logo-intro' id="r" src="./images/logo/r.png" alt="r-logo">
+    <img class='intro logo-intro' id="e1" src="./images/logo/e1.png" alt="e1-logo">
+    <img class='intro logo-intro' id="e2" src="./images/logo/e2.png" alt="e2-logo">
+    <img class='intro logo-intro' id="f" src="./images/logo/f.png" alt="f-logo">
+    <div id="intro-screen"></div>
+    <p class="intro text-intro">Mueve el ratón para comenzar</p>
+
+    <!-- SCENE 1 -->
     <div id="scene-1">
-
-        <!-- INTRO -->
-        <img class='intro logo-intro' id="r" src="./images/logo/r.png" alt="r-logo">
-        <img class='intro logo-intro' id="e1" src="./images/logo/e1.png" alt="e1-logo">
-        <img class='intro logo-intro' id="e2" src="./images/logo/e2.png" alt="e2-logo">
-        <img class='intro logo-intro' id="f" src="./images/logo/f.png" alt="f-logo">
-        <div id="intro-screen"></div>
-        <p class="intro text-intro">Mueve el ratón para comenzar</p>
-
-        <!-- SCENE 1 -->
         <img class="bg" src="./images/scene1/elements/BG.jpg" alt="background">
-
         <div id="P3">
             <img class="plane scene-element p3" data-speed="0.2" src="./images/scene1/elements/P3.png" alt="P3">
             <img class="depth-element d3" src="./images/scene1/elements/D3.png" alt="D3">
         </div>
-
         <div id="P2">
             <img class="plane scene-element p2" data-speed="0.3" src="./images/scene1/elements/P2.png" alt="P2">
             <img class="depth-element d2" src="./images/scene1/elements/D2.png" alt="D2">
         </div>
-
         <div id="P1">
             <img class="plane scene-element p1" data-speed="0.5" src="./images/scene1/elements/P1.png" alt="P1">
         </div>
-
         <div id="blured">
             <img class="plane blured-element" data-speed="3" src="./images/scene1/elements/BLURED.png" alt="blured">
         </div>
-
         <div class="path">
             <svg id="motionPath" viewBox="20 10 517 190">
                 <path id="stingray-path-1" fill="none" stroke="black"
@@ -58,17 +53,17 @@
                     d="M623.08,134.16c-99.36-38.06-170.66-32.1-217-20-90.34,23.59-121.41,79.79-223,110C109.6,246.01,43.29,241.15,.08,234.16" />
                 <path id="fish-path-6" fill="none" stroke="black"
                     d="M288.08,.16c-5.73,19.11-26.95,81.07-90,123C109.96,181.76,13.74,152.27,1.08,148.16" />
-
             </svg>
         </div>
-
-        <!-- <h1 class="year">2050</h1> -->
-        <button id="start-button">SUMÉRGETE</button>
-
-        <!-- PARTICLES -->
-        <div id="particles-js"></div>
-        <script src="./particles.min.js"></script>
     </div>
+
+    <!-- <h1 class="year">2050</h1> -->
+    <button id="start-button">SUMÉRGETE</button>
+
+    <!-- PARTICLES -->
+    <div id="particles-js"></div>
+    <script src="./particles.min.js"></script>
+
 
 </body>
 

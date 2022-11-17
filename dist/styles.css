@@ -55,7 +55,7 @@ button {
 }
 
 #start-button {
-    visibility: hidden;
+    /* visibility: hidden; */
     opacity: 1;
     z-index: 0;
 }
