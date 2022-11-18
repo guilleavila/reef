@@ -1,14 +1,23 @@
 import gsap from "gsap"
+import ScrollTrigger from "gsap/ScrollTrigger"
 import { MotionPathPlugin } from "gsap/all"
+
+import elements from './assets/scene.json'
 import { ShinyCoral } from "./corals/shinyCoral"
 import { SpriteElement } from "./element/element"
 import { PathFish, PathStingray, StaticFish } from "./fish/fish"
-import elements from './assets/scene1.json'
 
 gsap.registerPlugin(MotionPathPlugin)
+gsap.registerPlugin(ScrollTrigger)
 
 const scene = {
     sceneState: 1,
+    scrollSpeeds: {
+        p0speed: 30,
+        p1speed: 15,
+        p2speed: 10,
+        p3speed: 7
+    },
     framesCounter: 0,
     intervalId: undefined,
     stingray: undefined,
@@ -20,7 +29,7 @@ const scene = {
 
     init() {
         this.animateIntroScreen()
-        this.createElements()
+        this.createElements('scene1')
         // this.fishSwim()
         this.sceneLoop()
         this.addMouseMoveEvent()
@@ -30,11 +39,11 @@ const scene = {
         document.addEventListener('mousemove', this.createDepth)
     },
 
-    createElements() {
-        this.createShinyCorals()
-        this.createSpriteCorals()
+    createElements(scene) {
+        this.createShinyCorals(scene)
+        this.createSpriteCorals(scene)
         this.createStingray()
-        this.createFish()
+        this.createFish(scene)
     },
 
     fishSwim() {
@@ -79,16 +88,20 @@ const scene = {
             const y = (window.innerHeight - e.pageY * speed) / 100
 
             const { width, height } = plane.getBoundingClientRect()
-            plane.style.transform = `translateX(${(width / 2) + x}px) translateY(-${(height / 10) + y}px)`
+            plane.style.transform = `translateX(${(width / 2) + x}px) translateY(-${(height / 100) + y}px)`
         });
     },
 
-    createShinyCorals() {
-        elements.shinyCorals.forEach(elm => this.shinyCorals.push(new ShinyCoral(elm.posX, elm.posY, elm.width, elm.speed, elm.id, elm.sceneID, elm.depth, elm.type, elm.name, elm.color)))
+    createShinyCorals(scene) {
+        elements[scene].shinyCorals.forEach(elm => this.shinyCorals.push(
+            new ShinyCoral(elm.posX, elm.posY, elm.width, elm.speed, elm.id, elm.sceneID, elm.depth, elm.type, elm.name, elm.color)
+        ))
     },
 
-    createSpriteCorals() {
-        elements.spriteCorals.forEach(elm => this.spriteCorals.push(new SpriteElement(elm.posX, elm.posY, elm.width, elm.height, elm.speed, elm.id, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation)))
+    createSpriteCorals(scene) {
+        elements[scene].spriteCorals.forEach(elm => this.spriteCorals.push(
+            new SpriteElement(elm.posX, elm.posY, elm.width, elm.height, elm.speed, elm.id, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation)
+        ))
     },
 
     createStingray() {
@@ -96,9 +109,13 @@ const scene = {
         this.stingray = new PathStingray(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, duration)
     },
 
-    createFish() {
-        elements.staticFish.forEach(elm => this.fish.push(new StaticFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, elm.id, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation)))
-        elements.pathFish.forEach(elm => this.fish.push(new PathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, elm.id, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.path, elm.duration, elm.delay)))
+    createFish(scene) {
+        elements[scene].staticFish.forEach(elm => this.fish.push(
+            new StaticFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, elm.id, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation)
+        ))
+        elements[scene].pathFish.forEach(elm => this.fish.push(
+            new PathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, elm.id, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.path, elm.duration, elm.delay)
+        ))
     },
 
     stingraySwim() {
@@ -262,7 +279,33 @@ const scene = {
         scene2.style.visibility = 'visible'
 
         this.hideTransitionScreen()
+        this.createFish('scene2')
+
+        this.createScrollTrigger()
     },
+
+    createScrollTrigger() {
+        let scene2TL = gsap.timeline()
+        ScrollTrigger.create({
+            animation: scene2TL,
+            trigger: '.scrollElement',
+            start: "top top",
+            end: "15% 100%",
+            scrub: 3,
+            markers: true
+        })
+
+        // SCENE2 ANIMATION
+        scene2TL.to('#reef-0', { top: `${-2.2 * this.scrollSpeeds.p0speed}%` }, 0)
+        scene2TL.to('#reef-1', { top: `${-4.8 * this.scrollSpeeds.p1speed}%` }, 0)
+        scene2TL.to('#reef-2', { top: `${-6 * this.scrollSpeeds.p2speed}%` }, 0)
+        scene2TL.to('#reef-3', { top: `${-8 * this.scrollSpeeds.p3speed}%` }, 0)
+
+        scene2TL.to('.bg', { top: `${-60}%` }, 0)
+        scene2TL.to('.depth-element', { top: `${-60}%` }, 0)
+
+
+    }
 
 }
 

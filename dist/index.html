@@ -57,7 +57,7 @@
         </div>
     </div>
 
-    <!-- <h1 class="year">2050</h1> -->
+
     <button id="start-button">SUMÉRGETE</button>
 
     <!-- SCENE 2 -->
@@ -66,22 +66,27 @@
         <img class="bg" src="./images/scene2/elements/BG.png" alt="background">
 
         <div id="P3-S2">
-            <img class="plane2 scene-element-s2 p3" data-speed="0.2" src="./images/scene2/elements/P3.png" alt="P3">
+            <img id="reef-3" class="plane2 scene-element-s2 p3 " data-speed="0.2" src="./images/scene2/elements/P3.png"
+                alt="P3">
             <img class="depth-element d3" src="./images/scene2/elements/D3.png" alt="D3">
-            <img class="scene-element-s2 sun-rays delay-1" src="./images/scene2/elements/R3.png" alt="R3">
         </div>
         <div id="P2-S2">
-            <img class="plane2 scene-element-s2 p2" data-speed="0.3" src="./images/scene2/elements/P2.png" alt="P2">
+            <img id="reef-2" class="plane2 scene-element-s2 p2" data-speed="0.3" src="./images/scene2/elements/P2.png"
+                alt="P2">
             <img class="depth-element d2" src="./images/scene2/elements/D2.png" alt="D2">
-            <img class="scene-element-s2 sun-rays delay-2" src="./images/scene2/elements/R2.png" alt="R2">
         </div>
         <div id="P1-S2">
-            <img class="plane2 scene-element-s2 p1" data-speed="0.5" src="./images/scene2/elements/P1.png" alt="P1">
-            <img class="scene-element-s2 sun-rays" src="./images/scene2/elements/R1.png" alt="R1">
-
+            <img id="reef-1" class="plane2 scene-element-s2 p1" data-speed="0.5" src="./images/scene2/elements/P1.png"
+                alt="P1">
         </div>
-        <div id="blured-S2">
-            <img class="plane2 blured-element-s2" data-speed="2" src="./images/scene2/elements/BLURED.png" alt="blured">
+        <div id="BLURED-S2">
+            <img id="reef-0" class="plane2 scene-element-s2" data-speed="3" src="./images/scene2/elements/BLURED.png"
+                alt="blured">
+        </div>
+        <div id="sun-rays">
+            <img class="sun-rays" src="./images/scene2/elements/R1.png" alt="R1">
+            <img class="sun-rays delay-2 " src="./images/scene2/elements/R2.png" alt="R2">
+            <img class="sun-rays delay-1" src="./images/scene2/elements/R3.png" alt="R3">
         </div>
 
     </div>
@@ -90,6 +95,8 @@
     <div id="particles-js"></div>
     <script src="./particles.min.js"></script>
 
+    <!-- SCROLL ELEMENT -->
+    <div class="scrollElement"></div>
 
 </body>
 
