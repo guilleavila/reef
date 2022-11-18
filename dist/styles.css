@@ -94,6 +94,13 @@ button {
     width: 115%;
 }
 
+.scene2-element {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
 .p1 {
     z-index: -80;
 }
@@ -121,6 +128,22 @@ button {
 
 .d3 {
     z-index: -95;
+}
+
+/* SUN RAYS */
+.sun-rays {
+    opacity: 1;
+    left: -7vw;
+    width: 110%;
+    animation: raysAnimation 13s alternate-reverse infinite;
+}
+
+.delay-1 {
+    animation-delay: 2s;
+}
+
+.delay-2 {
+    animation-delay: 4s;
 }
 
 
@@ -221,5 +244,22 @@ button {
 
     100% {
         background-position: -1250vw 0;
+    }
+}
+
+@keyframes raysAnimation {
+    0% {
+        left: -10vw;
+        opacity: 0.9;
+    }
+
+    50% {
+        left: 0vw;
+        opacity: 0.3;
+    }
+
+    100% {
+        left: 10vw;
+        opacity: 0.7;
     }
 }

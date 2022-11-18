@@ -21,7 +21,7 @@ const scene = {
     init() {
         this.animateIntroScreen()
         this.createElements()
-        this.fishSwim()
+        // this.fishSwim()
         this.sceneLoop()
         this.addMouseMoveEvent()
     },
@@ -49,9 +49,9 @@ const scene = {
                 document.addEventListener('mousemove', this.showScene)
             }
 
-            if (this.sceneState === 1) {
-                this.swimState === 'on' && this.stingraySwim()
-            }
+            // if (this.sceneState === 1) {
+            //     this.swimState === 'on' && this.stingraySwim()
+            // }
             // this.framesCounter % 80 === 0 && this.shinyCorals.forEach(coral => coral.animate())
         }, 1000 / 60)
     },
@@ -251,11 +251,8 @@ const scene = {
         const scene2 = document.getElementById('scene-2')
         scene2.style.visibility = 'visible'
 
-
-
         this.hideTransitionScreen()
-    }
-
+    },
 
 }
 
