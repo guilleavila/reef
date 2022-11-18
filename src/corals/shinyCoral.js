@@ -5,8 +5,8 @@ import { Element } from "../element/element"
 gsap.registerPlugin(CustomEase)
 
 export class ShinyCoral extends Element {
-    constructor(posX, posY, width, speed, id, depth, type, name, color) {
-        super(posX, posY, width, speed, id, depth, type, name)
+    constructor(posX, posY, width, speed, id, sceneID, depth, type, name, color) {
+        super(posX, posY, width, speed, id, sceneID, depth, type, name)
         this.color = color
 
         this.draw()
@@ -27,7 +27,8 @@ export class ShinyCoral extends Element {
             elementImage.setAttribute(attr, attributes[attr])
         }
 
-        document.body.appendChild(elementImage)
+        const divNode = document.getElementById(this.sceneID)
+        divNode.appendChild(elementImage)
     }
 
     animate() {

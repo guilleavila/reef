@@ -71,24 +71,34 @@ const scene = {
             const { width, height } = plane.getBoundingClientRect()
             plane.style.transform = `translateX(${(width / 2) + x}px) translateY(-${(height / 2) + y}px)`
         });
+
+        document.querySelectorAll('.plane2').forEach(plane => {
+            const speed = plane.getAttribute('data-speed')
+
+            const x = (window.innerWidth - e.pageX * speed) / 100
+            const y = (window.innerHeight - e.pageY * speed) / 100
+
+            const { width, height } = plane.getBoundingClientRect()
+            plane.style.transform = `translateX(${(width / 2) + x}px) translateY(-${(height / 10) + y}px)`
+        });
     },
 
     createShinyCorals() {
-        elements.shinyCorals.forEach(elm => this.shinyCorals.push(new ShinyCoral(elm.posX, elm.posY, elm.width, elm.speed, elm.id, elm.depth, elm.type, elm.name, elm.color)))
+        elements.shinyCorals.forEach(elm => this.shinyCorals.push(new ShinyCoral(elm.posX, elm.posY, elm.width, elm.speed, elm.id, elm.sceneID, elm.depth, elm.type, elm.name, elm.color)))
     },
 
     createSpriteCorals() {
-        elements.spriteCorals.forEach(elm => this.spriteCorals.push(new SpriteElement(elm.posX, elm.posY, elm.width, elm.height, elm.speed, elm.id, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation)))
+        elements.spriteCorals.forEach(elm => this.spriteCorals.push(new SpriteElement(elm.posX, elm.posY, elm.width, elm.height, elm.speed, elm.id, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation)))
     },
 
     createStingray() {
-        const { posX, posY, width, height, speed, id, depth, type, name, totalFrames, animation, duration } = elements.stingray
-        this.stingray = new PathStingray(posX, posY, width, height, speed, id, depth, type, name, totalFrames, animation, duration)
+        const { posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, duration } = elements.stingray
+        this.stingray = new PathStingray(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, duration)
     },
 
     createFish() {
-        elements.staticFish.forEach(elm => this.fish.push(new StaticFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, elm.id, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation)))
-        elements.pathFish.forEach(elm => this.fish.push(new PathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, elm.id, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.path, elm.duration, elm.delay)))
+        elements.staticFish.forEach(elm => this.fish.push(new StaticFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, elm.id, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation)))
+        elements.pathFish.forEach(elm => this.fish.push(new PathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, elm.id, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.path, elm.duration, elm.delay)))
     },
 
     stingraySwim() {
@@ -236,7 +246,7 @@ const scene = {
         const scene1 = document.querySelector('#scene-1')
         document.body.removeChild(scene1)
 
-        const planeElements = document.querySelectorAll('.plane')
+        const planeElements = document.querySelectorAll('#scene-1 .plane')
         planeElements.forEach(elm => document.body.removeChild(elm))
 
         // Empty arrays

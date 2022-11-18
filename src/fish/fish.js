@@ -3,8 +3,8 @@ import { SpriteElement } from "../element/element"
 
 
 export class StaticFish extends SpriteElement {
-    constructor(posX, posY, width, height, speed, id, depth, type, name, totalFrames, animation) {
-        super(posX, posY, width, height, speed, id, depth, type, name, totalFrames, animation)
+    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation) {
+        super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation)
     }
 
     swim() {
@@ -21,8 +21,8 @@ export class StaticFish extends SpriteElement {
 }
 
 export class PathFish extends SpriteElement {
-    constructor(posX, posY, width, height, speed, id, depth, type, name, totalFrames, animation, path, duration, delay) {
-        super(posX, posY, width, height, speed, id, depth, type, name, totalFrames, animation)
+    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, path, duration, delay) {
+        super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation)
         this.path = path
         this.duration = duration
         this.delay = delay
@@ -44,8 +44,8 @@ export class PathFish extends SpriteElement {
 }
 
 export class PathStingray extends SpriteElement {
-    constructor(posX, posY, width, height, speed, id, depth, type, name, totalFrames, animation, duration) {
-        super(posX, posY, width, height, speed, id, depth, type, name, totalFrames, animation)
+    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, duration) {
+        super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation)
         this.duration = duration
     }
 

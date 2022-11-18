@@ -1,9 +1,10 @@
 export class Element {
-    constructor(posX, posY, width, speed, id, depth, type, name) {
+    constructor(posX, posY, width, speed, id, sceneID, depth, type, name) {
         this.position = { x: posX, y: posY }
         this.width = width
         this.speed = speed
         this.id = id
+        this.sceneID = sceneID
         this.depth = depth
         this.type = type
         this.name = name
@@ -24,14 +25,15 @@ export class Element {
             elementImage.setAttribute(attr, attributes[attr])
         }
 
-        document.body.appendChild(elementImage)
+        const divNode = document.getElementById(this.sceneID)
+        divNode.appendChild(elementImage)
     }
 }
 
 
 export class SpriteElement extends Element {
-    constructor(posX, posY, width, height, speed, id, depth, type, name, totalFrames, animation) {
-        super(posX, posY, width, speed, id, depth, type, name)
+    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation) {
+        super(posX, posY, width, speed, id, sceneID, depth, type, name)
         this.height = height
         this.totalFrames = totalFrames
         this.animation = animation
@@ -62,6 +64,7 @@ export class SpriteElement extends Element {
             elementIcon.setAttribute(attr, attributes[attr])
         }
 
-        document.body.appendChild(elementIcon)
+        const divNode = document.getElementById(this.sceneID)
+        divNode.appendChild(elementIcon)
     }
 }
