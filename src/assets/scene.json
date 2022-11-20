@@ -1,5 +1,5 @@
 {
-    "scene1": {
+    "scene-1": {
         "staticFish": [
             {
                 "posX": 63,
@@ -513,7 +513,7 @@
             }
         ]
     },
-    "scene2": {
+    "scene-2": {
         "staticFish": [
             {
                 "posX": 63,
@@ -553,6 +553,76 @@
                 "path": "fish-path-3",
                 "duration": 35,
                 "delay": 0
+            }
+        ],
+        "spriteCorals": [
+            {
+                "posX": 7,
+                "posY": 120,
+                "width": 12,
+                "height": 12,
+                "speed": 0.5,
+                "id": "blue-pink-coral-1",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "coral",
+                "name": "blue-pink-coral",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "coralAnimate",
+                    "duration": 0.6
+                }
+            },
+            {
+                "posX": 70,
+                "posY": 142,
+                "width": 12,
+                "height": 12,
+                "speed": 0.5,
+                "id": "blue-pink-coral-2",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "coral",
+                "name": "blue-pink-coral",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "coralAnimate",
+                    "duration": 0.6
+                }
+            },
+            {
+                "posX": 1,
+                "posY": 124,
+                "width": 12,
+                "height": 12,
+                "speed": 0.5,
+                "id": "orange-heart-coral-1",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "coral",
+                "name": "orange-heart-coral",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "coralAnimate",
+                    "duration": 0.6
+                }
+            },
+            {
+                "posX": 72,
+                "posY": 155,
+                "width": 12,
+                "height": 12,
+                "speed": 0.5,
+                "id": "white-coral-1",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "coral",
+                "name": "white-coral",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "coralAnimate",
+                    "duration": 0.6
+                }
             }
         ]
     },

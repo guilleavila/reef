@@ -14,7 +14,7 @@ export class Element {
         const elementImage = document.createElement('img')
         const attributes = {
             'id': this.id,
-            'src': `./images/scene1/sprites/${this.type}/${this.name}/${this.name}.png`,
+            'src': `./images/${this.sceneID}/sprites/${this.type}/${this.name}/${this.name}.png`,
             'alt': `${this.name}`,
             'style': `position: fixed; top: ${this.position.y}%; left: ${this.position.x}%; width: ${this.width}%;`,
             'class': `plane ${this.depth}`,
@@ -45,14 +45,14 @@ export class SpriteElement extends Element {
 
         const attributes = {
             'id': this.id,
-            'src': `./images/scene1/sprites/${this.type}/${this.name}/${this.name}.png`,
+            'src': `./images/${this.sceneID}/sprites/${this.type}/${this.name}/${this.name}.png`,
             'alt': `${this.name}`,
             'style': `position: fixed; 
                 top: ${this.position.y}%; 
                 left: ${this.position.x}%; 
                 width: ${this.width}vw;
                 height: ${this.height}vw;
-                background: url(./images/scene1/sprites/${this.type}/${this.name}/${this.name}.png) no-repeat;
+                background: url(./images/${this.sceneID}/sprites/${this.type}/${this.name}/${this.name}.png) no-repeat;
                 background-size: ${this.width * this.totalFrames}vw ${this.height}vw;
                 background-position: 0vw 0vw;
                 animation: ${this.animation.name} ${this.animation.duration}s steps(${this.totalFrames}) alternate-reverse infinite;`,

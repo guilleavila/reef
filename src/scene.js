@@ -25,7 +25,7 @@ const scene = {
     init() {
         this.resetScroll()
         this.animateIntroScreen()
-        this.createElements('scene1')
+        this.createElements('scene-1')
         // this.fishSwim()
         this.sceneLoop()
         this.addMouseMoveEvent()
@@ -281,13 +281,21 @@ const scene = {
     },
 
     scene2Init() {
+        this.showScene2()
+        this.hideTransitionScreen()
+
+        this.createS2Elements()
+        this.createScrollTrigger()
+    },
+
+    showScene2() {
         const scene2 = document.getElementById('scene-2')
         scene2.style.visibility = 'visible'
+    },
 
-        this.hideTransitionScreen()
-        this.createFish('scene2')
-
-        this.createScrollTrigger()
+    createS2Elements() {
+        this.createFish('scene-2')
+        this.createSpriteCorals('scene-2')
     },
 
     createScrollTrigger() {
@@ -307,10 +315,14 @@ const scene = {
         scene2TL.to('#reef-2', { top: '-50%' }, 0)
         scene2TL.to('#reef-3', { top: '-50%' }, 0)
 
+        scene2TL.to('#blue-pink-coral-1', { top: '41%' }, 0)
+        scene2TL.to('#blue-pink-coral-2', { top: '62%' }, 0)
+        scene2TL.to('#orange-heart-coral-1', { top: '45%' }, 0)
+        scene2TL.to('#white-coral-1', { top: '75%' }, 0)
+
+
         scene2TL.to('.bg', { top: `${-59}%` }, 0)
         scene2TL.to('.depth-element', { top: `${-59}%` }, 0)
-
-
     }
 
 }

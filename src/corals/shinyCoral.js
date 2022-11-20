@@ -16,7 +16,7 @@ export class ShinyCoral extends Element {
         const elementImage = document.createElement('img')
         const attributes = {
             'id': this.id,
-            'src': `./images/scene1/sprites/${this.type}/${this.name}/${this.color}.png`,
+            'src': `./images/${this.sceneID}/sprites/${this.type}/${this.name}/${this.color}.png`,
             'alt': `${this.color}-${this.name}`,
             'style': `position: fixed; top: ${this.position.y}%; left: ${this.position.x}%; width: ${this.width}%;`,
             'class': `plane ${this.depth}`,
