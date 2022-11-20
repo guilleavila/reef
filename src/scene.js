@@ -1,6 +1,6 @@
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
-import { MotionPathPlugin } from "gsap/all"
+import { MotionPathPlugin, ScrollToPlugin } from "gsap/all"
 
 import elements from './assets/scene.json'
 import { ShinyCoral } from "./corals/shinyCoral"
@@ -9,15 +9,10 @@ import { PathFish, PathStingray, StaticFish } from "./fish/fish"
 
 gsap.registerPlugin(MotionPathPlugin)
 gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollToPlugin)
 
 const scene = {
     sceneState: 1,
-    scrollSpeeds: {
-        p0speed: 30,
-        p1speed: 15,
-        p2speed: 10,
-        p3speed: 7
-    },
     framesCounter: 0,
     intervalId: undefined,
     stingray: undefined,
@@ -28,6 +23,7 @@ const scene = {
     swimState: 'none',
 
     init() {
+        this.resetScroll()
         this.animateIntroScreen()
         this.createElements('scene1')
         // this.fishSwim()
@@ -37,6 +33,16 @@ const scene = {
 
     addMouseMoveEvent() {
         document.addEventListener('mousemove', this.createDepth)
+    },
+
+    resetScroll() {
+        ScrollTrigger.refresh()
+        gsap.to(window, {
+            scrollTo: { y: 0, autoKill: false },
+            overwrite: true,
+            duration: 1,
+            ease: 'expo.out'
+        })
     },
 
     createElements(scene) {
@@ -88,7 +94,7 @@ const scene = {
             const y = (window.innerHeight - e.pageY * speed) / 100
 
             const { width, height } = plane.getBoundingClientRect()
-            plane.style.transform = `translateX(${(width / 2) + x}px) translateY(-${(height / 100) + y}px)`
+            plane.style.transform = `translateX(${x}px) translateY(-${(height / 100) + y}px)`
         });
     },
 
@@ -296,13 +302,13 @@ const scene = {
         })
 
         // SCENE2 ANIMATION
-        scene2TL.to('#reef-0', { top: `${-2.2 * this.scrollSpeeds.p0speed}%` }, 0)
-        scene2TL.to('#reef-1', { top: `${-4.8 * this.scrollSpeeds.p1speed}%` }, 0)
-        scene2TL.to('#reef-2', { top: `${-6 * this.scrollSpeeds.p2speed}%` }, 0)
-        scene2TL.to('#reef-3', { top: `${-8 * this.scrollSpeeds.p3speed}%` }, 0)
+        scene2TL.to('#reef-0', { top: '-50%' }, 0)
+        scene2TL.to('#reef-1', { top: '-50%' }, 0)
+        scene2TL.to('#reef-2', { top: '-50%' }, 0)
+        scene2TL.to('#reef-3', { top: '-50%' }, 0)
 
-        scene2TL.to('.bg', { top: `${-60}%` }, 0)
-        scene2TL.to('.depth-element', { top: `${-60}%` }, 0)
+        scene2TL.to('.bg', { top: `${-59}%` }, 0)
+        scene2TL.to('.depth-element', { top: `${-59}%` }, 0)
 
 
     }
