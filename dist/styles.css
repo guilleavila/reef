@@ -110,8 +110,7 @@ button {
 .blured-element-s2 {
     position: fixed;
     top: 0%;
-    right: 50%;
-    transform: translate(0%, -50%);
+    left: 0%;
     width: 100%;
     z-index: -75;
 }
@@ -128,7 +127,7 @@ button {
     position: fixed;
     top: 0%;
     left: 0%;
-    width: 100vw;
+    width: 100%;
 }
 
 .p1 {

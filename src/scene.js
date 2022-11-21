@@ -67,6 +67,7 @@ const scene = {
             // if (this.sceneState === 1) {
             //     this.swimState === 'on' && this.stingraySwim()
             // }
+
             // this.framesCounter % 80 === 0 && this.shinyCorals.forEach(coral => coral.animate())
         }, 1000 / 60)
     },
@@ -285,6 +286,9 @@ const scene = {
         this.hideTransitionScreen()
 
         this.createS2Elements()
+        console.log(this.fish)
+        this.fishSwim()
+
         this.createScrollTrigger()
     },
 
@@ -299,12 +303,13 @@ const scene = {
     },
 
     createScrollTrigger() {
+        console.log('sos k pasa ahora')
         let scene2TL = gsap.timeline()
         ScrollTrigger.create({
             animation: scene2TL,
             trigger: '.scrollElement',
             start: "top top",
-            end: "15% 100%",
+            end: "25% 100%",
             scrub: 3,
             markers: true
         })
@@ -315,10 +320,18 @@ const scene = {
         scene2TL.to('#reef-2', { top: '-50%' }, 0)
         scene2TL.to('#reef-3', { top: '-50%' }, 0)
 
-        scene2TL.to('#blue-pink-coral-1', { top: '41%' }, 0)
-        scene2TL.to('#blue-pink-coral-2', { top: '62%' }, 0)
-        scene2TL.to('#orange-heart-coral-1', { top: '45%' }, 0)
-        scene2TL.to('#white-coral-1', { top: '75%' }, 0)
+        // corals
+        scene2TL.to('#blue-pink-coral-1', { top: '46%' }, 0)
+        scene2TL.to('#blue-pink-coral-2', { top: '67%' }, 0)
+        scene2TL.to('#orange-heart-coral-1', { top: '49%' }, 0)
+        scene2TL.to('#white-coral-1', { top: '80%' }, 0)
+
+        // fish
+        scene2TL.to('#fish-blue-1', { top: '45%' }, 0)
+        scene2TL.to('#fish-yellow-1', { top: '60%' }, 0)
+        scene2TL.to('#fish-green-1', { top: '65%' }, 0)
+        scene2TL.to('#fish-light-blue-1', { top: '27%' }, 0)
+        scene2TL.to('#fish-red-1', { top: '37%' }, 0)
 
 
         scene2TL.to('.bg', { top: `${-59}%` }, 0)
