@@ -303,7 +303,6 @@ const scene = {
     },
 
     createScrollTrigger() {
-        console.log('sos k pasa ahora')
         let scene2TL = gsap.timeline()
         ScrollTrigger.create({
             animation: scene2TL,
@@ -321,10 +320,10 @@ const scene = {
         scene2TL.to('#reef-3', { top: '-50%' }, 0)
 
         // corals
-        scene2TL.to('#blue-pink-coral-1', { top: '46%' }, 0)
-        scene2TL.to('#blue-pink-coral-2', { top: '67%' }, 0)
-        scene2TL.to('#orange-heart-coral-1', { top: '49%' }, 0)
-        scene2TL.to('#white-coral-1', { top: '80%' }, 0)
+        scene2TL.to('#blue-pink-coral-1', { top: '48%' }, 0)
+        scene2TL.to('#blue-pink-coral-2', { top: '70%' }, 0)
+        scene2TL.to('#orange-heart-coral-1', { top: '52%' }, 0)
+        scene2TL.to('#white-coral-1', { top: '83%' }, 0)
 
         // fish
         scene2TL.to('#fish-blue-1', { top: '45%' }, 0)
@@ -333,6 +332,12 @@ const scene = {
         scene2TL.to('#fish-light-blue-1', { top: '27%' }, 0)
         scene2TL.to('#fish-red-1', { top: '37%' }, 0)
 
+        // path fish
+        scene2TL.to('#fish-blue-2', { top: '-60%' }, 0)
+        scene2TL.to('#fish-red-2', { top: '-60%' }, 0)
+
+        //p1 paths
+        scene2TL.to('#path-s2', { top: '-60%' }, 0)
 
         scene2TL.to('.bg', { top: `${-59}%` }, 0)
         scene2TL.to('.depth-element', { top: `${-59}%` }, 0)

@@ -37,7 +37,7 @@ export class PathFish extends SpriteElement {
                 alignOrigin: [0.5, 0.5],
                 autoRotate: 180
             },
-            ease: "power2.Out",
+            ease: "linear",
             delay: this.delay
         })
     }
