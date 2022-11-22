@@ -192,7 +192,7 @@
                 "name": "blue-pink-coral",
                 "totalFrames": 15,
                 "animation": {
-                    "name": "coralAnimate",
+                    "name": "lCoralAnimate",
                     "duration": 0.6
                 }
             },
@@ -209,7 +209,7 @@
                 "name": "blue-pink-coral",
                 "totalFrames": 15,
                 "animation": {
-                    "name": "coralAnimate",
+                    "name": "lCoralAnimate",
                     "duration": 0.6
                 }
             },
@@ -226,7 +226,7 @@
                 "name": "orange-heart-coral",
                 "totalFrames": 15,
                 "animation": {
-                    "name": "coralAnimate",
+                    "name": "lCoralAnimate",
                     "duration": 0.6
                 }
             },
@@ -243,7 +243,7 @@
                 "name": "orange-heart-coral",
                 "totalFrames": 15,
                 "animation": {
-                    "name": "coralAnimate",
+                    "name": "lCoralAnimate",
                     "duration": 0.6
                 }
             },
@@ -260,7 +260,7 @@
                 "name": "white-coral",
                 "totalFrames": 15,
                 "animation": {
-                    "name": "coralAnimate",
+                    "name": "lCoralAnimate",
                     "duration": 0.6
                 }
             },
@@ -277,7 +277,7 @@
                 "name": "white-coral",
                 "totalFrames": 15,
                 "animation": {
-                    "name": "coralAnimate",
+                    "name": "lCoralAnimate",
                     "duration": 0.6
                 }
             }
@@ -769,11 +769,11 @@
                 "id": "blue-pink-coral-1",
                 "sceneID": "scene-2",
                 "depth": "p1",
-                "type": "coral",
+                "type": "top-coral",
                 "name": "blue-pink-coral",
                 "totalFrames": 15,
                 "animation": {
-                    "name": "coralAnimate",
+                    "name": "lCoralAnimate",
                     "duration": 0.6
                 }
             },
@@ -786,11 +786,11 @@
                 "id": "blue-pink-coral-2",
                 "sceneID": "scene-2",
                 "depth": "p1",
-                "type": "coral",
+                "type": "top-coral",
                 "name": "blue-pink-coral",
                 "totalFrames": 15,
                 "animation": {
-                    "name": "coralAnimate",
+                    "name": "lCoralAnimate",
                     "duration": 0.6
                 }
             },
@@ -803,11 +803,28 @@
                 "id": "orange-heart-coral-1",
                 "sceneID": "scene-2",
                 "depth": "p1",
-                "type": "coral",
+                "type": "top-coral",
                 "name": "orange-heart-coral",
                 "totalFrames": 15,
                 "animation": {
-                    "name": "coralAnimate",
+                    "name": "lCoralAnimate",
+                    "duration": 0.6
+                }
+            },
+            {
+                "posX": 7,
+                "posY": 130,
+                "width": 6,
+                "height": 6,
+                "speed": 0.5,
+                "id": "orange-heart-coral-2",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "orange-heart-coral",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "sCoralAnimate",
                     "duration": 0.6
                 }
             },
@@ -820,11 +837,130 @@
                 "id": "white-coral-1",
                 "sceneID": "scene-2",
                 "depth": "p1",
-                "type": "coral",
+                "type": "top-coral",
                 "name": "white-coral",
                 "totalFrames": 15,
                 "animation": {
-                    "name": "coralAnimate",
+                    "name": "lCoralAnimate",
+                    "duration": 0.6
+                }
+            },
+            {
+                "posX": 20,
+                "posY": 185,
+                "width": 12,
+                "height": 12,
+                "speed": 0.5,
+                "id": "orange-heart-coral-front-1",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "front-coral",
+                "name": "orange-heart-coral",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "lCoralAnimate",
+                    "duration": 0.6
+                }
+            },
+            {
+                "posX": 26,
+                "posY": 187,
+                "width": 6,
+                "height": 6,
+                "speed": 0.5,
+                "id": "orange-heart-coral-front-2",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "front-coral",
+                "name": "orange-heart-coral",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "sCoralAnimate",
+                    "duration": 0.6
+                }
+            },
+            {
+                "posX": 64,
+                "posY": 117,
+                "width": 9,
+                "height": 9,
+                "speed": 0.5,
+                "id": "orange-heart-coral-front-3",
+                "sceneID": "scene-2",
+                "depth": "p2",
+                "type": "front-coral",
+                "name": "orange-heart-coral",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "mCoralAnimate",
+                    "duration": 0.6
+                }
+            },
+            {
+                "posX": 30,
+                "posY": 165,
+                "width": 12,
+                "height": 12,
+                "speed": 0.5,
+                "id": "white-coral-front-1",
+                "sceneID": "scene-2",
+                "depth": "p2",
+                "type": "front-coral",
+                "name": "white-coral",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "lCoralAnimate",
+                    "duration": 0.6
+                }
+            },
+            {
+                "posX": 17,
+                "posY": 184,
+                "width": 9,
+                "height": 9,
+                "speed": 0.5,
+                "id": "white-coral-front-2",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "front-coral",
+                "name": "white-coral",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "mCoralAnimate",
+                    "duration": 0.6
+                }
+            },
+            {
+                "posX": -5,
+                "posY": 118,
+                "width": 12,
+                "height": 12,
+                "speed": 0.5,
+                "id": "white-coral-front-3",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "front-coral",
+                "name": "white-coral",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "lCoralAnimate",
+                    "duration": 0.6
+                }
+            },
+            {
+                "posX": -2,
+                "posY": 121,
+                "width": 9,
+                "height": 9,
+                "speed": 0.5,
+                "id": "white-coral-front-4",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "front-coral",
+                "name": "white-coral",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "mCoralAnimate",
                     "duration": 0.6
                 }
             }

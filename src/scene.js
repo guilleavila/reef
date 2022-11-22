@@ -329,13 +329,13 @@ const scene = {
         // CORALS
         this.spriteCorals.forEach(elm => {
             elm.depth === 'p1' && scene2TL.to(`#${elm.id}`, { top: `${elm.position.y - 95}vh` }, 0)
-            elm.depth === 'p2' && scene2TL.to(`#${elm.id}`, { top: `${elm.position.y - 80}vh` }, 0)
+            elm.depth === 'p2' && scene2TL.to(`#${elm.id}`, { top: `${elm.position.y - 85}vh` }, 0)
         })
 
         // FISH
         this.fish.forEach(elm => {
             elm.depth === 'p1' && scene2TL.to(`#${elm.id}`, { top: `${elm.position.y - 95}vh` }, 0)
-            elm.depth === 'p2' && scene2TL.to(`#${elm.id}`, { top: `${elm.position.y - 80}vh` }, 0)
+            elm.depth === 'p2' && scene2TL.to(`#${elm.id}`, { top: `${elm.position.y - 85}vh` }, 0)
         })
     }
 
