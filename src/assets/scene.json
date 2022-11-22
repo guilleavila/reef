@@ -681,6 +681,82 @@
                 },
                 "duration": 23,
                 "delay": 2
+            },
+            {
+                "posX": 100,
+                "posY": 143,
+                "width": 3,
+                "height": 3,
+                "speed": 0.3,
+                "id": "fish-blue-3",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "blue",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "sFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 28,
+                "delay": 2
+            },
+            {
+                "posX": 100,
+                "posY": 178,
+                "width": 2,
+                "height": 2,
+                "speed": 0.3,
+                "id": "fish-yellow-3",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "yellow",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "xsFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 22,
+                "delay": 0
+            },
+            {
+                "posX": 100,
+                "posY": 140,
+                "width": 3,
+                "height": 3,
+                "speed": 0.3,
+                "id": "fish-pink-2",
+                "sceneID": "scene-2",
+                "depth": "p2",
+                "type": "fish",
+                "name": "pink",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "sFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 15,
+                "delay": 0
+            },
+            {
+                "posX": 100,
+                "posY": 133,
+                "width": 3,
+                "height": 3,
+                "speed": 0.3,
+                "id": "fish-light-blue-2",
+                "sceneID": "scene-2",
+                "depth": "p2",
+                "type": "fish",
+                "name": "light-blue",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "sFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 20,
+                "delay": 0
             }
         ],
         "spriteCorals": [

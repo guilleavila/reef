@@ -20,29 +20,6 @@ export class StaticFish extends SpriteElement {
     }
 }
 
-export class PathFish extends SpriteElement {
-    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, path, duration, delay) {
-        super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation)
-        this.path = path
-        this.duration = duration
-        this.delay = delay
-    }
-
-    swim() {
-        gsap.to(`#${this.id}`, {
-            duration: this.duration,
-            motionPath: {
-                path: `#${this.path}`,
-                align: `#${this.path}`,
-                alignOrigin: [0.5, 0.5],
-                autoRotate: 180
-            },
-            ease: "linear",
-            delay: this.delay
-        })
-    }
-}
-
 export class StraightPathFish extends SpriteElement {
     constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, duration, delay) {
         super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation)
@@ -54,6 +31,27 @@ export class StraightPathFish extends SpriteElement {
         gsap.to(`#${this.id}`, {
             duration: this.duration,
             left: `${this.name.includes('reverse') ? '110' : '-10'}%`,
+            ease: "linear",
+            delay: this.delay
+        })
+    }
+}
+
+export class PathFish extends StraightPathFish {
+    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, path, duration, delay) {
+        super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, duration, delay)
+        this.path = path
+    }
+
+    swim() {
+        gsap.to(`#${this.id}`, {
+            duration: this.duration,
+            motionPath: {
+                path: `#${this.path}`,
+                align: `#${this.path}`,
+                alignOrigin: [0.5, 0.5],
+                autoRotate: 180
+            },
             ease: "linear",
             delay: this.delay
         })

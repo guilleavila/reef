@@ -315,38 +315,28 @@ const scene = {
             markers: true
         })
 
-        // SCENE2 ANIMATION
-        scene2TL.to('#reef-0', { top: '-50%' }, 0)
-        scene2TL.to('#reef-1', { top: '-50%' }, 0)
-        scene2TL.to('#reef-2', { top: '-50%' }, 0)
-        scene2TL.to('#reef-3', { top: '-50%' }, 0)
+        // -- SCENE2 ANIMATION --
 
-        // corals
-        scene2TL.to('#blue-pink-coral-1', { top: '48%' }, 0)
-        scene2TL.to('#blue-pink-coral-2', { top: '70%' }, 0)
-        scene2TL.to('#orange-heart-coral-1', { top: '52%' }, 0)
-        scene2TL.to('#white-coral-1', { top: '83%' }, 0)
+        // PLANES
+        scene2TL.to('#reef-0', { top: '-60vh' }, 0)
+        scene2TL.to('#reef-1', { top: '-70vh' }, 0)
+        scene2TL.to('#reef-2', { top: '-70vh' }, 0)
+        scene2TL.to('#reef-3', { top: '-70vh' }, 0)
 
-        // fish
-        scene2TL.to('#fish-blue-1', { top: '45%' }, 0)
-        scene2TL.to('#fish-yellow-1', { top: '60%' }, 0)
-        scene2TL.to('#fish-green-1', { top: '65%' }, 0)
-        scene2TL.to('#fish-light-blue-1', { top: '27%' }, 0)
-        scene2TL.to('#fish-red-1', { top: '37%' }, 0)
+        scene2TL.to('.bg', { top: '-70vh' }, 0)
+        scene2TL.to('.depth-element', { top: '-70vh' }, 0)
 
-        // path fish
-        scene2TL.to('#fish-blue-2', { top: '-60%' }, 0)
-        scene2TL.to('#fish-red-2', { top: '-60%' }, 0)
+        // CORALS
+        this.spriteCorals.forEach(elm => {
+            elm.depth === 'p1' && scene2TL.to(`#${elm.id}`, { top: `${elm.position.y - 95}vh` }, 0)
+            elm.depth === 'p2' && scene2TL.to(`#${elm.id}`, { top: `${elm.position.y - 80}vh` }, 0)
+        })
 
-        //straight path fish
-        scene2TL.to('#fish-yellow-2', { top: '-10%' }, 0)
-        scene2TL.to('#fish-green-2', { top: '-5%' }, 0)
-
-        //p1 paths
-        scene2TL.to('#path-s2', { top: '-60%' }, 0)
-
-        scene2TL.to('.bg', { top: `${-59}%` }, 0)
-        scene2TL.to('.depth-element', { top: `${-59}%` }, 0)
+        // FISH
+        this.fish.forEach(elm => {
+            elm.depth === 'p1' && scene2TL.to(`#${elm.id}`, { top: `${elm.position.y - 95}vh` }, 0)
+            elm.depth === 'p2' && scene2TL.to(`#${elm.id}`, { top: `${elm.position.y - 80}vh` }, 0)
+        })
     }
 
 }
