@@ -576,7 +576,7 @@
                 "sceneID": "scene-2",
                 "depth": "p2",
                 "type": "fish",
-                "name": "light-blue",
+                "name": "light-blue-reverse",
                 "totalFrames": 15,
                 "animation": {
                     "name": "mFishAnimate",
@@ -597,6 +597,74 @@
                 "totalFrames": 15,
                 "animation": {
                     "name": "lFishAnimate",
+                    "duration": 0.6
+                }
+            },
+            {
+                "posX": 34,
+                "posY": 189,
+                "width": 2,
+                "height": 2,
+                "speed": 0.2,
+                "id": "fish-pink-3",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "pink-reverse",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "xsFishAnimate",
+                    "duration": 0.6
+                }
+            },
+            {
+                "posX": 32,
+                "posY": 185,
+                "width": 3,
+                "height": 3,
+                "speed": 0.2,
+                "id": "fish-pink-4",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "pink-reverse",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "sFishAnimate",
+                    "duration": 0.6
+                }
+            },
+            {
+                "posX": 39,
+                "posY": 185,
+                "width": 3,
+                "height": 3,
+                "speed": 0.2,
+                "id": "fish-blue-4",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "blue",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "sFishAnimate",
+                    "duration": 0.6
+                }
+            },
+            {
+                "posX": 62,
+                "posY": 139,
+                "width": 3,
+                "height": 3,
+                "speed": 0.2,
+                "id": "fish-yellow-5",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "yellow-reverse",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "sFishAnimate",
                     "duration": 0.6
                 }
             }
@@ -640,10 +708,67 @@
                 },
                 "path": "fish-path-8",
                 "duration": 28,
-                "delay": 2
+                "delay": 0
             }
         ],
         "straightPathFish": [
+            {
+                "posX": 3,
+                "posY": 54,
+                "width": 4,
+                "height": 4,
+                "speed": 0.3,
+                "id": "fish-yellow-4",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "yellow-reverse",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "mFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 29,
+                "delay": 0
+            },
+            {
+                "posX": 15,
+                "posY": 55,
+                "width": 3,
+                "height": 3,
+                "speed": 0.3,
+                "id": "fish-yellow-6",
+                "sceneID": "scene-2",
+                "depth": "p2",
+                "type": "fish",
+                "name": "yellow-reverse",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "sFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 27,
+                "delay": 0
+            },
+            {
+                "posX": 0,
+                "posY": 52,
+                "width": 2,
+                "height": 2,
+                "speed": 0.3,
+                "id": "fish-yellow-7",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "yellow-reverse",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "xsFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 24,
+                "delay": 1.4
+            },
             {
                 "posX": 100,
                 "posY": 50,
@@ -683,6 +808,63 @@
                 "delay": 2
             },
             {
+                "posX": 70,
+                "posY": 55,
+                "width": 2,
+                "height": 2,
+                "speed": 0.3,
+                "id": "fish-green-4",
+                "sceneID": "scene-2",
+                "depth": "p2",
+                "type": "fish",
+                "name": "green",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "xsFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 16,
+                "delay": 0
+            },
+            {
+                "posX": 90,
+                "posY": 65,
+                "width": 2,
+                "height": 2,
+                "speed": 0.3,
+                "id": "fish-green-5",
+                "sceneID": "scene-2",
+                "depth": "p2",
+                "type": "fish",
+                "name": "green",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "xsFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 26,
+                "delay": 0
+            },
+            {
+                "posX": 70,
+                "posY": 19,
+                "width": 3,
+                "height": 3,
+                "speed": 0.3,
+                "id": "fish-green-6",
+                "sceneID": "scene-2",
+                "depth": "p2",
+                "type": "fish",
+                "name": "green-reverse",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "sFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 26,
+                "delay": 0
+            },
+            {
                 "posX": 100,
                 "posY": 143,
                 "width": 3,
@@ -698,8 +880,160 @@
                     "name": "sFishAnimate",
                     "duration": 0.6
                 },
-                "duration": 28,
+                "duration": 35,
                 "delay": 2
+            },
+            {
+                "posX": 30,
+                "posY": 83,
+                "width": 4,
+                "height": 4,
+                "speed": 0.3,
+                "id": "fish-blue-5",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "blue-reverse",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "mFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 28,
+                "delay": 0
+            },
+            {
+                "posX": 25,
+                "posY": 83,
+                "width": 2,
+                "height": 2,
+                "speed": 0.3,
+                "id": "fish-blue-6",
+                "sceneID": "scene-2",
+                "depth": "p2",
+                "type": "fish",
+                "name": "blue-reverse",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "xsFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 23,
+                "delay": 0
+            },
+            {
+                "posX": -5,
+                "posY": 13,
+                "width": 4,
+                "height": 4,
+                "speed": 0.3,
+                "id": "fish-blue-7",
+                "sceneID": "scene-2",
+                "depth": "p2",
+                "type": "fish",
+                "name": "blue-reverse",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "mFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 23,
+                "delay": 6
+            },
+            {
+                "posX": 57,
+                "posY": 31,
+                "width": 4,
+                "height": 4,
+                "speed": 0.3,
+                "id": "fish-blue-8",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "blue",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "mFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 23,
+                "delay": 0
+            },
+            {
+                "posX": -15,
+                "posY": 11,
+                "width": 4,
+                "height": 4,
+                "speed": 0.3,
+                "id": "fish-pink-5",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "pink-reverse",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "mFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 23,
+                "delay": 2
+            },
+            {
+                "posX": 0,
+                "posY": 14,
+                "width": 3,
+                "height": 3,
+                "speed": 0.3,
+                "id": "fish-pink-7",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "pink-reverse",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "sFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 23,
+                "delay": 0
+            },
+            {
+                "posX": 0,
+                "posY": 166,
+                "width": 3,
+                "height": 3,
+                "speed": 0.3,
+                "id": "fish-pink-8",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "pink-reverse",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "sFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 29,
+                "delay": 0
+            },
+            {
+                "posX": 100,
+                "posY": 178,
+                "width": 5.5,
+                "height": 5.5,
+                "speed": 0.3,
+                "id": "fish-pink-8",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "pink",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "lFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 32,
+                "delay": 0
             },
             {
                 "posX": 100,
@@ -719,6 +1053,63 @@
                 },
                 "duration": 22,
                 "delay": 0
+            },
+            {
+                "posX": 30,
+                "posY": 7,
+                "width": 2,
+                "height": 2,
+                "speed": 0.3,
+                "id": "fish-yellow-8",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "yellow",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "xsFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 22,
+                "delay": 0
+            },
+            {
+                "posX": 0,
+                "posY": 147,
+                "width": 3,
+                "height": 3,
+                "speed": 0.3,
+                "id": "fish-yellow-9",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "yellow-reverse",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "sFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 27,
+                "delay": 3
+            },
+            {
+                "posX": 0,
+                "posY": 158,
+                "width": 3,
+                "height": 3,
+                "speed": 0.3,
+                "id": "fish-yellow-10",
+                "sceneID": "scene-2",
+                "depth": "p2",
+                "type": "fish",
+                "name": "yellow-reverse",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "sFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 27,
+                "delay": 7
             },
             {
                 "posX": 100,
@@ -750,6 +1141,63 @@
                 "depth": "p2",
                 "type": "fish",
                 "name": "light-blue",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "sFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 20,
+                "delay": 0
+            },
+            {
+                "posX": 0,
+                "posY": 133,
+                "width": 3,
+                "height": 3,
+                "speed": 0.3,
+                "id": "fish-light-blue-3",
+                "sceneID": "scene-2",
+                "depth": "p2",
+                "type": "fish",
+                "name": "light-blue-reverse",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "sFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 20,
+                "delay": 0
+            },
+            {
+                "posX": 0,
+                "posY": 26,
+                "width": 3,
+                "height": 3,
+                "speed": 0.3,
+                "id": "fish-light-blue-4",
+                "sceneID": "scene-2",
+                "depth": "p2",
+                "type": "fish",
+                "name": "light-blue-reverse",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "sFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 20,
+                "delay": 0
+            },
+            {
+                "posX": 10,
+                "posY": 126,
+                "width": 3,
+                "height": 3,
+                "speed": 0.3,
+                "id": "fish-light-blue-5",
+                "sceneID": "scene-2",
+                "depth": "p2",
+                "type": "fish",
+                "name": "light-blue-reverse",
                 "totalFrames": 15,
                 "animation": {
                     "name": "sFishAnimate",
