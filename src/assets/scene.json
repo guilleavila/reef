@@ -643,6 +643,46 @@
                 "delay": 2
             }
         ],
+        "straightPathFish": [
+            {
+                "posX": 100,
+                "posY": 50,
+                "width": 4,
+                "height": 4,
+                "speed": 0.3,
+                "id": "fish-yellow-2",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "yellow",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "mFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 38,
+                "delay": 0
+            },
+            {
+                "posX": 100,
+                "posY": 55,
+                "width": 3,
+                "height": 3,
+                "speed": 0.3,
+                "id": "fish-green-2",
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "green",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "sFishAnimate",
+                    "duration": 0.6
+                },
+                "duration": 23,
+                "delay": 2
+            }
+        ],
         "spriteCorals": [
             {
                 "posX": 7,

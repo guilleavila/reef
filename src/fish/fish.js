@@ -43,6 +43,23 @@ export class PathFish extends SpriteElement {
     }
 }
 
+export class StraightPathFish extends SpriteElement {
+    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, duration, delay) {
+        super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation)
+        this.duration = duration
+        this.delay = delay
+    }
+
+    swim() {
+        gsap.to(`#${this.id}`, {
+            duration: this.duration,
+            left: `${this.name.includes('reverse') ? '110' : '-10'}%`,
+            ease: "linear",
+            delay: this.delay
+        })
+    }
+}
+
 export class PathStingray extends SpriteElement {
     constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, duration) {
         super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation)

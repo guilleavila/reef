@@ -5,7 +5,7 @@ import { MotionPathPlugin, ScrollToPlugin } from "gsap/all"
 import elements from './assets/scene.json'
 import { ShinyCoral } from "./corals/shinyCoral"
 import { SpriteElement } from "./element/element"
-import { PathFish, PathStingray, StaticFish } from "./fish/fish"
+import { PathFish, PathStingray, StaticFish, StraightPathFish } from "./fish/fish"
 
 gsap.registerPlugin(MotionPathPlugin)
 gsap.registerPlugin(ScrollTrigger)
@@ -122,6 +122,9 @@ const scene = {
         ))
         elements[scene].pathFish.forEach(elm => this.fish.push(
             new PathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, elm.id, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.path, elm.duration, elm.delay)
+        ))
+        elements[scene].straightPathFish?.forEach(elm => this.fish.push(
+            new StraightPathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, elm.id, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.duration, elm.delay)
         ))
     },
 
@@ -286,7 +289,6 @@ const scene = {
         this.hideTransitionScreen()
 
         this.createS2Elements()
-        console.log(this.fish)
         this.fishSwim()
 
         this.createScrollTrigger()
@@ -335,6 +337,10 @@ const scene = {
         // path fish
         scene2TL.to('#fish-blue-2', { top: '-60%' }, 0)
         scene2TL.to('#fish-red-2', { top: '-60%' }, 0)
+
+        //straight path fish
+        scene2TL.to('#fish-yellow-2', { top: '-10%' }, 0)
+        scene2TL.to('#fish-green-2', { top: '-5%' }, 0)
 
         //p1 paths
         scene2TL.to('#path-s2', { top: '-60%' }, 0)
