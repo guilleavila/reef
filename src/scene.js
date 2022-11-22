@@ -52,16 +52,12 @@ const scene = {
         this.createFish(scene)
     },
 
-    fishSwim() {
-        this.fish.forEach(fish => fish.swim())
-    },
-
     sceneLoop() {
         this.intervalId = setInterval(() => {
             this.framesCounter >= 600 ? this.framesCounter = 0 : this.framesCounter++
 
             if (this.introState === 'on') {
-                document.addEventListener('mousemove', this.showScene)
+                document.addEventListener('mousemove', this.sceneState === 1 ? this.showScene : this.hideTransitionScreen)
             }
 
             // if (this.sceneState === 1) {
@@ -118,14 +114,18 @@ const scene = {
 
     createFish(scene) {
         elements[scene].staticFish.forEach(elm => this.fish.push(
-            new StaticFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, elm.id, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation)
+            new StaticFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation)
         ))
         elements[scene].pathFish.forEach(elm => this.fish.push(
-            new PathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, elm.id, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.path, elm.duration, elm.delay)
+            new PathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.path, elm.duration, elm.delay)
         ))
         elements[scene].straightPathFish?.forEach(elm => this.fish.push(
-            new StraightPathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, elm.id, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.duration, elm.delay)
+            new StraightPathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.duration, elm.delay)
         ))
+    },
+
+    fishSwim() {
+        this.fish.forEach(fish => fish.swim())
     },
 
     stingraySwim() {
@@ -208,17 +208,23 @@ const scene = {
             gsap.to('.text-intro', {
                 opacity: 0,
                 duration: 1,
+                delay: 0.25,
                 onComplete: () => this.swimState = 'on'
             })
         }
     },
 
     hideTransitionScreen() {
+        this.introState = 'done'
         gsap.to('#intro-screen', {
             duration: 1,
             opacity: 0,
-            zIndex: -100,
-            delay: 1
+            delay: 0.5
+        })
+        gsap.to('.text-intro', {
+            duration: 1,
+            opacity: 0,
+            delay: 0.25
         })
     },
 
@@ -258,14 +264,23 @@ const scene = {
 
     updateSceneStatus() {
 
+        gsap.to('.text-intro', {
+            duration: 1,
+            opacity: 1,
+            zIndex: 105
+        })
         gsap.to('#intro-screen', {
             duration: 0.5,
             opacity: 1,
             zIndex: 100,
-            onComplete: () => this.emptyScene()
+            onComplete: () => {
+                this.sceneState = 2
+                this.introState = 'on'
+                this.emptyScene()
+                this.scene2Init()
+            }
         })
 
-        this.sceneState = 2
     },
 
     emptyScene() {
@@ -280,13 +295,11 @@ const scene = {
         this.spriteCorals = []
         this.shinyCorals = []
         this.fish = []
-
-        this.scene2Init()
     },
 
     scene2Init() {
+
         this.showScene2()
-        this.hideTransitionScreen()
 
         this.createS2Elements()
         this.fishSwim()
