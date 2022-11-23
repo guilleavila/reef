@@ -523,15 +523,15 @@
                 }
             },
             {
-                "posX": 27,
-                "posY": 140,
+                "posX": 26,
+                "posY": 128,
                 "width": 3,
                 "height": 3,
                 "speed": 0.2,
                 "sceneID": "scene-2",
                 "depth": "p1",
                 "type": "fish",
-                "name": "yellow",
+                "name": "clown",
                 "totalFrames": 15,
                 "animation": {
                     "name": "sFishAnimate",
@@ -539,10 +539,10 @@
                 }
             },
             {
-                "posX": 24,
-                "posY": 145,
-                "width": 4,
-                "height": 4,
+                "posX": 25,
+                "posY": 85,
+                "width": 5.5,
+                "height": 5.5,
                 "speed": 0.2,
                 "sceneID": "scene-2",
                 "depth": "p1",
@@ -550,7 +550,87 @@
                 "name": "lion",
                 "totalFrames": 15,
                 "animation": {
-                    "name": "mFishAnimate",
+                    "name": "lFishAnimate",
+                    "duration": 0.6
+                }
+            },
+            {
+                "posX": 67,
+                "posY": 85,
+                "width": 5.5,
+                "height": 5.5,
+                "speed": 0.2,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "blow",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "lFishAnimate",
+                    "duration": 0.6
+                }
+            },
+            {
+                "posX": 55,
+                "posY": 85,
+                "width": 5.5,
+                "height": 5.5,
+                "speed": 0.2,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "clown",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "lFishAnimate",
+                    "duration": 0.6
+                }
+            },
+            {
+                "posX": 45,
+                "posY": 85,
+                "width": 5.5,
+                "height": 5.5,
+                "speed": 0.2,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "surgeon",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "lFishAnimate",
+                    "duration": 0.6
+                }
+            },
+            {
+                "posX": 35,
+                "posY": 85,
+                "width": 5.5,
+                "height": 5.5,
+                "speed": 0.2,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "fairyfish",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "lFishAnimate",
+                    "duration": 0.6
+                }
+            },
+            {
+                "posX": 62,
+                "posY": 85,
+                "width": 5.5,
+                "height": 5.5,
+                "speed": 0.2,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "black",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "lFishAnimate",
                     "duration": 0.6
                 }
             },
@@ -571,8 +651,8 @@
                 }
             },
             {
-                "posX": 20,
-                "posY": 125,
+                "posX": 15,
+                "posY": 85,
                 "width": 5.5,
                 "height": 5.5,
                 "speed": 0.2,
@@ -627,7 +707,7 @@
                 "sceneID": "scene-2",
                 "depth": "p1",
                 "type": "fish",
-                "name": "blue",
+                "name": "fairyfish",
                 "totalFrames": 15,
                 "animation": {
                     "name": "sFishAnimate",
@@ -661,7 +741,7 @@
                 "sceneID": "scene-2",
                 "depth": "p1",
                 "type": "fish",
-                "name": "red",
+                "name": "surgeon",
                 "totalFrames": 15,
                 "animation": {
                     "name": "mFishAnimate",
@@ -680,7 +760,7 @@
                 "sceneID": "scene-2",
                 "depth": "p1",
                 "type": "fish",
-                "name": "blue",
+                "name": "clown",
                 "totalFrames": 15,
                 "animation": {
                     "name": "sFishAnimate",
@@ -719,7 +799,7 @@
                 "sceneID": "scene-2",
                 "depth": "p2",
                 "type": "fish",
-                "name": "yellow-reverse",
+                "name": "torpedo",
                 "totalFrames": 15,
                 "animation": {
                     "name": "sFishAnimate",
@@ -755,7 +835,7 @@
                 "sceneID": "scene-2",
                 "depth": "p1",
                 "type": "fish",
-                "name": "yellow",
+                "name": "blow",
                 "totalFrames": 15,
                 "animation": {
                     "name": "mFishAnimate",
@@ -791,7 +871,7 @@
                 "sceneID": "scene-2",
                 "depth": "p2",
                 "type": "fish",
-                "name": "green",
+                "name": "black",
                 "totalFrames": 15,
                 "animation": {
                     "name": "xsFishAnimate",
@@ -809,7 +889,7 @@
                 "sceneID": "scene-2",
                 "depth": "p2",
                 "type": "fish",
-                "name": "green",
+                "name": "torpedo",
                 "totalFrames": 15,
                 "animation": {
                     "name": "xsFishAnimate",
@@ -845,7 +925,7 @@
                 "sceneID": "scene-2",
                 "depth": "p1",
                 "type": "fish",
-                "name": "blue",
+                "name": "black",
                 "totalFrames": 15,
                 "animation": {
                     "name": "sFishAnimate",
@@ -917,7 +997,7 @@
                 "sceneID": "scene-2",
                 "depth": "p1",
                 "type": "fish",
-                "name": "blue",
+                "name": "surgeon",
                 "totalFrames": 15,
                 "animation": {
                     "name": "mFishAnimate",
@@ -989,7 +1069,7 @@
                 "sceneID": "scene-2",
                 "depth": "p1",
                 "type": "fish",
-                "name": "pink",
+                "name": "torpedo",
                 "totalFrames": 15,
                 "animation": {
                     "name": "lFishAnimate",
@@ -1007,7 +1087,7 @@
                 "sceneID": "scene-2",
                 "depth": "p1",
                 "type": "fish",
-                "name": "yellow",
+                "name": "blow",
                 "totalFrames": 15,
                 "animation": {
                     "name": "xsFishAnimate",
@@ -1079,7 +1159,7 @@
                 "sceneID": "scene-2",
                 "depth": "p2",
                 "type": "fish",
-                "name": "pink",
+                "name": "fairyfish",
                 "totalFrames": 15,
                 "animation": {
                     "name": "sFishAnimate",
@@ -1097,7 +1177,7 @@
                 "sceneID": "scene-2",
                 "depth": "p2",
                 "type": "fish",
-                "name": "light-blue",
+                "name": "torpedo",
                 "totalFrames": 15,
                 "animation": {
                     "name": "sFishAnimate",
