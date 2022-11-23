@@ -547,7 +547,7 @@
                 "sceneID": "scene-2",
                 "depth": "p1",
                 "type": "fish",
-                "name": "green",
+                "name": "lion",
                 "totalFrames": 15,
                 "animation": {
                     "name": "mFishAnimate",
@@ -579,7 +579,7 @@
                 "sceneID": "scene-2",
                 "depth": "p1",
                 "type": "fish",
-                "name": "blue",
+                "name": "torpedo",
                 "totalFrames": 15,
                 "animation": {
                     "name": "lFishAnimate",
