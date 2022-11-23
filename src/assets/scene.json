@@ -539,102 +539,6 @@
                 }
             },
             {
-                "posX": 25,
-                "posY": 85,
-                "width": 5.5,
-                "height": 5.5,
-                "speed": 0.2,
-                "sceneID": "scene-2",
-                "depth": "p1",
-                "type": "fish",
-                "name": "lion",
-                "totalFrames": 15,
-                "animation": {
-                    "name": "lFishAnimate",
-                    "duration": 0.6
-                }
-            },
-            {
-                "posX": 67,
-                "posY": 85,
-                "width": 5.5,
-                "height": 5.5,
-                "speed": 0.2,
-                "sceneID": "scene-2",
-                "depth": "p1",
-                "type": "fish",
-                "name": "blow",
-                "totalFrames": 15,
-                "animation": {
-                    "name": "lFishAnimate",
-                    "duration": 0.6
-                }
-            },
-            {
-                "posX": 55,
-                "posY": 85,
-                "width": 5.5,
-                "height": 5.5,
-                "speed": 0.2,
-                "sceneID": "scene-2",
-                "depth": "p1",
-                "type": "fish",
-                "name": "clown",
-                "totalFrames": 15,
-                "animation": {
-                    "name": "lFishAnimate",
-                    "duration": 0.6
-                }
-            },
-            {
-                "posX": 45,
-                "posY": 85,
-                "width": 5.5,
-                "height": 5.5,
-                "speed": 0.2,
-                "sceneID": "scene-2",
-                "depth": "p1",
-                "type": "fish",
-                "name": "surgeon",
-                "totalFrames": 15,
-                "animation": {
-                    "name": "lFishAnimate",
-                    "duration": 0.6
-                }
-            },
-            {
-                "posX": 35,
-                "posY": 85,
-                "width": 5.5,
-                "height": 5.5,
-                "speed": 0.2,
-                "sceneID": "scene-2",
-                "depth": "p1",
-                "type": "fish",
-                "name": "fairyfish",
-                "totalFrames": 15,
-                "animation": {
-                    "name": "lFishAnimate",
-                    "duration": 0.6
-                }
-            },
-            {
-                "posX": 62,
-                "posY": 85,
-                "width": 5.5,
-                "height": 5.5,
-                "speed": 0.2,
-                "sceneID": "scene-2",
-                "depth": "p1",
-                "type": "fish",
-                "name": "black",
-                "totalFrames": 15,
-                "animation": {
-                    "name": "lFishAnimate",
-                    "duration": 0.6
-                }
-            },
-            {
                 "posX": 67,
                 "posY": 90,
                 "width": 4,
@@ -647,22 +551,6 @@
                 "totalFrames": 15,
                 "animation": {
                     "name": "mFishAnimate",
-                    "duration": 0.6
-                }
-            },
-            {
-                "posX": 15,
-                "posY": 85,
-                "width": 5.5,
-                "height": 5.5,
-                "speed": 0.2,
-                "sceneID": "scene-2",
-                "depth": "p1",
-                "type": "fish",
-                "name": "torpedo",
-                "totalFrames": 15,
-                "animation": {
-                    "name": "lFishAnimate",
                     "duration": 0.6
                 }
             },
