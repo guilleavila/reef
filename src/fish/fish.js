@@ -1,5 +1,6 @@
 import gsap from "gsap"
 import { SpriteElement } from "../element/element"
+import scene from "../scene"
 
 
 export class StaticFish extends SpriteElement {
@@ -59,32 +60,22 @@ export class PathFish extends StraightPathFish {
 }
 
 export class PathStingray extends SpriteElement {
-    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, duration) {
+    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation) {
         super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation)
-        this.duration = duration
     }
 
-    swim() {
-        gsap.timeline()
-            .to(`#${this.id}`, {
-                duration: this.duration,
+    swim(path, duration,delay) {
+        gsap.to(`#${this.id}`, {
+                duration: duration,
                 motionPath: {
-                    path: '#stingray-path-1',
-                    align: '#stingray-path-1',
+                    path: `#${path}`,
+                    align: `#${path}`,
                     alignOrigin: [0.5, 0.5],
                     autoRotate: 90
                 },
-                ease: "linear"
-            })
-            .to(`#${this.id}`, {
-                duration: this.duration,
-                motionPath: {
-                    path: `#stingray-path-2`,
-                    align: `#stingray-path-2`,
-                    alignOrigin: [0.5, 0.5],
-                    autoRotate: 90
-                },
-                ease: "linear"
+                ease: "linear",
+                delay: delay,
+                onComplete: () => scene.swimState = `${path}-done`
             })
     }
 }

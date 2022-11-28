@@ -1351,7 +1351,6 @@
         "animation": {
             "name": "stingrayAnimate",
             "duration": 3
-        },
-        "duration": 15
+        }
     }
 }

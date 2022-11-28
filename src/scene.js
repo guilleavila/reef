@@ -26,7 +26,7 @@ const scene = {
         this.resetScroll()
         this.animateIntroScreen()
         this.createElements('scene-1')
-        // this.fishSwim()
+        this.fishSwim()
         this.sceneLoop()
         this.addMouseMoveEvent()
     },
@@ -60,9 +60,12 @@ const scene = {
                 document.addEventListener('mousemove', this.sceneState === 1 ? this.showScene : this.hideTransitionScreen)
             }
 
-            // if (this.sceneState === 1) {
-            //     this.swimState === 'on' && this.stingraySwim()
-            // }
+            if (this.sceneState === 1) {
+                this.swimState === 'on' && this.stingraySwim('stingray-path-1', 15)
+                this.swimState === 'stingray-path-1-done' && this.stingraySwim('stingray-path-2', 15)
+            }
+
+            console.log(this.swimState)
 
             // this.framesCounter % 80 === 0 && this.shinyCorals.forEach(coral => coral.animate())
         }, 1000 / 60)
@@ -108,8 +111,8 @@ const scene = {
     },
 
     createStingray() {
-        const { posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, duration } = elements.stingray
-        this.stingray = new PathStingray(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, duration)
+        const { posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation } = elements.stingray
+        this.stingray = new PathStingray(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation)
     },
 
     createFish(scene) {
@@ -128,32 +131,9 @@ const scene = {
         this.fish.forEach(fish => fish.swim())
     },
 
-    stingraySwim() {
-
-        this.swimState = 'done'
-
-        gsap.timeline()
-            .to('#stingray-1', {
-                duration: 15,
-                motionPath: {
-                    path: "#stingray-path-1",
-                    align: "#stingray-path-1",
-                    alignOrigin: [0.5, 0.5],
-                    autoRotate: 90
-                },
-                ease: "linear"
-            })
-            .to('#stingray-1', {
-                duration: 15,
-                motionPath: {
-                    path: "#stingray-path-2",
-                    align: "#stingray-path-2",
-                    alignOrigin: [0.5, 0.5],
-                    autoRotate: 90
-                },
-                onStart: () => this.hideLogo(),
-                ease: "linear"
-            })
+    stingraySwim(path, duration) {
+        this.swimState = path
+        this.stingray.swim(path, duration, 0)
     },
 
     animateIntroScreen() {
