@@ -26,7 +26,7 @@ const scene = {
         this.resetScroll()
         this.animateIntroScreen()
         this.createElements('scene-1')
-        this.fishSwim()
+        // this.fishSwim()
         this.sceneLoop()
         this.addMouseMoveEvent()
     },
@@ -48,7 +48,7 @@ const scene = {
     createElements(scene) {
         this.createShinyCorals(scene)
         this.createSpriteCorals(scene)
-        this.createStingray()
+        // this.createStingray()
         this.createFish(scene)
     },
 
@@ -60,12 +60,11 @@ const scene = {
                 document.addEventListener('mousemove', this.sceneState === 1 ? this.showScene : this.hideTransitionScreen)
             }
 
-            if (this.sceneState === 1) {
-                this.swimState === 'on' && this.stingraySwim('stingray-path-1', 15)
-                this.swimState === 'stingray-path-1-done' && this.stingraySwim('stingray-path-2', 15)
-            }
+            // if (this.sceneState === 1) {
+            //     this.swimState === 'on' && this.stingraySwim('stingray-path-1', 15)
+            //     this.swimState === 'stingray-path-1-done' && this.stingraySwim('stingray-path-2', 15)
+            // }
 
-            console.log(this.swimState)
 
             // this.framesCounter % 80 === 0 && this.shinyCorals.forEach(coral => coral.animate())
         }, 1000 / 60)
@@ -295,6 +294,12 @@ const scene = {
     createS2Elements() {
         this.createFish('scene-2')
         this.createSpriteCorals('scene-2')
+        this.createS2Stingray('scene-2')
+    },
+
+    createS2Stingray(scene) {
+        const { posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation } = elements[scene].stingray
+        this.stingray = new PathStingray(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation)
     },
 
     createScrollTrigger() {

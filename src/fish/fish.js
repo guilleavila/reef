@@ -79,3 +79,7 @@ export class PathStingray extends SpriteElement {
             })
     }
 }
+
+export class PathFrontStingray extends SpriteElement {
+    
+}

@@ -1334,7 +1334,24 @@
                     "duration": 0.6
                 }
             }
-        ]
+        ],
+        "stingray":{
+            "posX": -20,
+            "posY": 30,
+            "width": 50,
+            "height": 25,
+            "speed": 0.5,
+            "id": "stingray-2",
+            "sceneID": "scene-2",
+            "depth": "p1",
+            "type": "fish",
+            "name": "stingray",
+            "totalFrames": 50,
+            "animation": {
+                "name": "frontStingrayAnimate",
+                "duration": 3
+            }
+        }
     },
     "stingray": {
         "posX": -10,

@@ -313,6 +313,16 @@ button {
     }
 }
 
+@keyframes frontStingrayAnimate {
+    0% {
+        background-position: 0vw 0;
+    }
+
+    100% {
+        background-position: -2500vw 0;
+    }
+}
+
 @keyframes raysAnimation {
     0% {
         left: -10vw;
