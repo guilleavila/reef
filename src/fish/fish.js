@@ -64,22 +64,18 @@ export class PathStingray extends SpriteElement {
         super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation)
     }
 
-    swim(path, duration,delay) {
+    swim(path, duration,rotation, delay) {
         gsap.to(`#${this.id}`, {
                 duration: duration,
                 motionPath: {
                     path: `#${path}`,
                     align: `#${path}`,
                     alignOrigin: [0.5, 0.5],
-                    autoRotate: 90
+                    autoRotate: rotation
                 },
                 ease: "linear",
                 delay: delay,
                 onComplete: () => scene.swimState = `${path}-done`
             })
     }
-}
-
-export class PathFrontStingray extends SpriteElement {
-    
 }

@@ -48,7 +48,7 @@ const scene = {
     createElements(scene) {
         this.createShinyCorals(scene)
         this.createSpriteCorals(scene)
-        // this.createStingray()
+        this.createStingray()
         this.createFish(scene)
     },
 
@@ -60,11 +60,14 @@ const scene = {
                 document.addEventListener('mousemove', this.sceneState === 1 ? this.showScene : this.hideTransitionScreen)
             }
 
-            // if (this.sceneState === 1) {
-            //     this.swimState === 'on' && this.stingraySwim('stingray-path-1', 15)
-            //     this.swimState === 'stingray-path-1-done' && this.stingraySwim('stingray-path-2', 15)
-            // }
+            if (this.sceneState === 1) {
+                this.swimState === 'on' && this.stingraySwim('stingray-path-1', 15, 90,0)
+                this.swimState === 'stingray-path-1-done' && this.stingraySwim('stingray-path-2', 15, 90,0)
+            }
 
+            if(this.sceneState === 2){
+                this.swimState === 'on' && this.stingraySwim('stingray-path-9', 20, 0,2)
+            }
 
             // this.framesCounter % 80 === 0 && this.shinyCorals.forEach(coral => coral.animate())
         }, 1000 / 60)
@@ -130,9 +133,9 @@ const scene = {
         this.fish.forEach(fish => fish.swim())
     },
 
-    stingraySwim(path, duration) {
+    stingraySwim(path, duration, rotation,delay) {
         this.swimState = path
-        this.stingray.swim(path, duration, 0)
+        this.stingray.swim(path, duration,rotation, delay)
     },
 
     animateIntroScreen() {
@@ -255,6 +258,7 @@ const scene = {
             onComplete: () => {
                 this.sceneState = 2
                 this.introState = 'on'
+                this.swimState = 'on'
                 this.emptyScene()
                 this.scene2Init()
             }
@@ -335,6 +339,9 @@ const scene = {
             elm.depth === 'p1' && scene2TL.to(`#${elm.id}`, { top: `${elm.position.y - 95}vh` }, 0)
             elm.depth === 'p2' && scene2TL.to(`#${elm.id}`, { top: `${elm.position.y - 85}vh` }, 0)
         })
+
+        // STINGRAY
+        scene2TL.to(`#${this.stingray.id}`, { top: `${this.stingray.position.y - 95}vh` }, 0)
     }
 
 }
