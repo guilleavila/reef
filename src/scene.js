@@ -62,7 +62,10 @@ const scene = {
 
             if (this.sceneState === 1) {
                 this.swimState === 'on' && this.stingraySwim('stingray-path-1', 15, 90,0)
-                this.swimState === 'stingray-path-1-done' && this.stingraySwim('stingray-path-2', 15, 90,0)
+                if(this.swimState === 'stingray-path-1-done') {
+                    this.stingraySwim('stingray-path-2', 15, 90,0)
+                    this.hideLogo()
+                } 
             }
 
             if(this.sceneState === 2){
@@ -184,7 +187,7 @@ const scene = {
                 delay: 0.5
             })
             gsap.to('.logo-intro', {
-                visibility: 'hidden',
+                // visibility: 'hidden',
                 zIndex: -80
             })
             gsap.to('.text-intro', {
@@ -214,23 +217,23 @@ const scene = {
         gsap.to('#r', {
             duration: 1,
             opacity: 0,
-            delay: 7.2,
+            delay: 8.2,
             onComplete: () => this.showButton()
         })
         gsap.to('#e1', {
             duration: 1,
             opacity: 0,
-            delay: 6.8,
+            delay: 7.8,
         })
         gsap.to('#e2', {
             duration: 1,
             opacity: 0,
-            delay: 6.3,
+            delay: 7.3,
         })
         gsap.to('#f', {
             duration: 1,
             opacity: 0,
-            delay: 5.9,
+            delay: 6.9,
         })
     },
 
