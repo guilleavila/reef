@@ -111,8 +111,9 @@ const scene = {
     },
 
     createSpriteCorals(scene) {
+        const isCoral = scene === 'scene-2'
         elements[scene].spriteCorals.forEach(elm => this.spriteCorals.push(
-            new SpriteElement(elm.posX, elm.posY, elm.width, elm.height, elm.speed, elm.id, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation)
+            new SpriteElement(elm.posX, elm.posY, elm.width, elm.height, elm.speed, elm.id, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, isCoral)
         ))
     },
 
@@ -338,8 +339,8 @@ const scene = {
 
         // CORALS
         this.spriteCorals.forEach(elm => {
-            elm.depth === 'p1' && scene2TL.to(`#${elm.id}`, { top: `${elm.position.y - 95}vh` }, 0)
-            elm.depth === 'p2' && scene2TL.to(`#${elm.id}`, { top: `${elm.position.y - 85}vh` }, 0)
+            elm.depth === 'p1' && scene2TL.to(`#${elm.id}`, { bottom: `${elm.position.y + 80}vh` }, 0)
+            elm.depth === 'p2' && scene2TL.to(`#${elm.id}`, { bottom: `${elm.position.y + 65}vh` }, 0)
         })
 
         // FISH

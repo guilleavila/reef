@@ -32,8 +32,9 @@ export class Element {
 
 
 export class SpriteElement extends Element {
-    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation) {
+    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, isCoral) {
         super(posX, posY, width, speed, id, sceneID, depth, type, name)
+        this.isCoral = isCoral
         this.height = height
         this.totalFrames = totalFrames
         this.animation = animation
@@ -48,7 +49,7 @@ export class SpriteElement extends Element {
             'src': `./images/${this.sceneID}/sprites/${this.type}/${this.name}/${this.name}.png`,
             'alt': `${this.name}`,
             'style': `position: fixed; 
-                top: ${this.position.y}vh; 
+                ${this.isCoral ? `bottom: ${this.position.y}vh;` : `top: ${this.position.y}vh;`} 
                 left: ${this.position.x}vw; 
                 width: ${this.width}vw;
                 height: ${this.height}vw;

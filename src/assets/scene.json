@@ -1132,7 +1132,7 @@
         "spriteCorals": [
             {
                 "posX": 7,
-                "posY": 125,
+                "posY": -35,
                 "width": 12,
                 "height": 12,
                 "speed": 0.5,
@@ -1148,8 +1148,8 @@
                 }
             },
             {
-                "posX": 70,
-                "posY": 147,
+                "posX": 74,
+                "posY": -73,
                 "width": 12,
                 "height": 12,
                 "speed": 0.5,
@@ -1166,7 +1166,7 @@
             },
             {
                 "posX": 1,
-                "posY": 129,
+                "posY": -38,
                 "width": 12,
                 "height": 12,
                 "speed": 0.5,
@@ -1183,7 +1183,7 @@
             },
             {
                 "posX": 7,
-                "posY": 130,
+                "posY": -30,
                 "width": 6,
                 "height": 6,
                 "speed": 0.5,
@@ -1200,7 +1200,7 @@
             },
             {
                 "posX": 72,
-                "posY": 160,
+                "posY": -64,
                 "width": 12,
                 "height": 12,
                 "speed": 0.5,
@@ -1217,7 +1217,7 @@
             },
             {
                 "posX": 20,
-                "posY": 185,
+                "posY": -91,
                 "width": 12,
                 "height": 12,
                 "speed": 0.5,
@@ -1234,7 +1234,7 @@
             },
             {
                 "posX": 26,
-                "posY": 187,
+                "posY": -82,
                 "width": 6,
                 "height": 6,
                 "speed": 0.5,
@@ -1251,7 +1251,7 @@
             },
             {
                 "posX": 64,
-                "posY": 117,
+                "posY": -20,
                 "width": 9,
                 "height": 9,
                 "speed": 0.5,
@@ -1268,7 +1268,7 @@
             },
             {
                 "posX": 30,
-                "posY": 165,
+                "posY": -68,
                 "width": 12,
                 "height": 12,
                 "speed": 0.5,
@@ -1285,7 +1285,7 @@
             },
             {
                 "posX": 17,
-                "posY": 184,
+                "posY": -83,
                 "width": 9,
                 "height": 9,
                 "speed": 0.5,
@@ -1302,7 +1302,7 @@
             },
             {
                 "posX": -5,
-                "posY": 118,
+                "posY": -29,
                 "width": 12,
                 "height": 12,
                 "speed": 0.5,
@@ -1319,7 +1319,7 @@
             },
             {
                 "posX": -2,
-                "posY": 121,
+                "posY": -25,
                 "width": 9,
                 "height": 9,
                 "speed": 0.5,
@@ -1335,7 +1335,7 @@
                 }
             }
         ],
-        "stingray":{
+        "stingray": {
             "posX": -50,
             "posY": -10,
             "width": 50,
