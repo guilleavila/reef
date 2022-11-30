@@ -164,7 +164,7 @@ button {
     visibility: hidden;
 }
 
-#reef-0 {
+/* #reef-0 {
     top: 100%;
 }
 
@@ -178,6 +178,42 @@ button {
 
 #reef-3 {
     top: 10%;
+} */
+
+#BG-2 {
+    position: fixed;
+    top: 0vh;
+    left: 0vw;
+    z-index: -100;
+    width: 100%;
+}
+
+#BLURED-1 {
+    position: fixed;
+    bottom: -125vh;
+    left: -5vw;
+    width: 115vw;
+}
+
+#P1-1 {
+    position: fixed;
+    bottom: -85vh;
+    left: -5vw;
+    width: 110vw;
+}
+
+#P2-1 {
+    position: fixed;
+    bottom: -60vh;
+    left: -2vw;
+    width: 115vw;
+}
+
+#P3-1 {
+    position: fixed;
+    bottom: -55vh;
+    left: 0vw;
+    width: 100vw;
 }
 
 
@@ -233,7 +269,7 @@ button {
     z-index: -78;
 }
 
-#particles-p2-js{
+#particles-p2-js {
     position: fixed;
     top: 0;
     left: 0;

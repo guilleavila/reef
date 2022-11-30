@@ -19,6 +19,7 @@ const scene = {
     fish: [],
     shinyCorals: [],
     spriteCorals: [],
+    referenceSize: undefined,
     introState: 'none',
     swimState: 'none',
 
@@ -60,16 +61,16 @@ const scene = {
                 document.addEventListener('mousemove', this.sceneState === 1 ? this.showScene : this.hideTransitionScreen)
             }
 
-            if (this.sceneState === 1) {
-                this.swimState === 'on' && this.stingraySwim('stingray-path-1', 15, 90,0)
-                if(this.swimState === 'stingray-path-1-done') {
-                    this.stingraySwim('stingray-path-2', 15, 90,0)
-                    this.hideLogo()
-                } 
-            }
+            // if (this.sceneState === 1) {
+            //     this.swimState === 'on' && this.stingraySwim('stingray-path-1', 15, 90,0)
+            //     if(this.swimState === 'stingray-path-1-done') {
+            //         this.stingraySwim('stingray-path-2', 15, 90,0)
+            //         this.hideLogo()
+            //     } 
+            // }
 
-            if(this.sceneState === 2){
-                this.swimState === 'on' && this.stingraySwim('stingray-path-9', 20, 0,2)
+            if (this.sceneState === 2) {
+                this.swimState === 'on' && this.stingraySwim('stingray-path-9', 20, 0, 2)
             }
 
             // this.framesCounter % 80 === 0 && this.shinyCorals.forEach(coral => coral.animate())
@@ -136,9 +137,9 @@ const scene = {
         this.fish.forEach(fish => fish.swim())
     },
 
-    stingraySwim(path, duration, rotation,delay) {
+    stingraySwim(path, duration, rotation, delay) {
         this.swimState = path
-        this.stingray.swim(path, duration,rotation, delay)
+        this.stingray.swim(path, duration, rotation, delay)
     },
 
     animateIntroScreen() {
@@ -284,7 +285,6 @@ const scene = {
     },
 
     scene2Init() {
-
         this.showScene2()
 
         this.createS2Elements()
@@ -309,6 +309,11 @@ const scene = {
         this.stingray = new PathStingray(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation)
     },
 
+    calculateReference() {
+        const element = document.getElementById('BG-2')
+        return element.clientHeight - window.innerHeight
+    },
+
     createScrollTrigger() {
         let scene2TL = gsap.timeline()
         ScrollTrigger.create({
@@ -323,13 +328,13 @@ const scene = {
         // -- SCENE2 ANIMATION --
 
         // PLANES
-        scene2TL.to('#reef-0', { top: '-60vh' }, 0)
-        scene2TL.to('#reef-1', { top: '-70vh' }, 0)
-        scene2TL.to('#reef-2', { top: '-70vh' }, 0)
-        scene2TL.to('#reef-3', { top: '-70vh' }, 0)
+        scene2TL.to('#BLURED-1', { bottom: '-1vh' }, 0)
+        scene2TL.to('#P1-1', { bottom: '-3vh' }, 0)
+        scene2TL.to('#P2-1', { bottom: '5vh' }, 0)
+        scene2TL.to('#P3-1', { bottom: '10vh' }, 0)
 
-        scene2TL.to('.bg', { top: '-70vh' }, 0)
-        scene2TL.to('.depth-element', { top: '-70vh' }, 0)
+        scene2TL.to('#BG-2', { top: `-${this.calculateReference()}` }, 0)
+        scene2TL.to('.depth-element', { top: `-${this.calculateReference()}` }, 0)
 
         // CORALS
         this.spriteCorals.forEach(elm => {
