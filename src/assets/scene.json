@@ -669,7 +669,7 @@
                 "sceneID": "scene-2",
                 "depth": "p1",
                 "type": "fish",
-                "name": "yellow-reverse",
+                "name": "blow-reverse",
                 "totalFrames": 15,
                 "animation": {
                     "name": "mFishAnimate",
@@ -795,7 +795,7 @@
                 "sceneID": "scene-2",
                 "depth": "p2",
                 "type": "fish",
-                "name": "green-reverse",
+                "name": "torpedo-reverse",
                 "totalFrames": 15,
                 "animation": {
                     "name": "sFishAnimate",
@@ -849,7 +849,7 @@
                 "sceneID": "scene-2",
                 "depth": "p2",
                 "type": "fish",
-                "name": "blue-reverse",
+                "name": "fairyfish-reverse",
                 "totalFrames": 15,
                 "animation": {
                     "name": "xsFishAnimate",
@@ -867,7 +867,7 @@
                 "sceneID": "scene-2",
                 "depth": "p2",
                 "type": "fish",
-                "name": "blue-reverse",
+                "name": "lion-reverse",
                 "totalFrames": 15,
                 "animation": {
                     "name": "mFishAnimate",
@@ -939,7 +939,7 @@
                 "sceneID": "scene-2",
                 "depth": "p1",
                 "type": "fish",
-                "name": "pink-reverse",
+                "name": "surgeon-reverse",
                 "totalFrames": 15,
                 "animation": {
                     "name": "sFishAnimate",
@@ -1029,7 +1029,7 @@
                 "sceneID": "scene-2",
                 "depth": "p2",
                 "type": "fish",
-                "name": "yellow-reverse",
+                "name": "lion-reverse",
                 "totalFrames": 15,
                 "animation": {
                     "name": "sFishAnimate",
@@ -1101,7 +1101,7 @@
                 "sceneID": "scene-2",
                 "depth": "p2",
                 "type": "fish",
-                "name": "light-blue-reverse",
+                "name": "black-reverse",
                 "totalFrames": 15,
                 "animation": {
                     "name": "sFishAnimate",
@@ -1119,7 +1119,7 @@
                 "sceneID": "scene-2",
                 "depth": "p2",
                 "type": "fish",
-                "name": "light-blue-reverse",
+                "name": "blow-reverse",
                 "totalFrames": 15,
                 "animation": {
                     "name": "sFishAnimate",

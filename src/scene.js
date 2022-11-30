@@ -345,6 +345,10 @@ const scene = {
 
         // STINGRAY
         scene2TL.to(`#${this.stingray.id}`, { top: `${this.stingray.position.y - 95}vh` }, 0)
+
+        // PARTICLES
+        scene2TL.to('#particles-js', { top: `-95vh` }, 0)
+        scene2TL.to('#particles-p2-js', { top: `-75vh` }, 0)
     }
 
 }
