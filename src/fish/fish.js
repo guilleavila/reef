@@ -11,7 +11,7 @@ export class StaticFish extends SpriteElement {
     swim() {
         gsap.to(`#${this.id}`, {
             rotate: Math.random(10 - 3) + 3,
-            left: `${this.position.x + 1}%`,
+            right: `${this.position.x + 1}%`,
             duration: Math.random(5 - 1) + 1,
             repeat: -1,
             yoyo: true,
@@ -64,18 +64,18 @@ export class PathStingray extends SpriteElement {
         super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation)
     }
 
-    swim(path, duration,rotation, delay) {
+    swim(path, duration, rotation, delay) {
         gsap.to(`#${this.id}`, {
-                duration: duration,
-                motionPath: {
-                    path: `#${path}`,
-                    align: `#${path}`,
-                    alignOrigin: [0.5, 0.5],
-                    autoRotate: rotation
-                },
-                ease: "linear",
-                delay: delay,
-                onComplete: () => scene.swimState = `${path}-done`
-            })
+            duration: duration,
+            motionPath: {
+                path: `#${path}`,
+                align: `#${path}`,
+                alignOrigin: [0.5, 0.5],
+                autoRotate: rotation
+            },
+            ease: "linear",
+            delay: delay,
+            onComplete: () => scene.swimState = `${path}-done`
+        })
     }
 }

@@ -507,7 +507,7 @@
     "scene-2": {
         "staticFish": [
             {
-                "posX": 92,
+                "posX": 2.5,
                 "posY": 100,
                 "width": 5.5,
                 "height": 5.5,
@@ -523,7 +523,7 @@
                 }
             },
             {
-                "posX": 26,
+                "posX": 71,
                 "posY": 128,
                 "width": 3,
                 "height": 3,
@@ -539,7 +539,7 @@
                 }
             },
             {
-                "posX": 67,
+                "posX": 29,
                 "posY": 90,
                 "width": 4,
                 "height": 4,
@@ -555,7 +555,7 @@
                 }
             },
             {
-                "posX": 34,
+                "posX": 64,
                 "posY": 189,
                 "width": 2,
                 "height": 2,
@@ -571,7 +571,7 @@
                 }
             },
             {
-                "posX": 32,
+                "posX": 65,
                 "posY": 185,
                 "width": 3,
                 "height": 3,
@@ -587,7 +587,7 @@
                 }
             },
             {
-                "posX": 39,
+                "posX": 58,
                 "posY": 185,
                 "width": 3,
                 "height": 3,
@@ -603,7 +603,7 @@
                 }
             },
             {
-                "posX": 62,
+                "posX": 35,
                 "posY": 139,
                 "width": 3,
                 "height": 3,
@@ -661,7 +661,7 @@
         ],
         "straightPathFish": [
             {
-                "posX": 3,
+                "posX": 93,
                 "posY": 54,
                 "width": 4,
                 "height": 4,
@@ -679,7 +679,7 @@
                 "delay": 0
             },
             {
-                "posX": 15,
+                "posX": 82,
                 "posY": 55,
                 "width": 3,
                 "height": 3,
@@ -697,7 +697,7 @@
                 "delay": 0
             },
             {
-                "posX": 0,
+                "posX": 98,
                 "posY": 52,
                 "width": 2,
                 "height": 2,
@@ -715,7 +715,7 @@
                 "delay": 1.4
             },
             {
-                "posX": 100,
+                "posX": -4,
                 "posY": 50,
                 "width": 4,
                 "height": 4,
@@ -733,7 +733,7 @@
                 "delay": 0
             },
             {
-                "posX": 100,
+                "posX": -3,
                 "posY": 55,
                 "width": 3,
                 "height": 3,
@@ -751,7 +751,7 @@
                 "delay": 2
             },
             {
-                "posX": 70,
+                "posX": 28,
                 "posY": 55,
                 "width": 2,
                 "height": 2,
@@ -769,7 +769,7 @@
                 "delay": 0
             },
             {
-                "posX": 90,
+                "posX": 8,
                 "posY": 65,
                 "width": 2,
                 "height": 2,
@@ -787,7 +787,7 @@
                 "delay": 0
             },
             {
-                "posX": 70,
+                "posX": 27,
                 "posY": 19,
                 "width": 3,
                 "height": 3,
@@ -805,7 +805,7 @@
                 "delay": 0
             },
             {
-                "posX": 100,
+                "posX": -3,
                 "posY": 143,
                 "width": 3,
                 "height": 3,
@@ -823,7 +823,7 @@
                 "delay": 2
             },
             {
-                "posX": 30,
+                "posX": 66,
                 "posY": 83,
                 "width": 4,
                 "height": 4,
@@ -841,7 +841,7 @@
                 "delay": 0
             },
             {
-                "posX": 25,
+                "posX": 73,
                 "posY": 83,
                 "width": 2,
                 "height": 2,
@@ -859,7 +859,7 @@
                 "delay": 0
             },
             {
-                "posX": -15,
+                "posX": 111,
                 "posY": 13,
                 "width": 4,
                 "height": 4,
@@ -877,7 +877,7 @@
                 "delay": 6
             },
             {
-                "posX": 57,
+                "posX": 39,
                 "posY": 31,
                 "width": 4,
                 "height": 4,
@@ -895,7 +895,7 @@
                 "delay": 0
             },
             {
-                "posX": -15,
+                "posX": 111,
                 "posY": 11,
                 "width": 4,
                 "height": 4,
@@ -913,7 +913,7 @@
                 "delay": 2
             },
             {
-                "posX": 0,
+                "posX": 97,
                 "posY": 14,
                 "width": 3,
                 "height": 3,
@@ -931,7 +931,7 @@
                 "delay": 0
             },
             {
-                "posX": 0,
+                "posX": 97,
                 "posY": 166,
                 "width": 3,
                 "height": 3,
@@ -949,8 +949,8 @@
                 "delay": 0
             },
             {
-                "posX": 100,
-                "posY": 178,
+                "posX": -5.5,
+                "posY": 163,
                 "width": 5.5,
                 "height": 5.5,
                 "speed": 0.3,
@@ -967,10 +967,10 @@
                 "delay": 0
             },
             {
-                "posX": 100,
-                "posY": 178,
-                "width": 2,
-                "height": 2,
+                "posX": -2,
+                "posY": 160,
+                "width": 5.5,
+                "height": 5.5,
                 "speed": 0.3,
                 "sceneID": "scene-2",
                 "depth": "p1",
@@ -978,14 +978,14 @@
                 "name": "blow",
                 "totalFrames": 15,
                 "animation": {
-                    "name": "xsFishAnimate",
+                    "name": "lFishAnimate",
                     "duration": 0.6
                 },
                 "duration": 22,
                 "delay": 0
             },
             {
-                "posX": 30,
+                "posX": 68,
                 "posY": 7,
                 "width": 2,
                 "height": 2,
@@ -1003,7 +1003,7 @@
                 "delay": 0
             },
             {
-                "posX": 0,
+                "posX": 97,
                 "posY": 147,
                 "width": 3,
                 "height": 3,
@@ -1021,7 +1021,7 @@
                 "delay": 3
             },
             {
-                "posX": 0,
+                "posX": 97,
                 "posY": 158,
                 "width": 3,
                 "height": 3,
@@ -1039,7 +1039,7 @@
                 "delay": 7
             },
             {
-                "posX": 100,
+                "posX": -3,
                 "posY": 140,
                 "width": 3,
                 "height": 3,
@@ -1057,7 +1057,7 @@
                 "delay": 0
             },
             {
-                "posX": 100,
+                "posX": -3,
                 "posY": 133,
                 "width": 3,
                 "height": 3,
@@ -1075,7 +1075,7 @@
                 "delay": 0
             },
             {
-                "posX": 0,
+                "posX": -3,
                 "posY": 133,
                 "width": 3,
                 "height": 3,
@@ -1093,7 +1093,7 @@
                 "delay": 0
             },
             {
-                "posX": 0,
+                "posX": -3,
                 "posY": 26,
                 "width": 3,
                 "height": 3,
@@ -1111,7 +1111,7 @@
                 "delay": 0
             },
             {
-                "posX": 10,
+                "posX": 87,
                 "posY": 126,
                 "width": 3,
                 "height": 3,
@@ -1131,8 +1131,8 @@
         ],
         "spriteCorals": [
             {
-                "posX": 7,
-                "posY": -35,
+                "posX": 80,
+                "posY": -39,
                 "width": 12,
                 "height": 12,
                 "speed": 0.5,
@@ -1148,7 +1148,7 @@
                 }
             },
             {
-                "posX": 74,
+                "posX": 11,
                 "posY": -73,
                 "width": 12,
                 "height": 12,
@@ -1165,7 +1165,7 @@
                 }
             },
             {
-                "posX": 1,
+                "posX": 87,
                 "posY": -38,
                 "width": 12,
                 "height": 12,
@@ -1182,7 +1182,7 @@
                 }
             },
             {
-                "posX": 7,
+                "posX": 87,
                 "posY": -30,
                 "width": 6,
                 "height": 6,
@@ -1199,7 +1199,7 @@
                 }
             },
             {
-                "posX": 72,
+                "posX": 13,
                 "posY": -64,
                 "width": 12,
                 "height": 12,
@@ -1216,7 +1216,7 @@
                 }
             },
             {
-                "posX": 20,
+                "posX": 68,
                 "posY": -91,
                 "width": 12,
                 "height": 12,
@@ -1233,7 +1233,7 @@
                 }
             },
             {
-                "posX": 26,
+                "posX": 68,
                 "posY": -82,
                 "width": 6,
                 "height": 6,
@@ -1250,7 +1250,7 @@
                 }
             },
             {
-                "posX": 64,
+                "posX": 27,
                 "posY": -20,
                 "width": 9,
                 "height": 9,
@@ -1267,7 +1267,7 @@
                 }
             },
             {
-                "posX": 30,
+                "posX": 58,
                 "posY": -68,
                 "width": 12,
                 "height": 12,
@@ -1284,8 +1284,8 @@
                 }
             },
             {
-                "posX": 17,
-                "posY": -83,
+                "posX": 74,
+                "posY": -84,
                 "width": 9,
                 "height": 9,
                 "speed": 0.5,
@@ -1301,7 +1301,7 @@
                 }
             },
             {
-                "posX": -5,
+                "posX": 93,
                 "posY": -29,
                 "width": 12,
                 "height": 12,
@@ -1318,7 +1318,7 @@
                 }
             },
             {
-                "posX": -2,
+                "posX": 93,
                 "posY": -25,
                 "width": 9,
                 "height": 9,

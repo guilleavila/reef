@@ -50,7 +50,7 @@ export class SpriteElement extends Element {
             'alt': `${this.name}`,
             'style': `position: fixed; 
                 ${this.isCoral ? `bottom: ${this.position.y}vh;` : `top: ${this.position.y}vh;`} 
-                left: ${this.position.x}vw; 
+                right: ${this.position.x}vw; 
                 width: ${this.width}vw;
                 height: ${this.height}vw;
                 background: url(./images/${this.sceneID}/sprites/${this.type}/${this.name}/${this.name}.png) no-repeat;

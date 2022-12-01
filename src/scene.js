@@ -316,9 +316,10 @@ const scene = {
     },
 
     createScrollTrigger() {
-        let scene2TL = gsap.timeline()
+        // S1-1
+        let scene21TL = gsap.timeline()
         ScrollTrigger.create({
-            animation: scene2TL,
+            animation: scene21TL,
             trigger: '.scrollElement',
             start: "top top",
             end: "25% 100%",
@@ -326,35 +327,59 @@ const scene = {
             markers: true
         })
 
-        // -- SCENE2 ANIMATION --
-
         // PLANES
-        scene2TL.to('#BLURED-1', { bottom: '-1vh' }, 0)
-        scene2TL.to('#P1-1', { bottom: '-3vh' }, 0)
-        scene2TL.to('#P2-1', { bottom: '5vh' }, 0)
-        scene2TL.to('#P3-1', { bottom: '10vh' }, 0)
+        scene21TL.to('#BLURED-1', { bottom: '-1vh' }, 0)
+        scene21TL.to('#P1-1', { bottom: '-3vh' }, 0)
+        scene21TL.to('#P1-2', { bottom: '3vh' }, 0)
+        scene21TL.to('#P2-1', { bottom: '5vh' }, 0)
+        scene21TL.to('#P3-1', { bottom: '10vh' }, 0)
 
-        scene2TL.to('#BG-2', { top: `-${this.calculateReference()}` }, 0)
-        scene2TL.to('.depth-element', { top: `-${this.calculateReference()}` }, 0)
+        scene21TL.to('#BG-2', { top: `-${this.calculateReference()}` }, 0)
+        scene21TL.to('.depth-element', { top: `-${this.calculateReference()}` }, 0)
 
         // CORALS
         this.spriteCorals.forEach(elm => {
-            elm.depth === 'p1' && scene2TL.to(`#${elm.id}`, { bottom: `${elm.position.y + 80}vh` }, 0)
-            elm.depth === 'p2' && scene2TL.to(`#${elm.id}`, { bottom: `${elm.position.y + 65}vh` }, 0)
+            elm.depth === 'p1' && scene21TL.to(`#${elm.id}`, { bottom: `${elm.position.y + 80}vh` }, 0)
+            elm.depth === 'p2' && scene21TL.to(`#${elm.id}`, { bottom: `${elm.position.y + 65}vh` }, 0)
         })
 
         // FISH
         this.fish.forEach(elm => {
-            elm.depth === 'p1' && scene2TL.to(`#${elm.id}`, { top: `${elm.position.y - 95}vh` }, 0)
-            elm.depth === 'p2' && scene2TL.to(`#${elm.id}`, { top: `${elm.position.y - 85}vh` }, 0)
+            elm.depth === 'p1' && scene21TL.to(`#${elm.id}`, { top: `${elm.position.y - 80}vh` }, 0)
+            elm.depth === 'p2' && scene21TL.to(`#${elm.id}`, { top: `${elm.position.y - 65}vh` }, 0)
         })
 
         // STINGRAY
-        scene2TL.to(`#${this.stingray.id}`, { top: `${this.stingray.position.y - 95}vh` }, 0)
+        scene21TL.to(`#${this.stingray.id}`, { top: `${this.stingray.position.y - 95}vh` }, 0)
 
         // PARTICLES
-        scene2TL.to('#particles-js', { top: `-95vh` }, 0)
-        scene2TL.to('#particles-p2-js', { top: `-75vh` }, 0)
+        scene21TL.to('#particles-js', { top: `-95vh` }, 0)
+        scene21TL.to('#particles-p2-js', { top: `-75vh` }, 0)
+
+
+        // S2-2
+        let scene22TL = gsap.timeline()
+        ScrollTrigger.create({
+            animation: scene22TL,
+            trigger: '.scrollElement',
+            start: "25% bottom",
+            end: "40% 100%",
+            scrub: 3,
+            markers: true
+        })
+
+        scene22TL.to('#BLURED-1', { right: '300vh', scale: 2, transformOrigin: "100% 100%" }, 0)
+        scene22TL.to('#P1-1', { right: '10vh', scale: 1.8, transformOrigin: "100% 92%" }, 0)
+        scene22TL.to('#P2-1', { right: '10vh', scale: 1.2, transformOrigin: "100% 90%" }, 0)
+        scene22TL.to('#P3-1', { right: '7vh', scale: 1.05, transformOrigin: "100% 90%" }, 0)
+
+        // CORALS
+        this.spriteCorals.forEach(elm => {
+            console.log(elm)
+            elm.depth === 'p1' && scene22TL.to(`#${elm.id}`, { right: `${elm.position.x + 170}vw`, scale: 1.8, }, 0)
+            // elm.depth === 'p2' && scene21TL.to(`#${elm.id}`, { bottom: `${elm.position.y + 65}vh` }, 0)
+        })
+
     }
 
 }

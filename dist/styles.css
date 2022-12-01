@@ -164,22 +164,6 @@ button {
     visibility: hidden;
 }
 
-/* #reef-0 {
-    top: 100%;
-}
-
-#reef-1 {
-    top: 25%;
-}
-
-#reef-2 {
-    top: 15%;
-}
-
-#reef-3 {
-    top: 10%;
-} */
-
 #BG-2 {
     position: fixed;
     top: 0vh;
@@ -191,28 +175,28 @@ button {
 #BLURED-1 {
     position: fixed;
     bottom: -125vh;
-    left: -5vw;
+    right: -10vw;
     width: 115vw;
 }
 
 #P1-1 {
     position: fixed;
     bottom: -85vh;
-    left: -5vw;
-    width: 110vw;
+    right: -59vw;
+    width: 161vw;
 }
 
 #P2-1 {
     position: fixed;
     bottom: -60vh;
-    left: -2vw;
+    right: -13vw;
     width: 115vw;
 }
 
 #P3-1 {
     position: fixed;
     bottom: -55vh;
-    left: 0vw;
+    right: 0vw;
     width: 100vw;
 }
 
