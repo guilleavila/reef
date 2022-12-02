@@ -1325,15 +1325,15 @@
         ],
         "hoverCorals": [
             {
-                "posX": 80,
-                "posY": -39,
+                "posX": 40,
+                "posY": 5,
                 "width": 12,
                 "height": 12,
                 "speed": 0.5,
                 "sceneID": "scene-2",
                 "depth": "p1",
                 "type": "top-coral",
-                "name": "orange-worm-coral",
+                "name": "green-worm-coral",
                 "totalFrames": 15,
                 "animation": {
                     "name": "lCoralAnimate",

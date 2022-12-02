@@ -16,7 +16,7 @@ export class Element {
             'id': this.id,
             'src': `./images/${this.sceneID}/sprites/${this.type}/${this.name}/${this.name}.png`,
             'alt': `${this.name}`,
-            'style': `position: fixed; top: ${this.position.y}%; left: ${this.position.x}%; width: ${this.width}%;`,
+            'style': `position: fixed; bottom: ${this.position.y}vh; right: ${this.position.x}vw; width: ${this.width}vw;`,
             'class': `plane ${this.depth}`,
             'data-speed': this.speed
         }

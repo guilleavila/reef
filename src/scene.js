@@ -6,6 +6,7 @@ import elements from './assets/scene.json'
 import { ShinyCoral } from "./corals/shinyCoral"
 import { SpriteElement } from "./element/element"
 import { PathFish, PathStingray, StaticFish, StraightPathFish } from "./fish/fish"
+import { HoverCoral } from "./corals/hoverCoral"
 
 gsap.registerPlugin(MotionPathPlugin)
 gsap.registerPlugin(ScrollTrigger)
@@ -19,6 +20,7 @@ const scene = {
     fish: [],
     shinyCorals: [],
     spriteCorals: [],
+    hoverCorals: [],
     referenceSize: undefined,
     introState: 'none',
     swimState: 'none',
@@ -118,9 +120,6 @@ const scene = {
     createSpriteCorals(scene) {
         const isCoral = scene === 'scene-2'
         elements[scene].spriteCorals.forEach(elm => this.spriteCorals.push(
-            new SpriteElement(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.spriteCorals.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, this.getDivID(elm.depth), isCoral)
-        ))
-        elements[scene].hoverCorals?.forEach(elm => this.spriteCorals.push(
             new SpriteElement(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.spriteCorals.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, this.getDivID(elm.depth), isCoral)
         ))
     },
@@ -298,7 +297,7 @@ const scene = {
 
         this.createS2Elements()
         this.fishSwim()
-
+        this.addHoverCoralListener()
         this.createScrollTrigger()
     },
 
@@ -310,7 +309,14 @@ const scene = {
     createS2Elements() {
         this.createFish('scene-2')
         this.createSpriteCorals('scene-2')
+        this.createHoverCorals('scene-2')
         this.createS2Stingray('scene-2')
+    },
+
+    createHoverCorals(scene) {
+        elements[scene].hoverCorals.forEach(elm => this.hoverCorals.push(
+            new HoverCoral(elm.posX, elm.posY, elm.width, elm.speed, `${elm.name}-${this.spriteCorals.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name)
+        ))
     },
 
     createS2Stingray(scene) {
@@ -318,16 +324,18 @@ const scene = {
         this.stingray = new PathStingray(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, this.getDivID(depth))
     },
 
+    addHoverCoralListener() {
+        const hoverNodes = document.querySelectorAll('.hoverCoral')
+        hoverNodes.forEach(elm => elm.addEventListener("mouseover", () => {
+            this.hoverCorals.forEach(coral => {
+                coral.id === elm.id && coral.animate()
+            })
+        }))
+    },
+
     calculateReference() {
         const element = document.getElementById('BG-2')
         return element.clientHeight - window.innerHeight
-    },
-
-    calculateScaleProportion(coral) {
-        const imageWidth = document.getElementById('P1-1').clientWidth
-
-
-
     },
 
     createScrollTrigger() {
@@ -384,7 +392,7 @@ const scene = {
 
         scene22TL.to('#BLURED-1', { right: '300vw', scale: 2, transformOrigin: "100% 100%" }, 0)
         scene22TL.to('#P1-S2', { right: '110vw', scale: 1.8, transformOrigin: "100% 94%" }, 0)
-        scene22TL.to('#P2-S2', { right: '10vw', scale: 1.2, transformOrigin: "100% 90%" }, 0)
+        scene22TL.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: "100% 90%" }, 0)
         scene22TL.to('#P3-1', { right: '7vw', scale: 1.05, transformOrigin: "100% 90%" }, 0)
     }
 

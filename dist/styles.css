@@ -218,6 +218,10 @@ button {
     width: 100vw;
 }
 
+/* CORALS */
+.hoverCoral {
+    z-index: 100;
+}
 
 /* SUN RAYS */
 .sun-rays {
