@@ -104,6 +104,11 @@ const scene = {
         });
     },
 
+    getDivID(depth) {
+        const divID = `${depth.toUpperCase()}-S${this.sceneState}`
+        return divID
+    },
+
     createShinyCorals(scene) {
         elements[scene].shinyCorals.forEach(elm => this.shinyCorals.push(
             new ShinyCoral(elm.posX, elm.posY, elm.width, elm.speed, elm.id, elm.sceneID, elm.depth, elm.type, elm.name, elm.color)
@@ -113,24 +118,27 @@ const scene = {
     createSpriteCorals(scene) {
         const isCoral = scene === 'scene-2'
         elements[scene].spriteCorals.forEach(elm => this.spriteCorals.push(
-            new SpriteElement(elm.posX, elm.posY, elm.width, elm.height, elm.speed, elm.id, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, isCoral)
+            new SpriteElement(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.spriteCorals.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, this.getDivID(elm.depth), isCoral)
+        ))
+        elements[scene].hoverCorals?.forEach(elm => this.spriteCorals.push(
+            new SpriteElement(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.spriteCorals.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, this.getDivID(elm.depth), isCoral)
         ))
     },
 
     createStingray() {
         const { posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation } = elements.stingray
-        this.stingray = new PathStingray(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation)
+        this.stingray = new PathStingray(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, this.getDivID(depth))
     },
 
     createFish(scene) {
         elements[scene].staticFish.forEach(elm => this.fish.push(
-            new StaticFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation)
+            new StaticFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, this.getDivID(elm.depth))
         ))
         elements[scene].pathFish.forEach(elm => this.fish.push(
-            new PathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.path, elm.duration, elm.delay)
+            new PathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, this.getDivID(elm.depth), elm.path, elm.duration, elm.delay)
         ))
         elements[scene].straightPathFish?.forEach(elm => this.fish.push(
-            new StraightPathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.duration, elm.delay)
+            new StraightPathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, this.getDivID(elm.depth), elm.duration, elm.delay)
         ))
     },
 
@@ -307,12 +315,19 @@ const scene = {
 
     createS2Stingray(scene) {
         const { posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation } = elements[scene].stingray
-        this.stingray = new PathStingray(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation)
+        this.stingray = new PathStingray(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, this.getDivID(depth))
     },
 
     calculateReference() {
         const element = document.getElementById('BG-2')
         return element.clientHeight - window.innerHeight
+    },
+
+    calculateScaleProportion(coral) {
+        const imageWidth = document.getElementById('P1-1').clientWidth
+
+
+
     },
 
     createScrollTrigger() {
@@ -330,7 +345,6 @@ const scene = {
         // PLANES
         scene21TL.to('#BLURED-1', { bottom: '-1vh' }, 0)
         scene21TL.to('#P1-1', { bottom: '-3vh' }, 0)
-        scene21TL.to('#P1-2', { bottom: '3vh' }, 0)
         scene21TL.to('#P2-1', { bottom: '5vh' }, 0)
         scene21TL.to('#P3-1', { bottom: '10vh' }, 0)
 
@@ -368,18 +382,10 @@ const scene = {
             markers: true
         })
 
-        scene22TL.to('#BLURED-1', { right: '300vh', scale: 2, transformOrigin: "100% 100%" }, 0)
-        scene22TL.to('#P1-1', { right: '10vh', scale: 1.8, transformOrigin: "100% 92%" }, 0)
-        scene22TL.to('#P2-1', { right: '10vh', scale: 1.2, transformOrigin: "100% 90%" }, 0)
-        scene22TL.to('#P3-1', { right: '7vh', scale: 1.05, transformOrigin: "100% 90%" }, 0)
-
-        // CORALS
-        this.spriteCorals.forEach(elm => {
-            console.log(elm)
-            elm.depth === 'p1' && scene22TL.to(`#${elm.id}`, { right: `${elm.position.x + 170}vw`, scale: 1.8, }, 0)
-            // elm.depth === 'p2' && scene21TL.to(`#${elm.id}`, { bottom: `${elm.position.y + 65}vh` }, 0)
-        })
-
+        scene22TL.to('#BLURED-1', { right: '300vw', scale: 2, transformOrigin: "100% 100%" }, 0)
+        scene22TL.to('#P1-S2', { right: '110vw', scale: 1.8, transformOrigin: "100% 94%" }, 0)
+        scene22TL.to('#P2-S2', { right: '10vw', scale: 1.2, transformOrigin: "100% 90%" }, 0)
+        scene22TL.to('#P3-1', { right: '7vw', scale: 1.05, transformOrigin: "100% 90%" }, 0)
     }
 
 }

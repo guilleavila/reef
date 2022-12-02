@@ -32,12 +32,13 @@ export class Element {
 
 
 export class SpriteElement extends Element {
-    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, isCoral) {
+    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID, isCoral) {
         super(posX, posY, width, speed, id, sceneID, depth, type, name)
-        this.isCoral = isCoral
         this.height = height
         this.totalFrames = totalFrames
         this.animation = animation
+        this.isCoral = isCoral
+        this.divID = divID
         this.draw()
     }
 
@@ -65,7 +66,7 @@ export class SpriteElement extends Element {
             elementIcon.setAttribute(attr, attributes[attr])
         }
 
-        const divNode = document.getElementById(this.sceneID)
+        const divNode = document.getElementById(this.divID)
         divNode.appendChild(elementIcon)
     }
 }

@@ -4,8 +4,8 @@ import scene from "../scene"
 
 
 export class StaticFish extends SpriteElement {
-    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation) {
-        super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation)
+    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID) {
+        super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID)
     }
 
     swim() {
@@ -22,8 +22,8 @@ export class StaticFish extends SpriteElement {
 }
 
 export class StraightPathFish extends SpriteElement {
-    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, duration, delay) {
-        super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation)
+    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID, duration, delay) {
+        super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID)
         this.duration = duration
         this.delay = delay
     }
@@ -39,8 +39,8 @@ export class StraightPathFish extends SpriteElement {
 }
 
 export class PathFish extends StraightPathFish {
-    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, path, duration, delay) {
-        super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, duration, delay)
+    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID, path, duration, delay) {
+        super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID, duration, delay)
         this.path = path
     }
 
@@ -60,8 +60,8 @@ export class PathFish extends StraightPathFish {
 }
 
 export class PathStingray extends SpriteElement {
-    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation) {
-        super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation)
+    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID) {
+        super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID)
     }
 
     swim(path, duration, rotation, delay) {

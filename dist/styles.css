@@ -179,6 +179,24 @@ button {
     width: 115vw;
 }
 
+#P1-S2 {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -81;
+}
+
+#P2-S2 {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -91;
+}
+
 #P1-1 {
     position: fixed;
     bottom: -85vh;
