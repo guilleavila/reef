@@ -1325,20 +1325,314 @@
         ],
         "hoverCorals": [
             {
-                "posX": 40,
-                "posY": 5,
-                "width": 12,
-                "height": 12,
+                "posX": -25,
+                "posY": 25,
+                "width": 4,
                 "speed": 0.5,
                 "sceneID": "scene-2",
                 "depth": "p1",
                 "type": "top-coral",
-                "name": "green-worm-coral",
-                "totalFrames": 15,
-                "animation": {
-                    "name": "lCoralAnimate",
-                    "duration": 0.6
-                }
+                "name": "green-worm-coral"
+            },
+            {
+                "posX": -23,
+                "posY": 28,
+                "width": 5,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "green-worm-coral"
+            },
+            {
+                "posX": -27,
+                "posY": 31,
+                "width": 5,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "orange-worm-coral"
+            },
+            {
+                "posX": -23,
+                "posY": 27,
+                "width": 3,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "orange-worm-coral"
+            },
+            {
+                "posX": -22,
+                "posY": 26,
+                "width": 3,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "green-worm-coral"
+            },
+            {
+                "posX": -26,
+                "posY": 32,
+                "width": 3,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "orange-worm-coral"
+            },
+            {
+                "posX": -20,
+                "posY": 36,
+                "width": 3,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "orange-worm-coral"
+            },
+            {
+                "posX": -18,
+                "posY": 24,
+                "width": 3,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "green-worm-coral"
+            },
+            {
+                "posX": -18,
+                "posY": 24,
+                "width": 2,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "green-worm-coral"
+            },
+            {
+                "posX": -17,
+                "posY": 26,
+                "width": 3,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "orange-worm-coral"
+            },
+            {
+                "posX": -17,
+                "posY": 26,
+                "width": 4,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "orange-worm-coral"
+            },
+            {
+                "posX": -17,
+                "posY": 28,
+                "width": 5,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "green-worm-coral"
+            },
+            {
+                "posX": -27,
+                "posY": 19,
+                "width": 5,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "green-worm-coral"
+            },
+            {
+                "posX": -23,
+                "posY": 16,
+                "width": 5,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "orange-worm-coral"
+            },
+            {
+                "posX": -27,
+                "posY": 20,
+                "width": 3,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "green-worm-coral"
+            },
+            {
+                "posX": -26,
+                "posY": 26,
+                "width": 2,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "orange-worm-coral"
+            },
+            {
+                "posX": -28,
+                "posY": 31,
+                "width": 2,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "orange-worm-coral"
+            },
+            {
+                "posX": -28.5,
+                "posY": 31,
+                "width": 3,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "green-worm-coral"
+            },
+            {
+                "posX": -21.5,
+                "posY": 21,
+                "width": 3,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "green-worm-coral"
+            },
+            {
+                "posX": -20,
+                "posY": 22,
+                "width": 4,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "orange-worm-coral"
+            },
+            {
+                "posX": -20,
+                "posY": 26,
+                "width": 4,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "green-worm-coral"
+            },
+            {
+                "posX": -15.2,
+                "posY": 21,
+                "width": 4,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "green-worm-coral"
+            },
+            {
+                "posX": -20,
+                "posY": 30,
+                "width": 4,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "orange-worm-coral"
+            },
+            {
+                "posX": -25,
+                "posY": 33,
+                "width": 4,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "orange-worm-coral"
+            },
+            {
+                "posX": -23,
+                "posY": 34,
+                "width": 4,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "green-worm-coral"
+            },
+            {
+                "posX": -22,
+                "posY": 39,
+                "width": 2,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "orange-worm-coral"
+            },
+            {
+                "posX": -19.5,
+                "posY": 21,
+                "width": 3,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "orange-worm-coral"
+            },
+            {
+                "posX": -29,
+                "posY": 27,
+                "width": 3,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "green-worm-coral"
+            },
+            {
+                "posX": -18.6,
+                "posY": 21.5,
+                "width": 2,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "orange-worm-coral"
+            },
+            {
+                "posX": -19.6,
+                "posY": 26.5,
+                "width": 2,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "orange-worm-coral"
+            },
+            {
+                "posX": -23,
+                "posY": 32,
+                "width": 2,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "top-coral",
+                "name": "orange-worm-coral"
             }
         ],
         "stingray": {

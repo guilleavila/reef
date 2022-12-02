@@ -315,7 +315,7 @@ const scene = {
 
     createHoverCorals(scene) {
         elements[scene].hoverCorals.forEach(elm => this.hoverCorals.push(
-            new HoverCoral(elm.posX, elm.posY, elm.width, elm.speed, `${elm.name}-${this.spriteCorals.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name)
+            new HoverCoral(elm.posX, elm.posY, elm.width, elm.speed, `${elm.name}-${this.hoverCorals.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name)
         ))
     },
 
@@ -392,8 +392,10 @@ const scene = {
 
         scene22TL.to('#BLURED-1', { right: '300vw', scale: 2, transformOrigin: "100% 100%" }, 0)
         scene22TL.to('#P1-S2', { right: '110vw', scale: 1.8, transformOrigin: "100% 94%" }, 0)
+            .to('#P1-S2', { zIndex: 100 })
         scene22TL.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: "100% 90%" }, 0)
         scene22TL.to('#P3-1', { right: '7vw', scale: 1.05, transformOrigin: "100% 90%" }, 0)
+        scene22TL.to('#particles-js', { opacity: 0 }, 0)
     }
 
 }
