@@ -5,7 +5,7 @@ import { MotionPathPlugin, ScrollToPlugin } from "gsap/all"
 import elements from './assets/scene.json'
 import { ShinyCoral } from "./corals/shinyCoral"
 import { SpriteElement } from "./element/element"
-import { PathFish, PathStingray, StaticFish, StraightPathFish } from "./fish/fish"
+import { BlowFish, PathFish, PathStingray, StaticFish, StraightPathFish } from "./fish/fish"
 import { HoverCoral } from "./corals/hoverCoral"
 
 gsap.registerPlugin(MotionPathPlugin)
@@ -17,6 +17,7 @@ const scene = {
     framesCounter: 0,
     intervalId: undefined,
     stingray: undefined,
+    blowFish: [],
     fish: [],
     shinyCorals: [],
     spriteCorals: [],
@@ -298,6 +299,7 @@ const scene = {
         this.createS2Elements()
         this.fishSwim()
         this.addHoverCoralListener()
+        this.addBlowFishClickEvent()
         this.createScrollTrigger()
     },
 
@@ -311,6 +313,8 @@ const scene = {
         this.createSpriteCorals('scene-2')
         this.createHoverCorals('scene-2')
         this.createS2Stingray('scene-2')
+        this.createBlowFish()
+        console.log(this.blowFish)
     },
 
     createHoverCorals(scene) {
@@ -324,11 +328,29 @@ const scene = {
         this.stingray = new PathStingray(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, this.getDivID(depth))
     },
 
+    createBlowFish() {
+        const { posX, posY, width, height, speed, sceneID, depth, type, name, totalFrames, animation, imageSrc, visibility } = elements['scene-2'].blowFish
+        for (let i = 0; i < 3; i++) {
+            this.blowFish.push(
+                new BlowFish(posX, posY, width, height, speed, `blowfish-${this.blowFish.length + 1}`, sceneID, depth, type, name, totalFrames, animation, this.getDivID(depth), imageSrc[i], visibility[i])
+            )
+        }
+    },
+
     addHoverCoralListener() {
         const hoverNodes = document.querySelectorAll('.hoverCoral')
         hoverNodes.forEach(elm => elm.addEventListener("mouseover", () => {
             this.hoverCorals.forEach(coral => {
                 coral.id === elm.id && coral.animate()
+            })
+        }))
+    },
+
+    addBlowFishClickEvent() {
+        const blowFishNodes = document.querySelectorAll('.blowFish')
+        blowFishNodes.forEach(elm => elm.addEventListener("click", () => {
+            this.blowFish.forEach(fish => {
+                fish.id === elm.id && console.log('hey')
             })
         }))
     },
@@ -364,12 +386,14 @@ const scene = {
             elm.depth === 'p1' && scene21TL.to(`#${elm.id}`, { bottom: `${elm.position.y + 80}vh` }, 0)
             elm.depth === 'p2' && scene21TL.to(`#${elm.id}`, { bottom: `${elm.position.y + 65}vh` }, 0)
         })
+        this.hoverCorals.forEach(elm => scene21TL.to(`#${elm.id}`, { bottom: `${elm.position.y + 80}vh` }, 0))
 
         // FISH
         this.fish.forEach(elm => {
             elm.depth === 'p1' && scene21TL.to(`#${elm.id}`, { top: `${elm.position.y - 80}vh` }, 0)
             elm.depth === 'p2' && scene21TL.to(`#${elm.id}`, { top: `${elm.position.y - 65}vh` }, 0)
         })
+        this.blowFish.forEach(elm => scene21TL.to(`#${elm.id}`, { bottom: `${elm.position.y + 80}vh` }, 0))
 
         // STINGRAY
         scene21TL.to(`#${this.stingray.id}`, { top: `${this.stingray.position.y - 95}vh` }, 0)

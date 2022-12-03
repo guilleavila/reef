@@ -79,3 +79,67 @@ export class PathStingray extends SpriteElement {
         })
     }
 }
+
+export class BlowFish extends SpriteElement {
+    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID, imageSrc, visibility) {
+        super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID)
+        this.imageSrc = imageSrc
+        this.visibility = visibility
+        this.draw()
+    }
+
+    draw() {
+        console.log('la src de la imagen--->', this.imageSrc)
+        const elementIcon = document.createElement('i')
+
+        const attributes = {
+            'id': this.id,
+            'src': `./images/${this.sceneID}/sprites/${this.type}/${this.name}/${this.imageSrc}.png`,
+            'alt': `${this.name}`,
+            'style': `position: fixed; 
+                bottom: ${this.position.y}vh;
+                right: ${this.position.x}vw; 
+                width: ${this.width}vw;
+                height: ${this.height}vw;
+                visibility: ${this.visibility};
+                background: url(./images/${this.sceneID}/sprites/${this.type}/${this.name}/${this.imageSrc}.png) no-repeat;
+                background-size: ${this.width * this.totalFrames}vw ${this.height}vw;
+                background-position: 0vw 0vw;
+                animation: ${this.animation.name} ${this.animation.duration}s steps(${this.totalFrames}) alternate-reverse infinite;`,
+            'class': `plane ${this.depth} blowFish`,
+            'data-speed': this.speed
+        }
+
+        for (const attr in attributes) {
+            elementIcon.setAttribute(attr, attributes[attr])
+        }
+
+        const divNode = document.getElementById('P1-S2')
+        divNode.appendChild(elementIcon)
+    }
+
+    changeSrc(imageName) {
+        // const node = document.getElementById(this.id)
+        // node.style = `position: fixed; 
+        //         ${this.isCoral ? `bottom: ${this.position.y}vh;` : `top: ${this.position.y}vh;`} 
+        //         right: ${this.position.x}vw; 
+        //         width: ${this.width}vw;
+        //         height: ${this.height}vw;
+        //         background: url(./images/${this.sceneID}/sprites/${this.type}/${this.name}/${imageName}.png) no-repeat;
+        //         background-size: ${this.width * this.totalFrames}vw ${this.height}vw;
+        //         background-position: 0vw 0vw;
+        //         animation: ${this.animation.name} 0.5s steps(${this.totalFrames}) normal 1;`
+    }
+}
+
+// export class BlowFish extends SpriteElement {
+//     constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID, isCoral, imageSrc) {
+//         super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID, isCoral)
+//         this.imageSrc = imageSrc
+//         this.draw()
+//     }
+
+//     draw() {
+//         console.log(this.imageSrc)
+//     }
+// }
