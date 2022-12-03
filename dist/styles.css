@@ -291,6 +291,19 @@ button {
     z-index: -85;
 }
 
+/* BLOWFISH */
+.hidden {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.blowFishPop {
+    animation: blowFishPopAnimation 1s steps(3) alternate-reverse infinite;
+}
+
 
 /* SPRITE ANIMATIONS */
 @keyframes lCoralAnimate {
@@ -370,6 +383,26 @@ button {
 
     100% {
         background-position: -45vw 0;
+    }
+}
+
+@keyframes blowFishPopAnimation {
+    0% {
+        background-position: 0vw -3vw;
+    }
+
+    100% {
+        background-position: -45vw -3vw;
+    }
+}
+
+@keyframes blowFishBigAnimation {
+    0% {
+        background-position: 0vw -6vw;
+    }
+
+    100% {
+        background-position: -45vw -6vw;
     }
 }
 

@@ -17,7 +17,8 @@ const scene = {
     framesCounter: 0,
     intervalId: undefined,
     stingray: undefined,
-    blowFish: [],
+    // blowFish: [],
+    blowFish: undefined,
     fish: [],
     shinyCorals: [],
     spriteCorals: [],
@@ -30,6 +31,7 @@ const scene = {
         this.resetScroll()
         this.animateIntroScreen()
         this.createElements('scene-1')
+        this.drawSpriteCorals()
         // this.fishSwim()
         this.sceneLoop()
         this.addMouseMoveEvent()
@@ -140,6 +142,10 @@ const scene = {
         elements[scene].straightPathFish?.forEach(elm => this.fish.push(
             new StraightPathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, this.getDivID(elm.depth), elm.duration, elm.delay)
         ))
+    },
+
+    drawSpriteCorals() {
+        this.spriteCorals.forEach(elm => elm.draw())
     },
 
     fishSwim() {
@@ -297,6 +303,7 @@ const scene = {
         this.showScene2()
 
         this.createS2Elements()
+        this.drawSpriteCorals()
         this.fishSwim()
         this.addHoverCoralListener()
         this.addBlowFishClickEvent()
@@ -314,7 +321,6 @@ const scene = {
         this.createHoverCorals('scene-2')
         this.createS2Stingray('scene-2')
         this.createBlowFish()
-        console.log(this.blowFish)
     },
 
     createHoverCorals(scene) {
@@ -329,12 +335,15 @@ const scene = {
     },
 
     createBlowFish() {
-        const { posX, posY, width, height, speed, sceneID, depth, type, name, totalFrames, animation, imageSrc, visibility } = elements['scene-2'].blowFish
-        for (let i = 0; i < 3; i++) {
-            this.blowFish.push(
-                new BlowFish(posX, posY, width, height, speed, `blowfish-${this.blowFish.length + 1}`, sceneID, depth, type, name, totalFrames, animation, this.getDivID(depth), imageSrc[i], visibility[i])
-            )
-        }
+        // const { posX, posY, width, height, speed, sceneID, depth, type, name, totalFrames, animation, imageSrc, visibility } = elements['scene-2'].blowFish
+        // for (let i = 0; i < 3; i++) {
+        //     this.blowFish.push(
+        //         new BlowFish(posX, posY, width, height, speed, `blowfish-${this.blowFish.length + 1}`, sceneID, depth, type, name, totalFrames, animation, this.getDivID(depth), imageSrc[i], visibility[i])
+        //     )
+        // }
+
+        const { posX, posY, width, height, speed, sceneID, depth, type, name, totalFrames, animation } = elements['scene-2'].blowFish
+        this.blowFish = new BlowFish(posX, posY, width, height, speed, 'blowfFish-1', sceneID, depth, type, name, totalFrames, animation, this.getDivID(depth))
     },
 
     addHoverCoralListener() {
@@ -347,12 +356,16 @@ const scene = {
     },
 
     addBlowFishClickEvent() {
-        const blowFishNodes = document.querySelectorAll('.blowFish')
-        blowFishNodes.forEach(elm => elm.addEventListener("click", () => {
-            this.blowFish.forEach(fish => {
-                fish.id === elm.id && console.log('hey')
-            })
-        }))
+        // const blowFishNodes = document.querySelectorAll('.blowFish')
+        // blowFishNodes[0].addEventListener("click", () => {
+        //     const smallBlowFish = this.blowFish.find(elm => elm.id === blowFishNodes[0].id)
+        //     smallBlowFish.changeVisibility()
+
+        // })
+        const blowFishNode = document.getElementById(this.blowFish.id)
+        blowFishNode.addEventListener('click', () => {
+            this.blowFish.pop()
+        })
     },
 
     calculateReference() {
@@ -393,7 +406,8 @@ const scene = {
             elm.depth === 'p1' && scene21TL.to(`#${elm.id}`, { top: `${elm.position.y - 80}vh` }, 0)
             elm.depth === 'p2' && scene21TL.to(`#${elm.id}`, { top: `${elm.position.y - 65}vh` }, 0)
         })
-        this.blowFish.forEach(elm => scene21TL.to(`#${elm.id}`, { bottom: `${elm.position.y + 80}vh` }, 0))
+        // this.blowFish.forEach(elm => scene21TL.to(`#${elm.id}`, { bottom: `${elm.position.y + 80}vh` }, 0))
+        scene21TL.to(`#${this.blowFish.id}`, { bottom: `${this.blowFish.position.y + 80}vh` }, 0)
 
         // STINGRAY
         scene21TL.to(`#${this.stingray.id}`, { top: `${this.stingray.position.y - 95}vh` }, 0)

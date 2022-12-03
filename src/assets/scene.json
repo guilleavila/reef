@@ -1654,7 +1654,7 @@
         },
         "blowFish": {
             "posX": -39,
-            "posY": -78,
+            "posY": -75,
             "width": 3,
             "height": 3,
             "speed": 0.5,
@@ -1666,17 +1666,7 @@
             "animation": {
                 "name": "blowFishAnimate",
                 "duration": 0.7
-            },
-            "imageSrc": [
-                "blow-fish-small",
-                "blow-fish-pop",
-                "blow-fish-big"
-            ],
-            "visibility": [
-                "visible",
-                "hidden",
-                "hidden"
-            ]
+            }
         }
     },
     "stingray": {
