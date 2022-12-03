@@ -39,7 +39,7 @@ export class SpriteElement extends Element {
         this.animation = animation
         this.isCoral = isCoral
         this.divID = divID
-        // this.draw()
+        this.draw()
     }
 
     draw() {

@@ -6,7 +6,6 @@ import scene from "../scene"
 export class StaticFish extends SpriteElement {
     constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID) {
         super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID)
-        this.draw()
     }
 
     swim() {
@@ -27,7 +26,6 @@ export class StraightPathFish extends SpriteElement {
         super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID)
         this.duration = duration
         this.delay = delay
-        this.draw()
     }
 
     swim() {
@@ -64,7 +62,6 @@ export class PathFish extends StraightPathFish {
 export class PathStingray extends SpriteElement {
     constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID) {
         super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID)
-        this.draw()
     }
 
     swim(path, duration, rotation, delay) {
@@ -83,57 +80,10 @@ export class PathStingray extends SpriteElement {
     }
 }
 
-// export class BlowFish extends SpriteElement {
-//     constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID, imageSrc, visibility) {
-//         super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID)
-//         this.imageSrc = imageSrc
-//         this.visibility = visibility
-//         this.draw()
-//     }
-
-//     draw() {
-//         console.log('la src de la imagen--->', this.imageSrc)
-//         const elementIcon = document.createElement('i')
-
-//         const attributes = {
-//             'id': this.id,
-//             'src': `./images/${this.sceneID}/sprites/${this.type}/${this.name}/${this.imageSrc}.png`,
-//             'alt': `${this.name}`,
-//             'style': `position: fixed; 
-//                 bottom: ${this.position.y}vh;
-//                 right: ${this.position.x}vw; 
-//                 width: ${this.width}vw;
-//                 height: ${this.height}vw;
-//                 visibility: ${this.visibility};
-//                 background: url(./images/${this.sceneID}/sprites/${this.type}/${this.name}/${this.imageSrc}.png) no-repeat;
-//                 background-size: ${this.width * this.totalFrames}vw ${this.height}vw;
-//                 background-position: 0vw 0vw;
-//                 animation: ${this.animation.name} ${this.animation.duration}s steps(${this.totalFrames}) alternate-reverse infinite;`,
-//             'class': `plane ${this.depth} blowFish`,
-//             'data-speed': this.speed
-//         }
-
-//         for (const attr in attributes) {
-//             elementIcon.setAttribute(attr, attributes[attr])
-//         }
-
-//         const divNode = document.getElementById('P1-S2')
-//         divNode.appendChild(elementIcon)
-//     }
-
-//     changeVisibility() {
-//         const blowFishIcon = document.getElementById(this.id)
-//         if (this.imageSrc === 'blow-fish-small') {
-//             console.log(blowFishIcon.classList)
-//             blowFishIcon.classList.add('hidden')
-//         }
-//     }
-// }
 
 export class BlowFish extends SpriteElement {
     constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID) {
         super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID)
-        this.draw()
     }
 
     draw() {
