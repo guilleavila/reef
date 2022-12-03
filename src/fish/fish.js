@@ -103,7 +103,7 @@ export class BlowFish extends SpriteElement {
                 background-position: 0vw 0vw;
                 animation: ${this.animation.name} ${this.animation.duration}s steps(${this.totalFrames}) alternate-reverse infinite;`,
             'class': `plane ${this.depth} blowFish`,
-            'data-speed': this.speed
+            'data-speed': `${this.speed}`
         }
 
         for (const attr in attributes) {
@@ -117,11 +117,11 @@ export class BlowFish extends SpriteElement {
     pop() {
         const blowFishNode = document.getElementById(this.id)
         blowFishNode.style.backgroundPosition = '0vw -3vw'
-        blowFishNode.style.animation = 'blowFishPopAnimation 0.5s steps(15) 1'
+        blowFishNode.style.animation = 'blowFishPopAnimation 0.15s steps(15) 1'
 
         setTimeout(() => {
             blowFishNode.style.backgroundPosition = '0vw -6vw'
             blowFishNode.style.animation = 'blowFishBigAnimation 0.7s steps(15) alternate-reverse infinite'
-        }, 500)
+        }, 150)
     }
 }

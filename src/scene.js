@@ -74,7 +74,7 @@ const scene = {
             // }
 
             if (this.sceneState === 2) {
-                this.swimState === 'on' && this.stingraySwim('stingray-path-9', 20, 0, 2)
+                this.swimState === 'on' && this.stingraySwim('stingray-path-9', 20, 0, 0)
             }
 
             // this.framesCounter % 80 === 0 && this.shinyCorals.forEach(coral => coral.animate())
@@ -391,7 +391,6 @@ const scene = {
             elm.depth === 'p1' && scene21TL.to(`#${elm.id}`, { top: `${elm.position.y - 80}vh` }, 0)
             elm.depth === 'p2' && scene21TL.to(`#${elm.id}`, { top: `${elm.position.y - 65}vh` }, 0)
         })
-        // this.blowFish.forEach(elm => scene21TL.to(`#${elm.id}`, { bottom: `${elm.position.y + 80}vh` }, 0))
         scene21TL.to(`#${this.blowFish.id}`, { bottom: `${this.blowFish.position.y + 80}vh` }, 0)
 
         // STINGRAY
@@ -419,6 +418,20 @@ const scene = {
         scene22TL.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: "100% 90%" }, 0)
         scene22TL.to('#P3-1', { right: '7vw', scale: 1.05, transformOrigin: "100% 90%" }, 0)
         scene22TL.to('#particles-js', { opacity: 0 }, 0)
+
+        // S2-3
+        let scene23TL = gsap.timeline()
+        ScrollTrigger.create({
+            animation: scene23TL,
+            trigger: '.scrollElement',
+            start: "40% bottom",
+            end: "60% 100%",
+            scrub: 3,
+            markers: true
+        })
+
+        scene23TL.to('#P1-S2', { right: '230vw', scale: 4.6, transformOrigin: "100% 94%" }, 0)
+
     }
 
 }
