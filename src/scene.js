@@ -431,7 +431,8 @@ const scene = {
         })
 
         scene23TL.to('#P1-S2', { right: '230vw', scale: 4.6, transformOrigin: "100% 94%" }, 0)
-
+        scene23TL.to('#P2-S2', { right: '70vw', scale: 1.5, transformOrigin: "100% 90%" }, 0)
+        scene23TL.to('#P3-1', { right: '7.5vw', scale: 1.2, transformOrigin: "100% 90%" }, 0)
     }
 
 }

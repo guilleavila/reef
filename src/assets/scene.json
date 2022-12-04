@@ -1321,6 +1321,22 @@
                     "name": "mCoralAnimate",
                     "duration": 0.6
                 }
+            },
+            {
+                "posX": 50,
+                "posY": 50,
+                "width": 14,
+                "height": 12,
+                "speed": 0.5,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "front-coral",
+                "name": "anemona",
+                "totalFrames": 46,
+                "animation": {
+                    "name": "anemonaAnimate",
+                    "duration": 2
+                }
             }
         ],
         "hoverCorals": [
