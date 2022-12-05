@@ -412,7 +412,7 @@ const scene = {
         })
 
         scene22TL.to('#BG-2', { right: '0vw', scale: 1.8, transformOrigin: "100% 94%" }, 0)
-        scene22TL.to('#BLURED-1', { right: '300vw', scale: 2, transformOrigin: "100% 100%" }, 0)
+        scene22TL.to('#BLURED-1', { right: '20vw', scale: 2, transformOrigin: "100% 100%" }, 0)
         scene22TL.to('#P1-S2', { right: '110vw', scale: 1.8, transformOrigin: "100% 94%" }, 0)
             .to('#P1-S2', { zIndex: 100 })
         scene22TL.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: "100% 90%" }, 0)
