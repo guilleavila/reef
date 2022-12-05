@@ -417,7 +417,7 @@ const scene = {
             .to('#P1-S2', { zIndex: 100 })
         scene22TL.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: "100% 90%" }, 0)
         scene22TL.to('#P3-1', { right: '7vw', scale: 1.05, transformOrigin: "100% 90%" }, 0)
-        scene22TL.to('#particles-js', { opacity: 0 }, 0)
+        scene22TL.to('#particles-js', { left: '-120vw', scale: 2.2, transformOrigin: "100% 94%", opacity: 0 }, 0)
 
         // S2-3
         let scene23TL = gsap.timeline()

@@ -273,10 +273,8 @@ button {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 200vw;
     height: 200vh;
-    /* right: 0;
-    bottom: 0; */
     background-color: none;
     z-index: -78;
 }
