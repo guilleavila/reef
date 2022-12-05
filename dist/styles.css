@@ -167,9 +167,9 @@ button {
 #BG-2 {
     position: fixed;
     top: 0vh;
-    left: 0vw;
+    right: -100vw;
     z-index: -100;
-    width: 100%;
+    width: 200vw;
 }
 
 #BLURED-1 {

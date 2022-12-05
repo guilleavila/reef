@@ -17,7 +17,6 @@ const scene = {
     framesCounter: 0,
     intervalId: undefined,
     stingray: undefined,
-    // blowFish: [],
     blowFish: undefined,
     fish: [],
     shinyCorals: [],
@@ -388,8 +387,8 @@ const scene = {
 
         // FISH
         this.fish.forEach(elm => {
-            elm.depth === 'p1' && scene21TL.to(`#${elm.id}`, { top: `${elm.position.y - 80}vh` }, 0)
-            elm.depth === 'p2' && scene21TL.to(`#${elm.id}`, { top: `${elm.position.y - 65}vh` }, 0)
+            elm.depth === 'p1' && scene21TL.to(`#${elm.id}`, { bottom: `${elm.position.y + 80}vh` }, 0)
+            elm.depth === 'p2' && scene21TL.to(`#${elm.id}`, { bottom: `${elm.position.y + 65}vh` }, 0)
         })
         scene21TL.to(`#${this.blowFish.id}`, { bottom: `${this.blowFish.position.y + 80}vh` }, 0)
 
@@ -412,6 +411,7 @@ const scene = {
             markers: true
         })
 
+        scene22TL.to('#BG-2', { right: '0vw', scale: 1.8, transformOrigin: "100% 94%" }, 0)
         scene22TL.to('#BLURED-1', { right: '300vw', scale: 2, transformOrigin: "100% 100%" }, 0)
         scene22TL.to('#P1-S2', { right: '110vw', scale: 1.8, transformOrigin: "100% 94%" }, 0)
             .to('#P1-S2', { zIndex: 100 })
