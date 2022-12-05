@@ -19,7 +19,7 @@ export class ShinyCoral extends Element {
             'src': `./images/${this.sceneID}/sprites/${this.type}/${this.name}/${this.color}.png`,
             'alt': `${this.color}-${this.name}`,
             'style': `position: fixed; top: ${this.position.y}%; left: ${this.position.x}%; width: ${this.width}%;`,
-            'class': `plane ${this.depth}`,
+            'class': `${this.sceneID=== 'scene-1' && 'plane'} ${this.depth}`,
             'data-speed': this.speed
         }
 

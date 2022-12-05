@@ -102,7 +102,7 @@ export class BlowFish extends SpriteElement {
                 background-size: ${this.width * this.totalFrames}vw ${this.height * 3}vw;
                 background-position: 0vw 0vw;
                 animation: ${this.animation.name} ${this.animation.duration}s steps(${this.totalFrames}) alternate-reverse infinite;`,
-            'class': `plane ${this.depth} blowFish`,
+            'class': `${this.depth} blowFish`,
             'data-speed': `${this.speed}`
         }
 

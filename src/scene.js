@@ -96,7 +96,7 @@ const scene = {
             plane.style.transform = `translateX(${(width / 2) + x}px) translateY(-${(height / 2) + y}px)`
         });
 
-        document.querySelectorAll('.plane2').forEach(plane => {
+        document.querySelectorAll('.depth-plane').forEach(plane => {
             const speed = plane.getAttribute('data-speed')
 
             const x = (window.innerWidth - e.pageX * speed) / 100
@@ -393,7 +393,7 @@ const scene = {
         scene21TL.to(`#${this.blowFish.id}`, { bottom: `${this.blowFish.position.y + 80}vh` }, 0)
 
         // STINGRAY
-        scene21TL.to(`#${this.stingray.id}`, { top: `${this.stingray.position.y - 95}vh` }, 0)
+        scene21TL.to(`#${this.stingray.id}`, { bottom: `${this.stingray.position.y + 95}vh` }, 0)
 
         // PARTICLES
         scene21TL.to('#particles-js', { top: `-95vh` }, 0)
@@ -412,9 +412,9 @@ const scene = {
         })
 
         scene22TL.to('#BG-2', { right: '0vw', scale: 1.8, transformOrigin: "100% 94%" }, 0)
-        scene22TL.to('#BLURED-1', { right: '20vw', scale: 2, transformOrigin: "100% 100%" }, 0)
+        scene22TL.to('#BLURED-1', { right: '20vw', scale: 3.5, transformOrigin: "100% 80%" }, 0)
         scene22TL.to('#P1-S2', { right: '110vw', scale: 1.8, transformOrigin: "100% 94%" }, 0)
-            .to('#P1-S2', { zIndex: 100 })
+            .to('#P1-depth', { zIndex: 120 })
         scene22TL.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: "100% 90%" }, 0)
         scene22TL.to('#P3-1', { right: '7vw', scale: 1.05, transformOrigin: "100% 90%" }, 0)
         scene22TL.to('#particles-js', { left: '-120vw', scale: 2.2, transformOrigin: "100% 94%", opacity: 0 }, 0)
@@ -430,7 +430,7 @@ const scene = {
             markers: true
         })
 
-        scene23TL.to('#P1-S2', { right: '230vw', scale: 4.6, transformOrigin: "100% 94%" }, 0)
+        scene23TL.to('#P1-S2', { right: '210vw', bottom: '-12vh', scale: 4, transformOrigin: "100% 94%" }, 0)
         scene23TL.to('#P2-S2', { right: '70vw', scale: 1.5, transformOrigin: "100% 90%" }, 0)
         scene23TL.to('#P3-1', { right: '7.5vw', scale: 1.2, transformOrigin: "100% 90%" }, 0)
     }

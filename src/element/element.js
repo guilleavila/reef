@@ -17,7 +17,7 @@ export class Element {
             'src': `./images/${this.sceneID}/sprites/${this.type}/${this.name}/${this.name}.png`,
             'alt': `${this.name}`,
             'style': `position: fixed; bottom: ${this.position.y}vh; right: ${this.position.x}vw; width: ${this.width}vw;`,
-            'class': `plane ${this.depth}`,
+            'class': `${this.sceneID === 'scene-1' && 'plane'} ${this.depth}`,
             'data-speed': this.speed
         }
 
@@ -58,7 +58,7 @@ export class SpriteElement extends Element {
                 background-size: ${this.width * this.totalFrames}vw ${this.height}vw;
                 background-position: 0vw 0vw;
                 animation: ${this.animation.name} ${this.animation.duration}s steps(${this.totalFrames}) alternate-reverse infinite;`,
-            'class': `plane ${this.depth}`,
+            'class': `${this.sceneID === 'scene-1' && 'plane'} ${this.depth}`,
             'data-speed': this.speed
         }
 

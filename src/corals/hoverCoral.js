@@ -14,7 +14,7 @@ export class HoverCoral extends Element {
             'src': `./images/${this.sceneID}/sprites/${this.type}/${this.name}/${this.name}.png`,
             'alt': `${this.name}`,
             'style': `position: fixed; bottom: ${this.position.y}vh; right: ${this.position.x}vw; width: ${this.width}vw;`,
-            'class': `plane ${this.depth} hoverCoral`,
+            'class': `${this.depth} hoverCoral`,
             'data-speed': this.speed
         }
 
