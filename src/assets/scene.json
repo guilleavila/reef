@@ -617,6 +617,54 @@
                     "name": "sFishAnimate",
                     "duration": 0.6
                 }
+            },
+            {
+                "posX": -116,
+                "posY": -20,
+                "width": 4,
+                "height": 4,
+                "speed": 0.2,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "clown",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "mFishAnimate",
+                    "duration": 0.6
+                }
+            },
+            {
+                "posX": -117,
+                "posY": -17,
+                "width": 3,
+                "height": 3,
+                "speed": 0.2,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "clown",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "sFishAnimate",
+                    "duration": 0.6
+                }
+            },
+            {
+                "posX": -105,
+                "posY": -14,
+                "width": 3,
+                "height": 3,
+                "speed": 0.2,
+                "sceneID": "scene-2",
+                "depth": "p1",
+                "type": "fish",
+                "name": "clown-reverse",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "sFishAnimate",
+                    "duration": 0.6
+                }
             }
         ],
         "pathFish": [
@@ -1321,24 +1369,24 @@
                     "name": "mCoralAnimate",
                     "duration": 0.6
                 }
-            },
-            {
-                "posX": 50,
-                "posY": 50,
-                "width": 14,
-                "height": 12,
-                "speed": 0.5,
-                "sceneID": "scene-2",
-                "depth": "p1",
-                "type": "front-coral",
-                "name": "anemona",
-                "totalFrames": 46,
-                "animation": {
-                    "name": "anemonaAnimate",
-                    "duration": 2
-                }
             }
         ],
+        "anemona": {
+            "posX": -174,
+            "posY": 54,
+            "width": 14,
+            "height": 12,
+            "speed": 0.5,
+            "sceneID": "scene-2",
+            "depth": "p1",
+            "type": "front-coral",
+            "name": "anemona",
+            "totalFrames": 46,
+            "animation": {
+                "name": "anemonaAnimate",
+                "duration": 2
+            }
+        },
         "hoverCorals": [
             {
                 "posX": -32,

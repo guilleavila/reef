@@ -18,6 +18,7 @@ const scene = {
     intervalId: undefined,
     stingray: undefined,
     blowFish: undefined,
+    anemona: undefined,
     fish: [],
     shinyCorals: [],
     spriteCorals: [],
@@ -318,6 +319,7 @@ const scene = {
         this.createHoverCorals('scene-2')
         this.createS2Stingray('scene-2')
         this.createBlowFish()
+        this.createAnemona()
     },
 
     createHoverCorals(scene) {
@@ -334,6 +336,11 @@ const scene = {
     createBlowFish() {
         const { posX, posY, width, height, speed, sceneID, depth, type, name, totalFrames, animation } = elements['scene-2'].blowFish
         this.blowFish = new BlowFish(posX, posY, width, height, speed, 'blowfFish-1', sceneID, depth, type, name, totalFrames, animation, this.getDivID(depth))
+    },
+
+    createAnemona() {
+        const { posX, posY, width, height, speed, sceneID, depth, type, name, totalFrames, animation } = elements['scene-2'].anemona
+        this.anemona = new SpriteElement(posX, posY, width, height, speed, 'anemona', sceneID, depth, type, name, totalFrames, animation, 'P1-2-S2', false)
     },
 
     addHoverCoralListener() {
@@ -473,7 +480,9 @@ const scene = {
         scene25TL.to('#BLURED-2', { right: '-100vw', scale: 0.8, transformOrigin: "0% 100%", ease: 'none' }, 0)
             .to('#BLURED-2', { right: '270vw', scale: 1.5, transformOrigin: "0% 100%", ease: 'none' })
         scene25TL.to('#BLURED-3', { right: '300vw' }, 0.3)
-        scene25TL.to('#P1-S2', { right: '180vw', scale: 1, transformOrigin: "100% 94%" }, 0)
+        scene25TL.to('#P1-S2', { right: '145vw', scale: 1, transformOrigin: "100% 94%" }, 0)
+            .to('#P1-S2', { right: '180vw' }, 0.5)
+        scene25TL.to('#P1-2-S2', { right: '240vw', scale: 1.01, duration: 1 }, 0)
         scene25TL.to('#P2-S2', { right: '100vw', scale: 1, transformOrigin: "100% 90%" }, 0)
         scene25TL.to('#P3-1', { right: '21vw', scale: 1, transformOrigin: "100% 90%" }, 0)
 

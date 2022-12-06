@@ -190,6 +190,15 @@ button {
     z-index: -81;
 }
 
+#P1-2-S2 {
+    position: fixed;
+    bottom: 0vh;
+    right: 0vw;
+    width: 100%;
+    height: 100%;
+    z-index: -80;
+}
+
 
 #P2-S2 {
     position: fixed;
@@ -262,6 +271,21 @@ button {
     right: -600vw;
     width: 200vw;
     z-index: -60;
+}
+
+/* #P1-2{
+    position: fixed;
+    bottom: -3vh;
+    right: -180vw;
+    width: 90vw;
+    z-index: -80;
+} */
+#P1-2 {
+    position: fixed;
+    bottom: -3vh;
+    right: -180vw;
+    width: 90vw;
+    z-index: -80;
 }
 
 /* CORALS */
