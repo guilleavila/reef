@@ -178,6 +178,7 @@ button {
     right: 0;
     width: 100%;
     height: 100%;
+    z-index: 115;
 }
 
 #P1-S2 {
@@ -216,11 +217,13 @@ button {
 }
 
 /* ELEMENTS */
+/* S2-1-2-3 */
 #BLURED-1 {
     position: fixed;
     bottom: -125vh;
-    right: -240vw;
-    width: 345vw;
+    right: -197vw;
+    width: 300vw;
+    z-index: -70;
 }
 
 #P1-1 {
@@ -244,6 +247,22 @@ button {
     width: 100vw;
 }
 
+/* S2-4 */
+#BLURED-2 {
+    position: fixed;
+    bottom: 0vh;
+    right: -497vw;
+    width: 395vw;
+    z-index: -70;
+}
+
+#BLURED-3 {
+    position: fixed;
+    bottom: 0vh;
+    right: -600vw;
+    width: 200vw;
+    z-index: -60;
+}
 
 /* CORALS */
 #hoverCorals {
@@ -286,14 +305,6 @@ button {
 .motionPath path {
     stroke-width: 0.1;
     stroke: none;
-}
-
-.pruebita {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 150%;
 }
 
 /* PARTICLES */

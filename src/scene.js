@@ -348,7 +348,8 @@ const scene = {
     addBlowFishClickEvent() {
         const blowFishNode = document.getElementById(this.blowFish.id)
         blowFishNode.addEventListener('click', () => {
-            this.blowFish.pop()
+            !this.blowFish.hasPopped && this.blowFish.pop()
+            gsap.to('#P1-depth', { zIndex: -80 })
         })
     },
 
@@ -358,7 +359,7 @@ const scene = {
     },
 
     createScrollTrigger() {
-        // S1-1
+        // S1-1 --> DOWN MOVEMENT
         let scene21TL = gsap.timeline()
         ScrollTrigger.create({
             animation: scene21TL,
@@ -400,7 +401,7 @@ const scene = {
         scene21TL.to('#particles-p2-js', { top: `-75vh` }, 0)
 
 
-        // S2-2
+        // S2-2 ---> RIGHT MOVEMENT
         let scene22TL = gsap.timeline()
         ScrollTrigger.create({
             animation: scene22TL,
@@ -412,14 +413,19 @@ const scene = {
         })
 
         scene22TL.to('#BG-2', { right: '0vw', scale: 1.8, transformOrigin: "100% 94%" }, 0)
-        scene22TL.to('#BLURED-1', { right: '20vw', scale: 3.5, transformOrigin: "100% 80%" }, 0)
-        scene22TL.to('#P1-S2', { right: '110vw', scale: 1.8, transformOrigin: "100% 94%" }, 0)
-            .to('#P1-depth', { zIndex: 120 })
+        scene22TL.to('#BLURED-1', { right: '100vw', scale: 3.5, transformOrigin: "100% 80%" }, 0)
+        scene22TL.to('#BLURED-2', { right: '-370vw' }, 0)
+
+        scene22TL.to('#P1-S2', {
+            right: '110vw', scale: 1.8, transformOrigin: "100% 94%",
+            onComplete: () => gsap.to('#P1-depth', { zIndex: 110 })
+        }, 0)
         scene22TL.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: "100% 90%" }, 0)
         scene22TL.to('#P3-1', { right: '7vw', scale: 1.05, transformOrigin: "100% 90%" }, 0)
         scene22TL.to('#particles-js', { left: '-120vw', scale: 2.2, transformOrigin: "100% 94%", opacity: 0 }, 0)
 
-        // S2-3
+
+        // S2-3 ---> ZOOM IN
         let scene23TL = gsap.timeline()
         ScrollTrigger.create({
             animation: scene23TL,
@@ -430,9 +436,47 @@ const scene = {
             markers: true
         })
 
+        scene23TL.to('#BLURED-2', { right: '-373vw', scale: 6, transformOrigin: "0% 100%" }, 0)
         scene23TL.to('#P1-S2', { right: '210vw', bottom: '-12vh', scale: 4, transformOrigin: "100% 94%" }, 0)
         scene23TL.to('#P2-S2', { right: '70vw', scale: 1.5, transformOrigin: "100% 90%" }, 0)
         scene23TL.to('#P3-1', { right: '7.5vw', scale: 1.2, transformOrigin: "100% 90%" }, 0)
+
+
+        // S2-4 ---> ZOOM OUT
+        let scene24TL = gsap.timeline()
+        ScrollTrigger.create({
+            animation: scene24TL,
+            trigger: '.scrollElement',
+            start: "60% bottom",
+            end: "80% 100%",
+            scrub: 3,
+            markers: true
+        })
+
+        scene24TL.to('#BLURED-2', { right: '-370vw', scale: 1.6, transformOrigin: "0% 100%" }, 0)
+        scene24TL.to('#P1-S2', { right: '110vw', bottom: '0vh', scale: 1.8, transformOrigin: "100% 94%" }, 0)
+        scene24TL.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: "100% 90%" }, 0)
+        scene24TL.to('#P3-1', { right: '7vw', scale: 1.05, transformOrigin: "100% 90%" }, 0)
+
+
+        // S2-5 ---> RIGHT MOVEMENT
+        let scene25TL = gsap.timeline()
+        ScrollTrigger.create({
+            animation: scene25TL,
+            trigger: '.scrollElement',
+            start: "80% bottom",
+            end: "100% 100%",
+            scrub: 3,
+            markers: true
+        })
+
+        scene25TL.to('#BLURED-2', { right: '-100vw', scale: 0.8, transformOrigin: "0% 100%", ease: 'none' }, 0)
+            .to('#BLURED-2', { right: '270vw', scale: 1.5, transformOrigin: "0% 100%", ease: 'none' })
+        scene25TL.to('#BLURED-3', { right: '300vw' }, 0.3)
+        scene25TL.to('#P1-S2', { right: '180vw', scale: 1, transformOrigin: "100% 94%" }, 0)
+        scene25TL.to('#P2-S2', { right: '100vw', scale: 1, transformOrigin: "100% 90%" }, 0)
+        scene25TL.to('#P3-1', { right: '21vw', scale: 1, transformOrigin: "100% 90%" }, 0)
+
     }
 
 }

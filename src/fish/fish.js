@@ -84,6 +84,7 @@ export class PathStingray extends SpriteElement {
 export class BlowFish extends SpriteElement {
     constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID) {
         super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID)
+        this.hasPopped = false
     }
 
     draw() {
@@ -115,6 +116,7 @@ export class BlowFish extends SpriteElement {
     }
 
     pop() {
+        this.hasPopped = true
         const blowFishNode = document.getElementById(this.id)
         blowFishNode.style.backgroundPosition = '0vw -3vw'
         blowFishNode.style.animation = 'blowFishPopAnimation 0.15s steps(15) 1'
