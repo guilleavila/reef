@@ -361,7 +361,7 @@ const scene = {
     },
 
     calculateReference() {
-        const element = document.getElementById('BG-2')
+        const element = document.getElementById('BG-S2')
         return element.clientHeight - window.innerHeight
     },
 
@@ -383,7 +383,7 @@ const scene = {
         scene21TL.to('#P2-1', { bottom: '5vh' }, 0)
         scene21TL.to('#P3-1', { bottom: '10vh' }, 0)
 
-        scene21TL.to('#BG-2', { top: `-${this.calculateReference()}` }, 0)
+        scene21TL.to('#BG-S2', { top: `-${this.calculateReference()}` }, 0)
         scene21TL.to('.depth-element', { top: `-${this.calculateReference()}` }, 0)
 
         // CORALS
@@ -419,7 +419,7 @@ const scene = {
             markers: true
         })
 
-        scene22TL.to('#BG-2', { right: '0vw', scale: 1.8, transformOrigin: "100% 94%" }, 0)
+        scene22TL.to('#BG-S2', { right: '0vw', scale: 1.8, transformOrigin: "100% 94%" }, 0)
         scene22TL.to('#BLURED-1', { right: '100vw', scale: 3.5, transformOrigin: "100% 80%" }, 0)
         scene22TL.to('#BLURED-2', { right: '-370vw' }, 0)
 
@@ -478,14 +478,24 @@ const scene = {
         })
 
         scene25TL.to('#BLURED-2', { right: '-100vw', scale: 0.8, transformOrigin: "0% 100%", ease: 'none' }, 0)
-            .to('#BLURED-2', { right: '270vw', scale: 1.5, transformOrigin: "0% 100%", ease: 'none' })
+            .to('#BLURED-2', { right: '270vw', scale: 1.5, transformOrigin: "0% 100%", ease: 'none', onStart: () => this.changeBackGroundSrc() })
         scene25TL.to('#BLURED-3', { right: '300vw' }, 0.3)
         scene25TL.to('#P1-S2', { right: '145vw', scale: 1, transformOrigin: "100% 94%" }, 0)
             .to('#P1-S2', { right: '180vw' }, 0.5)
-        scene25TL.to('#P1-2-S2', { right: '240vw', scale: 1.01, duration: 1 }, 0)
+        scene25TL.to('#P1-2-S2', { right: '235vw', scale: 1.01, duration: 1.1 }, 0)
         scene25TL.to('#P2-S2', { right: '100vw', scale: 1, transformOrigin: "100% 90%" }, 0)
         scene25TL.to('#P3-1', { right: '21vw', scale: 1, transformOrigin: "100% 90%" }, 0)
+    },
 
+    changeBackGroundSrc() {
+        const bgNode = document.getElementById('BG-S2')
+        bgNode.src = './images/scene-2/elements/BG-2.png'
+
+        const d2Node = document.getElementById('D2')
+        d2Node.src = './images/scene-2/elements/D2-2.png'
+
+        const d3Node = document.getElementById('D2')
+        d3Node.src = './images/scene-2/elements/D3-2.png'
     }
 
 }
