@@ -74,7 +74,7 @@ const scene = {
             // }
 
             if (this.sceneState === 2) {
-                this.swimState === 'on' && this.stingraySwim('stingray-path-9', 20, 0, 0)
+                this.swimState === 'on' && this.stingraySwim('stingray-path-9', 15, 0, 0)
             }
 
             // this.framesCounter % 80 === 0 && this.shinyCorals.forEach(coral => coral.animate())
@@ -478,7 +478,12 @@ const scene = {
         })
 
         scene25TL.to('#BLURED-2', { right: '-100vw', scale: 0.8, transformOrigin: "0% 100%", ease: 'none' }, 0)
-            .to('#BLURED-2', { right: '270vw', scale: 1.5, transformOrigin: "0% 100%", ease: 'none', onStart: () => this.changeBackGroundSrc() })
+            .to('#BLURED-2', {
+                right: '270vw', scale: 1.5, transformOrigin: "0% 100%", ease: 'none', onStart: () => {
+                    this.stingraySwim('stingray-path-10', 10, 0, 0)
+                    this.changeBackGroundSrc()
+                }
+            })
         scene25TL.to('#BLURED-3', { right: '300vw' }, 0.3)
         scene25TL.to('#P1-S2', { right: '145vw', scale: 1, transformOrigin: "100% 94%" }, 0)
             .to('#P1-S2', { right: '180vw' }, 0.5)
