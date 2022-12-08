@@ -65,7 +65,6 @@ export class SpriteElement extends Element {
         for (const attr in attributes) {
             elementIcon.setAttribute(attr, attributes[attr])
         }
-
         const divNode = document.getElementById(this.divID)
         divNode.appendChild(elementIcon)
     }

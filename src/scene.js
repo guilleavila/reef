@@ -122,7 +122,7 @@ const scene = {
     createSpriteCorals(scene) {
         const isCoral = scene === 'scene-2'
         elements[scene].spriteCorals.forEach(elm => this.spriteCorals.push(
-            new SpriteElement(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.spriteCorals.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, this.getDivID(elm.depth), isCoral)
+            new SpriteElement(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.spriteCorals.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.divID, isCoral)
         ))
     },
 
@@ -133,7 +133,7 @@ const scene = {
 
     createFish(scene) {
         elements[scene].staticFish.forEach(elm => this.fish.push(
-            new StaticFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, this.getDivID(elm.depth))
+            new StaticFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.divID)
         ))
         elements[scene].pathFish.forEach(elm => this.fish.push(
             new PathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, this.getDivID(elm.depth), elm.path, elm.duration, elm.delay)
@@ -314,12 +314,12 @@ const scene = {
     },
 
     createS2Elements() {
-        this.createFish('scene-2')
+        this.createAnemona()
         this.createSpriteCorals('scene-2')
+        this.createFish('scene-2')
         this.createHoverCorals('scene-2')
         this.createS2Stingray('scene-2')
         this.createBlowFish()
-        this.createAnemona()
     },
 
     createHoverCorals(scene) {
@@ -339,8 +339,8 @@ const scene = {
     },
 
     createAnemona() {
-        const { posX, posY, width, height, speed, sceneID, depth, type, name, totalFrames, animation } = elements['scene-2'].anemona
-        this.anemona = new SpriteElement(posX, posY, width, height, speed, 'anemona', sceneID, depth, type, name, totalFrames, animation, 'P1-2-S2', false)
+        const { posX, posY, width, height, speed, sceneID, depth, type, name, totalFrames, animation, divID} = elements['scene-2'].anemona
+        this.anemona = new SpriteElement(posX, posY, width, height, speed, 'anemona', sceneID, depth, type, name, totalFrames, animation, divID, false)
     },
 
     addHoverCoralListener() {
@@ -490,6 +490,7 @@ const scene = {
         scene25TL.to('#P1-2-S2', { right: '235vw', scale: 1.01, duration: 1.1 }, 0)
         scene25TL.to('#P2-S2', { right: '100vw', scale: 1, transformOrigin: "100% 90%" }, 0)
         scene25TL.to('#P3-1', { right: '21vw', scale: 1, transformOrigin: "100% 90%" }, 0)
+        scene25TL.to('#particles-js', { left: '-300vw', scale: 1, transformOrigin: "100% 70%", opacity: 1 }, 0)
     },
 
     changeBackGroundSrc() {

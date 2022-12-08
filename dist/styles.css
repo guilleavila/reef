@@ -340,7 +340,7 @@ button {
     position: fixed;
     top: 0;
     left: 0;
-    width: 200vw;
+    width: 400vw;
     height: 200vh;
     background-color: none;
     z-index: -78;
