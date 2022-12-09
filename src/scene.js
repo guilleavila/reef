@@ -26,6 +26,8 @@ const scene = {
     referenceSize: undefined,
     introState: 'none',
     swimState: 'none',
+    TL3State: 'not created',
+    TL4State: 'not created',
 
     init() {
         this.resetScroll()
@@ -304,8 +306,8 @@ const scene = {
         this.createS2Elements()
         this.fishSwim()
         this.addHoverCoralListener()
-        this.addBlowFishClickEvent()
-        this.createScrollTrigger()
+        // this.addBlowFishClickEvent()
+        this.createTL1()
     },
 
     showScene2() {
@@ -339,13 +341,17 @@ const scene = {
     },
 
     createAnemona() {
-        const { posX, posY, width, height, speed, sceneID, depth, type, name, totalFrames, animation, divID} = elements['scene-2'].anemona
+        const { posX, posY, width, height, speed, sceneID, depth, type, name, totalFrames, animation, divID } = elements['scene-2'].anemona
         this.anemona = new SpriteElement(posX, posY, width, height, speed, 'anemona', sceneID, depth, type, name, totalFrames, animation, divID, false)
     },
 
     addHoverCoralListener() {
         const hoverNodes = document.querySelectorAll('.hoverCoral')
-        hoverNodes.forEach(elm => elm.addEventListener("mouseover", () => {
+        hoverNodes.forEach(elm => elm.addEventListener('mouseover', () => {
+            if (this.TL3State === 'not created') {
+                this.TL3State = 'created'
+                this.createTL3()
+            }
             this.hoverCorals.forEach(coral => {
                 coral.id === elm.id && coral.animate()
             })
@@ -355,8 +361,14 @@ const scene = {
     addBlowFishClickEvent() {
         const blowFishNode = document.getElementById(this.blowFish.id)
         blowFishNode.addEventListener('click', () => {
-            !this.blowFish.hasPopped && this.blowFish.pop()
-            gsap.to('#P1-depth', { zIndex: -80 })
+            if (!this.blowFish.hasPopped) {
+                this.blowFish.pop()
+                gsap.to('#P1-depth', { zIndex: -80 })
+            }
+            if (this.TL4State === 'not created') {
+                this.TL4State = 'created'
+                this.createTL4()
+            }
         })
     },
 
@@ -365,14 +377,14 @@ const scene = {
         return element.clientHeight - window.innerHeight
     },
 
-    createScrollTrigger() {
+    createTL1() {
         // S1-1 --> DOWN MOVEMENT
         let scene21TL = gsap.timeline()
         ScrollTrigger.create({
             animation: scene21TL,
             trigger: '.scrollElement',
-            start: "top top",
-            end: "25% 100%",
+            start: 'top top',
+            end: '25% 100%',
             scrub: 3,
             markers: true
         })
@@ -410,60 +422,129 @@ const scene = {
 
         // S2-2 ---> RIGHT MOVEMENT
         let scene22TL = gsap.timeline()
-        ScrollTrigger.create({
+        const st = ScrollTrigger.create({
             animation: scene22TL,
             trigger: '.scrollElement',
-            start: "25% bottom",
-            end: "40% 100%",
+            start: '25% bottom',
+            end: '40% 100%',
             scrub: 3,
             markers: true
         })
 
-        scene22TL.to('#BG-S2', { right: '0vw', scale: 1.8, transformOrigin: "100% 94%" }, 0)
-        scene22TL.to('#BLURED-1', { right: '100vw', scale: 3.5, transformOrigin: "100% 80%" }, 0)
+        scene22TL.to('#BG-S2', { right: '0vw', scale: 1.8, transformOrigin: '100% 94%' }, 0)
+        scene22TL.to('#BLURED-1', { right: '100vw', scale: 3.5, transformOrigin: '100% 80%' }, 0)
         scene22TL.to('#BLURED-2', { right: '-370vw' }, 0)
 
         scene22TL.to('#P1-S2', {
-            right: '110vw', scale: 1.8, transformOrigin: "100% 94%",
-            onComplete: () => gsap.to('#P1-depth', { zIndex: 110 })
+            right: '110vw', scale: 1.8, transformOrigin: '100% 94%',
+            onComplete: () => {
+                gsap.to('#P1-depth', { zIndex: 110 })
+                st.scroll(2400 - window.innerHeight)
+            }
         }, 0)
-        scene22TL.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: "100% 90%" }, 0)
-        scene22TL.to('#P3-1', { right: '7vw', scale: 1.05, transformOrigin: "100% 90%" }, 0)
-        scene22TL.to('#particles-js', { left: '-120vw', scale: 2.2, transformOrigin: "100% 94%", opacity: 0 }, 0)
+        scene22TL.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: '100% 90%' }, 0)
+        scene22TL.to('#P3-1', { right: '7vw', scale: 1.05, transformOrigin: '100% 90%' }, 0)
+        scene22TL.to('#particles-js', { left: '-120vw', scale: 2.2, transformOrigin: '100% 94%', opacity: 0 }, 0)
 
 
         // S2-3 ---> ZOOM IN
-        let scene23TL = gsap.timeline()
-        ScrollTrigger.create({
-            animation: scene23TL,
-            trigger: '.scrollElement',
-            start: "40% bottom",
-            end: "60% 100%",
-            scrub: 3,
-            markers: true
-        })
+        // let scene23TL = gsap.timeline()
+        // ScrollTrigger.create({
+        //     animation: scene23TL,
+        //     trigger: '.scrollElement',
+        //     start: '40% bottom',
+        //     end: '60% 0%',
+        //     scrub: 1,
+        //     markers: true
+        // })
 
-        scene23TL.to('#BLURED-2', { right: '-373vw', scale: 6, transformOrigin: "0% 100%" }, 0)
-        scene23TL.to('#P1-S2', { right: '210vw', bottom: '-12vh', scale: 4, transformOrigin: "100% 94%" }, 0)
-        scene23TL.to('#P2-S2', { right: '70vw', scale: 1.5, transformOrigin: "100% 90%" }, 0)
-        scene23TL.to('#P3-1', { right: '7.5vw', scale: 1.2, transformOrigin: "100% 90%" }, 0)
+        // scene23TL.to('#BLURED-2', { right: '-373vw', scale: 6, transformOrigin: '0% 100%', onComplete: () => this.addBlowFishClickEvent() }, 0)
+        // scene23TL.to('#P1-S2', { right: '210vw', bottom: '-12vh', scale: 4, transformOrigin: '100% 94%' }, 0)
+        // scene23TL.to('#P2-S2', { right: '70vw', scale: 1.5, transformOrigin: '100% 90%' }, 0)
+        // scene23TL.to('#P3-1', { right: '7.5vw', scale: 1.2, transformOrigin: '100% 90%' }, 0)
 
 
         // S2-4 ---> ZOOM OUT
+        // let scene24TL = gsap.timeline()
+        // ScrollTrigger.create({
+        //     animation: scene24TL,
+        //     trigger: '.scrollElement',
+        //     start: "60% bottom",
+        //     end: "80% 100%",
+        //     scrub: 3,
+        //     markers: true
+        // })
+
+        // scene24TL.to('#BLURED-2', { right: '-370vw', scale: 1.6, transformOrigin: "0% 100%", onStart: () => this.addBlowFishClickEvent() }, 0)
+        // scene24TL.to('#P1-S2', { right: '110vw', bottom: '0vh', scale: 1.8, transformOrigin: "100% 94%" }, 0)
+        // scene24TL.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: "100% 90%" }, 0)
+        // scene24TL.to('#P3-1', { right: '7vw', scale: 1.05, transformOrigin: "100% 90%" }, 0)
+
+
+        // // S2-5 ---> RIGHT MOVEMENT
+        // let scene25TL = gsap.timeline()
+        // ScrollTrigger.create({
+        //     animation: scene25TL,
+        //     trigger: '.scrollElement',
+        //     start: "80% bottom",
+        //     end: "100% 100%",
+        //     scrub: 3,
+        //     markers: true
+        // })
+
+        // scene25TL.to('#BLURED-2', { right: '-100vw', scale: 0.8, transformOrigin: "0% 100%", ease: 'none' }, 0)
+        //     .to('#BLURED-2', {
+        //         right: '270vw', scale: 1.5, transformOrigin: "0% 100%", ease: 'none', onStart: () => {
+        //             this.stingraySwim('stingray-path-10', 10, 0, 0)
+        //             this.changeBackGroundSrc()
+        //         }
+        //     })
+        // scene25TL.to('#BLURED-3', { right: '300vw' }, 0.3)
+        // scene25TL.to('#P1-S2', { right: '145vw', scale: 1, transformOrigin: "100% 94%" }, 0)
+        //     .to('#P1-S2', { right: '180vw' }, 0.5)
+        // scene25TL.to('#P1-2-S2', { right: '235vw', scale: 1.01, duration: 1.1 }, 0)
+        // scene25TL.to('#P2-S2', { right: '100vw', scale: 1, transformOrigin: "100% 90%" }, 0)
+        // scene25TL.to('#P3-1', { right: '21vw', scale: 1, transformOrigin: "100% 90%" }, 0)
+        // scene25TL.to('#particles-js', { left: '-300vw', scale: 1, transformOrigin: "100% 70%", opacity: 1 }, 0)
+    },
+
+    createTL3() {
+        let scene23TL = gsap.timeline()
+        const st = ScrollTrigger.create({
+            animation: scene23TL,
+            trigger: '.scrollElement',
+            start: '40% bottom',
+            end: '60% 100%',
+            scrub: 1,
+            markers: true
+        })
+
+        scene23TL.to('#BLURED-2', {
+            right: '-373vw', scale: 6, transformOrigin: '0% 100%', onComplete: () => {
+                this.addBlowFishClickEvent()
+                st.scroll(3600 - window.innerHeight)
+            }
+        }, 0)
+        scene23TL.to('#P1-S2', { right: '210vw', bottom: '-12vh', scale: 4, transformOrigin: '100% 94%' }, 0)
+        scene23TL.to('#P2-S2', { right: '70vw', scale: 1.5, transformOrigin: '100% 90%' }, 0)
+        scene23TL.to('#P3-1', { right: '7.5vw', scale: 1.2, transformOrigin: '100% 90%' }, 0)
+    },
+
+    createTL4() {
         let scene24TL = gsap.timeline()
         ScrollTrigger.create({
             animation: scene24TL,
             trigger: '.scrollElement',
-            start: "60% bottom",
-            end: "80% 100%",
+            start: '60% bottom',
+            end: '80% 100%',
             scrub: 3,
             markers: true
         })
 
-        scene24TL.to('#BLURED-2', { right: '-370vw', scale: 1.6, transformOrigin: "0% 100%" }, 0)
-        scene24TL.to('#P1-S2', { right: '110vw', bottom: '0vh', scale: 1.8, transformOrigin: "100% 94%" }, 0)
-        scene24TL.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: "100% 90%" }, 0)
-        scene24TL.to('#P3-1', { right: '7vw', scale: 1.05, transformOrigin: "100% 90%" }, 0)
+        scene24TL.to('#BLURED-2', { right: '-370vw', scale: 1.6, transformOrigin: '0% 100%' }, 0)
+        scene24TL.to('#P1-S2', { right: '110vw', bottom: '0vh', scale: 1.8, transformOrigin: '100% 94%' }, 0)
+        scene24TL.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: '100% 90%' }, 0)
+        scene24TL.to('#P3-1', { right: '7vw', scale: 1.05, transformOrigin: '100% 90%' }, 0)
 
 
         // S2-5 ---> RIGHT MOVEMENT
@@ -471,26 +552,26 @@ const scene = {
         ScrollTrigger.create({
             animation: scene25TL,
             trigger: '.scrollElement',
-            start: "80% bottom",
-            end: "100% 100%",
+            start: '80% bottom',
+            end: '100% 100%',
             scrub: 3,
             markers: true
         })
 
-        scene25TL.to('#BLURED-2', { right: '-100vw', scale: 0.8, transformOrigin: "0% 100%", ease: 'none' }, 0)
+        scene25TL.to('#BLURED-2', { right: '-100vw', scale: 0.8, transformOrigin: '0% 100%', ease: 'none' }, 0)
             .to('#BLURED-2', {
-                right: '270vw', scale: 1.5, transformOrigin: "0% 100%", ease: 'none', onStart: () => {
+                right: '270vw', scale: 1.5, transformOrigin: '0% 100%', ease: 'none', onStart: () => {
                     this.stingraySwim('stingray-path-10', 10, 0, 0)
                     this.changeBackGroundSrc()
                 }
             })
         scene25TL.to('#BLURED-3', { right: '300vw' }, 0.3)
-        scene25TL.to('#P1-S2', { right: '145vw', scale: 1, transformOrigin: "100% 94%" }, 0)
+        scene25TL.to('#P1-S2', { right: '145vw', scale: 1, transformOrigin: '100% 94%' }, 0)
             .to('#P1-S2', { right: '180vw' }, 0.5)
         scene25TL.to('#P1-2-S2', { right: '235vw', scale: 1.01, duration: 1.1 }, 0)
-        scene25TL.to('#P2-S2', { right: '100vw', scale: 1, transformOrigin: "100% 90%" }, 0)
-        scene25TL.to('#P3-1', { right: '21vw', scale: 1, transformOrigin: "100% 90%" }, 0)
-        scene25TL.to('#particles-js', { left: '-300vw', scale: 1, transformOrigin: "100% 70%", opacity: 1 }, 0)
+        scene25TL.to('#P2-S2', { right: '100vw', scale: 1, transformOrigin: '100% 90%' }, 0)
+        scene25TL.to('#P3-1', { right: '21vw', scale: 1, transformOrigin: '100% 90%' }, 0)
+        scene25TL.to('#particles-js', { left: '-300vw', scale: 1, transformOrigin: '100% 70%', opacity: 1 }, 0)
     },
 
     changeBackGroundSrc() {

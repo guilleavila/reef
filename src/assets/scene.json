@@ -877,7 +877,7 @@
                     "name": "mFishAnimate",
                     "duration": 0.6
                 },
-                "duration": 29,
+                "duration": 116,
                 "delay": 0
             },
             {
@@ -913,7 +913,7 @@
                     "name": "xsFishAnimate",
                     "duration": 0.6
                 },
-                "duration": 24,
+                "duration": 96,
                 "delay": 1.4
             },
             {
@@ -1003,7 +1003,7 @@
                     "name": "sFishAnimate",
                     "duration": 0.6
                 },
-                "duration": 26,
+                "duration": 104,
                 "delay": 0
             },
             {
@@ -1039,7 +1039,7 @@
                     "name": "mFishAnimate",
                     "duration": 0.6
                 },
-                "duration": 28,
+                "duration": 112,
                 "delay": 0
             },
             {
@@ -1057,7 +1057,7 @@
                     "name": "xsFishAnimate",
                     "duration": 0.6
                 },
-                "duration": 23,
+                "duration": 92,
                 "delay": 0
             },
             {
@@ -1075,7 +1075,7 @@
                     "name": "mFishAnimate",
                     "duration": 0.6
                 },
-                "duration": 23,
+                "duration": 92,
                 "delay": 6
             },
             {
@@ -1111,7 +1111,7 @@
                     "name": "mFishAnimate",
                     "duration": 0.6
                 },
-                "duration": 23,
+                "duration": 92,
                 "delay": 2
             },
             {
@@ -1129,7 +1129,7 @@
                     "name": "sFishAnimate",
                     "duration": 0.6
                 },
-                "duration": 23,
+                "duration": 92,
                 "delay": 0
             },
             {
@@ -1147,7 +1147,7 @@
                     "name": "sFishAnimate",
                     "duration": 0.6
                 },
-                "duration": 29,
+                "duration": 116,
                 "delay": 0
             },
             {
@@ -1219,7 +1219,7 @@
                     "name": "sFishAnimate",
                     "duration": 0.6
                 },
-                "duration": 27,
+                "duration": 108,
                 "delay": 3
             },
             {
@@ -1237,7 +1237,7 @@
                     "name": "sFishAnimate",
                     "duration": 0.6
                 },
-                "duration": 27,
+                "duration": 108,
                 "delay": 7
             },
             {
@@ -1291,7 +1291,7 @@
                     "name": "sFishAnimate",
                     "duration": 0.6
                 },
-                "duration": 20,
+                "duration": 80,
                 "delay": 0
             },
             {
@@ -1309,7 +1309,7 @@
                     "name": "sFishAnimate",
                     "duration": 0.6
                 },
-                "duration": 20,
+                "duration": 80,
                 "delay": 0
             },
             {
@@ -1327,7 +1327,7 @@
                     "name": "sFishAnimate",
                     "duration": 0.6
                 },
-                "duration": 20,
+                "duration": 80,
                 "delay": 0
             }
         ],
