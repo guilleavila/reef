@@ -33,7 +33,7 @@ const scene = {
         this.resetScroll()
         this.animateIntroScreen()
         this.createElements('scene-1')
-        // this.fishSwim()
+        this.fishSwim()
         this.sceneLoop()
         this.addMouseMoveEvent()
     },
@@ -67,13 +67,13 @@ const scene = {
                 document.addEventListener('mousemove', this.sceneState === 1 ? this.showScene : this.hideTransitionScreen)
             }
 
-            // if (this.sceneState === 1) {
-            //     this.swimState === 'on' && this.stingraySwim('stingray-path-1', 15, 90,0)
-            //     if(this.swimState === 'stingray-path-1-done') {
-            //         this.stingraySwim('stingray-path-2', 15, 90,0)
-            //         this.hideLogo()
-            //     } 
-            // }
+            if (this.sceneState === 1) {
+                this.swimState === 'on' && this.stingraySwim('stingray-path-1', 15, 90, 0)
+                if (this.swimState === 'stingray-path-1-done') {
+                    this.stingraySwim('stingray-path-2', 15, 90, 2)
+                    this.hideLogo()
+                }
+            }
 
             if (this.sceneState === 2) {
                 this.swimState === 'on' && this.stingraySwim('stingray-path-9', 15, 0, 0)
@@ -204,8 +204,8 @@ const scene = {
                 delay: 0.5
             })
             gsap.to('.logo-intro', {
-                // visibility: 'hidden',
-                zIndex: -80
+                zIndex: -80,
+                delay: 1
             })
             gsap.to('.text-intro', {
                 opacity: 0,
@@ -255,13 +255,16 @@ const scene = {
     },
 
     showButton() {
-        gsap.fromTo('#start-button', { scale: 0.7 }, {
+        gsap.to('#start-button', {
             visibility: 'visible',
-            scale: 1,
             opacity: 0.8,
-            duration: 0.5,
+            duration: 1,
             delay: 1
         })
+    },
+
+    hideButton() {
+        gsap.to('#start-button', { opacity: 0 })
     },
 
     updateSceneStatus() {
@@ -298,6 +301,8 @@ const scene = {
         this.spriteCorals = []
         this.shinyCorals = []
         this.fish = []
+
+        this.hideButton()
     },
 
     scene2Init() {
@@ -306,7 +311,6 @@ const scene = {
         this.createS2Elements()
         this.fishSwim()
         this.addHoverCoralListener()
-        // this.addBlowFishClickEvent()
         this.createTL1()
     },
 
@@ -433,7 +437,7 @@ const scene = {
             markers: true
         })
 
-        scene2TL2.to('#BG-S2', { right: '0vw', scale: 1.8, transformOrigin: '100% 94%' }, 0)
+        scene2TL2.to('#BG-S2', { scale: 1.8, transformOrigin: '100% 94%' }, 0)
         scene2TL2.to('#BLURED-1', { right: '100vw', scale: 3.5, transformOrigin: '100% 80%' }, 0)
         scene2TL2.to('#BLURED-2', { right: '-370vw' }, 0)
 
@@ -531,7 +535,6 @@ const scene = {
     },
 
     createMessage(message) {
-        console.log('message que me llega--->', message)
         const node = document.createElement('p')
         node.innerText = message
 

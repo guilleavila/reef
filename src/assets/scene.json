@@ -111,7 +111,7 @@
                 },
                 "path": "fish-path-5",
                 "duration": 35,
-                "delay": 0
+                "delay": 3
             },
             {
                 "posX": 0,
@@ -130,7 +130,7 @@
                 },
                 "path": "fish-path-5",
                 "duration": 35,
-                "delay": 0.5
+                "delay": 5
             },
             {
                 "posX": 0,
@@ -149,7 +149,7 @@
                 },
                 "path": "fish-path-6",
                 "duration": 35,
-                "delay": 14
+                "delay": 12
             },
             {
                 "posX": 0,
@@ -168,7 +168,7 @@
                 },
                 "path": "fish-path-6",
                 "duration": 35,
-                "delay": 2
+                "delay": 0
             }
         ],
         "spriteCorals": [
@@ -2037,8 +2037,8 @@
         }
     },
     "stingray": {
-        "posX": -10,
-        "posY": -10,
+        "posX": -50,
+        "posY": -50,
         "width": 25,
         "height": 50,
         "speed": 0.5,
