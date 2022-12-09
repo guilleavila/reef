@@ -3,7 +3,6 @@ import ScrollTrigger from "gsap/ScrollTrigger"
 import { MotionPathPlugin, ScrollToPlugin } from "gsap/all"
 
 import elements from './assets/scene.json'
-import { ShinyCoral } from "./corals/shinyCoral"
 import { SpriteElement } from "./element/element"
 import { BlowFish, PathFish, PathStingray, StaticFish, StraightPathFish } from "./fish/fish"
 import { HoverCoral } from "./corals/hoverCoral"
@@ -20,7 +19,6 @@ const scene = {
     blowFish: undefined,
     anemona: undefined,
     fish: [],
-    shinyCorals: [],
     spriteCorals: [],
     hoverCorals: [],
     referenceSize: undefined,
@@ -53,7 +51,6 @@ const scene = {
     },
 
     createElements(scene) {
-        this.createShinyCorals(scene)
         this.createSpriteCorals(scene)
         this.createStingray()
         this.createFish(scene)
@@ -78,8 +75,6 @@ const scene = {
             if (this.sceneState === 2) {
                 this.swimState === 'on' && this.stingraySwim('stingray-path-9', 15, 0, 0)
             }
-
-            // this.framesCounter % 80 === 0 && this.shinyCorals.forEach(coral => coral.animate())
         }, 1000 / 60)
     },
 
@@ -113,12 +108,6 @@ const scene = {
     getDivID(depth) {
         const divID = `${depth.toUpperCase()}-S${this.sceneState}`
         return divID
-    },
-
-    createShinyCorals(scene) {
-        elements[scene].shinyCorals.forEach(elm => this.shinyCorals.push(
-            new ShinyCoral(elm.posX, elm.posY, elm.width, elm.speed, elm.id, elm.sceneID, elm.depth, elm.type, elm.name, elm.color)
-        ))
     },
 
     createSpriteCorals(scene) {
@@ -299,7 +288,6 @@ const scene = {
 
         // Empty arrays
         this.spriteCorals = []
-        this.shinyCorals = []
         this.fish = []
 
         this.hideButton()
@@ -516,7 +504,7 @@ const scene = {
             })
         scene2TL5.to('#BLURED-3', { right: '300vw' }, 0.3)
         scene2TL5.to('#P1-S2', { right: '145vw', scale: 1, transformOrigin: '100% 94%' }, 0)
-            .to('#P1-S2', { right: '180vw' }, 0.5)
+            .to('#P1-S2', { right: '180vw', duration: 1.1}, 0.5)
         scene2TL5.to('#P1-2-S2', { right: '235vw', scale: 1.01, duration: 1.1 }, 0)
         scene2TL5.to('#P2-S2', { right: '100vw', scale: 1, transformOrigin: '100% 90%' }, 0)
         scene2TL5.to('#P3-1', { right: '21vw', scale: 1, transformOrigin: '100% 90%' }, 0)
