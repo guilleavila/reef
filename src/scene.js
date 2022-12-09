@@ -348,13 +348,14 @@ const scene = {
     addHoverCoralListener() {
         const hoverNodes = document.querySelectorAll('.hoverCoral')
         hoverNodes.forEach(elm => elm.addEventListener('mouseover', () => {
-            if (this.TL3State === 'not created') {
-                this.TL3State = 'created'
-                this.createTL3()
-            }
             this.hoverCorals.forEach(coral => {
                 coral.id === elm.id && coral.animate()
             })
+            if (this.TL3State === 'not created') {
+                this.TL3State = 'created'
+                this.createTL3()
+                this.hideMessage()
+            }
         }))
     },
 
@@ -368,6 +369,7 @@ const scene = {
             if (this.TL4State === 'not created') {
                 this.TL4State = 'created'
                 this.createTL4()
+                this.hideMessage()
             }
         })
     },
@@ -378,10 +380,10 @@ const scene = {
     },
 
     createTL1() {
-        // S1-1 --> DOWN MOVEMENT
-        let scene21TL = gsap.timeline()
+        // -- DOWN MOVEMENT --
+        let scene2TL1 = gsap.timeline()
         ScrollTrigger.create({
-            animation: scene21TL,
+            animation: scene2TL1,
             trigger: '.scrollElement',
             start: 'top top',
             end: '25% 100%',
@@ -390,40 +392,40 @@ const scene = {
         })
 
         // PLANES
-        scene21TL.to('#BLURED-1', { bottom: '-1vh' }, 0)
-        scene21TL.to('#P1-1', { bottom: '-3vh' }, 0)
-        scene21TL.to('#P2-1', { bottom: '5vh' }, 0)
-        scene21TL.to('#P3-1', { bottom: '10vh' }, 0)
+        scene2TL1.to('#BLURED-1', { bottom: '-1vh' }, 0)
+        scene2TL1.to('#P1-1', { bottom: '-3vh' }, 0)
+        scene2TL1.to('#P2-1', { bottom: '5vh' }, 0)
+        scene2TL1.to('#P3-1', { bottom: '10vh' }, 0)
 
-        scene21TL.to('#BG-S2', { top: `-${this.calculateReference()}` }, 0)
-        scene21TL.to('.depth-element', { top: `-${this.calculateReference()}` }, 0)
+        scene2TL1.to('#BG-S2', { top: `-${this.calculateReference()}` }, 0)
+        scene2TL1.to('.depth-element', { top: `-${this.calculateReference()}` }, 0)
 
         // CORALS
         this.spriteCorals.forEach(elm => {
-            elm.depth === 'p1' && scene21TL.to(`#${elm.id}`, { bottom: `${elm.position.y + 80}vh` }, 0)
-            elm.depth === 'p2' && scene21TL.to(`#${elm.id}`, { bottom: `${elm.position.y + 65}vh` }, 0)
+            elm.depth === 'p1' && scene2TL1.to(`#${elm.id}`, { bottom: `${elm.position.y + 80}vh` }, 0)
+            elm.depth === 'p2' && scene2TL1.to(`#${elm.id}`, { bottom: `${elm.position.y + 65}vh` }, 0)
         })
-        this.hoverCorals.forEach(elm => scene21TL.to(`#${elm.id}`, { bottom: `${elm.position.y + 80}vh` }, 0))
+        this.hoverCorals.forEach(elm => scene2TL1.to(`#${elm.id}`, { bottom: `${elm.position.y + 80}vh` }, 0))
 
         // FISH
         this.fish.forEach(elm => {
-            elm.depth === 'p1' && scene21TL.to(`#${elm.id}`, { bottom: `${elm.position.y + 80}vh` }, 0)
-            elm.depth === 'p2' && scene21TL.to(`#${elm.id}`, { bottom: `${elm.position.y + 65}vh` }, 0)
+            elm.depth === 'p1' && scene2TL1.to(`#${elm.id}`, { bottom: `${elm.position.y + 80}vh` }, 0)
+            elm.depth === 'p2' && scene2TL1.to(`#${elm.id}`, { bottom: `${elm.position.y + 65}vh` }, 0)
         })
-        scene21TL.to(`#${this.blowFish.id}`, { bottom: `${this.blowFish.position.y + 80}vh` }, 0)
+        scene2TL1.to(`#${this.blowFish.id}`, { bottom: `${this.blowFish.position.y + 80}vh` }, 0)
 
         // STINGRAY
-        scene21TL.to(`#${this.stingray.id}`, { bottom: `${this.stingray.position.y + 95}vh` }, 0)
+        scene2TL1.to(`#${this.stingray.id}`, { bottom: `${this.stingray.position.y + 95}vh` }, 0)
 
         // PARTICLES
-        scene21TL.to('#particles-js', { top: `-95vh` }, 0)
-        scene21TL.to('#particles-p2-js', { top: `-75vh` }, 0)
+        scene2TL1.to('#particles-js', { top: `-95vh` }, 0)
+        scene2TL1.to('#particles-p2-js', { top: `-75vh` }, 0)
 
 
-        // S2-2 ---> RIGHT MOVEMENT
-        let scene22TL = gsap.timeline()
+        // -- RIGHT MOVEMENT --
+        let scene2TL2 = gsap.timeline()
         const st = ScrollTrigger.create({
-            animation: scene22TL,
+            animation: scene2TL2,
             trigger: '.scrollElement',
             start: '25% bottom',
             end: '40% 100%',
@@ -431,87 +433,28 @@ const scene = {
             markers: true
         })
 
-        scene22TL.to('#BG-S2', { right: '0vw', scale: 1.8, transformOrigin: '100% 94%' }, 0)
-        scene22TL.to('#BLURED-1', { right: '100vw', scale: 3.5, transformOrigin: '100% 80%' }, 0)
-        scene22TL.to('#BLURED-2', { right: '-370vw' }, 0)
+        scene2TL2.to('#BG-S2', { right: '0vw', scale: 1.8, transformOrigin: '100% 94%' }, 0)
+        scene2TL2.to('#BLURED-1', { right: '100vw', scale: 3.5, transformOrigin: '100% 80%' }, 0)
+        scene2TL2.to('#BLURED-2', { right: '-370vw' }, 0)
 
-        scene22TL.to('#P1-S2', {
+        scene2TL2.to('#P1-S2', {
             right: '110vw', scale: 1.8, transformOrigin: '100% 94%',
             onComplete: () => {
                 gsap.to('#P1-depth', { zIndex: 110 })
                 st.scroll(2400 - window.innerHeight)
+                this.createMessage('Pasa por encima de los corales')
             }
         }, 0)
-        scene22TL.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: '100% 90%' }, 0)
-        scene22TL.to('#P3-1', { right: '7vw', scale: 1.05, transformOrigin: '100% 90%' }, 0)
-        scene22TL.to('#particles-js', { left: '-120vw', scale: 2.2, transformOrigin: '100% 94%', opacity: 0 }, 0)
-
-
-        // S2-3 ---> ZOOM IN
-        // let scene23TL = gsap.timeline()
-        // ScrollTrigger.create({
-        //     animation: scene23TL,
-        //     trigger: '.scrollElement',
-        //     start: '40% bottom',
-        //     end: '60% 0%',
-        //     scrub: 1,
-        //     markers: true
-        // })
-
-        // scene23TL.to('#BLURED-2', { right: '-373vw', scale: 6, transformOrigin: '0% 100%', onComplete: () => this.addBlowFishClickEvent() }, 0)
-        // scene23TL.to('#P1-S2', { right: '210vw', bottom: '-12vh', scale: 4, transformOrigin: '100% 94%' }, 0)
-        // scene23TL.to('#P2-S2', { right: '70vw', scale: 1.5, transformOrigin: '100% 90%' }, 0)
-        // scene23TL.to('#P3-1', { right: '7.5vw', scale: 1.2, transformOrigin: '100% 90%' }, 0)
-
-
-        // S2-4 ---> ZOOM OUT
-        // let scene24TL = gsap.timeline()
-        // ScrollTrigger.create({
-        //     animation: scene24TL,
-        //     trigger: '.scrollElement',
-        //     start: "60% bottom",
-        //     end: "80% 100%",
-        //     scrub: 3,
-        //     markers: true
-        // })
-
-        // scene24TL.to('#BLURED-2', { right: '-370vw', scale: 1.6, transformOrigin: "0% 100%", onStart: () => this.addBlowFishClickEvent() }, 0)
-        // scene24TL.to('#P1-S2', { right: '110vw', bottom: '0vh', scale: 1.8, transformOrigin: "100% 94%" }, 0)
-        // scene24TL.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: "100% 90%" }, 0)
-        // scene24TL.to('#P3-1', { right: '7vw', scale: 1.05, transformOrigin: "100% 90%" }, 0)
-
-
-        // // S2-5 ---> RIGHT MOVEMENT
-        // let scene25TL = gsap.timeline()
-        // ScrollTrigger.create({
-        //     animation: scene25TL,
-        //     trigger: '.scrollElement',
-        //     start: "80% bottom",
-        //     end: "100% 100%",
-        //     scrub: 3,
-        //     markers: true
-        // })
-
-        // scene25TL.to('#BLURED-2', { right: '-100vw', scale: 0.8, transformOrigin: "0% 100%", ease: 'none' }, 0)
-        //     .to('#BLURED-2', {
-        //         right: '270vw', scale: 1.5, transformOrigin: "0% 100%", ease: 'none', onStart: () => {
-        //             this.stingraySwim('stingray-path-10', 10, 0, 0)
-        //             this.changeBackGroundSrc()
-        //         }
-        //     })
-        // scene25TL.to('#BLURED-3', { right: '300vw' }, 0.3)
-        // scene25TL.to('#P1-S2', { right: '145vw', scale: 1, transformOrigin: "100% 94%" }, 0)
-        //     .to('#P1-S2', { right: '180vw' }, 0.5)
-        // scene25TL.to('#P1-2-S2', { right: '235vw', scale: 1.01, duration: 1.1 }, 0)
-        // scene25TL.to('#P2-S2', { right: '100vw', scale: 1, transformOrigin: "100% 90%" }, 0)
-        // scene25TL.to('#P3-1', { right: '21vw', scale: 1, transformOrigin: "100% 90%" }, 0)
-        // scene25TL.to('#particles-js', { left: '-300vw', scale: 1, transformOrigin: "100% 70%", opacity: 1 }, 0)
+        scene2TL2.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: '100% 90%' }, 0)
+        scene2TL2.to('#P3-1', { right: '7vw', scale: 1.05, transformOrigin: '100% 90%' }, 0)
+        scene2TL2.to('#particles-js', { left: '-120vw', scale: 2.2, transformOrigin: '100% 94%', opacity: 0 }, 0)
     },
 
     createTL3() {
-        let scene23TL = gsap.timeline()
+        // -- ZOOM IN --
+        let scene2TL3 = gsap.timeline()
         const st = ScrollTrigger.create({
-            animation: scene23TL,
+            animation: scene2TL3,
             trigger: '.scrollElement',
             start: '40% bottom',
             end: '60% 100%',
@@ -519,21 +462,23 @@ const scene = {
             markers: true
         })
 
-        scene23TL.to('#BLURED-2', {
+        scene2TL3.to('#BLURED-2', {
             right: '-373vw', scale: 6, transformOrigin: '0% 100%', onComplete: () => {
                 this.addBlowFishClickEvent()
+                this.createMessage('Haz click sobre el pez globo')
                 st.scroll(3600 - window.innerHeight)
             }
         }, 0)
-        scene23TL.to('#P1-S2', { right: '210vw', bottom: '-12vh', scale: 4, transformOrigin: '100% 94%' }, 0)
-        scene23TL.to('#P2-S2', { right: '70vw', scale: 1.5, transformOrigin: '100% 90%' }, 0)
-        scene23TL.to('#P3-1', { right: '7.5vw', scale: 1.2, transformOrigin: '100% 90%' }, 0)
+        scene2TL3.to('#P1-S2', { right: '210vw', bottom: '-12vh', scale: 4, transformOrigin: '100% 94%' }, 0)
+        scene2TL3.to('#P2-S2', { right: '70vw', scale: 1.5, transformOrigin: '100% 90%' }, 0)
+        scene2TL3.to('#P3-1', { right: '7.5vw', scale: 1.2, transformOrigin: '100% 90%' }, 0)
     },
 
     createTL4() {
-        let scene24TL = gsap.timeline()
+        // -- ZOOM OUT --
+        let scene2TL4 = gsap.timeline()
         ScrollTrigger.create({
-            animation: scene24TL,
+            animation: scene2TL4,
             trigger: '.scrollElement',
             start: '60% bottom',
             end: '80% 100%',
@@ -541,16 +486,16 @@ const scene = {
             markers: true
         })
 
-        scene24TL.to('#BLURED-2', { right: '-370vw', scale: 1.6, transformOrigin: '0% 100%' }, 0)
-        scene24TL.to('#P1-S2', { right: '110vw', bottom: '0vh', scale: 1.8, transformOrigin: '100% 94%' }, 0)
-        scene24TL.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: '100% 90%' }, 0)
-        scene24TL.to('#P3-1', { right: '7vw', scale: 1.05, transformOrigin: '100% 90%' }, 0)
+        scene2TL4.to('#BLURED-2', { right: '-370vw', scale: 1.6, transformOrigin: '0% 100%' }, 0)
+        scene2TL4.to('#P1-S2', { right: '110vw', bottom: '0vh', scale: 1.8, transformOrigin: '100% 94%' }, 0)
+        scene2TL4.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: '100% 90%' }, 0)
+        scene2TL4.to('#P3-1', { right: '7vw', scale: 1.05, transformOrigin: '100% 90%' }, 0)
 
 
-        // S2-5 ---> RIGHT MOVEMENT
-        let scene25TL = gsap.timeline()
+        // -- RIGHT MOVEMENT --
+        let scene2TL5 = gsap.timeline()
         ScrollTrigger.create({
-            animation: scene25TL,
+            animation: scene2TL5,
             trigger: '.scrollElement',
             start: '80% bottom',
             end: '100% 100%',
@@ -558,20 +503,20 @@ const scene = {
             markers: true
         })
 
-        scene25TL.to('#BLURED-2', { right: '-100vw', scale: 0.8, transformOrigin: '0% 100%', ease: 'none' }, 0)
+        scene2TL5.to('#BLURED-2', { right: '-100vw', scale: 0.8, transformOrigin: '0% 100%', ease: 'none' }, 0)
             .to('#BLURED-2', {
                 right: '270vw', scale: 1.5, transformOrigin: '0% 100%', ease: 'none', onStart: () => {
                     this.stingraySwim('stingray-path-10', 10, 0, 0)
                     this.changeBackGroundSrc()
                 }
             })
-        scene25TL.to('#BLURED-3', { right: '300vw' }, 0.3)
-        scene25TL.to('#P1-S2', { right: '145vw', scale: 1, transformOrigin: '100% 94%' }, 0)
+        scene2TL5.to('#BLURED-3', { right: '300vw' }, 0.3)
+        scene2TL5.to('#P1-S2', { right: '145vw', scale: 1, transformOrigin: '100% 94%' }, 0)
             .to('#P1-S2', { right: '180vw' }, 0.5)
-        scene25TL.to('#P1-2-S2', { right: '235vw', scale: 1.01, duration: 1.1 }, 0)
-        scene25TL.to('#P2-S2', { right: '100vw', scale: 1, transformOrigin: '100% 90%' }, 0)
-        scene25TL.to('#P3-1', { right: '21vw', scale: 1, transformOrigin: '100% 90%' }, 0)
-        scene25TL.to('#particles-js', { left: '-300vw', scale: 1, transformOrigin: '100% 70%', opacity: 1 }, 0)
+        scene2TL5.to('#P1-2-S2', { right: '235vw', scale: 1.01, duration: 1.1 }, 0)
+        scene2TL5.to('#P2-S2', { right: '100vw', scale: 1, transformOrigin: '100% 90%' }, 0)
+        scene2TL5.to('#P3-1', { right: '21vw', scale: 1, transformOrigin: '100% 90%' }, 0)
+        scene2TL5.to('#particles-js', { left: '-300vw', scale: 1, transformOrigin: '100% 70%', opacity: 1 }, 0)
     },
 
     changeBackGroundSrc() {
@@ -583,8 +528,30 @@ const scene = {
 
         const d3Node = document.getElementById('D2')
         d3Node.src = './images/scene-2/elements/D3-2.png'
-    }
+    },
 
+    createMessage(message) {
+        console.log('message que me llega--->', message)
+        const node = document.createElement('p')
+        node.innerText = message
+
+        const div = document.getElementById('messages')
+        div.appendChild(node)
+        this.showMessage()
+    },
+
+    showMessage() {
+        gsap.to('#messages', { opacity: 1, duration: 1.5 })
+    },
+
+    hideMessage() {
+        gsap.to('#messages', { opacity: 0, duration: 1.5, delay: 1 })
+
+        setTimeout(() => {
+            const node = document.querySelector('#messages p')
+            node.remove()
+        }, 2500)
+    }
 }
 
 export default scene

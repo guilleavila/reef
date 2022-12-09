@@ -80,6 +80,26 @@ button {
 }
 
 
+/* MESSAGES */
+#messages{
+    position: fixed;
+    top: 92.5%;
+    right: 50%;
+    transform: translate(50%);
+    z-index: 115;
+    opacity: 0;
+}
+
+#messages p{
+    font-size: 1.1em;
+    font-weight: 300;
+    padding: 4px 30px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.8) 76%, rgba(255, 255, 255, 1) 100%);
+    color: #66848e;
+    border-radius: 30px;
+}
+
+
 /* BACKGROUND */
 .bg {
     position: fixed;
