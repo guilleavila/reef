@@ -1,3 +1,5 @@
+import { getNode } from "../utils/getNode"
+
 export class Element {
     constructor(posX, posY, width, speed, id, sceneID, depth, type, name) {
         this.position = { x: posX, y: posY }
@@ -25,7 +27,7 @@ export class Element {
             elementImage.setAttribute(attr, attributes[attr])
         }
 
-        const divNode = document.getElementById(this.sceneID)
+        const divNode = getNode(this.sceneID)
         divNode.appendChild(elementImage)
     }
 }
@@ -65,7 +67,7 @@ export class SpriteElement extends Element {
         for (const attr in attributes) {
             elementIcon.setAttribute(attr, attributes[attr])
         }
-        const divNode = document.getElementById(this.divID)
+        const divNode = getNode(this.divID)
         divNode.appendChild(elementIcon)
     }
 }

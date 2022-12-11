@@ -53,11 +53,11 @@ body::-webkit-scrollbar {
 /* BUTTON */
 button {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 1.2em;
     color: white;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.5) 76%, rgba(255, 255, 255, 0.8) 100%);
-    padding: 15px 35px;
+    padding: 10px 30px;
     border: none;
     border-radius: 30px;
     position: fixed;
@@ -91,6 +91,7 @@ button {
 }
 
 #messages p {
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.1em;
     font-weight: 300;
     padding: 4px 30px;
@@ -353,7 +354,7 @@ button {
 
 .motionPath path {
     stroke-width: 0.1;
-    stroke: none;
+    stroke: red;
 }
 
 /* PARTICLES */

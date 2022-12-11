@@ -6,6 +6,8 @@ import elements from './assets/scene.json'
 import { SpriteElement } from "./element/element"
 import { BlowFish, PathFish, PathStingray, StaticFish, StraightPathFish } from "./fish/fish"
 import { HoverCoral } from "./corals/hoverCoral"
+import { getNode } from "./utils/getNode"
+import { Message } from "./message/message"
 
 gsap.registerPlugin(MotionPathPlugin)
 gsap.registerPlugin(ScrollTrigger)
@@ -18,10 +20,11 @@ const scene = {
     stingray: undefined,
     blowFish: undefined,
     anemona: undefined,
+    referenceSize: undefined,
+    message: undefined,
     fish: [],
     spriteCorals: [],
     hoverCorals: [],
-    referenceSize: undefined,
     introState: 'none',
     swimState: 'none',
     TL3State: 'not created',
@@ -30,7 +33,7 @@ const scene = {
     init() {
         this.resetScroll()
         this.animateIntroScreen()
-        this.createElements('scene-1')
+        this.createS1Elements('scene-1')
         this.fishSwim()
         this.sceneLoop()
         this.addMouseMoveEvent()
@@ -50,9 +53,9 @@ const scene = {
         })
     },
 
-    createElements(scene) {
+    createS1Elements(scene) {
         this.createSpriteCorals(scene)
-        this.createStingray()
+        this.createStingray(scene)
         this.createFish(scene)
     },
 
@@ -105,11 +108,6 @@ const scene = {
         });
     },
 
-    getDivID(depth) {
-        const divID = `${depth.toUpperCase()}-S${this.sceneState}`
-        return divID
-    },
-
     createSpriteCorals(scene) {
         const isCoral = scene === 'scene-2'
         elements[scene].spriteCorals.forEach(elm => this.spriteCorals.push(
@@ -117,9 +115,9 @@ const scene = {
         ))
     },
 
-    createStingray() {
-        const { posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation } = elements.stingray
-        this.stingray = new PathStingray(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, this.getDivID(depth))
+    createStingray(scene) {
+        const { posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID } = elements[scene].stingray
+        this.stingray = new PathStingray(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID)
     },
 
     createFish(scene) {
@@ -127,10 +125,10 @@ const scene = {
             new StaticFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.divID)
         ))
         elements[scene].pathFish.forEach(elm => this.fish.push(
-            new PathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, this.getDivID(elm.depth), elm.path, elm.duration, elm.delay)
+            new PathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.divID, elm.path, elm.duration, elm.delay)
         ))
         elements[scene].straightPathFish?.forEach(elm => this.fish.push(
-            new StraightPathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, this.getDivID(elm.depth), elm.duration, elm.delay)
+            new StraightPathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.divID, elm.duration, elm.delay)
         ))
     },
 
@@ -270,7 +268,7 @@ const scene = {
             onComplete: () => {
                 this.sceneState = 2
                 this.introState = 'on'
-                this.swimState = 'on'
+                this.swimState = 'none'
                 this.emptyScene()
                 this.scene2Init()
             }
@@ -303,7 +301,7 @@ const scene = {
     },
 
     showScene2() {
-        const scene2 = document.getElementById('scene-2')
+        const scene2 = getNode('scene-2')
         scene2.style.visibility = 'visible'
     },
 
@@ -312,7 +310,7 @@ const scene = {
         this.createSpriteCorals('scene-2')
         this.createFish('scene-2')
         this.createHoverCorals('scene-2')
-        this.createS2Stingray('scene-2')
+        this.createStingray('scene-2')
         this.createBlowFish()
     },
 
@@ -322,14 +320,9 @@ const scene = {
         ))
     },
 
-    createS2Stingray(scene) {
-        const { posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation } = elements[scene].stingray
-        this.stingray = new PathStingray(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, this.getDivID(depth))
-    },
-
     createBlowFish() {
-        const { posX, posY, width, height, speed, sceneID, depth, type, name, totalFrames, animation } = elements['scene-2'].blowFish
-        this.blowFish = new BlowFish(posX, posY, width, height, speed, 'blowfFish-1', sceneID, depth, type, name, totalFrames, animation, this.getDivID(depth))
+        const { posX, posY, width, height, speed, sceneID, depth, type, name, totalFrames, animation, divID } = elements['scene-2'].blowFish
+        this.blowFish = new BlowFish(posX, posY, width, height, speed, 'blowfFish-1', sceneID, depth, type, name, totalFrames, animation, divID)
     },
 
     createAnemona() {
@@ -346,13 +339,13 @@ const scene = {
             if (this.TL3State === 'not created') {
                 this.TL3State = 'created'
                 this.createTL3()
-                this.hideMessage()
+                this.message.hideMessage()
             }
         }))
     },
 
     addBlowFishClickEvent() {
-        const blowFishNode = document.getElementById(this.blowFish.id)
+        const blowFishNode = getNode(this.blowFish.id)
         blowFishNode.addEventListener('click', () => {
             if (!this.blowFish.hasPopped) {
                 this.blowFish.pop()
@@ -361,19 +354,19 @@ const scene = {
             if (this.TL4State === 'not created') {
                 this.TL4State = 'created'
                 this.createTL4()
-                this.hideMessage()
+                this.message.hideMessage()
             }
         })
     },
 
     calculateReference() {
-        const element = document.getElementById('BG-S2')
+        const element = getNode('BG-S2')
         return element.clientHeight - window.innerHeight
     },
 
     createTL1() {
         // -- DOWN MOVEMENT --
-        let scene2TL1 = gsap.timeline()
+        const scene2TL1 = gsap.timeline()
         ScrollTrigger.create({
             animation: scene2TL1,
             trigger: '.scrollElement',
@@ -415,7 +408,7 @@ const scene = {
 
 
         // -- RIGHT MOVEMENT --
-        let scene2TL2 = gsap.timeline()
+        const scene2TL2 = gsap.timeline()
         const st = ScrollTrigger.create({
             animation: scene2TL2,
             trigger: '.scrollElement',
@@ -433,8 +426,8 @@ const scene = {
             right: '110vw', scale: 1.8, transformOrigin: '100% 94%',
             onComplete: () => {
                 gsap.to('#P1-depth', { zIndex: 110 })
+                this.message = new Message('Pasa por encima de los corales')
                 st.scroll(2400 - window.innerHeight)
-                this.createMessage('Pasa por encima de los corales')
             }
         }, 0)
         scene2TL2.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: '100% 90%' }, 0)
@@ -444,7 +437,7 @@ const scene = {
 
     createTL3() {
         // -- ZOOM IN --
-        let scene2TL3 = gsap.timeline()
+        const scene2TL3 = gsap.timeline()
         const st = ScrollTrigger.create({
             animation: scene2TL3,
             trigger: '.scrollElement',
@@ -457,7 +450,7 @@ const scene = {
         scene2TL3.to('#BLURED-2', {
             right: '-373vw', scale: 6, transformOrigin: '0% 100%', onComplete: () => {
                 this.addBlowFishClickEvent()
-                this.createMessage('Haz click sobre el pez globo')
+                this.message = new Message('Haz click sobre el pez globo')
                 st.scroll(3600 - window.innerHeight)
             }
         }, 0)
@@ -468,7 +461,7 @@ const scene = {
 
     createTL4() {
         // -- ZOOM OUT --
-        let scene2TL4 = gsap.timeline()
+        const scene2TL4 = gsap.timeline()
         ScrollTrigger.create({
             animation: scene2TL4,
             trigger: '.scrollElement',
@@ -485,7 +478,7 @@ const scene = {
 
 
         // -- RIGHT MOVEMENT --
-        let scene2TL5 = gsap.timeline()
+        const scene2TL5 = gsap.timeline()
         ScrollTrigger.create({
             animation: scene2TL5,
             trigger: '.scrollElement',
@@ -499,49 +492,23 @@ const scene = {
             .to('#BLURED-2', {
                 right: '270vw', scale: 1.5, transformOrigin: '0% 100%', ease: 'none', onStart: () => {
                     this.stingraySwim('stingray-path-10', 10, 0, 0)
-                    this.changeBackGroundSrc()
+                    this.changeImageSrc('BG-S2', './images/scene-2/elements/BG-2.png')
+                    this.changeImageSrc('D2', './images/scene-2/elements/D2-2.png')
+                    this.changeImageSrc('D3', './images/scene-2/elements/D3-2.png')
                 }
             })
         scene2TL5.to('#BLURED-3', { right: '300vw' }, 0.3)
         scene2TL5.to('#P1-S2', { right: '145vw', scale: 1, transformOrigin: '100% 94%' }, 0)
-            .to('#P1-S2', { right: '180vw', duration: 1.1}, 0.5)
+            .to('#P1-S2', { right: '180vw', duration: 1.1 }, 0.5)
         scene2TL5.to('#P1-2-S2', { right: '235vw', scale: 1.01, duration: 1.1 }, 0)
         scene2TL5.to('#P2-S2', { right: '100vw', scale: 1, transformOrigin: '100% 90%' }, 0)
         scene2TL5.to('#P3-1', { right: '21vw', scale: 1, transformOrigin: '100% 90%' }, 0)
         scene2TL5.to('#particles-js', { left: '-300vw', scale: 1, transformOrigin: '100% 70%', opacity: 1 }, 0)
     },
 
-    changeBackGroundSrc() {
-        const bgNode = document.getElementById('BG-S2')
-        bgNode.src = './images/scene-2/elements/BG-2.png'
-
-        const d2Node = document.getElementById('D2')
-        d2Node.src = './images/scene-2/elements/D2-2.png'
-
-        const d3Node = document.getElementById('D2')
-        d3Node.src = './images/scene-2/elements/D3-2.png'
-    },
-
-    createMessage(message) {
-        const node = document.createElement('p')
-        node.innerText = message
-
-        const div = document.getElementById('messages')
-        div.appendChild(node)
-        this.showMessage()
-    },
-
-    showMessage() {
-        gsap.to('#messages', { opacity: 1, duration: 1.5 })
-    },
-
-    hideMessage() {
-        gsap.to('#messages', { opacity: 0, duration: 1.5, delay: 1 })
-
-        setTimeout(() => {
-            const node = document.querySelector('#messages p')
-            node.remove()
-        }, 2500)
+    changeImageSrc(nodeID, src) {
+        const node = getNode(nodeID)
+        node.src = src
     }
 }
 

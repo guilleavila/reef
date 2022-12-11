@@ -1,6 +1,7 @@
 import gsap from "gsap"
 import { SpriteElement } from "../element/element"
 import scene from "../scene"
+import { getNode } from "../utils/getNode"
 
 
 export class StaticFish extends SpriteElement {
@@ -65,6 +66,7 @@ export class PathStingray extends SpriteElement {
     }
 
     swim(path, duration, rotation, delay) {
+        console.log('nadando')
         gsap.to(`#${this.id}`, {
             duration: duration,
             motionPath: {
@@ -111,13 +113,13 @@ export class BlowFish extends SpriteElement {
             elementIcon.setAttribute(attr, attributes[attr])
         }
 
-        const divNode = document.getElementById('P1-S2')
+        const divNode = getNode('P1-S2')
         divNode.appendChild(elementIcon)
     }
 
     pop() {
         this.hasPopped = true
-        const blowFishNode = document.getElementById(this.id)
+        const blowFishNode = getNode(this.id)
         blowFishNode.style.backgroundPosition = '0vw -3vw'
         blowFishNode.style.animation = 'blowFishPopAnimation 0.15s steps(15) 1'
 

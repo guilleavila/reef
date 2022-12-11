@@ -1,5 +1,6 @@
 import gsap from "gsap"
 import { Element } from "../element/element"
+import { getNode } from "../utils/getNode"
 
 export class HoverCoral extends Element {
     constructor(posX, posY, width, speed, id, sceneID, depth, type, name) {
@@ -22,7 +23,7 @@ export class HoverCoral extends Element {
             elementImage.setAttribute(attr, attributes[attr])
         }
 
-        const divNode = document.getElementById('hoverCorals')
+        const divNode = getNode('hoverCorals')
         divNode.appendChild(elementImage)
     }
 
