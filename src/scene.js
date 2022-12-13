@@ -30,11 +30,11 @@ const scene = {
     TL3State: 'not created',
     TL4State: 'not created',
 
-    init() {
+    scene1Init() {
         this.resetScroll()
         this.animateIntroScreen()
         this.createS1Elements('scene-1')
-        this.fishSwim()
+        // this.fishSwim()
         this.sceneLoop()
         this.addMouseMoveEvent()
     },
@@ -67,13 +67,13 @@ const scene = {
                 document.addEventListener('mousemove', this.sceneState === 1 ? this.showScene : this.hideTransitionScreen)
             }
 
-            if (this.sceneState === 1) {
-                this.swimState === 'on' && this.stingraySwim('stingray-path-1', 15, 90, 0)
-                if (this.swimState === 'stingray-path-1-done') {
-                    this.stingraySwim('stingray-path-2', 15, 90, 2)
-                    this.hideLogo()
-                }
-            }
+            // if (this.sceneState === 1) {
+            //     this.swimState === 'on' && this.stingraySwim('stingray-path-1', 15, 90, 0)
+            //     if (this.swimState === 'stingray-path-1-done') {
+            //         this.stingraySwim('stingray-path-2', 15, 90, 2)
+            //         this.hideLogo()
+            //     }
+            // }
 
             if (this.sceneState === 2) {
                 this.swimState === 'on' && this.stingraySwim('stingray-path-9', 15, 0, 0)
@@ -278,7 +278,7 @@ const scene = {
 
     emptyScene() {
         // Delete DOM elements
-        const scene1 = document.querySelector('#scene-1')
+        const scene1 = getNode('scene-1')
         document.body.removeChild(scene1)
 
         const planeElements = document.querySelectorAll('#scene-1 .plane')
@@ -376,33 +376,11 @@ const scene = {
             markers: true
         })
 
-        // PLANES
-        scene2TL1.to('#BLURED-1', { bottom: '-1vh' }, 0)
-        scene2TL1.to('#P1-1', { bottom: '-3vh' }, 0)
-        scene2TL1.to('#P2-1', { bottom: '5vh' }, 0)
+        scene2TL1.to('#P1-S2', { scale: 1, bottom: '85vh' }, 0)
+        scene2TL1.to('#P2-S2', { scale: 1, bottom: '65vh' }, 0)
         scene2TL1.to('#P3-1', { bottom: '10vh' }, 0)
-
         scene2TL1.to('#BG-S2', { top: `-${this.calculateReference()}` }, 0)
         scene2TL1.to('.depth-element', { top: `-${this.calculateReference()}` }, 0)
-
-        // CORALS
-        this.spriteCorals.forEach(elm => {
-            elm.depth === 'p1' && scene2TL1.to(`#${elm.id}`, { bottom: `${elm.position.y + 80}vh` }, 0)
-            elm.depth === 'p2' && scene2TL1.to(`#${elm.id}`, { bottom: `${elm.position.y + 65}vh` }, 0)
-        })
-        this.hoverCorals.forEach(elm => scene2TL1.to(`#${elm.id}`, { bottom: `${elm.position.y + 80}vh` }, 0))
-
-        // FISH
-        this.fish.forEach(elm => {
-            elm.depth === 'p1' && scene2TL1.to(`#${elm.id}`, { bottom: `${elm.position.y + 80}vh` }, 0)
-            elm.depth === 'p2' && scene2TL1.to(`#${elm.id}`, { bottom: `${elm.position.y + 65}vh` }, 0)
-        })
-        scene2TL1.to(`#${this.blowFish.id}`, { bottom: `${this.blowFish.position.y + 80}vh` }, 0)
-
-        // STINGRAY
-        scene2TL1.to(`#${this.stingray.id}`, { bottom: `${this.stingray.position.y + 95}vh` }, 0)
-
-        // PARTICLES
         scene2TL1.to('#particles-js', { top: `-95vh` }, 0)
         scene2TL1.to('#particles-p2-js', { top: `-75vh` }, 0)
 
@@ -414,7 +392,7 @@ const scene = {
             trigger: '.scrollElement',
             start: '25% bottom',
             end: '40% 100%',
-            scrub: 3,
+            scrub: 1.5,
             markers: true
         })
 
@@ -423,14 +401,14 @@ const scene = {
         scene2TL2.to('#BLURED-2', { right: '-370vw' }, 0)
 
         scene2TL2.to('#P1-S2', {
-            right: '110vw', scale: 1.8, transformOrigin: '100% 94%',
+            right: '110vw', scale: 1.8, transformOrigin: '100% 178%', 
             onComplete: () => {
                 gsap.to('#P1-depth', { zIndex: 110 })
                 this.message = new Message('Pasa por encima de los corales')
                 st.scroll(2400 - window.innerHeight)
             }
         }, 0)
-        scene2TL2.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: '100% 90%' }, 0)
+        scene2TL2.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: '100% 155%' }, 0)
         scene2TL2.to('#P3-1', { right: '7vw', scale: 1.05, transformOrigin: '100% 90%' }, 0)
         scene2TL2.to('#particles-js', { left: '-120vw', scale: 2.2, transformOrigin: '100% 94%', opacity: 0 }, 0)
     },
@@ -454,8 +432,8 @@ const scene = {
                 st.scroll(3600 - window.innerHeight)
             }
         }, 0)
-        scene2TL3.to('#P1-S2', { right: '210vw', bottom: '-12vh', scale: 4, transformOrigin: '100% 94%' }, 0)
-        scene2TL3.to('#P2-S2', { right: '70vw', scale: 1.5, transformOrigin: '100% 90%' }, 0)
+        scene2TL3.to('#P1-S2', { right: '210vw', scale: 4, transformOrigin: '100% 178%' }, 0)
+        scene2TL3.to('#P2-S2', { right: '70vw', scale: 1.5, transformOrigin: '100% 155%' }, 0)
         scene2TL3.to('#P3-1', { right: '7.5vw', scale: 1.2, transformOrigin: '100% 90%' }, 0)
     },
 
@@ -472,8 +450,8 @@ const scene = {
         })
 
         scene2TL4.to('#BLURED-2', { right: '-370vw', scale: 1.6, transformOrigin: '0% 100%' }, 0)
-        scene2TL4.to('#P1-S2', { right: '110vw', bottom: '0vh', scale: 1.8, transformOrigin: '100% 94%' }, 0)
-        scene2TL4.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: '100% 90%' }, 0)
+        scene2TL4.to('#P1-S2', { right: '110vw', scale: 1.8, transformOrigin: '100% 178%' }, 0)
+        scene2TL4.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: '100% 155%' }, 0)
         scene2TL4.to('#P3-1', { right: '7vw', scale: 1.05, transformOrigin: '100% 90%' }, 0)
 
 
@@ -498,10 +476,10 @@ const scene = {
                 }
             })
         scene2TL5.to('#BLURED-3', { right: '300vw' }, 0.3)
-        scene2TL5.to('#P1-S2', { right: '145vw', scale: 1, transformOrigin: '100% 94%' }, 0)
+        scene2TL5.to('#P1-S2', { right: '145vw', scale: 1, transformOrigin: '100% 178%' }, 0)
             .to('#P1-S2', { right: '180vw', duration: 1.1 }, 0.5)
         scene2TL5.to('#P1-2-S2', { right: '235vw', scale: 1.01, duration: 1.1 }, 0)
-        scene2TL5.to('#P2-S2', { right: '100vw', scale: 1, transformOrigin: '100% 90%' }, 0)
+        scene2TL5.to('#P2-S2', { right: '100vw', scale: 1, transformOrigin: '100% 155%' }, 0)
         scene2TL5.to('#P3-1', { right: '21vw', scale: 1, transformOrigin: '100% 90%' }, 0)
         scene2TL5.to('#particles-js', { left: '-300vw', scale: 1, transformOrigin: '100% 70%', opacity: 1 }, 0)
     },

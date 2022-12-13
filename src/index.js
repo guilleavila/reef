@@ -1,4 +1,5 @@
 import scene from './scene'
+import { getNode } from './utils/getNode';
 
 window.onload = () => {
     particlesJS.load('particles-js', 'assets/particlesP1.json', function () {
@@ -8,10 +9,10 @@ window.onload = () => {
         console.log('callback - particles.js p2 config loaded');
     });
 
-    const startButton = document.querySelector('#start-button')
+    const startButton = getNode('start-button')
     startButton.addEventListener('click', () => {
         scene.updateSceneStatus()
     })
 
-    scene.init()
+    scene.scene1Init()
 }
