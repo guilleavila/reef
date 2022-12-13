@@ -13,7 +13,7 @@ body::-webkit-scrollbar {
 
 .scrollElement {
     position: absolute;
-    height: 6000px;
+    height: 12000px;
     width: 100px;
     top: 0;
     z-index: 0;
@@ -209,7 +209,6 @@ button {
     width: 100vw;
     height: 100vh;
     z-index: -80;
-    /* background-color: red; */
 }
 
 #P1-2-S2 {
@@ -289,7 +288,7 @@ button {
 
 #BLURED-2 {
     position: fixed;
-    bottom: 0vh;
+    bottom: -20vh;
     right: -497vw;
     width: 395vw;
     z-index: -70;
@@ -305,7 +304,7 @@ button {
 
 #P1-2 {
     position: fixed;
-    bottom: -3vh;
+    bottom: -57vh;
     right: -180vw;
     width: 90vw;
     z-index: -80;
@@ -327,7 +326,7 @@ button {
 .sun-rays {
     opacity: 1;
     position: fixed;
-    top: 0;
+    top: 0vh;
     left: -7vw;
     width: 110%;
     z-index: 99;
@@ -341,6 +340,31 @@ button {
 .delay-2 {
     animation-delay: 4s;
 }
+
+/* SCENE 3 */
+#scene-3 {
+    visibility: hidden;
+}
+
+.fixed {
+    position: fixed;
+    top: 0vh;
+    right: 0vw;
+    width: 100vw;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+#BG-S3 {
+    z-index: -105;
+}
+
+#D3-S3{
+    z-index: -95;
+}
+
 
 
 /* PATHS */
@@ -362,10 +386,10 @@ button {
 /* PARTICLES */
 #particles-js {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 0vh;
+    left: 0vh;
     width: 400vw;
-    height: 200vh;
+    height: 400vh;
     background-color: none;
     z-index: -78;
 }
@@ -375,7 +399,7 @@ button {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 200vh;
+    height: 400vh;
     background-color: none;
     z-index: -85;
 }

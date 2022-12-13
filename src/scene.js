@@ -64,7 +64,7 @@ const scene = {
             this.framesCounter >= 600 ? this.framesCounter = 0 : this.framesCounter++
 
             if (this.introState === 'on') {
-                document.addEventListener('mousemove', this.sceneState === 1 ? this.showScene : this.hideTransitionScreen)
+                document.addEventListener('mousemove', this.sceneState === 1 ? this.showIntroScene : this.hideTransitionScreen)
             }
 
             // if (this.sceneState === 1) {
@@ -81,7 +81,7 @@ const scene = {
         }, 1000 / 60)
     },
 
-    showScene() {
+    showIntroScene() {
         this.introState = 'done'
         scene.hideIntroScreen()
     },
@@ -292,7 +292,7 @@ const scene = {
     },
 
     scene2Init() {
-        this.showScene2()
+        this.showScene('scene-2')
 
         this.createS2Elements()
         this.fishSwim()
@@ -300,9 +300,9 @@ const scene = {
         this.createTL1()
     },
 
-    showScene2() {
-        const scene2 = getNode('scene-2')
-        scene2.style.visibility = 'visible'
+    showScene(sceneID) {
+        const sceneNode = getNode(sceneID)
+        sceneNode.style.visibility = 'visible'
     },
 
     createS2Elements() {
@@ -371,11 +371,12 @@ const scene = {
             animation: scene2TL1,
             trigger: '.scrollElement',
             start: 'top top',
-            end: '25% 100%',
+            end: '12.5% 100%',
             scrub: 3,
             markers: true
         })
 
+        scene2TL1.to('#BLURED-1', { bottom: '-1vh' }, 0)
         scene2TL1.to('#P1-S2', { scale: 1, bottom: '85vh' }, 0)
         scene2TL1.to('#P2-S2', { scale: 1, bottom: '65vh' }, 0)
         scene2TL1.to('#P3-1', { bottom: '10vh' }, 0)
@@ -390,8 +391,8 @@ const scene = {
         const st = ScrollTrigger.create({
             animation: scene2TL2,
             trigger: '.scrollElement',
-            start: '25% bottom',
-            end: '40% 100%',
+            start: '12.5% bottom',
+            end: '20% 100%',
             scrub: 1.5,
             markers: true
         })
@@ -401,7 +402,7 @@ const scene = {
         scene2TL2.to('#BLURED-2', { right: '-370vw' }, 0)
 
         scene2TL2.to('#P1-S2', {
-            right: '110vw', scale: 1.8, transformOrigin: '100% 178%', 
+            right: '110vw', scale: 1.8, transformOrigin: '100% 178%',
             onComplete: () => {
                 gsap.to('#P1-depth', { zIndex: 110 })
                 this.message = new Message('Pasa por encima de los corales')
@@ -409,7 +410,7 @@ const scene = {
             }
         }, 0)
         scene2TL2.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: '100% 155%' }, 0)
-        scene2TL2.to('#P3-1', { right: '7vw', scale: 1.05, transformOrigin: '100% 90%' }, 0)
+        scene2TL2.to('#P3-1', { right: '15vw', scale: 1.05, transformOrigin: '100% 90%' }, 0)
         scene2TL2.to('#particles-js', { left: '-120vw', scale: 2.2, transformOrigin: '100% 94%', opacity: 0 }, 0)
     },
 
@@ -419,8 +420,8 @@ const scene = {
         const st = ScrollTrigger.create({
             animation: scene2TL3,
             trigger: '.scrollElement',
-            start: '40% bottom',
-            end: '60% 100%',
+            start: '20% bottom',
+            end: '25% 100%',
             scrub: 1,
             markers: true
         })
@@ -429,12 +430,12 @@ const scene = {
             right: '-373vw', scale: 6, transformOrigin: '0% 100%', onComplete: () => {
                 this.addBlowFishClickEvent()
                 this.message = new Message('Haz click sobre el pez globo')
-                st.scroll(3600 - window.innerHeight)
+                st.scroll(3000 - window.innerHeight)
             }
         }, 0)
         scene2TL3.to('#P1-S2', { right: '210vw', scale: 4, transformOrigin: '100% 178%' }, 0)
         scene2TL3.to('#P2-S2', { right: '70vw', scale: 1.5, transformOrigin: '100% 155%' }, 0)
-        scene2TL3.to('#P3-1', { right: '7.5vw', scale: 1.2, transformOrigin: '100% 90%' }, 0)
+        scene2TL3.to('#P3-1', { right: '17vw', scale: 1.2, transformOrigin: '100% 90%' }, 0)
     },
 
     createTL4() {
@@ -443,8 +444,8 @@ const scene = {
         ScrollTrigger.create({
             animation: scene2TL4,
             trigger: '.scrollElement',
-            start: '60% bottom',
-            end: '80% 100%',
+            start: '25% bottom',
+            end: '30% 100%',
             scrub: 3,
             markers: true
         })
@@ -452,7 +453,8 @@ const scene = {
         scene2TL4.to('#BLURED-2', { right: '-370vw', scale: 1.6, transformOrigin: '0% 100%' }, 0)
         scene2TL4.to('#P1-S2', { right: '110vw', scale: 1.8, transformOrigin: '100% 178%' }, 0)
         scene2TL4.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: '100% 155%' }, 0)
-        scene2TL4.to('#P3-1', { right: '7vw', scale: 1.05, transformOrigin: '100% 90%' }, 0)
+        scene2TL4.to('#P3-1', { right: '15vw', scale: 1.05, transformOrigin: '100% 90%' }, 0)
+        scene2TL4.to('#particles-js', { left: '0vw' })
 
 
         // -- RIGHT MOVEMENT --
@@ -460,33 +462,62 @@ const scene = {
         ScrollTrigger.create({
             animation: scene2TL5,
             trigger: '.scrollElement',
-            start: '80% bottom',
-            end: '100% 100%',
+            start: '30% bottom',
+            end: '40% 100%',
             scrub: 3,
             markers: true
         })
 
         scene2TL5.to('#BLURED-2', { right: '-100vw', scale: 0.8, transformOrigin: '0% 100%', ease: 'none' }, 0)
             .to('#BLURED-2', {
-                right: '270vw', scale: 1.5, transformOrigin: '0% 100%', ease: 'none', onStart: () => {
+                right: '70vw', scale: 1.2, transformOrigin: '100% 100%', ease: 'none', onStart: () => {
                     this.stingraySwim('stingray-path-10', 10, 0, 0)
-                    this.changeImageSrc('BG-S2', './images/scene-2/elements/BG-2.png')
-                    this.changeImageSrc('D2', './images/scene-2/elements/D2-2.png')
-                    this.changeImageSrc('D3', './images/scene-2/elements/D3-2.png')
+                    this.toggleImage('BG-S2', 'BG-S3')
+                    this.toggleImage('D2-S2', 'D2-S3')
+                    this.toggleImage('D3-S2', 'D3-S3')
+                    this.scene3Init()
                 }
             })
         scene2TL5.to('#BLURED-3', { right: '300vw' }, 0.3)
         scene2TL5.to('#P1-S2', { right: '145vw', scale: 1, transformOrigin: '100% 178%' }, 0)
-            .to('#P1-S2', { right: '180vw', duration: 1.1 }, 0.5)
-        scene2TL5.to('#P1-2-S2', { right: '235vw', scale: 1.01, duration: 1.1 }, 0)
-        scene2TL5.to('#P2-S2', { right: '100vw', scale: 1, transformOrigin: '100% 155%' }, 0)
-        scene2TL5.to('#P3-1', { right: '21vw', scale: 1, transformOrigin: '100% 90%' }, 0)
-        scene2TL5.to('#particles-js', { left: '-300vw', scale: 1, transformOrigin: '100% 70%', opacity: 1 }, 0)
+            .to('#P1-S2', { right: '240vw', duration: 1.1 }, 0.5)
+        scene2TL5.to('#P1-2-S2', { right: '235vw', scale: 1.01, duration: 1 }, 0)
+        scene2TL5.to('#P2-S2', { right: '140vw', scale: 1, transformOrigin: '100% 155%', duration: 1 }, 0)
+        scene2TL5.to('#P3-1', { right: '70vw', scale: 1, transformOrigin: '100% 90%', duration: 1 }, 0)
+        scene2TL5.to('#particles-js', { left: '-50vw', scale: 1, transformOrigin: '0% 40%', opacity: 1, duration: 1.1 }, 0)
+
+
+        // -- DOWN MOVEMENT --
+        const scene2TL6 = gsap.timeline()
+        ScrollTrigger.create({
+            animation: scene2TL6,
+            trigger: '.scrollElement',
+            start: '40% bottom',
+            end: '55% 100%',
+            scrub: 3,
+            markers: true
+        })
+
+        scene2TL6.to('.water-S3', { top: '-100vh' }, 0)
+        scene2TL6.to('.sun-rays', { top: '-50vh' }, 0)
+        scene2TL6.to('#particles-js', { top: '-195vh' }, 0)
+        scene2TL6.to('#particles-p2-js', { top: '-125vh' }, 0)
+
+        scene2TL6.to('#BLURED-2', { bottom: '250vh' }, 0)
+        scene2TL6.to('#P1-2-S2', { bottom: '180vh' }, 0)
+        scene2TL6.to('#P2-S2', { bottom: '180vh' }, 0)
+        scene2TL6.to('#P3-1', { bottom: '100vh', opacity: 0 }, 0)
     },
 
-    changeImageSrc(nodeID, src) {
-        const node = getNode(nodeID)
-        node.src = src
+    scene3Init() {
+        this.showScene('scene-3')
+    },
+
+    toggleImage(nodeID1, nodeID2) {
+        const node1 = getNode(nodeID1)
+        node1.style.visibility = 'hidden'
+        const node2 = getNode(nodeID2)
+        node2.style.visibility = 'visible'
     }
 }
 
