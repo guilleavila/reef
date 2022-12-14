@@ -3,8 +3,9 @@ import { Element } from "../element/element"
 import { getNode } from "../utils/getNode"
 
 export class Plastic extends Element {
-    constructor(posX, posY, width, speed, id, sceneID, depth, type, name) {
+    constructor(posX, posY, width, speed, id, sceneID, depth, type, name, divID) {
         super(posX, posY, width, speed, id, sceneID, depth, type, name)
+        this.divID = divID
         this.draw()
     }
 
@@ -26,10 +27,8 @@ export class Plastic extends Element {
             elementImage.setAttribute(attr, attributes[attr])
         }
 
-        const divNode = getNode(this.sceneID)
+        const divNode = getNode(this.divID)
         divNode.appendChild(elementImage)
-
-        this.animate()
     }
 
     animate() {

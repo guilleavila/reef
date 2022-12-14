@@ -1865,23 +1865,69 @@
         "plastics": [
             {
                 "posX": 40,
-                "posY": 20,
+                "posY": -10,
                 "width": 6,
                 "speed": 0.5,
                 "sceneID": "scene-3",
                 "depth": "p1",
                 "type": "plastic",
-                "name": "bag-1"
+                "name": "bag-1",
+                "divID": "P1-S3"
             },
             {
-                "posX": 35,
-                "posY": 25,
+                "posX": 30,
+                "posY": -25,
                 "width": 5,
                 "speed": 0.5,
                 "sceneID": "scene-3",
                 "depth": "p2",
                 "type": "plastic",
-                "name": "bag-2"
+                "name": "bag-2",
+                "divID": "P2-S3"
+            },
+            {
+                "posX": 35,
+                "posY": -55,
+                "width": 3,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p3",
+                "type": "plastic",
+                "name": "bag-2",
+                "divID": "P3-S3"
+            },
+            {
+                "posX": 85,
+                "posY": -45,
+                "width": 2,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p2",
+                "type": "plastic",
+                "name": "yellow-straw",
+                "divID": "P2-S3"
+            },
+            {
+                "posX": 15,
+                "posY": -105,
+                "width": 4,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p1",
+                "type": "plastic",
+                "name": "pink-straw",
+                "divID": "P1-S3"
+            },
+            {
+                "posX": 62,
+                "posY": -25,
+                "width": 3,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p2",
+                "type": "plastic",
+                "name": "white-straw",
+                "divID": "P2-S3"
             }
         ]
     }

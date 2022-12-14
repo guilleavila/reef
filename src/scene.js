@@ -136,7 +136,7 @@ const scene = {
 
     createPlastics(scene) {
         elements[scene].plastics.forEach(elm => this.plastics.push(
-            new Plastic(elm.posX, elm.posY, elm.width, elm.speed, `${elm.name}-${this.plastics.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name)
+            new Plastic(elm.posX, elm.posY, elm.width, elm.speed, `${elm.name}-${this.plastics.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.divID)
         ))
     },
 
@@ -504,7 +504,8 @@ const scene = {
             start: '40% bottom',
             end: '55% 100%',
             scrub: 3,
-            markers: true
+            markers: true,
+            onEnter: () => this.animatePlastics()
         })
 
         scene2TL6.to('.water-S3', { top: '-100vh' }, 0)
@@ -518,6 +519,10 @@ const scene = {
         scene2TL6.to('#P1-2-S2', { bottom: '200vh' }, 0)
         scene2TL6.to('#P2-2', { bottom: '100vh' }, 0)
         scene2TL6.to('#P3-1', { bottom: '150vh', opacity: 0 }, 0)
+
+        scene2TL6.to('#P1-S3', { bottom: '125vh', scale: 1 }, 0)
+        scene2TL6.to('#P2-S3', { bottom: '75vh', scale: 1 }, 0)
+        scene2TL6.to('#P3-S3', { bottom: '50vh', scale: 1 }, 0)
     },
 
     scene3Init() {
@@ -527,6 +532,10 @@ const scene = {
 
     createS3Elements() {
         this.createPlastics('scene-3')
+    },
+
+    animatePlastics() {
+        this.plastics.forEach(elm => elm.animate())
     },
 
     toggleImage(nodeID1, nodeID2) {

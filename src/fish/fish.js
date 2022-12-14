@@ -66,7 +66,6 @@ export class PathStingray extends SpriteElement {
     }
 
     swim(path, duration, rotation, delay) {
-        console.log('nadando')
         gsap.to(`#${this.id}`, {
             duration: duration,
             motionPath: {
