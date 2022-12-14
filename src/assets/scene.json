@@ -1860,5 +1860,29 @@
             },
             "divID": "P1-S2"
         }
+    },
+    "scene-3": {
+        "plastics": [
+            {
+                "posX": 40,
+                "posY": 20,
+                "width": 6,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p1",
+                "type": "plastic",
+                "name": "bag-1"
+            },
+            {
+                "posX": 35,
+                "posY": 25,
+                "width": 5,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p2",
+                "type": "plastic",
+                "name": "bag-2"
+            }
+        ]
     }
 }

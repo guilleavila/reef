@@ -8,6 +8,7 @@ import { BlowFish, PathFish, PathStingray, StaticFish, StraightPathFish } from "
 import { HoverCoral } from "./corals/hoverCoral"
 import { getNode } from "./utils/getNode"
 import { Message } from "./message/message"
+import { Plastic } from "./plastic/plastic"
 
 gsap.registerPlugin(MotionPathPlugin)
 gsap.registerPlugin(ScrollTrigger)
@@ -25,6 +26,7 @@ const scene = {
     fish: [],
     spriteCorals: [],
     hoverCorals: [],
+    plastics: [],
     introState: 'none',
     swimState: 'none',
     TL3State: 'not created',
@@ -129,6 +131,12 @@ const scene = {
         ))
         elements[scene].straightPathFish?.forEach(elm => this.fish.push(
             new StraightPathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.divID, elm.duration, elm.delay)
+        ))
+    },
+
+    createPlastics(scene) {
+        elements[scene].plastics.forEach(elm => this.plastics.push(
+            new Plastic(elm.posX, elm.posY, elm.width, elm.speed, `${elm.name}-${this.plastics.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name)
         ))
     },
 
@@ -514,6 +522,11 @@ const scene = {
 
     scene3Init() {
         this.showScene('scene-3')
+        this.createS3Elements()
+    },
+
+    createS3Elements() {
+        this.createPlastics('scene-3')
     },
 
     toggleImage(nodeID1, nodeID2) {
