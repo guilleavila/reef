@@ -479,10 +479,11 @@ const scene = {
                 }
             })
         scene2TL5.to('#BLURED-3', { right: '300vw' }, 0.3)
-        scene2TL5.to('#P1-S2', { right: '145vw', scale: 1, transformOrigin: '100% 178%' }, 0)
+        scene2TL5.to('#P1-S2', { right: '200vw', scale: 1.3, transformOrigin: '100% 178%' }, 0)
             .to('#P1-S2', { right: '240vw', duration: 1.1 }, 0.5)
         scene2TL5.to('#P1-2-S2', { right: '235vw', scale: 1.01, duration: 1 }, 0)
         scene2TL5.to('#P2-S2', { right: '140vw', scale: 1, transformOrigin: '100% 155%', duration: 1 }, 0)
+        scene2TL5.to('#P2-2', { right: '55vw', scale: 1.01, duration: 1 }, 0)
         scene2TL5.to('#P3-1', { right: '70vw', scale: 1, transformOrigin: '100% 90%', duration: 1 }, 0)
         scene2TL5.to('#particles-js', { left: '-50vw', scale: 1, transformOrigin: '0% 40%', opacity: 1, duration: 1.1 }, 0)
 
@@ -504,9 +505,11 @@ const scene = {
         scene2TL6.to('#particles-p2-js', { top: '-125vh' }, 0)
 
         scene2TL6.to('#BLURED-2', { bottom: '250vh' }, 0)
-        scene2TL6.to('#P1-2-S2', { bottom: '180vh' }, 0)
-        scene2TL6.to('#P2-S2', { bottom: '180vh' }, 0)
-        scene2TL6.to('#P3-1', { bottom: '100vh', opacity: 0 }, 0)
+        scene2TL6.to('#P1-S2', { bottom: '240vh' }, 0)
+        scene2TL6.to('#P2-S2', { bottom: '210vh' }, 0)
+        scene2TL6.to('#P1-2-S2', { bottom: '200vh' }, 0)
+        scene2TL6.to('#P2-2', { bottom: '100vh' }, 0)
+        scene2TL6.to('#P3-1', { bottom: '150vh', opacity: 0 }, 0)
     },
 
     scene3Init() {

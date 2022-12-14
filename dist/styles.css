@@ -310,6 +310,13 @@ button {
     z-index: -80;
 }
 
+#P2-2 {
+    position: fixed;
+    bottom: -57vh;
+    right: -85vw;
+    width: 90vw;
+}
+
 
 /* CORALS */
 #hoverCorals {
