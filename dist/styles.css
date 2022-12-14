@@ -79,6 +79,11 @@ button {
     background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.7) 76%, rgba(255, 255, 255, 1) 100%);
 }
 
+#salto{
+    top: 10vw;
+    z-index: 100;
+}
+
 
 /* MESSAGES */
 #messages {

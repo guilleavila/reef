@@ -308,6 +308,13 @@ const scene = {
         this.createTL1()
     },
 
+    scrollButton(st) {
+        const button = getNode('salto')
+        button.addEventListener('click', () => {
+            st.scroll(4800 - window.innerHeight)
+        })
+    },
+
     showScene(sceneID) {
         const sceneNode = getNode(sceneID)
         sceneNode.style.visibility = 'visible'
@@ -402,7 +409,10 @@ const scene = {
             start: '12.5% bottom',
             end: '20% 100%',
             scrub: 1.5,
-            markers: true
+            markers: true,
+            onEnter: () => {
+                this.scrollButton(st)
+            }
         })
 
         scene2TL2.to('#BG-S2', { scale: 1.8, transformOrigin: '100% 94%' }, 0)
@@ -414,7 +424,7 @@ const scene = {
             onComplete: () => {
                 gsap.to('#P1-depth', { zIndex: 110 })
                 this.message = new Message('Pasa por encima de los corales')
-                st.scroll(2400 - window.innerHeight)
+                // st.scroll(2400 - window.innerHeight)
             }
         }, 0)
         scene2TL2.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: '100% 155%' }, 0)
@@ -438,7 +448,7 @@ const scene = {
             right: '-373vw', scale: 6, transformOrigin: '0% 100%', onComplete: () => {
                 this.addBlowFishClickEvent()
                 this.message = new Message('Haz click sobre el pez globo')
-                st.scroll(3000 - window.innerHeight)
+                // st.scroll(3000 - window.innerHeight)
             }
         }, 0)
         scene2TL3.to('#P1-S2', { right: '210vw', scale: 4, transformOrigin: '100% 178%' }, 0)
