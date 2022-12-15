@@ -79,7 +79,7 @@ button {
     background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.7) 76%, rgba(255, 255, 255, 1) 100%);
 }
 
-#salto{
+#salto {
     top: 10vw;
     z-index: 100;
 }
@@ -384,7 +384,7 @@ button {
 
 /* SCENE 3 */
 #scene-3 {
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 
 .fixed {
@@ -402,7 +402,7 @@ button {
     z-index: -105;
 }
 
-#D3-S3{
+#D3-S3 {
     z-index: -95;
 }
 
@@ -417,11 +417,12 @@ button {
     width: 100%;
     height: 100%;
     max-width: 100%;
+    z-index: -50;
 }
 
 .motionPath path {
     stroke-width: 0.1;
-    stroke: none;
+    /* stroke: none; */
 }
 
 /* PARTICLES */

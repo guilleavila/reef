@@ -1862,10 +1862,10 @@
         }
     },
     "scene-3": {
-        "staticFish": [
+        "jellyfish": [
             {
                 "posX": 40,
-                "posY": -10,
+                "posY": -30,
                 "width": 15,
                 "height": 15,
                 "speed": 0.2,
@@ -1878,7 +1878,10 @@
                     "name": "jellyFishAnimate",
                     "duration": 3
                 },
-                "divID": "P1-S3"
+                "divID": "P1-S3",
+                "path": "jellyfish-path-1",
+                "duration": 40,
+                "delay": 0
             }
         ],
         "plastics": [

@@ -4,7 +4,7 @@ import { MotionPathPlugin, ScrollToPlugin } from "gsap/all"
 
 import elements from './assets/scene.json'
 import { SpriteElement } from "./element/element"
-import { BlowFish, PathFish, PathStingray, StaticFish, StraightPathFish } from "./fish/fish"
+import { BlowFish, Jellyfish, PathFish, PathStingray, StaticFish, StraightPathFish } from "./fish/fish"
 import { HoverCoral } from "./corals/hoverCoral"
 import { getNode } from "./utils/getNode"
 import { Message } from "./message/message"
@@ -27,6 +27,7 @@ const scene = {
     spriteCorals: [],
     hoverCorals: [],
     plastics: [],
+    jellyfish: [],
     introState: 'none',
     swimState: 'none',
     TL3State: 'not created',
@@ -140,12 +141,22 @@ const scene = {
         ))
     },
 
+    createJellyfish(scene) {
+        elements[scene].jellyfish.forEach(elm => this.jellyfish.push(
+            new Jellyfish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.jellyfish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.divID, elm.path, elm.duration, elm.delay)
+        ))
+    },
+
     drawSpriteCorals() {
         this.spriteCorals.forEach(elm => elm.draw())
     },
 
     fishSwim() {
         this.fish.forEach(fish => fish.swim())
+    },
+
+    jellyfishSwim() {
+        this.jellyfish.forEach(jellyfish => jellyfish.swim())
     },
 
     stingraySwim(path, duration, rotation, delay) {
@@ -542,7 +553,8 @@ const scene = {
 
     createS3Elements() {
         this.createPlastics('scene-3')
-        this.createFish('scene-3')
+        this.createJellyfish('scene-3')
+        this.jellyfishSwim()
     },
 
     animatePlastics() {

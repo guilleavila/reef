@@ -1,4 +1,5 @@
 import gsap from "gsap"
+
 import { SpriteElement } from "../element/element"
 import scene from "../scene"
 import { getNode } from "../utils/getNode"
@@ -126,5 +127,53 @@ export class BlowFish extends SpriteElement {
             blowFishNode.style.backgroundPosition = '0vw -6vw'
             blowFishNode.style.animation = 'blowFishBigAnimation 0.7s steps(15) alternate-reverse infinite'
         }, 150)
+    }
+}
+
+export class Jellyfish extends PathFish {
+    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID, path, duration, delay) {
+        super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID, path, duration, delay)
+    }
+
+    draw() {
+        const elementIcon = document.createElement('i')
+
+        const attributes = {
+            'id': this.id,
+            'src': `./images/${this.sceneID}/sprites/${this.type}/${this.name}/${this.name}.png`,
+            'alt': `${this.name}`,
+            'style': `position: fixed; 
+                bottom: ${this.position.y}vh;
+                right: ${this.position.x}vw; 
+                width: ${this.width}vw;
+                height: ${this.height}vw;
+                background: url(./images/${this.sceneID}/sprites/${this.type}/${this.name}/${this.name}.png) no-repeat;
+                background-size: ${this.width * this.totalFrames}vw ${this.height}vw;
+                background-position: 0vw 0vw;
+                animation: ${this.animation.name} ${this.animation.duration}s steps(${this.totalFrames}) infinite;`,
+            'class': `${this.depth} blowFish`,
+            'data-speed': `${this.speed}`
+        }
+
+        for (const attr in attributes) {
+            elementIcon.setAttribute(attr, attributes[attr])
+        }
+
+        const divNode = getNode(this.divID)
+        divNode.appendChild(elementIcon)
+    }
+
+    swim() {
+        gsap.to(`#${this.id}`, {
+            duration: this.duration,
+            motionPath: {
+                path: `#${this.path}`,
+                align: `#${this.path}`,
+                alignOrigin: [0.5, 0.5],
+                autoRotate: 90
+            },
+            ease: "linear",
+            delay: this.delay
+        })
     }
 }
