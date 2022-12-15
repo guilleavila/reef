@@ -123,10 +123,10 @@ const scene = {
     },
 
     createFish(scene) {
-        elements[scene].staticFish.forEach(elm => this.fish.push(
+        elements[scene].staticFish?.forEach(elm => this.fish.push(
             new StaticFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.divID)
         ))
-        elements[scene].pathFish.forEach(elm => this.fish.push(
+        elements[scene].pathFish?.forEach(elm => this.fish.push(
             new PathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.divID, elm.path, elm.duration, elm.delay)
         ))
         elements[scene].straightPathFish?.forEach(elm => this.fish.push(
@@ -542,6 +542,7 @@ const scene = {
 
     createS3Elements() {
         this.createPlastics('scene-3')
+        this.createFish('scene-3')
     },
 
     animatePlastics() {

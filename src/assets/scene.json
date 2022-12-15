@@ -1862,6 +1862,25 @@
         }
     },
     "scene-3": {
+        "staticFish": [
+            {
+                "posX": 40,
+                "posY": -10,
+                "width": 15,
+                "height": 15,
+                "speed": 0.2,
+                "sceneID": "scene-3",
+                "depth": "p1",
+                "type": "fish",
+                "name": "jellyfish",
+                "totalFrames": 43,
+                "animation": {
+                    "name": "jellyFishAnimate",
+                    "duration": 3
+                },
+                "divID": "P1-S3"
+            }
+        ],
         "plastics": [
             {
                 "posX": 40,
