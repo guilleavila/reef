@@ -150,7 +150,7 @@ export class Jellyfish extends PathFish {
                 background: url(./images/${this.sceneID}/sprites/${this.type}/${this.name}/${this.name}.png) no-repeat;
                 background-size: ${this.width * this.totalFrames}vw ${this.height}vw;
                 background-position: 0vw 0vw;
-                animation: ${this.animation.name} ${this.animation.duration}s steps(${this.totalFrames}) infinite;`,
+                animation: ${this.animation.name} ${Math.random()* (this.animation.duration - 2) + 2}s steps(${this.totalFrames}) infinite;`,
             'class': `${this.depth} blowFish`,
             'data-speed': `${this.speed}`
         }

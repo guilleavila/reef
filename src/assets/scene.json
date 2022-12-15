@@ -1864,8 +1864,8 @@
     "scene-3": {
         "jellyfish": [
             {
-                "posX": 40,
-                "posY": -30,
+                "posX": 0,
+                "posY": 0,
                 "width": 15,
                 "height": 15,
                 "speed": 0.2,
@@ -1875,11 +1875,150 @@
                 "name": "jellyfish",
                 "totalFrames": 43,
                 "animation": {
-                    "name": "jellyFishAnimate",
+                    "name": "mJellyfishAnimate",
                     "duration": 3
                 },
                 "divID": "P1-S3",
                 "path": "jellyfish-path-1",
+                "duration": 90,
+                "delay": 0
+            },
+            {
+                "posX": 0,
+                "posY": 0,
+                "width": 10,
+                "height": 10,
+                "speed": 0.2,
+                "sceneID": "scene-3",
+                "depth": "p3",
+                "type": "fish",
+                "name": "jellyfish",
+                "totalFrames": 43,
+                "animation": {
+                    "name": "sJellyfishAnimate",
+                    "duration": 3
+                },
+                "divID": "P3-S3",
+                "path": "jellyfish-path-2",
+                "duration": 90,
+                "delay": 0
+            },
+            {
+                "posX": 0,
+                "posY": 0,
+                "width": 7,
+                "height": 7,
+                "speed": 0.2,
+                "sceneID": "scene-3",
+                "depth": "p1",
+                "type": "fish",
+                "name": "jellyfish",
+                "totalFrames": 43,
+                "animation": {
+                    "name": "xsJellyfishAnimate",
+                    "duration": 3
+                },
+                "divID": "P1-S3",
+                "path": "jellyfish-path-3",
+                "duration": 90,
+                "delay": 0
+            },
+            {
+                "posX": 0,
+                "posY": 0,
+                "width": 15,
+                "height": 15,
+                "speed": 0.2,
+                "sceneID": "scene-3",
+                "depth": "p2",
+                "type": "fish",
+                "name": "jellyfish",
+                "totalFrames": 43,
+                "animation": {
+                    "name": "mJellyfishAnimate",
+                    "duration": 3
+                },
+                "divID": "P2-S3",
+                "path": "jellyfish-path-4",
+                "duration": 90,
+                "delay": 0
+            },{
+                "posX": 0,
+                "posY": 0,
+                "width": 10,
+                "height": 10,
+                "speed": 0.2,
+                "sceneID": "scene-3",
+                "depth": "p1",
+                "type": "fish",
+                "name": "jellyfish",
+                "totalFrames": 43,
+                "animation": {
+                    "name": "sJellyfishAnimate",
+                    "duration": 3
+                },
+                "divID": "P1-S3",
+                "path": "jellyfish-path-5",
+                "duration": 90,
+                "delay": 0
+            },
+            {
+                "posX": 0,
+                "posY": 0,
+                "width": 7,
+                "height": 7,
+                "speed": 0.2,
+                "sceneID": "scene-3",
+                "depth": "p2",
+                "type": "fish",
+                "name": "jellyfish",
+                "totalFrames": 43,
+                "animation": {
+                    "name": "xsJellyfishAnimate",
+                    "duration": 3
+                },
+                "divID": "P2-S3",
+                "path": "jellyfish-path-6",
+                "duration": 90,
+                "delay": 0
+            },
+            {
+                "posX": 0,
+                "posY": 0,
+                "width": 30,
+                "height": 30,
+                "speed": 0.2,
+                "sceneID": "scene-3",
+                "depth": "p1",
+                "type": "fish",
+                "name": "jellyfish",
+                "totalFrames": 43,
+                "animation": {
+                    "name": "xlJellyfishAnimate",
+                    "duration": 3
+                },
+                "divID": "P1-S3",
+                "path": "jellyfish-path-7",
+                "duration": 40,
+                "delay": 0
+            },
+            {
+                "posX": 0,
+                "posY": 0,
+                "width": 15,
+                "height": 15,
+                "speed": 0.2,
+                "sceneID": "scene-3",
+                "depth": "p2",
+                "type": "fish",
+                "name": "jellyfish",
+                "totalFrames": 43,
+                "animation": {
+                    "name": "mJellyfishAnimate",
+                    "duration": 3
+                },
+                "divID": "P2-S3",
+                "path": "jellyfish-path-8",
                 "duration": 40,
                 "delay": 0
             }

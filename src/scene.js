@@ -541,9 +541,9 @@ const scene = {
         scene2TL6.to('#P2-2', { bottom: '100vh' }, 0)
         scene2TL6.to('#P3-1', { bottom: '150vh', opacity: 0 }, 0)
 
-        scene2TL6.to('#P1-S3', { bottom: '125vh', scale: 1 }, 0)
-        scene2TL6.to('#P2-S3', { bottom: '75vh', scale: 1 }, 0)
-        scene2TL6.to('#P3-S3', { bottom: '50vh', scale: 1 }, 0)
+        scene2TL6.to('#P1-S3', { bottom: '175vh', scale: 1 }, 0)
+        scene2TL6.to('#P2-S3', { bottom: '100vh', scale: 1 }, 0)
+        scene2TL6.to('#P3-S3', { bottom: '70vh', scale: 1 }, 0)
     },
 
     scene3Init() {
