@@ -37,6 +37,14 @@ export class StraightPathFish extends SpriteElement {
             ease: "linear",
             delay: this.delay
         })
+
+        gsap.to(`#${this.id}`, {
+            bottom: `${this.position.y + 1}vh`,
+            duration: 2,
+            repeat: -1,
+            yoyo: true,
+            delay: Math.random() * 1
+        })
     }
 }
 
@@ -150,7 +158,7 @@ export class Jellyfish extends PathFish {
                 background: url(./images/${this.sceneID}/sprites/${this.type}/${this.name}/${this.name}.png) no-repeat;
                 background-size: ${this.width * this.totalFrames}vw ${this.height}vw;
                 background-position: 0vw 0vw;
-                animation: ${this.animation.name} ${Math.random()* (this.animation.duration - 2) + 2}s steps(${this.totalFrames}) infinite;`,
+                animation: ${this.animation.name} ${Math.random() * (this.animation.duration - 2) + 2}s steps(${this.totalFrames}) infinite;`,
             'class': `${this.depth} blowFish`,
             'data-speed': `${this.speed}`
         }

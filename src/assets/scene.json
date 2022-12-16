@@ -616,48 +616,6 @@
                 "divID": "P1-2-S2"
             }
         ],
-        "pathFish": [
-            {
-                "posX": 0,
-                "posY": 0,
-                "width": 4,
-                "height": 4,
-                "speed": 0.3,
-                "sceneID": "scene-2",
-                "depth": "p1",
-                "type": "fish",
-                "name": "surgeon",
-                "totalFrames": 15,
-                "animation": {
-                    "name": "mFishAnimate",
-                    "duration": 0.6
-                },
-                "divID": "P1-S2",
-                "path": "fish-path-7",
-                "duration": 35,
-                "delay": 0
-            },
-            {
-                "posX": 0,
-                "posY": 0,
-                "width": 3,
-                "height": 3,
-                "speed": 0.3,
-                "sceneID": "scene-2",
-                "depth": "p1",
-                "type": "fish",
-                "name": "clown",
-                "totalFrames": 15,
-                "animation": {
-                    "name": "sFishAnimate",
-                    "duration": 0.6
-                },
-                "divID": "P1-S2",
-                "path": "fish-path-8",
-                "duration": 28,
-                "delay": 0
-            }
-        ],
         "straightPathFish": [
             {
                 "posX": 93,
@@ -1862,6 +1820,27 @@
         }
     },
     "scene-3": {
+        "straightPathFish": [
+            {
+                "posX": 0,
+                "posY": -490,
+                "width": 15,
+                "height": 15,
+                "speed": 0.2,
+                "sceneID": "scene-3",
+                "depth": "p1",
+                "type": "fish",
+                "name": "lightfish",
+                "totalFrames": 15,
+                "animation": {
+                    "name": "xlFishAnimate",
+                    "duration": 1.2
+                },
+                "divID": "P1-S3",
+                "duration": 86,
+                "delay": 0
+            }
+        ],
         "jellyfish": [
             {
                 "posX": 0,

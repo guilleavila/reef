@@ -316,7 +316,7 @@ const scene = {
         this.createS2Elements()
         this.fishSwim()
         this.addHoverCoralListener()
-        this.createTL1()
+        this.createS2TL1()
     },
 
     scrollButton(st) {
@@ -364,7 +364,7 @@ const scene = {
             })
             if (this.TL3State === 'not created') {
                 this.TL3State = 'created'
-                this.createTL3()
+                this.createS2TL3()
                 this.message.hideMessage()
             }
         }))
@@ -379,7 +379,7 @@ const scene = {
             }
             if (this.TL4State === 'not created') {
                 this.TL4State = 'created'
-                this.createTL4()
+                this.createS2TL4()
                 this.message.hideMessage()
             }
         })
@@ -390,7 +390,7 @@ const scene = {
         return element.clientHeight - window.innerHeight
     },
 
-    createTL1() {
+    createS2TL1() {
         // -- DOWN MOVEMENT --
         const scene2TL1 = gsap.timeline()
         ScrollTrigger.create({
@@ -443,7 +443,7 @@ const scene = {
         scene2TL2.to('#particles-js', { left: '-120vw', scale: 2.2, transformOrigin: '100% 94%', opacity: 0 }, 0)
     },
 
-    createTL3() {
+    createS2TL3() {
         // -- ZOOM IN --
         const scene2TL3 = gsap.timeline()
         const st = ScrollTrigger.create({
@@ -467,7 +467,7 @@ const scene = {
         scene2TL3.to('#P3-1', { right: '17vw', scale: 1.2, transformOrigin: '100% 90%' }, 0)
     },
 
-    createTL4() {
+    createS2TL4() {
         // -- ZOOM OUT --
         const scene2TL4 = gsap.timeline()
         ScrollTrigger.create({
@@ -518,9 +518,9 @@ const scene = {
 
 
         // -- DOWN MOVEMENT --
-        const scene2TL6 = gsap.timeline()
+        const scene3TL1 = gsap.timeline()
         ScrollTrigger.create({
-            animation: scene2TL6,
+            animation: scene3TL1,
             trigger: '.scrollElement',
             start: '40% bottom',
             end: '55% 100%',
@@ -529,31 +529,65 @@ const scene = {
             onEnter: () => this.animatePlastics()
         })
 
-        scene2TL6.to('.water-S3', { top: '-100vh' }, 0)
-        scene2TL6.to('.sun-rays', { top: '-50vh' }, 0)
-        scene2TL6.to('#particles-js', { top: '-195vh' }, 0)
-        scene2TL6.to('#particles-p2-js', { top: '-125vh' }, 0)
+        scene3TL1.to('.water-S3', { top: '-100vh' }, 0)
+        scene3TL1.to('.sun-rays', { top: '-50vh' }, 0)
+        scene3TL1.to('#particles-js', { top: '-195vh' }, 0)
+        scene3TL1.to('#particles-p2-js', { top: '-125vh' }, 0)
 
-        scene2TL6.to('#BLURED-2', { bottom: '250vh' }, 0)
-        scene2TL6.to('#P1-S2', { bottom: '240vh' }, 0)
-        scene2TL6.to('#P2-S2', { bottom: '210vh' }, 0)
-        scene2TL6.to('#P1-2-S2', { bottom: '200vh' }, 0)
-        scene2TL6.to('#P2-2', { bottom: '100vh' }, 0)
-        scene2TL6.to('#P3-1', { bottom: '150vh', opacity: 0 }, 0)
+        scene3TL1.to('#BLURED-2', { bottom: '250vh' }, 0)
+        scene3TL1.to('#P1-S2', { bottom: '240vh' }, 0)
+        scene3TL1.to('#P2-S2', { bottom: '210vh' }, 0)
+        scene3TL1.to('#P1-2-S2', { bottom: '200vh' }, 0)
+        scene3TL1.to('#P2-2', { bottom: '100vh' }, 0)
+        scene3TL1.to('#P3-1', { bottom: '150vh', opacity: 0 }, 0)
 
-        scene2TL6.to('#P1-S3', { bottom: '175vh', scale: 1 }, 0)
-        scene2TL6.to('#P2-S3', { bottom: '100vh', scale: 1 }, 0)
-        scene2TL6.to('#P3-S3', { bottom: '70vh', scale: 1 }, 0)
+        scene3TL1.to('#P1-S3', { bottom: '175vh', scale: 1 }, 0)
+        scene3TL1.to('#P2-S3', { bottom: '100vh', scale: 1 }, 0)
+        scene3TL1.to('#P3-S3', { bottom: '70vh', scale: 1 }, 0)
+
+        const scene3TL2 = gsap.timeline()
+        ScrollTrigger.create({
+            animation: scene3TL2,
+            trigger: '.scrollElement',
+            start: '55% bottom',
+            end: '70% 100%',
+            scrub: 3,
+            markers: true,
+        })
+
+        scene3TL2.to('.water-S3', { top: '-250vh' }, 0)
+        scene3TL2.to('.sun-rays', { top: '-100vh' }, 0)
+        scene3TL2.to('#particles-js', { top: '-295vh', opacity: 0.5 }, 0)
+        scene3TL2.to('#particles-p2-js', { top: '-175vh', opacity: 0.25 }, 0)
+
+        scene3TL2.to('#P1-S3', { bottom: '525vh', scale: 1 }, 0)
+        scene3TL2.to('#P2-S3', { bottom: '300vh', scale: 1 }, 0)
+        scene3TL2.to('#P3-S3', { bottom: '210vh', scale: 1 }, 0)
+    },
+
+    createS3TL2() {
+        const scene3TL2 = gsap.timeline()
+        ScrollTrigger.create({
+            animation: scene3TL2,
+            trigger: '.scrollElement',
+            start: '55% bottom',
+            end: '70% 100%',
+            scrub: 3,
+            markers: true,
+        })
+
     },
 
     scene3Init() {
         this.showScene('scene-3')
         this.createS3Elements()
+        this.fishSwim()
     },
 
     createS3Elements() {
         this.createPlastics('scene-3')
         this.createJellyfish('scene-3')
+        this.createFish('scene-3')
         this.jellyfishSwim()
     },
 
