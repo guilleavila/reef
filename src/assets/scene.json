@@ -1851,7 +1851,7 @@
             "sceneID": "scene-3",
             "depth": "p1",
             "type": "fish",
-            "name": "stingray",
+            "name": "stingray-reverse",
             "totalFrames": 50,
             "animation": {
                 "name": "frontStingrayAnimate",

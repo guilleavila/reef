@@ -500,7 +500,7 @@ const scene = {
         scene2TL5.to('#BLURED-2', { right: '-100vw', scale: 0.8, transformOrigin: '0% 100%', ease: 'none' }, 0)
             .to('#BLURED-2', {
                 right: '70vw', scale: 1.2, transformOrigin: '100% 100%', ease: 'none', onStart: () => {
-                    this.stingraySwim('stingray-path-10', 10, 0, 0)
+                    this.stingraySwim('stingray-path-10', 13, 0, 0)
                     this.toggleImage('BG-S2', 'BG-S3')
                     this.toggleImage('D2-S2', 'D2-S3')
                     this.toggleImage('D3-S2', 'D3-S3')
@@ -526,7 +526,10 @@ const scene = {
             end: '55% 100%',
             scrub: 3,
             markers: true,
-            onEnter: () => this.animatePlastics()
+            onEnter: () => {
+                this.animatePlastics()
+                this.stingraySwim('stingray-path-11', 12, 180, 2)
+            }
         })
 
         scene3TL1.to('.water-S3', { top: '-100vh' }, 0)
@@ -591,7 +594,6 @@ const scene = {
         this.createS3Elements()
         this.fishSwim()
         this.jellyfishSwim()
-        this.stingraySwim('stingray-path-11', 12, 0, 4)
     },
 
     createS3Elements() {
