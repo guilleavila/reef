@@ -33,7 +33,7 @@ export class StraightPathFish extends SpriteElement {
     swim() {
         gsap.to(`#${this.id}`, {
             duration: this.duration,
-            left: `${this.name.includes('reverse') ? '350' : '-10'}%`,
+            left: `${this.name.includes('reverse') ? '350' : '-15'}%`,
             ease: "linear",
             delay: this.delay
         })

@@ -526,7 +526,8 @@ const scene = {
             end: '55% 100%',
             scrub: 3,
             markers: true,
-            onEnter: () => this.animatePlastics()
+            onEnter: () => this.animatePlastics(),
+            // onLeave: () => this.createS3TL2()
         })
 
         scene3TL1.to('.water-S3', { top: '-100vh' }, 0)
@@ -560,9 +561,9 @@ const scene = {
         scene3TL2.to('#particles-js', { top: '-295vh', opacity: 0.5 }, 0)
         scene3TL2.to('#particles-p2-js', { top: '-175vh', opacity: 0.25 }, 0)
 
-        scene3TL2.to('#P1-S3', { bottom: '525vh', scale: 1 }, 0)
-        scene3TL2.to('#P2-S3', { bottom: '300vh', scale: 1 }, 0)
-        scene3TL2.to('#P3-S3', { bottom: '210vh', scale: 1 }, 0)
+        scene3TL2.to('#P1-S3', { bottom: '325vh', scale: 1 }, 0)
+        scene3TL2.to('#P2-S3', { bottom: '200vh', scale: 1 }, 0)
+        scene3TL2.to('#P3-S3', { bottom: '110vh', scale: 1 }, 0)
     },
 
     createS3TL2() {
@@ -576,6 +577,14 @@ const scene = {
             markers: true,
         })
 
+        scene3TL2.to('.water-S3', { top: '-250vh' }, 0)
+        scene3TL2.to('.sun-rays', { top: '-100vh' }, 0)
+        scene3TL2.to('#particles-js', { top: '-295vh', opacity: 0.5 }, 0)
+        scene3TL2.to('#particles-p2-js', { top: '-175vh', opacity: 0.25 }, 0)
+
+        scene3TL2.to('#P1-S3', { bottom: '325vh', scale: 1 }, 0)
+        scene3TL2.to('#P2-S3', { bottom: '200vh', scale: 1 }, 0)
+        scene3TL2.to('#P3-S3', { bottom: '110vh', scale: 1 }, 0)
     },
 
     scene3Init() {
