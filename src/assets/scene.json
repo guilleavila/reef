@@ -1841,6 +1841,24 @@
                 "delay": 0
             }
         ],
+        "stingray": {
+            "posX": -50,
+            "posY": -10,
+            "width": 50,
+            "height": 25,
+            "speed": 0.5,
+            "id": "stingray-3",
+            "sceneID": "scene-3",
+            "depth": "p1",
+            "type": "fish",
+            "name": "stingray",
+            "totalFrames": 50,
+            "animation": {
+                "name": "frontStingrayAnimate",
+                "duration": 3
+            },
+            "divID": "P1-S3"
+        },
         "jellyfish": [
             {
                 "posX": 0,

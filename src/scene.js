@@ -526,8 +526,7 @@ const scene = {
             end: '55% 100%',
             scrub: 3,
             markers: true,
-            onEnter: () => this.animatePlastics(),
-            // onLeave: () => this.createS3TL2()
+            onEnter: () => this.animatePlastics()
         })
 
         scene3TL1.to('.water-S3', { top: '-100vh' }, 0)
@@ -574,7 +573,7 @@ const scene = {
             start: '55% bottom',
             end: '70% 100%',
             scrub: 3,
-            markers: true,
+            markers: true
         })
 
         scene3TL2.to('.water-S3', { top: '-250vh' }, 0)
@@ -591,13 +590,15 @@ const scene = {
         this.showScene('scene-3')
         this.createS3Elements()
         this.fishSwim()
+        this.jellyfishSwim()
+        this.stingraySwim('stingray-path-11', 12, 0, 4)
     },
 
     createS3Elements() {
         this.createPlastics('scene-3')
         this.createJellyfish('scene-3')
         this.createFish('scene-3')
-        this.jellyfishSwim()
+        this.createStingray('scene-3')
     },
 
     animatePlastics() {
