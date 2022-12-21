@@ -6,9 +6,11 @@ import elements from './assets/scene.json'
 import { SpriteElement } from "./element/element"
 import { BlowFish, Jellyfish, PathFish, PathStingray, StaticFish, StraightPathFish } from "./fish/fish"
 import { HoverCoral } from "./corals/hoverCoral"
-import { getNode } from "./utils/getNode"
 import { Message } from "./message/message"
 import { Plastic } from "./plastic/plastic"
+
+import { getNode } from "./utils/getNode"
+import { toggleImage } from "./utils/toggleImage"
 
 gsap.registerPlugin(MotionPathPlugin)
 gsap.registerPlugin(ScrollTrigger)
@@ -413,10 +415,10 @@ const scene = {
             markers: true
         })
 
-        scene2Messages.to('#story-messages-1', { opacity: 1}, 0)
-        scene2Messages.to('#story-messages-1', { opacity: 0}, 1)
-        scene2Messages.to('#story-messages-2', { opacity: 1}, 2)
-        scene2Messages.to('#story-messages-2', { opacity: 0}, 3)
+        scene2Messages.to('#story-messages-1', { opacity: 1 }, 0)
+        scene2Messages.to('#story-messages-1', { opacity: 0 }, 1)
+        scene2Messages.to('#story-messages-2', { opacity: 1 }, 2)
+        scene2Messages.to('#story-messages-2', { opacity: 0 }, 3)
 
 
         // -- DOWN MOVEMENT --
@@ -529,9 +531,9 @@ const scene = {
             .to('#BLURED-2', {
                 right: '70vw', scale: 1.2, transformOrigin: '100% 100%', ease: 'none', onStart: () => {
                     this.stingraySwim('stingray-path-10', 13, 0, 0)
-                    this.toggleImage('BG-S2', 'BG-S3')
-                    this.toggleImage('D2-S2', 'D2-S3')
-                    this.toggleImage('D3-S2', 'D3-S3')
+                    toggleImage('BG-S2', 'BG-S3')
+                    toggleImage('D2-S2', 'D2-S3')
+                    toggleImage('D3-S2', 'D3-S3')
                     this.scene3Init()
                 }
             })
@@ -626,12 +628,12 @@ const scene = {
             markers: true,
         })
 
-        scene3Messages.to('#story-messages-3', { opacity: 1}, 0)
-        scene3Messages.to('#story-messages-3', { opacity: 0}, 1)
-        scene3Messages.to('#story-messages-4', { opacity: 1}, 2)
-        scene3Messages.to('#story-messages-4', { opacity: 0}, 3)
-        scene3Messages.to('#story-messages-5', { opacity: 1}, 4)
-        scene3Messages.to('#story-messages-5', { opacity: 0}, 5)
+        scene3Messages.to('#story-messages-3', { opacity: 1 }, 0)
+        scene3Messages.to('#story-messages-3', { opacity: 0 }, 1)
+        scene3Messages.to('#story-messages-4', { opacity: 1 }, 2)
+        scene3Messages.to('#story-messages-4', { opacity: 0 }, 3)
+        scene3Messages.to('#story-messages-5', { opacity: 1 }, 4)
+        scene3Messages.to('#story-messages-5', { opacity: 0 }, 5)
 
     },
 
@@ -672,13 +674,6 @@ const scene = {
 
     animatePlastics() {
         this.plastics.forEach(elm => elm.animate())
-    },
-
-    toggleImage(nodeID1, nodeID2) {
-        const node1 = getNode(nodeID1)
-        node1.style.visibility = 'hidden'
-        const node2 = getNode(nodeID2)
-        node2.style.visibility = 'visible'
     }
 }
 
