@@ -536,6 +536,16 @@ button {
     }
 
     100% {
+        background-position: -150vw 0;
+    }
+}
+
+@keyframes xxlFishAnimate {
+    0% {
+        background-position: 0vw 0;
+    }
+
+    100% {
         background-position: -225vw 0;
     }
 }
