@@ -23,6 +23,7 @@ const scene = {
     anemona: undefined,
     referenceSize: undefined,
     message: undefined,
+    storyMessages: [],
     fish: [],
     spriteCorals: [],
     hoverCorals: [],
@@ -316,6 +317,7 @@ const scene = {
         this.createS2Elements()
         this.fishSwim()
         this.addHoverCoralListener()
+        this.createStoryMessages()
         this.createS2TL1()
     },
 
@@ -390,13 +392,39 @@ const scene = {
         return element.clientHeight - window.innerHeight
     },
 
+    createStoryMessages() {
+        this.storyMessages.push(new Message('Año 2123', 'story-messages', 'story-messages-1'))
+        this.storyMessages.push(new Message('El arrecife se ha recuperado', 'story-messages', 'story-messages-2'))
+        this.storyMessages.push(new Message('Las ciudades se hundieron en lo más profundo del océano', 'story-messages', 'story-messages-3'))
+        this.storyMessages.push(new Message('junto a los restos del antiguo arrecife,', 'story-messages', 'story-messages-4'))
+        this.storyMessages.push(new Message('a causa del cambio climático.', 'story-messages', 'story-messages-5'))
+    },
+
     createS2TL1() {
+
+        // MESSAGES
+        const scene2Messages = gsap.timeline()
+        ScrollTrigger.create({
+            animation: scene2Messages,
+            trigger: '.scrollElement',
+            start: 'top top',
+            end: '10% 100%',
+            scrub: 3,
+            markers: true
+        })
+
+        scene2Messages.to('#story-messages-1', { opacity: 1}, 0)
+        scene2Messages.to('#story-messages-1', { opacity: 0}, 1)
+        scene2Messages.to('#story-messages-2', { opacity: 1}, 2)
+        scene2Messages.to('#story-messages-2', { opacity: 0}, 3)
+
+
         // -- DOWN MOVEMENT --
         const scene2TL1 = gsap.timeline()
         ScrollTrigger.create({
             animation: scene2TL1,
             trigger: '.scrollElement',
-            start: 'top top',
+            start: '10% bottom',
             end: '12.5% 100%',
             scrub: 3,
             markers: true
@@ -434,7 +462,7 @@ const scene = {
             right: '110vw', scale: 1.8, transformOrigin: '100% 178%',
             onComplete: () => {
                 gsap.to('#P1-depth', { zIndex: 110 })
-                this.message = new Message('Pasa por encima de los corales')
+                this.message = new Message('Pasa por encima de los corales', 'messages')
                 // st.scroll(2400 - window.innerHeight)
             }
         }, 0)
@@ -458,7 +486,7 @@ const scene = {
         scene2TL3.to('#BLURED-2', {
             right: '-373vw', scale: 6, transformOrigin: '0% 100%', onComplete: () => {
                 this.addBlowFishClickEvent()
-                this.message = new Message('Haz click sobre el pez globo')
+                this.message = new Message('Haz click sobre el pez globo', 'messages')
                 // st.scroll(3000 - window.innerHeight)
             }
         }, 0)
@@ -548,6 +576,7 @@ const scene = {
         scene3TL1.to('#P2-S3', { bottom: '100vh', scale: 1 }, 0)
         scene3TL1.to('#P3-S3', { bottom: '70vh', scale: 1 }, 0)
 
+        // -- DOWN MOVEMENT --> LIGHT FISH --
         const scene3TL2 = gsap.timeline()
         ScrollTrigger.create({
             animation: scene3TL2,
@@ -565,7 +594,45 @@ const scene = {
 
         scene3TL2.to('#P1-S3', { bottom: '325vh', scale: 1 }, 0)
         scene3TL2.to('#P2-S3', { bottom: '200vh', scale: 1 }, 0)
-        scene3TL2.to('#P3-S3', { bottom: '110vh', scale: 1 }, 0)
+        scene3TL2.to('#P3-S3', { bottom: '125vh', scale: 1 }, 0)
+
+        // -- DOWN MOVEMENT --> TEXT --
+        const scene3TL3 = gsap.timeline()
+        ScrollTrigger.create({
+            animation: scene3TL3,
+            trigger: '.scrollElement',
+            start: '70% bottom',
+            end: '80% 100%',
+            scrub: 3,
+            markers: true,
+        })
+
+        scene3TL3.to('.water-S3', { top: '-350vh' }, 0)
+        scene3TL3.to('#particles-js', { top: '-395vh', opacity: 1 }, 0)
+        scene3TL3.to('#particles-p2-js', { top: '-225vh', opacity: 0.85 }, 0)
+
+        scene3TL3.to('#P1-S3', { bottom: '475vh', scale: 1 }, 0)
+        scene3TL3.to('#P2-S3', { bottom: '330vh', scale: 1 }, 0)
+        scene3TL3.to('#P3-S3', { bottom: '220vh', scale: 1 }, 0)
+
+        // -- TEXT --
+        const scene3Messages = gsap.timeline()
+        ScrollTrigger.create({
+            animation: scene3Messages,
+            trigger: '.scrollElement',
+            start: '80% bottom',
+            end: '90% 100%',
+            scrub: 3,
+            markers: true,
+        })
+
+        scene3Messages.to('#story-messages-3', { opacity: 1}, 0)
+        scene3Messages.to('#story-messages-3', { opacity: 0}, 1)
+        scene3Messages.to('#story-messages-4', { opacity: 1}, 2)
+        scene3Messages.to('#story-messages-4', { opacity: 0}, 3)
+        scene3Messages.to('#story-messages-5', { opacity: 1}, 4)
+        scene3Messages.to('#story-messages-5', { opacity: 0}, 5)
+
     },
 
     createS3TL2() {

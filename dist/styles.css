@@ -105,6 +105,17 @@ button {
     border-radius: 30px;
 }
 
+#story-messages p {
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    z-index: 115;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2em;
+    font-weight: 400;
+    opacity: 0;
+}
 
 /* BACKGROUND */
 .bg {
@@ -433,7 +444,7 @@ button {
     top: 0vh;
     left: 0vh;
     width: 400vw;
-    height: 400vh;
+    height: 500vh;
     background-color: none;
     z-index: -78;
 }
