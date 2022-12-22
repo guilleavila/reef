@@ -2110,7 +2110,8 @@
                 "path": "jellyfish-path-4",
                 "duration": 90,
                 "delay": 0
-            },{
+            },
+            {
                 "posX": 0,
                 "posY": 0,
                 "width": 10,
@@ -2259,5 +2260,32 @@
                 "divID": "P2-S3"
             }
         ]
-    }
+    },
+    "storyMessages": [
+        {
+            "message": "Año 2123",
+            "divID": "story-messages",
+            "messageID": "story-messages-1"
+        },
+        {
+            "message": "El arrecife se ha recuperado",
+            "divID": "story-messages",
+            "messageID": "story-messages-2"
+        },
+        {
+            "message": "Las ciudades se hundieron en lo más profundo del océano",
+            "divID": "story-messages",
+            "messageID": "story-messages-3"
+        },
+        {
+            "message": "junto a los restos del antiguo arrecife,",
+            "divID": "story-messages",
+            "messageID": "story-messages-4"
+        },
+        {
+            "message": "a causa del cambio climático.",
+            "divID": "story-messages",
+            "messageID": "story-messages-5"
+        }
+    ]
 }

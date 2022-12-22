@@ -86,16 +86,13 @@ button {
 
 
 /* MESSAGES */
-#messages {
+#messages p {
     position: fixed;
     top: 92.5%;
     right: 50%;
     transform: translate(50%);
     z-index: 115;
     opacity: 0;
-}
-
-#messages p {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.1em;
     font-weight: 300;

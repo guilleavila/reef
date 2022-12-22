@@ -2,9 +2,9 @@ import gsap from "gsap"
 import { getNode } from "../utils/getNode"
 
 export class Message {
-    constructor(text, nodeID, messageID) {
+    constructor(text, divID, messageID) {
         this.text = text
-        this.nodeID = nodeID
+        this.divID = divID
         this.node = document.createElement('p')
         this.node.id = messageID
         this.node.innerText = text
@@ -13,20 +13,16 @@ export class Message {
     }
 
     addToDOM() {
-        const messagesDiv = getNode(this.nodeID)
+        const messagesDiv = getNode(this.divID)
         messagesDiv.appendChild(this.node)
-        this.showMessage()
+        this.divID === 'messages' && this.showMessage()
     }
 
     showMessage() {
-        gsap.to(`#${this.nodeID}`, { opacity: 1, duration: 1.5 })
+        gsap.to(`#${this.node.id}`, { opacity: 1, duration: 1.5 })
     }
 
     hideMessage() {
-        gsap.to(`#${this.nodeID}`, { opacity: 0, duration: 1.5, delay: 1, onComplete: () => this.node.remove() })
-    }
-
-    changeText(text){
-        this.node.innerText = text
+        gsap.to(`#${this.node.id}`, { opacity: 0, duration: 1.5, delay: 1, onComplete: () => this.node.remove() })
     }
 } 

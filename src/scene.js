@@ -321,6 +321,7 @@ const scene = {
         this.addHoverCoralListener()
         this.createStoryMessages()
         this.createS2TL1()
+        this.createS3TL1()
     },
 
     scrollButton(st) {
@@ -395,11 +396,9 @@ const scene = {
     },
 
     createStoryMessages() {
-        this.storyMessages.push(new Message('Año 2123', 'story-messages', 'story-messages-1'))
-        this.storyMessages.push(new Message('El arrecife se ha recuperado', 'story-messages', 'story-messages-2'))
-        this.storyMessages.push(new Message('Las ciudades se hundieron en lo más profundo del océano', 'story-messages', 'story-messages-3'))
-        this.storyMessages.push(new Message('junto a los restos del antiguo arrecife,', 'story-messages', 'story-messages-4'))
-        this.storyMessages.push(new Message('a causa del cambio climático.', 'story-messages', 'story-messages-5'))
+        elements.storyMessages.forEach(elm => this.storyMessages.push(
+            new Message(elm.message, elm.divID, elm.messageID)
+        ))
     },
 
     createS2TL1() {
@@ -464,7 +463,7 @@ const scene = {
             right: '110vw', scale: 1.8, transformOrigin: '100% 178%',
             onComplete: () => {
                 gsap.to('#P1-depth', { zIndex: 110 })
-                this.message = new Message('Pasa por encima de los corales', 'messages')
+                this.message = new Message('Pasa por encima de los corales', 'messages', 'messages')
                 // st.scroll(2400 - window.innerHeight)
             }
         }, 0)
@@ -488,7 +487,7 @@ const scene = {
         scene2TL3.to('#BLURED-2', {
             right: '-373vw', scale: 6, transformOrigin: '0% 100%', onComplete: () => {
                 this.addBlowFishClickEvent()
-                this.message = new Message('Haz click sobre el pez globo', 'messages')
+                this.message = new Message('Haz click sobre el pez globo', 'messages', 'messages')
                 // st.scroll(3000 - window.innerHeight)
             }
         }, 0)
@@ -506,7 +505,6 @@ const scene = {
             start: '25% bottom',
             end: '30% 100%',
             scrub: 3,
-            markers: true
         })
 
         scene2TL4.to('#BLURED-2', { right: '-370vw', scale: 1.6, transformOrigin: '0% 100%' }, 0)
@@ -524,7 +522,7 @@ const scene = {
             start: '30% bottom',
             end: '40% 100%',
             scrub: 3,
-            markers: true
+            onLeave: () => this.scene3Init()
         })
 
         scene2TL5.to('#BLURED-2', { right: '-100vw', scale: 0.8, transformOrigin: '0% 100%', ease: 'none' }, 0)
@@ -534,7 +532,6 @@ const scene = {
                     toggleImage('BG-S2', 'BG-S3')
                     toggleImage('D2-S2', 'D2-S3')
                     toggleImage('D3-S2', 'D3-S3')
-                    this.scene3Init()
                 }
             })
         scene2TL5.to('#BLURED-3', { right: '300vw' }, 0.3)
@@ -545,10 +542,11 @@ const scene = {
         scene2TL5.to('#P2-2', { right: '55vw', scale: 1.01, duration: 1 }, 0)
         scene2TL5.to('#P3-1', { right: '70vw', scale: 1, transformOrigin: '100% 90%', duration: 1 }, 0)
         scene2TL5.to('#particles-js', { left: '-50vw', scale: 1, transformOrigin: '0% 40%', opacity: 1, duration: 1.1 }, 0)
+    },
 
-
+    createS3TL1() {
         // -- DOWN MOVEMENT --
-        const scene3TL1 = gsap.timeline()
+        let scene3TL1 = gsap.timeline()
         ScrollTrigger.create({
             animation: scene3TL1,
             trigger: '.scrollElement',
@@ -579,7 +577,7 @@ const scene = {
         scene3TL1.to('#P3-S3', { bottom: '70vh', scale: 1 }, 0)
 
         // -- DOWN MOVEMENT --> LIGHT FISH --
-        const scene3TL2 = gsap.timeline()
+        let scene3TL2 = gsap.timeline()
         ScrollTrigger.create({
             animation: scene3TL2,
             trigger: '.scrollElement',
@@ -599,7 +597,7 @@ const scene = {
         scene3TL2.to('#P3-S3', { bottom: '125vh', scale: 1 }, 0)
 
         // -- DOWN MOVEMENT --> TEXT --
-        const scene3TL3 = gsap.timeline()
+        let scene3TL3 = gsap.timeline()
         ScrollTrigger.create({
             animation: scene3TL3,
             trigger: '.scrollElement',
@@ -618,7 +616,7 @@ const scene = {
         scene3TL3.to('#P3-S3', { bottom: '220vh', scale: 1 }, 0)
 
         // -- TEXT --
-        const scene3Messages = gsap.timeline()
+        let scene3Messages = gsap.timeline()
         ScrollTrigger.create({
             animation: scene3Messages,
             trigger: '.scrollElement',
@@ -634,7 +632,6 @@ const scene = {
         scene3Messages.to('#story-messages-4', { opacity: 0 }, 3)
         scene3Messages.to('#story-messages-5', { opacity: 1 }, 4)
         scene3Messages.to('#story-messages-5', { opacity: 0 }, 5)
-
     },
 
     createS3TL2() {
@@ -663,6 +660,7 @@ const scene = {
         this.createS3Elements()
         this.fishSwim()
         this.jellyfishSwim()
+        // this.createS3TL1()
     },
 
     createS3Elements() {
