@@ -414,6 +414,20 @@ button {
     z-index: -95;
 }
 
+#CITY {
+    top: 100vh;
+}
+
+#P2-CORAL {
+    top: 150vh;
+}
+#P1-CORAL {
+    top: 200vh;
+}
+#BLURED-CORAL {
+    top: 250vh;
+}
+
 
 /* PATHS */
 .motionPath {

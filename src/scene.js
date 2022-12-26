@@ -546,7 +546,7 @@ const scene = {
 
     createS3TL1() {
         // -- DOWN MOVEMENT --
-        let scene3TL1 = gsap.timeline()
+        const scene3TL1 = gsap.timeline()
         ScrollTrigger.create({
             animation: scene3TL1,
             trigger: '.scrollElement',
@@ -554,10 +554,7 @@ const scene = {
             end: '55% 100%',
             scrub: 3,
             markers: true,
-            onEnter: () => {
-                this.animatePlastics()
-                this.stingraySwim('stingray-path-11', 12, 180, 2)
-            }
+            onEnter: () => this.stingraySwim('stingray-path-11', 12, 180, 2)
         })
 
         scene3TL1.to('.water-S3', { top: '-100vh' }, 0)
@@ -577,7 +574,7 @@ const scene = {
         scene3TL1.to('#P3-S3', { bottom: '70vh', scale: 1 }, 0)
 
         // -- DOWN MOVEMENT --> LIGHT FISH --
-        let scene3TL2 = gsap.timeline()
+        const scene3TL2 = gsap.timeline()
         ScrollTrigger.create({
             animation: scene3TL2,
             trigger: '.scrollElement',
@@ -597,14 +594,14 @@ const scene = {
         scene3TL2.to('#P3-S3', { bottom: '125vh', scale: 1 }, 0)
 
         // -- DOWN MOVEMENT --> TEXT --
-        let scene3TL3 = gsap.timeline()
+        const scene3TL3 = gsap.timeline()
         ScrollTrigger.create({
             animation: scene3TL3,
             trigger: '.scrollElement',
             start: '70% bottom',
             end: '80% 100%',
             scrub: 3,
-            markers: true,
+            markers: true
         })
 
         scene3TL3.to('.water-S3', { top: '-350vh' }, 0)
@@ -616,7 +613,7 @@ const scene = {
         scene3TL3.to('#P3-S3', { bottom: '220vh', scale: 1 }, 0)
 
         // -- TEXT --
-        let scene3Messages = gsap.timeline()
+        const scene3Messages = gsap.timeline()
         ScrollTrigger.create({
             animation: scene3Messages,
             trigger: '.scrollElement',
@@ -632,6 +629,23 @@ const scene = {
         scene3Messages.to('#story-messages-4', { opacity: 0 }, 3)
         scene3Messages.to('#story-messages-5', { opacity: 1 }, 4)
         scene3Messages.to('#story-messages-5', { opacity: 0 }, 5)
+
+        // -- DOWN MOVEMENT --> CITY --
+        const scene3TL4 = gsap.timeline()
+        ScrollTrigger.create({
+            animation: scene3TL4,
+            trigger: '.scrollElement',
+            start: '90% bottom',
+            end: '100% 100%',
+            scrub: 3,
+            markers: true
+        })
+
+        scene3TL4.to('.water-S3', { top: '-460vh' }, 0)
+        scene3TL4.to('#particles-js', { top: '-455vh', opacity: 1 }, 0)
+        scene3TL4.to('#particles-p2-js', { top: '-245vh', opacity: 0.85 }, 0)
+        scene3TL4.fromTo('.final', { scale: 1.3 }, { top: '0vh', scale: 1 }, 0)
+
     },
 
     createS3TL2() {
@@ -660,7 +674,7 @@ const scene = {
         this.createS3Elements()
         this.fishSwim()
         this.jellyfishSwim()
-        // this.createS3TL1()
+        this.animatePlastics()
     },
 
     createS3Elements() {
