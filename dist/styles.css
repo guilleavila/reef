@@ -416,13 +416,17 @@ button {
 
 #CITY {
     top: 100vh;
+    z-index: -95;
 }
 
 #P2-CORAL {
     top: 150vh;
+    z-index: -80;
+
 }
 #P1-CORAL {
     top: 200vh;
+    z-index: -90;
 }
 #BLURED-CORAL {
     top: 250vh;
