@@ -420,16 +420,18 @@ button {
 }
 
 #P2-CORAL {
-    top: 150vh;
+    top: 125vh;
     z-index: -80;
 
 }
+
 #P1-CORAL {
-    top: 200vh;
+    top: 150vh;
     z-index: -90;
 }
+
 #BLURED-CORAL {
-    top: 250vh;
+    top: 175vh;
 }
 
 
@@ -623,6 +625,16 @@ button {
 
     100% {
         background-position: -2500vw 0;
+    }
+}
+
+@keyframes sFrontStingrayAnimate {
+    0% {
+        background-position: 0vw 0;
+    }
+
+    100% {
+        background-position: -1250vw 0;
     }
 }
 

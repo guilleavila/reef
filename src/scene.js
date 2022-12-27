@@ -643,7 +643,7 @@ const scene = {
             scrub: 3,
             markers: true,
             onEnter: () => {
-                this.stingray = new PathStingray(0, 0, 50, 25, 0.5, 'stingray-4', 'scene-3', 'p2', 'fish', 'stingray', 50, { name: 'frontStingrayAnimate', duration: 3 }, 'P2-S3')
+                this.stingray = new PathStingray(0, 0, 25, 12.5, 0.5, 'stingray-4', 'scene-3', 'p2', 'fish', 'stingray', 50, { name: 'sFrontStingrayAnimate', duration: 3 }, 'P2-S3')
                 this.stingraySwim('stingray-path-9', 15, 0, 3)
             }
         })
@@ -651,9 +651,12 @@ const scene = {
         scene3TL4.to('.water-S3', { top: '-460vh' }, 0)
         scene3TL4.to('#particles-js', { top: '-455vh', opacity: 1 }, 0)
         scene3TL4.to('#particles-p2-js', { top: '-245vh', opacity: 0.85 }, 0)
-        scene3TL4.fromTo('.final', { scale: 1.3 }, { top: '0vh', scale: 1 }, 0)
         scene3TL4.to('#P1-S3', { top: '-500vh' }, 0)
-
+        
+        scene3TL4.fromTo('#CITY', { scale: 1.3 }, { top: '0vh', scale: 1 }, 0)
+        scene3TL4.fromTo('#P2-CORAL', { scale: 1.7 }, { top: '0vh', scale: 1 }, 0)
+        scene3TL4.fromTo('#P1-CORAL', { scale: 2.2 }, { top: '0vh', scale: 1 }, 0)
+        scene3TL4.fromTo('#BLURED-CORAL', { scale: 3 }, { top: '0vh', scale: 1 }, 0)
     },
 
     createS3TL2() {
