@@ -619,7 +619,7 @@
         "straightPathFish": [
             {
                 "posX": 93,
-                "posY": 46,
+                "posY": 56,
                 "width": 4,
                 "height": 4,
                 "speed": 0.3,
@@ -638,7 +638,7 @@
             },
             {
                 "posX": 82,
-                "posY": 45,
+                "posY": 35,
                 "width": 3,
                 "height": 3,
                 "speed": 0.3,
@@ -657,7 +657,7 @@
             },
             {
                 "posX": 98,
-                "posY": 48,
+                "posY": 38,
                 "width": 2,
                 "height": 2,
                 "speed": 0.3,
@@ -676,7 +676,7 @@
             },
             {
                 "posX": -4,
-                "posY": 50,
+                "posY": 40,
                 "width": 4,
                 "height": 4,
                 "speed": 0.3,
@@ -695,7 +695,7 @@
             },
             {
                 "posX": -3,
-                "posY": 45,
+                "posY": 35,
                 "width": 3,
                 "height": 3,
                 "speed": 0.3,
@@ -714,7 +714,7 @@
             },
             {
                 "posX": 28,
-                "posY": 45,
+                "posY": 35,
                 "width": 2,
                 "height": 2,
                 "speed": 0.3,
@@ -733,7 +733,7 @@
             },
             {
                 "posX": 8,
-                "posY": 35,
+                "posY": 25,
                 "width": 2,
                 "height": 2,
                 "speed": 0.3,
@@ -752,7 +752,7 @@
             },
             {
                 "posX": 27,
-                "posY": 81,
+                "posY": 33,
                 "width": 3,
                 "height": 3,
                 "speed": 0.3,
@@ -828,7 +828,7 @@
             },
             {
                 "posX": 111,
-                "posY": 87,
+                "posY": 22,
                 "width": 4,
                 "height": 4,
                 "speed": 0.3,
@@ -847,7 +847,7 @@
             },
             {
                 "posX": 39,
-                "posY": 69,
+                "posY": 13,
                 "width": 4,
                 "height": 4,
                 "speed": 0.3,
@@ -866,7 +866,7 @@
             },
             {
                 "posX": 111,
-                "posY": 89,
+                "posY": 19,
                 "width": 4,
                 "height": 4,
                 "speed": 0.3,
@@ -885,7 +885,7 @@
             },
             {
                 "posX": 97,
-                "posY": 86,
+                "posY": 26,
                 "width": 3,
                 "height": 3,
                 "speed": 0.3,
@@ -961,7 +961,7 @@
             },
             {
                 "posX": 68,
-                "posY": 93,
+                "posY": 35,
                 "width": 2,
                 "height": 2,
                 "speed": 0.3,
@@ -1075,7 +1075,7 @@
             },
             {
                 "posX": -3,
-                "posY": 74,
+                "posY": 54,
                 "width": 3,
                 "height": 3,
                 "speed": 0.3,

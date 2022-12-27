@@ -411,7 +411,7 @@ const scene = {
             start: 'top top',
             end: '10% 100%',
             scrub: 3,
-            markers: true
+            markers: true,
         })
 
         scene2Messages.to('#story-messages-1', { opacity: 1 }, 0)
@@ -428,7 +428,7 @@ const scene = {
             start: '10% bottom',
             end: '12.5% 100%',
             scrub: 3,
-            markers: true
+            markers: true,
         })
 
         scene2TL1.to('#BLURED-1', { bottom: '-1vh' }, 0)
@@ -522,7 +522,10 @@ const scene = {
             start: '30% bottom',
             end: '40% 100%',
             scrub: 3,
-            onLeave: () => this.scene3Init()
+            onLeave: self => {
+                self.kill(false, true)
+                this.scene3Init()
+            }
         })
 
         scene2TL5.to('#BLURED-2', { right: '-100vw', scale: 0.8, transformOrigin: '0% 100%', ease: 'none' }, 0)

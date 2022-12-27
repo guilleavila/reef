@@ -90,7 +90,6 @@ export class PathStingray extends SpriteElement {
     }
 }
 
-
 export class BlowFish extends SpriteElement {
     constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID) {
         super(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID)
