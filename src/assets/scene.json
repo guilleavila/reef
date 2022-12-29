@@ -2258,6 +2258,272 @@
                 "type": "plastic",
                 "name": "white-straw",
                 "divID": "P2-S3"
+            },
+            {
+                "posX": 75,
+                "posY": -145,
+                "width": 10,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p1",
+                "type": "plastic",
+                "name": "bag-1",
+                "divID": "P1-S3"
+            },
+            {
+                "posX": 75,
+                "posY": -205,
+                "width": 6,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p2",
+                "type": "plastic",
+                "name": "bag-1",
+                "divID": "P2-S3"
+            },
+            {
+                "posX": 45,
+                "posY": -225,
+                "width": 8,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p2",
+                "type": "plastic",
+                "name": "bag-2",
+                "divID": "P2-S3"
+            },
+            {
+                "posX": 25,
+                "posY": -285,
+                "width": 10,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p1",
+                "type": "plastic",
+                "name": "bag-1",
+                "divID": "P1-S3"
+            },
+            {
+                "posX": 49,
+                "posY": -325,
+                "width": 5,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p1",
+                "type": "plastic",
+                "name": "mask",
+                "divID": "P1-S3"
+            },
+            {
+                "posX": 89,
+                "posY": -445,
+                "width": 4,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p1",
+                "type": "plastic",
+                "name": "mask",
+                "divID": "P1-S3"
+            },
+            {
+                "posX": 13,
+                "posY": -465,
+                "width": 8,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p1",
+                "type": "plastic",
+                "name": "bag-1",
+                "divID": "P1-S3"
+            },
+            {
+                "posX": 78,
+                "posY": -459,
+                "width": 10,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p1",
+                "type": "plastic",
+                "name": "bag-2",
+                "divID": "P1-S3"
+            },
+            {
+                "posX": 90,
+                "posY": -479,
+                "width": 5,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p1",
+                "type": "plastic",
+                "name": "green-straw",
+                "divID": "P1-S3"
+            },
+            {
+                "posX": 36,
+                "posY": -469,
+                "width": 5,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p1",
+                "type": "plastic",
+                "name": "white-straw",
+                "divID": "P1-S3"
+            },
+            {
+                "posX": 50,
+                "posY": -500,
+                "width": 4,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p1",
+                "type": "plastic",
+                "name": "white-straw",
+                "divID": "P1-S3"
+            },
+            {
+                "posX": 69,
+                "posY": -490,
+                "width": 4,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p1",
+                "type": "plastic",
+                "name": "mask",
+                "divID": "P1-S3"
+            },
+            {
+                "posX": 5,
+                "posY": -520,
+                "width": 4,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p1",
+                "type": "plastic",
+                "name": "white-straw",
+                "divID": "P1-S3"
+            },
+            {
+                "posX": 52,
+                "posY": -530,
+                "width": 5,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p1",
+                "type": "plastic",
+                "name": "white-straw",
+                "divID": "P1-S3"
+            },
+
+            {
+                "posX": 34,
+                "posY": -295,
+                "width": 3,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p2",
+                "type": "plastic",
+                "name": "mask",
+                "divID": "P2-S3"
+            },
+            {
+                "posX": 90,
+                "posY": -325,
+                "width": 3,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p2",
+                "type": "plastic",
+                "name": "pink-straw",
+                "divID": "P2-S3"
+            },
+            {
+                "posX": 55,
+                "posY": -285,
+                "width": 5,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p2",
+                "type": "plastic",
+                "name": "pink-straw",
+                "divID": "P2-S3"
+            },
+            {
+                "posX": 60,
+                "posY": -300,
+                "width": 3,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p2",
+                "type": "plastic",
+                "name": "mask",
+                "divID": "P2-S3"
+            },
+            {
+                "posX": 40,
+                "posY": -310,
+                "width": 3,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p2",
+                "type": "plastic",
+                "name": "yellow-straw",
+                "divID": "P2-S3"
+            },
+            {
+                "posX": 23,
+                "posY": -340,
+                "width": 3,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p2",
+                "type": "plastic",
+                "name": "green-straw",
+                "divID": "P2-S3"
+            },
+            {
+                "posX": 83,
+                "posY": -346,
+                "width": 3,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p2",
+                "type": "plastic",
+                "name": "mask",
+                "divID": "P2-S3"
+            },
+
+            {
+                "posX": 83,
+                "posY": -246,
+                "width": 3,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p3",
+                "type": "plastic",
+                "name": "mask",
+                "divID": "P3-S3"
+            },
+            {
+                "posX": 13,
+                "posY": -256,
+                "width": 3,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p3",
+                "type": "plastic",
+                "name": "bag-1",
+                "divID": "P3-S3"
+            },
+            {
+                "posX": 97,
+                "posY": -263,
+                "width": 3,
+                "speed": 0.5,
+                "sceneID": "scene-3",
+                "depth": "p3",
+                "type": "plastic",
+                "name": "bag-2",
+                "divID": "P3-S3"
             }
         ]
     },

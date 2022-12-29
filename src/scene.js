@@ -651,7 +651,9 @@ const scene = {
         scene3TL4.to('.water-S3', { top: '-460vh' }, 0)
         scene3TL4.to('#particles-js', { top: '-455vh', opacity: 1 }, 0)
         scene3TL4.to('#particles-p2-js', { top: '-245vh', opacity: 0.85 }, 0)
-        scene3TL4.to('#P1-S3', { top: '-500vh' }, 0)
+        scene3TL4.to('#P1-S3', { top: '-570vh' }, 0)
+        scene3TL4.to('#P2-S3', { top: '-405vh' }, 0)
+        scene3TL4.to('#P3-S3', { top: '-275vh' }, 0)
         
         scene3TL4.fromTo('#CITY', { scale: 1.3 }, { top: '0vh', scale: 1 }, 0)
         scene3TL4.fromTo('#P2-CORAL', { scale: 1.7 }, { top: '0vh', scale: 1 }, 0)
