@@ -2413,7 +2413,6 @@
                 "name": "white-straw",
                 "divID": "P1-S3"
             },
-
             {
                 "posX": 34,
                 "posY": -295,
@@ -2491,7 +2490,6 @@
                 "name": "mask",
                 "divID": "P2-S3"
             },
-
             {
                 "posX": 83,
                 "posY": -246,
@@ -2549,7 +2547,7 @@
             "messageID": "story-messages-4"
         },
         {
-            "message": "a causa del cambio climático.",
+            "message": "a causa del calentamiento global.",
             "divID": "story-messages",
             "messageID": "story-messages-5"
         }
