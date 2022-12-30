@@ -117,24 +117,24 @@ const scene = {
     createSpriteCorals(scene) {
         const isCoral = scene === 'scene-2'
         elements[scene].spriteCorals.forEach(elm => this.spriteCorals.push(
-            new SpriteElement(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.spriteCorals.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.divID, isCoral)
+            new SpriteElement(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.spriteCorals.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.divID, elm.totalFrames, elm.animation, isCoral)
         ))
     },
 
     createStingray(scene) {
         const { posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID } = elements[scene].stingray
-        this.stingray = new PathStingray(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID)
+        this.stingray = new PathStingray(posX, posY, width, height, speed, id, sceneID, depth, type, name, divID, totalFrames, animation)
     },
 
     createFish(scene) {
         elements[scene].staticFish?.forEach(elm => this.fish.push(
-            new StaticFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.divID)
+            new StaticFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.divID, elm.totalFrames, elm.animation)
         ))
         elements[scene].pathFish?.forEach(elm => this.fish.push(
-            new PathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.divID, elm.path, elm.duration, elm.delay)
+            new PathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.divID, elm.totalFrames, elm.animation, elm.path, elm.duration, elm.delay)
         ))
         elements[scene].straightPathFish?.forEach(elm => this.fish.push(
-            new StraightPathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.divID, elm.duration, elm.delay)
+            new StraightPathFish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.fish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.divID, elm.totalFrames, elm.animation, elm.duration, elm.delay)
         ))
     },
 
@@ -146,7 +146,7 @@ const scene = {
 
     createJellyfish(scene) {
         elements[scene].jellyfish.forEach(elm => this.jellyfish.push(
-            new Jellyfish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.jellyfish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.totalFrames, elm.animation, elm.divID, elm.path, elm.duration, elm.delay)
+            new Jellyfish(elm.posX, elm.posY, elm.width, elm.height, elm.speed, `${elm.name}-${this.jellyfish.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.divID, elm.totalFrames, elm.animation, elm.path, elm.duration, elm.delay)
         ))
     },
 
@@ -347,22 +347,22 @@ const scene = {
 
     createHoverCorals(scene) {
         elements[scene].hoverCorals.forEach(elm => this.hoverCorals.push(
-            new HoverCoral(elm.posX, elm.posY, elm.width, elm.speed, `${elm.name}-${this.hoverCorals.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name)
+            new HoverCoral(elm.posX, elm.posY, elm.width, elm.speed, `${elm.name}-${this.hoverCorals.length + 1}`, elm.sceneID, elm.depth, elm.type, elm.name, elm.divID)
         ))
     },
 
     createBlowFish() {
         const { posX, posY, width, height, speed, sceneID, depth, type, name, totalFrames, animation, divID } = elements['scene-2'].blowFish
-        this.blowFish = new BlowFish(posX, posY, width, height, speed, 'blowfFish-1', sceneID, depth, type, name, totalFrames, animation, divID)
+        this.blowFish = new BlowFish(posX, posY, width, height, speed, 'blowfFish-1', sceneID, depth, type, name, divID, totalFrames, animation)
     },
 
     createAnemona() {
         const { posX, posY, width, height, speed, sceneID, depth, type, name, totalFrames, animation, divID } = elements['scene-2'].anemona
-        this.anemona = new SpriteElement(posX, posY, width, height, speed, 'anemona', sceneID, depth, type, name, totalFrames, animation, divID, false)
+        this.anemona = new SpriteElement(posX, posY, width, height, speed, 'anemona', sceneID, depth, type, name, divID, totalFrames, animation, false)
     },
 
     addHoverCoralListener() {
-        const hoverNodes = document.querySelectorAll('.hoverCoral')
+        const hoverNodes = document.querySelectorAll('#hoverCorals > img')
         hoverNodes.forEach(elm => elm.addEventListener('mouseover', () => {
             this.hoverCorals.forEach(coral => {
                 coral.id === elm.id && coral.animate()

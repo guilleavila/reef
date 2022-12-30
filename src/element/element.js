@@ -1,7 +1,7 @@
 import { getNode } from "../utils/getNode"
 
 export class Element {
-    constructor(posX, posY, width, speed, id, sceneID, depth, type, name) {
+    constructor(posX, posY, width, speed, id, sceneID, depth, type, name, divID) {
         this.position = { x: posX, y: posY }
         this.width = width
         this.speed = speed
@@ -10,16 +10,17 @@ export class Element {
         this.depth = depth
         this.type = type
         this.name = name
+        this.divID = divID
     }
 
     draw() {
         const elementImage = document.createElement('img')
         const attributes = {
             'id': this.id,
-            'src': `./images/${this.sceneID}/sprites/${this.type}/${this.name}/${this.name}.png`,
+            'src': `./images/${this.sceneID}/elements/${this.type}/${this.name}.png`,
             'alt': `${this.name}`,
             'style': `position: fixed; bottom: ${this.position.y}vh; right: ${this.position.x}vw; width: ${this.width}vw;`,
-            'class': `${this.sceneID === 'scene-1' && 'plane'} ${this.depth}`,
+            'class': `${this.depth}`,
             'data-speed': this.speed
         }
 
@@ -27,20 +28,20 @@ export class Element {
             elementImage.setAttribute(attr, attributes[attr])
         }
 
-        const divNode = getNode(this.sceneID)
+        const divNode = getNode(this.divID)
         divNode.appendChild(elementImage)
     }
 }
 
 
 export class SpriteElement extends Element {
-    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, totalFrames, animation, divID, isCoral) {
-        super(posX, posY, width, speed, id, sceneID, depth, type, name)
+    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, divID, totalFrames, animation, isCoral) {
+        super(posX, posY, width, speed, id, sceneID, depth, type, name, divID)
         this.height = height
         this.totalFrames = totalFrames
         this.animation = animation
         this.isCoral = isCoral
-        this.divID = divID
+        // this.divID = divID
         this.draw()
     }
 

@@ -1,30 +1,10 @@
 import gsap from "gsap"
 import { Element } from "../element/element"
-import { getNode } from "../utils/getNode"
 
 export class HoverCoral extends Element {
-    constructor(posX, posY, width, speed, id, sceneID, depth, type, name) {
-        super(posX, posY, width, speed, id, sceneID, depth, type, name)
+    constructor(posX, posY, width, speed, id, sceneID, depth, type, name, divID) {
+        super(posX, posY, width, speed, id, sceneID, depth, type, name, divID)
         this.draw()
-    }
-
-    draw() {
-        const elementImage = document.createElement('img')
-        const attributes = {
-            'id': this.id,
-            'src': `./images/${this.sceneID}/sprites/${this.type}/${this.name}/${this.name}.png`,
-            'alt': `${this.name}`,
-            'style': `position: fixed; bottom: ${this.position.y}vh; right: ${this.position.x}vw; width: ${this.width}vw;`,
-            'class': `${this.depth} hoverCoral`,
-            'data-speed': this.speed
-        }
-
-        for (const attr in attributes) {
-            elementImage.setAttribute(attr, attributes[attr])
-        }
-
-        const divNode = getNode('hoverCorals')
-        divNode.appendChild(elementImage)
     }
 
     animate() {

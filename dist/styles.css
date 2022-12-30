@@ -365,11 +365,13 @@ button {
     position: fixed;
     bottom: -85vh;
     right: 0;
-}
-
-.hoverCoral {
     z-index: 100;
 }
+
+/* .hoverCoral {
+    z-index: 100;
+} */
+
 
 /* SUN RAYS */
 .sun-rays {
