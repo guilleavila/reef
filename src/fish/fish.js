@@ -158,8 +158,8 @@ export class Jellyfish extends PathFish {
                 background-size: ${this.width * this.totalFrames}vw ${this.height}vw;
                 background-position: 0vw 0vw;
                 animation: ${this.animation.name} ${Math.random() * (this.animation.duration - 2) + 2}s steps(${this.totalFrames}) infinite;`,
-            'class': `${this.depth} blowFish`,
-            'data-speed': `${this.speed}`
+            'class': `${this.depth}`,
+            'data-speed': this.speed
         }
 
         for (const attr in attributes) {

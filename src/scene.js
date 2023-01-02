@@ -35,6 +35,7 @@ const scene = {
     swimState: 'none',
     TL3State: 'not created',
     TL4State: 'not created',
+    bgAudio: new Audio('./sounds/bg-music.m4a'),
 
     scene1Init() {
         this.resetScroll()
@@ -322,6 +323,13 @@ const scene = {
         this.createStoryMessages()
         this.createS2TL1()
         this.createS3TL1()
+        this.playAudio()
+    },
+
+    playAudio() {
+        this.bgAudio = new Audio('./sounds/bg-music.m4a')
+        this.bgAudio.volume = 0.5
+        this.bgAudio.play()
     },
 
     scrollButton(st) {
