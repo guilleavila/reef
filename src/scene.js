@@ -36,6 +36,8 @@ const scene = {
     TL3State: 'not created',
     TL4State: 'not created',
     bgAudio: new Audio('./sounds/bg-music.m4a'),
+    popAudio: new Audio('./sounds/pop.mp3'),
+    hoverAudio: new Audio('./sounds/hover.m4a'),
 
     scene1Init() {
         this.resetScroll()
@@ -374,6 +376,9 @@ const scene = {
         hoverNodes.forEach(elm => elm.addEventListener('mouseover', () => {
             this.hoverCorals.forEach(coral => {
                 coral.id === elm.id && coral.animate()
+                this.hoverAudio.currentTime = 0
+                this.hoverAudio.volume = 0.2
+                this.hoverAudio.play()
             })
             if (this.TL3State === 'not created') {
                 this.TL3State = 'created'
@@ -388,6 +393,8 @@ const scene = {
         blowFishNode.addEventListener('click', () => {
             if (!this.blowFish.hasPopped) {
                 this.blowFish.pop()
+                this.popAudio.volume = 0.2
+                this.popAudio.play()
                 gsap.to('#P1-depth', { zIndex: -80 })
             }
             if (this.TL4State === 'not created') {
