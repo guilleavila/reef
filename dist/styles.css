@@ -68,7 +68,7 @@ button {
 }
 
 #start-button {
-    /* visibility: hidden; */
+    visibility: hidden;
     opacity: 0;
     z-index: 0;
 }

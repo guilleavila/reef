@@ -43,7 +43,7 @@ const scene = {
         this.resetScroll()
         this.animateIntroScreen()
         this.createS1Elements('scene-1')
-        // this.fishSwim()
+        this.fishSwim()
         this.sceneLoop()
         this.addMouseMoveEvent()
     },
@@ -76,13 +76,13 @@ const scene = {
                 document.addEventListener('mousemove', this.sceneState === 1 ? this.showIntroScene : this.hideTransitionScreen)
             }
 
-            // if (this.sceneState === 1) {
-            //     this.swimState === 'on' && this.stingraySwim('stingray-path-1', 15, 90, 0)
-            //     if (this.swimState === 'stingray-path-1-done') {
-            //         this.stingraySwim('stingray-path-2', 15, 90, 2)
-            //         this.hideLogo()
-            //     }
-            // }
+            if (this.sceneState === 1) {
+                this.swimState === 'on' && this.stingraySwim('stingray-path-1', 15, 90, 0)
+                if (this.swimState === 'stingray-path-1-done') {
+                    this.stingraySwim('stingray-path-2', 15, 90, 2)
+                    this.hideLogo()
+                }
+            }
 
             if (this.sceneState === 2) {
                 this.swimState === 'on' && this.stingraySwim('stingray-path-9', 15, 0, 0)
@@ -426,7 +426,7 @@ const scene = {
             start: 'top top',
             end: '10% 100%',
             scrub: 3,
-            markers: true,
+            // markers: true,
         })
 
         scene2Messages.to('#story-messages-1', { opacity: 1 }, 0)
@@ -443,7 +443,7 @@ const scene = {
             start: '10% bottom',
             end: '12.5% 100%',
             scrub: 3,
-            markers: true,
+            // markers: true,
         })
 
         scene2TL1.to('#BLURED-1', { bottom: '-1vh' }, 0)
@@ -464,7 +464,7 @@ const scene = {
             start: '12.5% bottom',
             end: '20% 100%',
             scrub: 1.5,
-            markers: true,
+            // markers: true,
             onEnter: () => {
                 this.scrollButton(st)
             }
@@ -496,7 +496,7 @@ const scene = {
             start: '20% bottom',
             end: '25% 100%',
             scrub: 1,
-            markers: true
+            // markers: true
         })
 
         scene2TL3.to('#BLURED-2', {
@@ -571,7 +571,7 @@ const scene = {
             start: '40% bottom',
             end: '55% 100%',
             scrub: 3,
-            markers: true,
+            // markers: true,
         })
 
         scene3TL1.to('.water-S3', { top: '-100vh' }, 0)
@@ -598,7 +598,7 @@ const scene = {
             start: '55% bottom',
             end: '70% 100%',
             scrub: 3,
-            markers: true,
+            // markers: true,
             onEnter: () => this.stingraySwim('stingray-path-11', 12, 180, 0)
         })
 
@@ -619,7 +619,7 @@ const scene = {
             start: '70% bottom',
             end: '80% 100%',
             scrub: 3,
-            markers: true
+            // markers: true
         })
 
         scene3TL3.to('.water-S3', { top: '-350vh' }, 0)
@@ -638,7 +638,7 @@ const scene = {
             start: '80% bottom',
             end: '90% 100%',
             scrub: 3,
-            markers: true,
+            // markers: true,
         })
 
         scene3Messages.to('#story-messages-3', { opacity: 1 }, 0)
@@ -684,7 +684,7 @@ const scene = {
             start: '55% bottom',
             end: '70% 100%',
             scrub: 3,
-            markers: true
+            // markers: true
         })
 
         scene3TL2.to('.water-S3', { top: '-250vh' }, 0)
