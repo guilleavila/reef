@@ -18,7 +18,6 @@ gsap.registerPlugin(ScrollToPlugin)
 
 const scene = {
     sceneState: 1,
-    framesCounter: 0,
     intervalId: undefined,
     stingray: undefined,
     blowFish: undefined,
@@ -70,7 +69,6 @@ const scene = {
 
     sceneLoop() {
         this.intervalId = setInterval(() => {
-            this.framesCounter >= 600 ? this.framesCounter = 0 : this.framesCounter++
 
             if (this.introState === 'on') {
                 document.addEventListener('mousemove', this.sceneState === 1 ? this.showIntroScene : this.hideTransitionScreen)
@@ -656,7 +654,7 @@ const scene = {
             start: '90% bottom',
             end: '100% 100%',
             scrub: 3,
-            markers: true,
+            // markers: true,
             onEnter: () => {
                 this.stingray = new PathStingray(0, 0, 25, 12.5, 0.5, 'stingray-4', 'scene-3', 'p2', 'fish', 'stingray', 50, { name: 'sFrontStingrayAnimate', duration: 3 }, 'P2-S3')
                 this.stingraySwim('stingray-path-9', 15, 0, 3)

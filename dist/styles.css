@@ -132,38 +132,8 @@ button {
     z-index: -105;
 }
 
+
 /* PLANES */
-.blured-element-s1 {
-    position: fixed;
-    top: 48%;
-    left: -102%;
-    width: 155%;
-    z-index: -75;
-}
-
-.blured-element-s2 {
-    position: fixed;
-    top: 0%;
-    left: 0%;
-    width: 100vw;
-    z-index: -75;
-}
-
-.scene-element-s1 {
-    position: fixed;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%, -50%);
-    width: 115%;
-}
-
-.scene-element-s2 {
-    position: fixed;
-    top: 0%;
-    left: 0%;
-    width: 100vw;
-}
-
 .p1 {
     z-index: -80;
 }
@@ -191,6 +161,23 @@ button {
 
 .d3 {
     z-index: -95;
+}
+
+/* SCENE-1 */
+.blured-element-s1 {
+    position: fixed;
+    top: 48%;
+    left: -102%;
+    width: 155%;
+    z-index: -75;
+}
+
+.scene-element-s1 {
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    width: 115%;
 }
 
 /* SCENE 2 */
@@ -221,7 +208,7 @@ button {
     right: 0vw;
     width: 100vw;
     height: 100vh;
-    z-index: -80;
+    /* z-index: -80; */
 }
 
 #P1-2-S2 {
@@ -230,7 +217,7 @@ button {
     right: 10vw;
     width: 100%;
     height: 100%;
-    z-index: -81;
+    /* z-index: -81; */
 }
 
 #P2-S2 {
@@ -239,7 +226,7 @@ button {
     right: 0vw;
     width: 100vw;
     height: 100vh;
-    z-index: -91;
+    /* z-index: -91; */
 }
 
 #P3-S2 {
@@ -248,7 +235,7 @@ button {
     right: 0;
     width: 100%;
     height: 100%;
-    z-index: -100;
+    /* z-index: -100; */
 }
 
 .depth-plane {

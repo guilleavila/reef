@@ -35,13 +35,12 @@ export class Element {
 
 
 export class SpriteElement extends Element {
-    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, divID, totalFrames, animation, isCoral) {
+    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, divID,totalFrames, animation, isCoral) {
         super(posX, posY, width, speed, id, sceneID, depth, type, name, divID)
         this.height = height
         this.totalFrames = totalFrames
         this.animation = animation
         this.isCoral = isCoral
-        // this.divID = divID
         this.draw()
     }
 
