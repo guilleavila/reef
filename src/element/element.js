@@ -69,10 +69,6 @@ export class SpriteElement extends Element {
         }
 
         const divNode = getNode(this.divID)
-        if (this.id === 'stingray-4') {
-            console.log('este es el divID --->', this.divID)
-            console.log('este es el nodo --->', divNode)
-        }
         divNode.appendChild(elementIcon)
     }
 }
