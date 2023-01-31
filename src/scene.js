@@ -164,6 +164,7 @@ const scene = {
     },
 
     stingraySwim(path, duration, rotation, delay) {
+        if (path === 'stingray-path-9') console.log('este es')
         this.swimState = path
         this.stingray.swim(path, duration, rotation, delay)
     },
@@ -423,8 +424,7 @@ const scene = {
             trigger: '.scrollElement',
             start: 'top top',
             end: '10% 100%',
-            scrub: 3,
-            // markers: true,
+            scrub: 3
         })
 
         scene2Messages.to('#story-messages-1', { opacity: 1 }, 0)
@@ -440,8 +440,7 @@ const scene = {
             trigger: '.scrollElement',
             start: '10% bottom',
             end: '12.5% 100%',
-            scrub: 3,
-            // markers: true,
+            scrub: 3
         })
 
         scene2TL1.to('#BLURED-1', { bottom: '-1vh' }, 0)
@@ -461,11 +460,7 @@ const scene = {
             trigger: '.scrollElement',
             start: '12.5% bottom',
             end: '20% 100%',
-            scrub: 1.5,
-            // markers: true,
-            onEnter: () => {
-                this.scrollButton(st)
-            }
+            scrub: 1.5
         })
 
         scene2TL2.to('#BG-S2', { scale: 1.8, transformOrigin: '100% 94%' }, 0)
@@ -477,7 +472,7 @@ const scene = {
             onComplete: () => {
                 gsap.to('#P1-depth', { zIndex: 110 })
                 this.message = new Message('Pasa por encima de los corales', 'messages', 'messages')
-                // st.scroll(2400 - window.innerHeight)
+                st.scroll(2400 - window.innerHeight)
             }
         }, 0)
         scene2TL2.to('#P2-S2', { right: '60vw', scale: 1.2, transformOrigin: '100% 155%' }, 0)
@@ -493,15 +488,14 @@ const scene = {
             trigger: '.scrollElement',
             start: '20% bottom',
             end: '25% 100%',
-            scrub: 1,
-            // markers: true
+            scrub: 1
         })
 
         scene2TL3.to('#BLURED-2', {
             right: '-373vw', scale: 6, transformOrigin: '0% 100%', onComplete: () => {
                 this.addBlowFishClickEvent()
                 this.message = new Message('Haz click sobre el pez globo', 'messages', 'messages')
-                // st.scroll(3000 - window.innerHeight)
+                st.scroll(3000 - window.innerHeight)
             }
         }, 0)
         scene2TL3.to('#P1-S2', { right: '210vw', scale: 4, transformOrigin: '100% 178%' }, 0)
@@ -568,8 +562,7 @@ const scene = {
             trigger: '.scrollElement',
             start: '40% bottom',
             end: '55% 100%',
-            scrub: 3,
-            // markers: true,
+            scrub: 3
         })
 
         scene3TL1.to('.water-S3', { top: '-100vh' }, 0)
@@ -596,7 +589,6 @@ const scene = {
             start: '55% bottom',
             end: '70% 100%',
             scrub: 3,
-            // markers: true,
             onEnter: () => this.stingraySwim('stingray-path-11', 12, 180, 0)
         })
 
@@ -616,8 +608,7 @@ const scene = {
             trigger: '.scrollElement',
             start: '70% bottom',
             end: '80% 100%',
-            scrub: 3,
-            // markers: true
+            scrub: 3
         })
 
         scene3TL3.to('.water-S3', { top: '-350vh' }, 0)
@@ -635,8 +626,7 @@ const scene = {
             trigger: '.scrollElement',
             start: '80% bottom',
             end: '90% 100%',
-            scrub: 3,
-            // markers: true,
+            scrub: 3
         })
 
         scene3Messages.to('#story-messages-3', { opacity: 1 }, 0)
@@ -654,9 +644,8 @@ const scene = {
             start: '90% bottom',
             end: '100% 100%',
             scrub: 3,
-            // markers: true,
             onEnter: () => {
-                this.stingray = new PathStingray(0, 0, 25, 12.5, 0.5, 'stingray-4', 'scene-3', 'p2', 'fish', 'stingray', 50, { name: 'sFrontStingrayAnimate', duration: 3 }, 'P2-S3')
+                this.stingray = new PathStingray(0, 0, 25, 12.5, 0.5, 'stingray-4', 'scene-3', 'p2', 'fish', 'stingray', 'P2-S3', 50, { name: 'sFrontStingrayAnimate', duration: 3 })
                 this.stingraySwim('stingray-path-9', 15, 0, 3)
             }
         })
@@ -681,8 +670,7 @@ const scene = {
             trigger: '.scrollElement',
             start: '55% bottom',
             end: '70% 100%',
-            scrub: 3,
-            // markers: true
+            scrub: 3
         })
 
         scene3TL2.to('.water-S3', { top: '-250vh' }, 0)

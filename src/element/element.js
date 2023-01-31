@@ -35,7 +35,7 @@ export class Element {
 
 
 export class SpriteElement extends Element {
-    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, divID,totalFrames, animation, isCoral) {
+    constructor(posX, posY, width, height, speed, id, sceneID, depth, type, name, divID, totalFrames, animation, isCoral) {
         super(posX, posY, width, speed, id, sceneID, depth, type, name, divID)
         this.height = height
         this.totalFrames = totalFrames
@@ -67,7 +67,12 @@ export class SpriteElement extends Element {
         for (const attr in attributes) {
             elementIcon.setAttribute(attr, attributes[attr])
         }
+
         const divNode = getNode(this.divID)
+        if (this.id === 'stingray-4') {
+            console.log('este es el divID --->', this.divID)
+            console.log('este es el nodo --->', divNode)
+        }
         divNode.appendChild(elementIcon)
     }
 }
