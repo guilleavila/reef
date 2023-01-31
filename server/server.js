@@ -4,7 +4,7 @@ const path = require('path')
 const app = express()
 const publicPath = path.join(__dirname, '..', 'dist')
 
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 app.use(express.static(publicPath))
 
