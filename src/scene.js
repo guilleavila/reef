@@ -34,7 +34,7 @@ const scene = {
     swimState: 'none',
     TL3State: 'not created',
     TL4State: 'not created',
-    bgAudio: new Audio('./sounds/bg-music.m4a'),
+    bgAudio: new Audio('./sounds/Planet-Earth.mp3'),
     popAudio: new Audio('./sounds/pop.mp3'),
     hoverAudio: new Audio('./sounds/hover.m4a'),
 
@@ -102,7 +102,7 @@ const scene = {
 
             const { width, height } = plane.getBoundingClientRect()
             plane.style.transform = `translateX(${(width / 2) + x}px) translateY(-${(height / 2) + y}px)`
-        });
+        })
 
         document.querySelectorAll('.depth-plane').forEach(plane => {
             const speed = plane.getAttribute('data-speed')
@@ -112,7 +112,7 @@ const scene = {
 
             const { width, height } = plane.getBoundingClientRect()
             plane.style.transform = `translateX(${x}px) translateY(-${(height / 100) + y}px)`
-        });
+        })
     },
 
     createSpriteCorals(scene) {
@@ -328,7 +328,6 @@ const scene = {
     },
 
     playAudio() {
-        this.bgAudio = new Audio('./sounds/bg-music.m4a')
         this.bgAudio.volume = 0.5
         this.bgAudio.play()
     },

@@ -29,7 +29,6 @@ body::-webkit-scrollbar {
     height: 100vh;
 }
 
-
 /* LOGO */
 .intro {
     position: fixed;
@@ -132,6 +131,22 @@ button {
     z-index: -105;
 }
 
+/* SCENE-1 */
+.blured-element-s1 {
+    position: fixed;
+    top: 48%;
+    left: -102%;
+    width: 155%;
+    z-index: -75;
+}
+
+.scene-element-s1 {
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    width: 115%;
+}
 
 /* PLANES */
 .p1 {
@@ -161,23 +176,6 @@ button {
 
 .d3 {
     z-index: -95;
-}
-
-/* SCENE-1 */
-.blured-element-s1 {
-    position: fixed;
-    top: 48%;
-    left: -102%;
-    width: 155%;
-    z-index: -75;
-}
-
-.scene-element-s1 {
-    position: fixed;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%, -50%);
-    width: 115%;
 }
 
 /* SCENE 2 */
