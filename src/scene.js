@@ -426,10 +426,11 @@ const scene = {
             scrub: 3
         })
 
-        scene2Messages.to('#story-messages-1', { opacity: 1 }, 0)
-        scene2Messages.to('#story-messages-1', { opacity: 0 }, 1)
-        scene2Messages.to('#story-messages-2', { opacity: 1 }, 2)
-        scene2Messages.to('#story-messages-2', { opacity: 0 }, 3)
+        scene2Messages.to('#scroll-message', { opacity: 0 }, 0)
+        scene2Messages.to('#story-messages-1', { opacity: 1 }, 1)
+        scene2Messages.to('#story-messages-1', { opacity: 0 }, 2)
+        scene2Messages.to('#story-messages-2', { opacity: 1 }, 3)
+        scene2Messages.to('#story-messages-2', { opacity: 0 }, 4)
 
 
         // -- DOWN MOVEMENT --

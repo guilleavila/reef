@@ -243,6 +243,16 @@ button {
     width: 100%;
 }
 
+#scroll-message {
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
 /* ELEMENTS */
 /* S2-1-2-3 */
 #BLURED-1 {
