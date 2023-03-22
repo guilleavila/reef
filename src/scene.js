@@ -164,7 +164,6 @@ const scene = {
     },
 
     stingraySwim(path, duration, rotation, delay) {
-        if (path === 'stingray-path-9') console.log('este es')
         this.swimState = path
         this.stingray.swim(path, duration, rotation, delay)
     },
